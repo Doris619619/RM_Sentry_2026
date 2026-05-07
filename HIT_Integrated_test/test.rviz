@@ -11,12 +11,13 @@ Panels:
         - /Marker1
         - /Map1
         - /Map2
-        - /Path1
-      Splitter Ratio: 0.5
-    Tree Height: 439
-  - Class: rviz/Selection
-    Name: Selection
-  - Class: rviz/Tool Properties
+            - /Path1
+            
+          Splitter Ratio: 0.5
+        Tree Height: 439
+      - Class: rviz/Selection
+        Name: Selection
+      - Class: rviz/Tool Properties
     Expanded:
       - /2D Pose Estimate1
       - /2D Nav Goal1
