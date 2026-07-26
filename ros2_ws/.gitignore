@@ -1,0 +1,7 @@
+# ROS 2 colcon artifacts
+build/
+install/
+log/
+
+# Imported external Livox source is pinned by livox_ros_driver2.repos
+src/livox_ros_driver2/
