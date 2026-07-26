@@ -17,17 +17,18 @@
 <!--         <param name="tracking_node/bev_file_path" type="string" value="/home/hitcrt/sentry_ws/src/sentry_planning/trajectory_generation/map/bevfinal.png"/> -->
 <!--         <param name="tracking_node/distance_map_file_path" type="string" value="/home/hitcrt/sentry_ws/src/sentry_planning/trajectory_generation/map/occtopo.png"/> -->
 <!--         <param name="tracking_node/taskFile" type="string" value="/home/hitcrt/sentry_ws/src/sentry_planning/trajectory_tracking/cfg/task.info"/> -->
-    <param name="tracking_node/occ_file_path" type="string" value="$(find trajectory_generation)/map/occ2024low.png"/>
-    <param name="tracking_node/bev_file_path" type="string" value="$(find trajectory_generation)/map/bev2024low.png"/>
-    <param name="tracking_node/distance_map_file_path" type="string" value="$(find trajectory_generation)/map/occtopo2024low.png"/>
+    <!-- Matched to trajectory_generation/map/map_meta.yaml -->
+    <param name="tracking_node/occ_file_path" type="string" value="$(find trajectory_generation)/map/occfinal.png"/>
+    <param name="tracking_node/bev_file_path" type="string" value="$(find trajectory_generation)/map/bevfinal.png"/>
+    <param name="tracking_node/distance_map_file_path" type="string" value="$(find trajectory_generation)/map/occtopo.png"/>
     <param name="tracking_node/taskFile" type="string" value="$(find tracking_node)/cfg/task.info"/>
-    <param name="tracking_node/map_resolution" value="0.1"/>
+    <param name="tracking_node/map_resolution" value="0.05"/>
 
-    <param name="tracking_node/map_lower_point_x" value="0.0"/>
-    <param name="tracking_node/map_lower_point_y" value="0.0"/>
+    <param name="tracking_node/map_lower_point_x" value="-13.394"/>
+    <param name="tracking_node/map_lower_point_y" value="-12.079"/>
     <param name="tracking_node/map_lower_point_z" value="0.0"/>
-    <param name="tracking_node/map_x_size" value="30.0"/>
-    <param name="tracking_node/map_y_size" value="18.1"/>
+    <param name="tracking_node/map_x_size" value="20.0"/>
+    <param name="tracking_node/map_y_size" value="20.0"/>
     <param name="tracking_node/map_z_size" value="2.0"/>
     <param name="tracking_node/search_height_min" value="-0.3"/>
     <param name="tracking_node/search_height_max" value="1.2"/>
