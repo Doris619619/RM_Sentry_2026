@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!-- 此文件用于声明 ROS2 双 MID360 点云处理包的构建、运行与测试依赖。 -->
+<package format="3">
+  <name>livox_cloudpoint_processor</name>
+  <version>0.1.0</version>
+  <description>ROS2 dual MID360 Livox cloud fusion, filtering, and occupancy-grid processing.</description>
+  <maintainer email="liangys@todo.todo">liangys</maintainer>
+  <license>MIT</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>rclcpp</depend>
+  <depend>sensor_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>pcl_ros</depend>
+  <depend>pcl_conversions</depend>
+  <depend>livox_ros_driver2</depend>
+  <test_depend>ament_cmake_gtest</test_depend>
+  <export><build_type>ament_cmake</build_type></export>
+</package>
