@@ -36,7 +36,7 @@ private:
   pcl::PointCloud<pcl::PointXYZI> MergeMessages(const CustomMsg & left, const CustomMsg & right) const;
   // 此函数用于执行径向筛选、PCL 下采样、离群去除和法向量筛选；输入为融合点云，输出为过滤后的 PointXYZI 点云。
   pcl::PointCloud<pcl::PointXYZI> FilterCloud(const pcl::PointCloud<pcl::PointXYZI> & raw_cloud) const;
-  // 此函数用于处理一对输入消息并发布三类兼容输出；副作用是发布 /3Dlidar、/filted_topic_3d 和 /grid。
+  // 此函数用于处理一对输入消息并发布三类兼容输出；副作用是发布 /lidar_3d、/filted_topic_3d 和 /grid。
   void ProcessPair(const CustomMsg & left, const CustomMsg & right);
 
   CloudProcessingParameters parameters_;

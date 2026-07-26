@@ -52,7 +52,7 @@ void CloudProcessor::DeclareAndReadParameters()
 {
   left_topic_ = declare_parameter<std::string>("left_topic", "/livox/lidar_192_168_1_3");
   right_topic_ = declare_parameter<std::string>("right_topic", "/livox/lidar_192_168_1_105");
-  raw_topic_ = declare_parameter<std::string>("raw_topic", "/3Dlidar");
+  raw_topic_ = declare_parameter<std::string>("raw_topic", "/lidar_3d");
   filtered_topic_ = declare_parameter<std::string>("filtered_topic", "/filted_topic_3d");
   grid_topic_ = declare_parameter<std::string>("grid_topic", "/grid");
   frame_id_ = declare_parameter<std::string>("frame_id", "aft_mapped");
@@ -138,7 +138,7 @@ pcl::PointCloud<pcl::PointXYZI> CloudProcessor::FilterCloud(const pcl::PointClou
   return result;
 }
 
-// 此函数用于处理一对输入消息并发布三类兼容输出；副作用是发布 /3Dlidar、/filted_topic_3d 和 /grid。
+// 此函数用于处理一对输入消息并发布三类兼容输出；副作用是发布 /lidar_3d、/filted_topic_3d 和 /grid。
 void CloudProcessor::ProcessPair(const CustomMsg & left, const CustomMsg & right)
 {
   const builtin_interfaces::msg::Time stamp = now();
