@@ -1,0 +1,6 @@
+# 此文件用于定义向导航模块请求切换目标点和目标模式的服务。
+float32 target_x
+float32 target_y
+int64 target_mode
+---
+bool rst
