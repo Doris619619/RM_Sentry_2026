@@ -31,6 +31,7 @@
 
 #include <hdl_localization/pose_estimator.hpp>
 #include <hdl_localization/delta_estimater.hpp>
+#include <hdl_localization/tf_contract.hpp>
 
 #include <hdl_localization/msg/scan_matching_status.hpp>
 #include <hdl_localization/msg/hdl_reloc_status.hpp>
@@ -693,7 +694,7 @@ private:
           const auto odom_base_msg = tf_buffer->lookupTransform(
             robot_odom_frame_id, odom_child_frame_id, stamp, timeout);
           const Eigen::Isometry3d odom_base = tf2::transformToEigen(odom_base_msg);
-          geometry_msgs::msg::TransformStamped map_odom = tf2::eigenToTransform(map_base * odom_base.inverse());
+          geometry_msgs::msg::TransformStamped map_odom = tf2::eigenToTransform(calculate_map_to_odom(map_base, odom_base));
           map_odom.header.stamp = stamp;
           map_odom.header.frame_id = "map";
           map_odom.child_frame_id = robot_odom_frame_id;

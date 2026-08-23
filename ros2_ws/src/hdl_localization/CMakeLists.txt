@@ -28,6 +28,7 @@ find_package(ndt_omp REQUIRED)
 find_package(hdl_global_localization REQUIRED)
 find_package(PCL REQUIRED)
 find_package(OpenMP)
+find_package(Eigen3 REQUIRED)
 
 if(OpenMP_CXX_FOUND)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
@@ -106,5 +107,16 @@ install(TARGETS ${PROJECT_NAME}_lib
 install(DIRECTORY launch config
   DESTINATION share/${PROJECT_NAME}
 )
+
+if(BUILD_TESTING)
+  find_package(ament_cmake_gtest REQUIRED)
+  ament_add_gtest(test_tf_contract test/test_tf_contract.cpp)
+  if(TARGET test_tf_contract)
+    target_link_libraries(test_tf_contract Eigen3::Eigen)
+    target_include_directories(test_tf_contract PRIVATE
+      ${CMAKE_CURRENT_SOURCE_DIR}/include
+    )
+  endif()
+endif()
 
 ament_package()
