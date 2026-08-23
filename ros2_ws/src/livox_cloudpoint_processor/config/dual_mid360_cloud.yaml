@@ -1,0 +1,25 @@
+# 此文件用于提供 ROS2 双 MID360 点云处理节点的默认输入、输出和过滤参数。
+threeD_lidar_filter_pointcloud:
+  ros__parameters:
+    left_topic: /livox/lidar_192_168_1_3
+    right_topic: /livox/lidar_192_168_1_105
+    raw_topic: /lidar_3d
+    filtered_topic: /filted_topic_3d
+    grid_topic: /grid
+    frame_id: aft_mapped
+    first_radius: 0.35
+    second_radius: 0.35
+    slope_first_radius: 0.55
+    slope_second_radius: 0.80
+    slope_third_radius: 0.90
+    start_height: 0.10
+    max_height: 0.30
+    slope_1: 0.50
+    slope_2: 0.10
+    slope_3: 0.10
+    dilation_radius: 1.20
+    grid_resolution: 0.05
+    grid_width: 200
+    grid_height: 200
+    grid_origin_x: -5.0
+    grid_origin_y: -5.0
