@@ -4,6 +4,13 @@ threeD_lidar_filter_pointcloud:
     left_topic: /livox/lidar_192_168_1_3
     right_topic: /livox/lidar_192_168_1_105
     enable_dual_lidar_fusion: false
+    fused_custom_topic: /livox/fused_custom
+    dual_sync_tolerance_ms: 10.0
+    dual_cache_seconds: 0.2
+    dual_drop_policy: drop_older
+    input_qos_depth: 1
+    right_extrinsic_translation: [0.0, 0.0, 0.0]
+    right_extrinsic_rotation: [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
     raw_topic: /lidar_3d
     filtered_topic: /filted_topic_3d
     grid_topic: /grid
