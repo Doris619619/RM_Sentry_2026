@@ -1,0 +1,3 @@
+# 此文件用于向 HDL 可选全局重定位接口传入全局点云地图。
+sensor_msgs/PointCloud2 global_map
+---
