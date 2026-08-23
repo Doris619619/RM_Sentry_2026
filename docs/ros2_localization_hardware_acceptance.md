@@ -94,3 +94,27 @@ ros2 run tf2_ros tf2_echo odom base_link
 ros2 run tf2_ros tf2_echo map base_link
 rviz2
 ~~~
+
+## 5. 软件侧验收记录
+
+本分支已在 ROS2 Humble、无 MID360 实物、无传感器网络和无现场地图的环境中完成下列软件验证：
+
+- 完整工作区执行 colcon build --parallel-workers 1 成功，9 个 ROS2 包均构建通过。
+- 项目测试集执行 colcon test --packages-skip livox_ros_driver2 --parallel-workers 1 成功：点云算法 4 项测试与 map 到 odom TF 契约 2 项测试全部通过。
+- 已执行完整 colcon test。固定上游 livox_ros_driver2 的版权、格式、RapidJSON 兼容性 lint 会失败；这 695 项是未改动第三方源码的格式检查，不是驱动编译或运行功能失败。为保持固定上游基线，不在本迁移中重写该驱动；功能构建仍已通过，项目测试集单独保持绿色。
+- 已确认 Livox CustomMsg 含 timebase、point_num 和逐点 offset_time；ROS2 接口包、目标服务和 TrajectoryPoly 接口均可由 ros2 interface show 正确解析。
+- 已确认 Point-LIO 的 LiDAR/IMU QoS、HDL 的点云/里程计 QoS、双雷达同步缓存和 TF 查询容差均可从统一 launch 参数覆盖。
+- 使用未提交的临时 8 点 PCD 完成地图服务器加载测试：地图成功发布为 map frame，QoS 为 RELIABLE 与 TRANSIENT_LOCAL。
+- 使用同一临时 PCD 在隔离 ROS Domain 中启动统一 bringup：Livox 驱动、点云处理、Point-LIO、地图服务器和 HDL 节点均已启动，地图被 HDL 接收，CPU NDT_OMP 正常初始化。无物理网络时 Livox 的 Init lds lidar fail 为预期硬件缺失诊断，不构成启动失败。
+
+## 6. Deferred Hardware Validation
+
+以下项目明确延期到有真实设备、传感器网络和现场 PCD 后验证；本分支不创建虚拟网卡、不伪造 LiDAR 或 IMU 数据，也不宣称这些结果已通过：
+
+- 左 MID360 的真实 CustomMsg 和 IMU 时间戳单调性、逐点去畸变以及 Point-LIO 连续里程计。
+- 外部现场 PCD 与 initialpose 下的 HDL 实际配准、/localization/odometry 持续输出和定位精度。
+- map → odom → base_link 的真实时间戳一致性、唯一发布者和 RViz2 可视化效果。
+- 右 MID360 实测外参、双雷达同步、融合点云对齐及 enable_dual_lidar_fusion=true 的独立验收。
+- 长时间运行稳定性、CPU 负载、异常断流恢复和实际轨迹侧对统一定位契约的集成。
+
+真机条件具备后，按第 2、3、4 节顺序复验：先确认左 LiDAR 与 IMU 均有发布者，再提供真实 PCD 并启动统一 bringup，最后验证两路里程计、TF2 与 RViz2。只有上述 Deferred Hardware Validation 全部通过后，才能声明现场定位效果完成。
