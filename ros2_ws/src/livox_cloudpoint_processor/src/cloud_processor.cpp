@@ -18,14 +18,14 @@ namespace livox_cloudpoint_processor
 namespace
 {
 
-// 此函数用于把单路 Livox CustomMsg 追加到融合点云；输入为消息和目标点云，副作用是写入完成历史固定偏移的有效点。
+// 此函数用于把单路 Livox CustomMsg 追加到融合点云；输入为消息和目标点云，副作用是写入保持左雷达基准坐标的有效点。
 void AppendMessagePoints(const livox_ros_driver2::msg::CustomMsg & message, pcl::PointCloud<pcl::PointXYZI> & merged)
 {
   for (const auto & source : message.points) {
     pcl::PointXYZI point;
-    point.x = source.x - 0.011F;
-    point.y = source.y + 0.02329F;
-    point.z = source.z - 0.04412F;
+    point.x = source.x;
+    point.y = source.y;
+    point.z = source.z;
     point.intensity = static_cast<float>(source.reflectivity);
     if (std::isfinite(point.x) && std::isfinite(point.y) && std::isfinite(point.z) && std::isfinite(point.intensity)) {merged.push_back(point);}
   }
@@ -40,7 +40,9 @@ CloudProcessor::CloudProcessor() : Node("threeD_lidar_filter_pointcloud")
   const auto input_qos = rclcpp::SensorDataQoS().keep_last(1);
   const auto output_qos = rclcpp::QoS(rclcpp::KeepLast(1)).reliable();
   left_subscription_ = create_subscription<CustomMsg>(left_topic_, input_qos, std::bind(&CloudProcessor::HandleLeftMessage, this, std::placeholders::_1));
-  right_subscription_ = create_subscription<CustomMsg>(right_topic_, input_qos, std::bind(&CloudProcessor::HandleRightMessage, this, std::placeholders::_1));
+  if (enable_dual_lidar_fusion_) {
+    right_subscription_ = create_subscription<CustomMsg>(right_topic_, input_qos, std::bind(&CloudProcessor::HandleRightMessage, this, std::placeholders::_1));
+  }
   raw_publisher_ = create_publisher<sensor_msgs::msg::PointCloud2>(raw_topic_, output_qos);
   filtered_publisher_ = create_publisher<sensor_msgs::msg::PointCloud2>(filtered_topic_, output_qos);
   grid_publisher_ = create_publisher<nav_msgs::msg::OccupancyGrid>(grid_topic_, output_qos);
@@ -52,10 +54,11 @@ void CloudProcessor::DeclareAndReadParameters()
 {
   left_topic_ = declare_parameter<std::string>("left_topic", "/livox/lidar_192_168_1_3");
   right_topic_ = declare_parameter<std::string>("right_topic", "/livox/lidar_192_168_1_105");
+  enable_dual_lidar_fusion_ = declare_parameter<bool>("enable_dual_lidar_fusion", false);
   raw_topic_ = declare_parameter<std::string>("raw_topic", "/lidar_3d");
   filtered_topic_ = declare_parameter<std::string>("filtered_topic", "/filted_topic_3d");
   grid_topic_ = declare_parameter<std::string>("grid_topic", "/grid");
-  frame_id_ = declare_parameter<std::string>("frame_id", "aft_mapped");
+  frame_id_ = declare_parameter<std::string>("frame_id", "base_link");
   parameters_.first_radius = declare_parameter<double>("first_radius", parameters_.first_radius);
   parameters_.second_radius = declare_parameter<double>("second_radius", parameters_.second_radius);
   parameters_.slope_first_radius = declare_parameter<double>("slope_first_radius", parameters_.slope_first_radius);
@@ -77,6 +80,11 @@ void CloudProcessor::DeclareAndReadParameters()
 // 此函数用于接收左侧 MID360 数据；输入为只读 CustomMsg，副作用是更新左侧缓存并尝试触发一次融合。
 void CloudProcessor::HandleLeftMessage(const CustomMsg::ConstSharedPtr message)
 {
+  if (!enable_dual_lidar_fusion_) {
+    CustomMsg empty_message;
+    ProcessPair(*message, empty_message);
+    return;
+  }
   {std::lock_guard<std::mutex> lock(cache_mutex_); left_message_ = message; left_ready_ = true;}
   CustomMsg::ConstSharedPtr left, right;
   if (TakeReadyPair(left, right)) {ProcessPair(*left, *right); return;}

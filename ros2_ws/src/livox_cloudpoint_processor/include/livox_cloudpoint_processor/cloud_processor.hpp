@@ -32,7 +32,7 @@ private:
   void HandleRightMessage(const CustomMsg::ConstSharedPtr message);
   // 此函数用于在两路都有新帧时提取缓存；输出为是否获得可处理数据，副作用是消费两路新帧标记。
   bool TakeReadyPair(CustomMsg::ConstSharedPtr & left, CustomMsg::ConstSharedPtr & right);
-  // 此函数用于融合一对 Livox CustomMsg；输入为左右消息，输出为完成历史固定偏移后的 PointXYZI 点云。
+  // 此函数用于融合一对 Livox CustomMsg；输入为左消息及可选右消息，输出为按当前融合开关生成的 PointXYZI 点云。
   pcl::PointCloud<pcl::PointXYZI> MergeMessages(const CustomMsg & left, const CustomMsg & right) const;
   // 此函数用于执行径向筛选、PCL 下采样、离群去除和法向量筛选；输入为融合点云，输出为过滤后的 PointXYZI 点云。
   pcl::PointCloud<pcl::PointXYZI> FilterCloud(const pcl::PointCloud<pcl::PointXYZI> & raw_cloud) const;
@@ -43,6 +43,7 @@ private:
   std::string left_topic_, right_topic_, raw_topic_, filtered_topic_, grid_topic_, frame_id_;
   std::mutex cache_mutex_;
   CustomMsg::ConstSharedPtr left_message_, right_message_;
+  bool enable_dual_lidar_fusion_{false};
   bool left_ready_{false}, right_ready_{false};
   rclcpp::Subscription<CustomMsg>::SharedPtr left_subscription_, right_subscription_;
   rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr raw_publisher_, filtered_publisher_;

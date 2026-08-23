@@ -3,10 +3,11 @@ threeD_lidar_filter_pointcloud:
   ros__parameters:
     left_topic: /livox/lidar_192_168_1_3
     right_topic: /livox/lidar_192_168_1_105
+    enable_dual_lidar_fusion: false
     raw_topic: /lidar_3d
     filtered_topic: /filted_topic_3d
     grid_topic: /grid
-    frame_id: aft_mapped
+    frame_id: base_link
     first_radius: 0.35
     second_radius: 0.35
     slope_first_radius: 0.55

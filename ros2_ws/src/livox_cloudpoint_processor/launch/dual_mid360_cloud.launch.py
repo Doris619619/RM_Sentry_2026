@@ -17,10 +17,11 @@ def generate_launch_description():
     params_argument = DeclareLaunchArgument('processor_params_path', default_value=default_params, description='点云处理节点参数 YAML 路径。')
     left_topic_argument = DeclareLaunchArgument('left_topic', default_value='/livox/lidar_192_168_1_3', description='左侧 MID360 CustomMsg 话题。')
     right_topic_argument = DeclareLaunchArgument('right_topic', default_value='/livox/lidar_192_168_1_105', description='右侧 MID360 CustomMsg 话题。')
+    dual_lidar_fusion_argument = DeclareLaunchArgument("enable_dual_lidar_fusion", default_value="false", description="是否启用需要实测右雷达外参的双雷达融合。")
     raw_topic_argument = DeclareLaunchArgument('raw_topic', default_value='/lidar_3d', description='原始合并点云话题。')
     filtered_topic_argument = DeclareLaunchArgument('filtered_topic', default_value='/filted_topic_3d', description='过滤后三维点云话题。')
     grid_topic_argument = DeclareLaunchArgument('grid_topic', default_value='/grid', description='输出占用栅格话题。')
-    frame_id_argument = DeclareLaunchArgument('frame_id', default_value='aft_mapped', description='处理后点云和栅格的坐标系。')
+    frame_id_argument = DeclareLaunchArgument('frame_id', default_value='base_link', description='处理后点云和栅格的坐标系。')
 
     driver = Node(
         package='livox_ros_driver2',
@@ -47,6 +48,7 @@ def generate_launch_description():
             {
                 'left_topic': LaunchConfiguration('left_topic'),
                 'right_topic': LaunchConfiguration('right_topic'),
+                "enable_dual_lidar_fusion": LaunchConfiguration("enable_dual_lidar_fusion"),
                 'raw_topic': LaunchConfiguration('raw_topic'),
                 'filtered_topic': LaunchConfiguration('filtered_topic'),
                 'grid_topic': LaunchConfiguration('grid_topic'),
@@ -59,6 +61,7 @@ def generate_launch_description():
         params_argument,
         left_topic_argument,
         right_topic_argument,
+        dual_lidar_fusion_argument,
         raw_topic_argument,
         filtered_topic_argument,
         grid_topic_argument,
