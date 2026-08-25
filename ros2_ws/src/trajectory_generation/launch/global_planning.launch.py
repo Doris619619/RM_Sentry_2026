@@ -23,7 +23,7 @@ def generate_launch_description():
         DeclareLaunchArgument('use_rviz', default_value='false'),
         Node(package='waypoint_generator', executable='waypoint_generator_node',
              name='waypoint_generator', output='screen', parameters=[waypoint_params]),
-        Node(package='trajectory_generation', executable='global_planner_node',
+        Node(package='trajectory_generation', executable='trajectory_generator_node',
              name='trajectory_generation', output='screen', parameters=[planner_params]),
         Node(package='rviz2', executable='rviz2', name='rviz2', output='screen',
              arguments=['-d', os.path.join(planner_share, 'rviz', 'global_planning.rviz')],
