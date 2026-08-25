@@ -1,0 +1,30 @@
+trajectory_generation:
+  ros__parameters:
+    topics.odom: /localization/odometry
+    topics.point_cloud: /filted_topic_3d
+    topics.direct_goal: /clicked_point
+    topics.waypoints: /waypoint_generator/waypoints
+    topics.replan: /replan_flag
+    topics.global_trajectory: /global_trajectory
+    topics.global_path: /global_path
+    topics.path_marker: /astar_path_vis
+    frames.map: map
+    frames.base: base_link
+    maps.directory: map
+    maps.occupancy: occfinal.png
+    maps.bev: bevfinal.png
+    maps.topology: occtopo.png
+    maps.expected_width: 400
+    maps.expected_height: 400
+    planner.map_resolution: 0.05
+    planner.map_lower_x: -13.394
+    planner.map_lower_y: -12.079
+    planner.robot_radius: 0.35
+    planner.desired_speed: 2.0
+    planner.random_seed: -1
+    planner.motion_mode: 1
+    planner.enable_dynamic_obstacles: true
+    planner.dynamic_min_z: -0.05
+    planner.dynamic_max_z: 1.20
+    planner.replan_cooldown_seconds: 1.0
+    planner.deviation_replan_distance: 1.0
