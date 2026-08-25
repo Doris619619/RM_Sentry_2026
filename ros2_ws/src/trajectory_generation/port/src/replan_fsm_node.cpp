@@ -37,6 +37,10 @@ class ReplanFsmNode final : public rclcpp::Node {
   ReplanFsmNode() : Node("trajectory_generation"), tf_buffer_(get_clock()), tf_listener_(tf_buffer_) {
     declare_parameters();
     initialise_manager();
+    // ROS1 initialises its cooldown clock in ReplanFSM::init().  Do the same
+    // after the ROS2 map/manager initialisation, before any callback can
+    // request a replan.
+    last_replan_time_ = now();
     const auto sensor_qos = rclcpp::SensorDataQoS();
     odom_sub_ = create_subscription<nav_msgs::msg::Odometry>(
         odom_topic_, sensor_qos, [this](nav_msgs::msg::Odometry::ConstSharedPtr message) {
