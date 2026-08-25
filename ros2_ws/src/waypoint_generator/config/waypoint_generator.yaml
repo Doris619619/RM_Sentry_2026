@@ -9,4 +9,3 @@ waypoint_generator:
     frames.map: map
     circle.radius: 1.0
     circle.count: 24
-    sequence: []
