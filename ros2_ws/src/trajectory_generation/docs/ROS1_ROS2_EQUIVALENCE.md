@@ -31,7 +31,8 @@
 
 ## 可复现实验
 
-`test/mock_replan_fsm.py` 验证静态规划、缺 TF 丢帧、有效 TF 动态点云、冷却和轨迹数学约束。
+`test/test_legacy_planning.cpp` 验证坐标/栅格往返、边界钳制、越界占据、静态占据目标邻点修正、动态点云高度阈值占据以及 Topo → 平滑 → 参考多项式链。
+`test/mock_replan_fsm.py` 验证无里程计不发布、静态规划、缺 TF 丢帧、有效 TF 动态点云、冷却和轨迹数学约束。
 `waypoint_generator/test/mock_waypoint_generator.py` 验证 manual、noyaw、point、free、circle、eight 和 series。
 ROS1 与 ROS2 对照使用相同地图、起终点 `(-3.82, 2.40) → (-1.35, -4.20)` 和种子 `7`；产物保存为 JSON，比较末端误差、采样路径长度和总时间。
 

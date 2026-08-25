@@ -154,6 +154,11 @@ def main():
     node = ReplanFsmMock()
     try:
         node.wait_for_subscribers(5.0)
+        # ReplanFSM must stay in INIT while no odometry has arrived.  In
+        # particular it must not manufacture a trajectory merely because all
+        # topic connections are present.
+        node.spin_for(0.6)
+        assert not node.trajectories, 'planner published a trajectory before odometry'
         node.publish_initial_inputs()
         node.wait_for(1, 12.0)
         if arguments.baseline_output:

@@ -64,4 +64,44 @@ TEST(LegacyPlanningTest, ConvertsMapCoordinatesAndBuildsTopoPath) {
   }
 }
 
+TEST(LegacyPlanningTest, ClampsCoordinatesAndRepairsOccupiedGoalAndDynamicObstacle) {
+  auto parameters = make_parameters();
+  planner_manager manager;
+  manager.init(parameters);
+
+  const auto below = manager.global_map->coord2gridIndex(Eigen::Vector3d(-100.0, -100.0, -10.0));
+  const auto above = manager.global_map->coord2gridIndex(Eigen::Vector3d(100.0, 100.0, 10.0));
+  EXPECT_EQ(below.x(), 0);
+  EXPECT_EQ(below.y(), 0);
+  EXPECT_EQ(below.z(), 0);
+  EXPECT_EQ(above.x(), manager.global_map->GLX_SIZE - 1);
+  EXPECT_EQ(above.y(), manager.global_map->GLY_SIZE - 1);
+  EXPECT_EQ(above.z(), manager.global_map->GLZ_SIZE - 1);
+  EXPECT_TRUE(manager.global_map->isOccupied(-1, 0, 0, false));
+  EXPECT_TRUE(manager.global_map->isOccupied(manager.global_map->GLX_SIZE, 0, 0, false));
+
+  Eigen::Vector3i occupied;
+  bool found_occupied = false;
+  for (int x = 0; x < manager.global_map->GLX_SIZE && !found_occupied; ++x) {
+    for (int y = 0; y < manager.global_map->GLY_SIZE; ++y) {
+      if (manager.global_map->isStaticOccupied(x, y, false)) {
+        occupied = Eigen::Vector3i(x, y, 0);
+        found_occupied = true;
+        break;
+      }
+    }
+  }
+  ASSERT_TRUE(found_occupied);
+  Eigen::Vector3i replacement;
+  ASSERT_TRUE(manager.astar_path_finder->findNeighPoint(occupied, replacement, 2));
+  EXPECT_FALSE(manager.global_map->isOccupied(replacement, false));
+
+  const auto dynamic_index = manager.global_map->coord2gridIndex(Eigen::Vector3d(-3.50, 1.45, 0.0));
+  const float dynamic_z = static_cast<float>(manager.global_map->getHeight(dynamic_index.x(), dynamic_index.y()) + 0.10);
+  pcl::PointCloud<pcl::PointXYZ> dynamic;
+  dynamic.push_back(pcl::PointXYZ(-3.50F, 1.45F, dynamic_z));
+  manager.global_map->localPointCloudToObstacle(dynamic, true, Eigen::Vector3d(-3.82, 2.40, 0.0));
+  EXPECT_TRUE(manager.global_map->isLocalOccupied(dynamic_index));
+}
+
 }  // namespace

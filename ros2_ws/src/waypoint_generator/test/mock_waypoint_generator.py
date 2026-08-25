@@ -77,6 +77,10 @@ def main():
     node = WaypointMock()
     try:
         node.wait_for_subscribers()
+        # Discovery only guarantees that endpoints are matched.  Let DDS
+        # finish activating the reliable trigger reader before sending the
+        # single ROS1-style start trigger.
+        node.spin_for(0.2)
         node.odom(yaw=0.7)
         node.spin_for(0.2)
         if arguments.mode in expected:
