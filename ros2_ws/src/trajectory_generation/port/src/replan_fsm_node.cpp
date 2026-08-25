@@ -96,11 +96,29 @@ class ReplanFsmNode final : public rclcpp::Node {
     map_resolution_ = declare_parameter<double>("planner.map_resolution", 0.05);
     map_x_size_ = declare_parameter<double>("planner.map_x_size", 20.0);
     map_y_size_ = declare_parameter<double>("planner.map_y_size", 20.0);
+    map_z_size_ = declare_parameter<double>("planner.map_z_size", 2.0);
     map_lower_x_ = declare_parameter<double>("planner.map_lower_x", -13.394);
     map_lower_y_ = declare_parameter<double>("planner.map_lower_y", -12.079);
+    map_lower_z_ = declare_parameter<double>("planner.map_lower_z", 0.0);
     robot_radius_ = declare_parameter<double>("planner.robot_radius", 0.35);
     robot_radius_dash_ = declare_parameter<double>("planner.robot_radius_dash", 0.35);
     desired_speed_ = declare_parameter<double>("planner.reference_desire_speed", 2.0);
+    desired_speed_xtl_ = declare_parameter<double>("planner.reference_desire_speed_xtl", 2.4);
+    reference_v_max_ = declare_parameter<double>("planner.reference_v_max", 2.5);
+    reference_a_max_ = declare_parameter<double>("planner.reference_a_max", 4.0);
+    reference_w_max_ = declare_parameter<double>("planner.reference_w_max", 4.0);
+    reference_axtl_max_ = declare_parameter<double>("planner.reference_axtl_max", 2.0);
+    reference_wxtl_max_ = declare_parameter<double>("planner.reference_wxtl_max", 2.0);
+    search_height_min_ = declare_parameter<double>("planner.search_height_min", -0.05);
+    search_height_max_ = declare_parameter<double>("planner.search_height_max", 1.2);
+    search_radius_ = declare_parameter<double>("planner.search_radius", 6.0);
+    obstacle_swell_ = declare_parameter<bool>("planner.obstacle_swell", true);
+    is_xtl_ = declare_parameter<bool>("planner.is_xtl", false);
+    xtl_flag_ = declare_parameter<bool>("planner.xtl_flag", false);
+    height_bias_ = declare_parameter<double>("planner.height_bias", 0.015294117853045464);
+    height_interval_ = declare_parameter<double>("planner.height_interval", 1.5);
+    height_threshold_ = declare_parameter<double>("planner.height_threshold", 0.08);
+    height_second_high_threshold_ = declare_parameter<double>("planner.height_second_high_threshold", 0.2);
     motion_mode_ = declare_parameter<int>("planner.motion_mode", 1);
     replan_cooldown_seconds_ = declare_parameter<double>("planner.replan_cooldown_seconds", 1.0);
     enable_dynamic_cloud_ = declare_parameter<bool>("planner.enable_dynamic_cloud", true);
@@ -117,7 +135,9 @@ class ReplanFsmNode final : public rclcpp::Node {
   }
 
   void initialise_manager() {
-    if (map_resolution_ <= 0.0 || map_x_size_ <= 0.0 || map_y_size_ <= 0.0 || robot_radius_ <= 0.0 ||
+    if (map_resolution_ <= 0.0 || map_x_size_ <= 0.0 || map_y_size_ <= 0.0 || map_z_size_ <= 0.0 ||
+        robot_radius_ <= 0.0 || robot_radius_dash_ <= 0.0 || desired_speed_ <= 0.0 ||
+        search_radius_ <= 0.0 || search_height_min_ > search_height_max_ || height_interval_ <= 0.0 ||
         expected_map_width_ <= 0 || expected_map_height_ <= 0) {
       throw std::invalid_argument("invalid global-planning map or robot parameters");
     }
@@ -136,29 +156,29 @@ class ReplanFsmNode final : public rclcpp::Node {
     bridge_.setParam("trajectory_generator/map_resolution", map_resolution_);
     bridge_.setParam("trajectory_generator/map_x_size", map_x_size_);
     bridge_.setParam("trajectory_generator/map_y_size", map_y_size_);
-    bridge_.setParam("trajectory_generator/map_z_size", 2.0);
+    bridge_.setParam("trajectory_generator/map_z_size", map_z_size_);
     bridge_.setParam("trajectory_generator/map_lower_point_x", map_lower_x_);
     bridge_.setParam("trajectory_generator/map_lower_point_y", map_lower_y_);
-    bridge_.setParam("trajectory_generator/map_lower_point_z", 0.0);
+    bridge_.setParam("trajectory_generator/map_lower_point_z", map_lower_z_);
     bridge_.setParam("trajectory_generator/robot_radius", robot_radius_);
     bridge_.setParam("trajectory_generator/robot_radius_dash", robot_radius_dash_);
     bridge_.setParam("trajectory_generator/reference_desire_speed", desired_speed_);
-    bridge_.setParam("trajectory_generator/reference_desire_speedxtl", 2.4);
-    bridge_.setParam("trajectory_generator/reference_v_max", 2.5);
-    bridge_.setParam("trajectory_generator/reference_a_max", 4.0);
-    bridge_.setParam("trajectory_generator/reference_w_max", 4.0);
-    bridge_.setParam("trajectory_generator/reference_axtl_max", 2.0);
-    bridge_.setParam("trajectory_generator/reference_wxtl_max", 2.0);
-    bridge_.setParam("trajectory_generator/search_height_min", -0.05);
-    bridge_.setParam("trajectory_generator/search_height_max", 1.2);
-    bridge_.setParam("trajectory_generator/search_radius", 6.0);
-    bridge_.setParam("trajectory_generator/obstacle_swell_flag", true);
-    bridge_.setParam("trajectory_generator/isxtl", false);
-    bridge_.setParam("trajectory_generator/xtl_flag", false);
-    bridge_.setParam("trajectory_generator/height_bias", 0.015294117853045464);
-    bridge_.setParam("trajectory_generator/height_interval", 1.5);
-    bridge_.setParam("trajectory_generator/height_threshold", 0.08);
-    bridge_.setParam("trajectory_generator/height_sencond_high_threshold", 0.2);
+    bridge_.setParam("trajectory_generator/reference_desire_speedxtl", desired_speed_xtl_);
+    bridge_.setParam("trajectory_generator/reference_v_max", reference_v_max_);
+    bridge_.setParam("trajectory_generator/reference_a_max", reference_a_max_);
+    bridge_.setParam("trajectory_generator/reference_w_max", reference_w_max_);
+    bridge_.setParam("trajectory_generator/reference_axtl_max", reference_axtl_max_);
+    bridge_.setParam("trajectory_generator/reference_wxtl_max", reference_wxtl_max_);
+    bridge_.setParam("trajectory_generator/search_height_min", search_height_min_);
+    bridge_.setParam("trajectory_generator/search_height_max", search_height_max_);
+    bridge_.setParam("trajectory_generator/search_radius", search_radius_);
+    bridge_.setParam("trajectory_generator/obstacle_swell_flag", obstacle_swell_);
+    bridge_.setParam("trajectory_generator/isxtl", is_xtl_);
+    bridge_.setParam("trajectory_generator/xtl_flag", xtl_flag_);
+    bridge_.setParam("trajectory_generator/height_bias", height_bias_);
+    bridge_.setParam("trajectory_generator/height_interval", height_interval_);
+    bridge_.setParam("trajectory_generator/height_threshold", height_threshold_);
+    bridge_.setParam("trajectory_generator/height_sencond_high_threshold", height_second_high_threshold_);
     manager_ = std::make_unique<planner_manager>();
     manager_->init(bridge_);
     if (random_seed_ >= 0) manager_->topo_prm->setRandomSeed(static_cast<unsigned int>(random_seed_));
@@ -240,7 +260,8 @@ class ReplanFsmNode final : public rclcpp::Node {
     manager_->global_map->m_local_cloud->clear();
     for (const auto& point : points.points) {
       if (!std::isfinite(point.x) || !std::isfinite(point.y) || !std::isfinite(point.z)) continue;
-      if (std::abs(point.x - robot_position_.x()) > 6.0 || std::abs(point.y - robot_position_.y()) > 6.0) continue;
+      if (std::abs(point.x - robot_position_.x()) > search_radius_ ||
+          std::abs(point.y - robot_position_.y()) > search_radius_) continue;
       manager_->global_map->m_local_cloud->push_back(point);
     }
     manager_->global_map->localPointCloudToObstacle(*manager_->global_map->m_local_cloud, true, robot_position_);
@@ -338,8 +359,15 @@ class ReplanFsmNode final : public rclcpp::Node {
   bool have_odom_{false}, have_target_{false}, replan_active_{false}, enable_dynamic_cloud_{true};
   int motion_mode_{1};
   int random_seed_{-1}, expected_map_width_{400}, expected_map_height_{400};
-  double map_resolution_{0.05}, map_x_size_{20.0}, map_y_size_{20.0}, map_lower_x_{-13.394}, map_lower_y_{-12.079};
-  double robot_radius_{0.35}, robot_radius_dash_{0.35}, desired_speed_{2.0}, replan_cooldown_seconds_{1.0};
+  double map_resolution_{0.05}, map_x_size_{20.0}, map_y_size_{20.0}, map_z_size_{2.0};
+  double map_lower_x_{-13.394}, map_lower_y_{-12.079}, map_lower_z_{0.0};
+  double robot_radius_{0.35}, robot_radius_dash_{0.35}, desired_speed_{2.0}, desired_speed_xtl_{2.4};
+  double reference_v_max_{2.5}, reference_a_max_{4.0}, reference_w_max_{4.0};
+  double reference_axtl_max_{2.0}, reference_wxtl_max_{2.0};
+  double search_height_min_{-0.05}, search_height_max_{1.2}, search_radius_{6.0};
+  double height_bias_{0.015294117853045464}, height_interval_{1.5}, height_threshold_{0.08};
+  double height_second_high_threshold_{0.2}, replan_cooldown_seconds_{1.0};
+  bool obstacle_swell_{true}, is_xtl_{false}, xtl_flag_{false};
   rclcpp::Time last_replan_time_{0, 0, RCL_ROS_TIME};
   std::string odom_topic_, cloud_topic_, clicked_goal_topic_, pose_goal_topic_, waypoint_topic_, replan_topic_;
   std::string trajectory_topic_, target_topic_, map_frame_, map_directory_, occupancy_file_, bev_file_, topology_file_;
