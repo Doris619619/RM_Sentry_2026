@@ -1,0 +1,11 @@
+waypoint_generator:
+  ros__parameters:
+    waypoint_type: manual-lonely-waypoint
+    topics.goal: /goal
+    topics.odom: /localization/odometry
+    topics.trigger: /traj_start_trigger
+    topics.waypoints: /waypoint_generator/waypoints
+    topics.visualization: /waypoint_generator/waypoints_vis
+    frames.map: map
+    circle.radius: 1.0
+    circle.count: 24

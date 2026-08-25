@@ -1,0 +1,23 @@
+{
+  "end": [
+    -2.7146255226920712,
+    1.949258482751565
+  ],
+  "length": 10.84472366709905,
+  "segments": 19,
+  "selection": {
+    "algorithm": "largest_8_connected_inflated_occtopo_two_bfs",
+    "component_size": 1356,
+    "goal": [
+      -2.719,
+      1.946
+    ],
+    "graph_separation_cells": 178,
+    "inflation_cells": 6,
+    "start": [
+      -0.919,
+      -4.454
+    ]
+  },
+  "total_time": 6.723218560218811
+}

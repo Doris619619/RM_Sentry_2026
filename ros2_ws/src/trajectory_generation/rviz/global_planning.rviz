@@ -1,0 +1,22 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+Visualization Manager:
+  Class: ""
+  Fixed Frame: map
+  Displays:
+    - Class: rviz_default_plugins/Path
+      Enabled: true
+      Name: Global Path
+      Topic:
+        Value: /global_path
+    - Class: rviz_default_plugins/Marker
+      Enabled: true
+      Name: Planner Marker
+      Marker Topic:
+        Value: /astar_path_vis
+    - Class: rviz_default_plugins/PoseArray
+      Enabled: true
+      Name: Waypoints
+      Topic:
+        Value: /waypoint_generator/waypoints_vis

@@ -7,9 +7,8 @@
 
 #include <random>
 #include <Eigen/Eigen>
-#include <geometry_msgs/PoseStamped.h>
 #include <iostream>
-#include <ros/ros.h>
+#include "trajectory_generation/ros1_compat.hpp"
 #include <utility>
 #include <vector>
 #include "RM_GridMap.h"
@@ -49,9 +48,6 @@ public:
 
 class TopoSearcher{
 public:
-    // Test-only hook: default construction retains the original random-device
-    // behaviour, while ROS1/ROS2 regression runs can share a fixed seed.
-    void setRandomSeed(unsigned int seed) { m_eng.seed(seed); }
     std::shared_ptr<GlobalMap> global_map;  // 地图
 
     // 定义随机采样器
@@ -78,6 +74,8 @@ public:
     double m_resolution;
 
     void init(ros::NodeHandle &nh, std::shared_ptr<GlobalMap> &_global_map);
+    // Test-only hook.  Production leaves the original random-device seed.
+    void setRandomSeed(unsigned int seed) { m_eng.seed(seed); }
     Eigen::Vector3d getSample();
     Eigen::Vector3d getLocalSample();
     void createGraph(Eigen::Vector3d start, Eigen::Vector3d end);
