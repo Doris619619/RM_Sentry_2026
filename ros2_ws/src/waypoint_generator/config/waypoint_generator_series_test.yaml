@@ -1,0 +1,14 @@
+waypoint_generator:
+  ros__parameters:
+    waypoint_type: series
+    segment_count: 2
+    seg0.yaw: 0.0
+    seg0.time_from_start: 0.0
+    seg0.x: [1.0]
+    seg0.y: [0.0]
+    seg0.z: [0.0]
+    seg1.yaw: 0.0
+    seg1.time_from_start: 0.2
+    seg1.x: [2.0]
+    seg1.y: [0.0]
+    seg1.z: [0.0]

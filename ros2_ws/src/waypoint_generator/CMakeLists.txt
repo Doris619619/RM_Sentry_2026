@@ -21,6 +21,6 @@ ament_target_dependencies(waypoint_generator_node
   geometry_msgs nav_msgs rclcpp std_msgs tf2 tf2_geometry_msgs visualization_msgs)
 
 install(TARGETS waypoint_generator_node DESTINATION lib/${PROJECT_NAME})
-install(DIRECTORY config DESTINATION share/${PROJECT_NAME})
+install(DIRECTORY config test DESTINATION share/${PROJECT_NAME})
 
 ament_package()
