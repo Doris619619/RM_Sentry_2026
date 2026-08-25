@@ -21,16 +21,16 @@ class WaypointGeneratorNode : public rclcpp::Node {
  public:
   WaypointGeneratorNode()
       : Node("waypoint_generator", rclcpp::NodeOptions().automatically_declare_parameters_from_overrides(true)) {
-    mode_ = declare_parameter<std::string>("waypoint_type", "manual-lonely-waypoint");
-    goal_topic_ = declare_parameter<std::string>("topics.goal", "/goal");
-    odom_topic_ = declare_parameter<std::string>("topics.odom", "/localization/odometry");
-    trigger_topic_ = declare_parameter<std::string>("topics.trigger", "/traj_start_trigger");
-    output_topic_ = declare_parameter<std::string>("topics.waypoints", "/waypoint_generator/waypoints");
-    visual_topic_ = declare_parameter<std::string>("topics.visualization", "/waypoint_generator/waypoints_vis");
-    map_frame_ = declare_parameter<std::string>("frames.map", "map");
-    radius_ = declare_parameter<double>("circle.radius", 1.0);
-    count_ = declare_parameter<int>("circle.count", 24);
-    segment_count_ = declare_parameter<int>("segment_count", 0);
+    mode_ = parameter_or_declare<std::string>("waypoint_type", "manual-lonely-waypoint");
+    goal_topic_ = parameter_or_declare<std::string>("topics.goal", "/goal");
+    odom_topic_ = parameter_or_declare<std::string>("topics.odom", "/localization/odometry");
+    trigger_topic_ = parameter_or_declare<std::string>("topics.trigger", "/traj_start_trigger");
+    output_topic_ = parameter_or_declare<std::string>("topics.waypoints", "/waypoint_generator/waypoints");
+    visual_topic_ = parameter_or_declare<std::string>("topics.visualization", "/waypoint_generator/waypoints_vis");
+    map_frame_ = parameter_or_declare<std::string>("frames.map", "map");
+    radius_ = parameter_or_declare<double>("circle.radius", 1.0);
+    count_ = parameter_or_declare<int>("circle.count", 24);
+    segment_count_ = parameter_or_declare<int>("segment_count", 0);
     if (radius_ <= 0.0 || count_ < 2 || segment_count_ < 0) {
       throw std::invalid_argument("invalid waypoint generator radius, count, or segment_count");
     }
@@ -51,6 +51,16 @@ class WaypointGeneratorNode : public rclcpp::Node {
   }
 
  private:
+  template <typename T>
+  T parameter_or_declare(const std::string& name, const T& fallback) {
+    if (has_parameter(name)) {
+      T value;
+      if (get_parameter(name, value)) return value;
+      throw std::invalid_argument("invalid parameter type for " + name);
+    }
+    return declare_parameter<T>(name, fallback);
+  }
+
   geometry_msgs::msg::Pose pose(double x, double y, double z, double yaw) const {
     geometry_msgs::msg::Pose result;
     result.position.x = x;
@@ -64,6 +74,7 @@ class WaypointGeneratorNode : public rclcpp::Node {
   void load_series(const rclcpp::Time& time_base) {
     segments_.clear();
     const double base_yaw = have_odom_ ? tf2::getYaw(current_pose_.orientation) : 0.0;
+    rclcpp::Time previous_stamp{0, 0, RCL_ROS_TIME};
     for (int id = 0; id < segment_count_; ++id) {
       const std::string prefix = "seg" + std::to_string(id) + ".";
       double yaw = 0.0, offset = 0.0;
@@ -78,6 +89,12 @@ class WaypointGeneratorNode : public rclcpp::Node {
       nav_msgs::msg::Path segment;
       segment.header.frame_id = map_frame_;
       segment.header.stamp = time_base + rclcpp::Duration::from_seconds(offset);
+      const rclcpp::Time scheduled_stamp(segment.header.stamp);
+      if (id > 0 && scheduled_stamp <= previous_stamp) {
+        RCLCPP_ERROR(get_logger(), "ROS1-compatible series segment times must be strictly increasing");
+        segments_.clear();
+        return;
+      }
       for (std::size_t index = 0; index < x.size(); ++index) {
         geometry_msgs::msg::PoseStamped point;
         point.header = segment.header;
@@ -87,6 +104,7 @@ class WaypointGeneratorNode : public rclcpp::Node {
         point.pose.position.z = z[index] + current_pose_.position.z;
         segment.poses.push_back(point);
       }
+      previous_stamp = scheduled_stamp;
       segments_.push_back(std::move(segment));
     }
   }
@@ -149,14 +167,27 @@ class WaypointGeneratorNode : public rclcpp::Node {
       publish(std::move(path));
       return;
     }
-    if (mode_ == "manual" || mode_ == "manual-waypoints") {
-      if (goal.pose.position.z < -1.0) { publish(manual_path_); return; }
+    if (mode_ == "manual" || mode_ == "manual-waypoints" || mode_ == "noyaw") {
+      if (goal.pose.position.z < -1.0) {
+        if (!manual_path_.poses.empty()) {
+          publish_visualization_only(manual_path_);
+          publish(manual_path_);
+          // ROS1 publish_waypoints() clears the accumulated manual list after
+          // the explicit negative-height end marker.
+          manual_path_.poses.clear();
+        }
+        return;
+      }
       if (goal.pose.position.z < 0.0) {
         if (!manual_path_.poses.empty()) manual_path_.poses.pop_back();
       } else {
         auto point = goal;
         point.header.frame_id = map_frame_;
         point.header.stamp = now();
+        if (mode_ == "noyaw") {
+          point.pose.orientation = pose(0.0, 0.0, 0.0,
+                                        have_odom_ ? tf2::getYaw(current_pose_.orientation) : 0.0).orientation;
+        }
         manual_path_.header = point.header;
         manual_path_.poses.push_back(point);
       }
@@ -167,13 +198,6 @@ class WaypointGeneratorNode : public rclcpp::Node {
     else if (mode_ == "circle") publish(legacy_circle());
     else if (mode_ == "eight") publish(legacy_eight());
     else if (mode_ == "point") publish(legacy_point());
-    else if (mode_ == "noyaw" && goal.pose.position.z > 0.0) {
-      auto point = goal;
-      point.pose = pose(point.pose.position.x, point.pose.position.y, point.pose.position.z,
-                        have_odom_ ? tf2::getYaw(current_pose_.orientation) : 0.0);
-      manual_path_.poses.push_back(point);
-      publish_visualization_only(manual_path_);
-    }
   }
 
   void on_trigger(const geometry_msgs::msg::PoseStamped& trigger) {
@@ -197,6 +221,9 @@ class WaypointGeneratorNode : public rclcpp::Node {
     for (auto& point : path.poses) point.header = path.header;
     geometry_msgs::msg::PoseArray array;
     array.header = path.header;
+    // ROS1 publish_waypoints_vis() always places the current odometry pose at
+    // the front of the visualisation, before all requested waypoints.
+    array.poses.push_back(current_pose_);
     for (const auto& point : path.poses) array.poses.push_back(point.pose);
     path_pub_->publish(path);
     poses_pub_->publish(array);
@@ -207,6 +234,7 @@ class WaypointGeneratorNode : public rclcpp::Node {
     path.header.stamp = now();
     geometry_msgs::msg::PoseArray array;
     array.header = path.header;
+    array.poses.push_back(current_pose_);
     for (const auto& point : path.poses) array.poses.push_back(point.pose);
     poses_pub_->publish(array);
   }
