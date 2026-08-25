@@ -66,11 +66,11 @@ class ReplanFsmMock(Node):
         while time.monotonic() < deadline:
             rclpy.spin_once(self, timeout_sec=0.05)
 
-    def publish_odom(self):
+    def publish_odom(self, x=-3.82, y=2.40):
         odom = Odometry()
         odom.header.frame_id = 'map'
-        odom.pose.pose.position.x = -3.82
-        odom.pose.pose.position.y = 2.40
+        odom.pose.pose.position.x = x
+        odom.pose.pose.position.y = y
         odom.pose.pose.orientation.w = 1.0
         self.odom_pub.publish(odom)
 

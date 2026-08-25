@@ -15,6 +15,9 @@ def main():
         ros1 = json.load(source)
     with open(arguments.ros2, encoding='utf-8') as source:
         ros2 = json.load(source)
+    assert ros1['selection'] == ros2['selection'], 'ROS1/ROS2 selected different free-space pair'
+    assert ros1['selection']['component_size'] > 0
+    assert ros1['selection']['graph_separation_cells'] > 0
     assert ros1['segments'] > 0 and ros2['segments'] > 0
     assert all(math.isfinite(value) for value in ros1['end'] + ros2['end'])
     end_error = math.hypot(ros1['end'][0] - ros2['end'][0], ros1['end'][1] - ros2['end'][1])
