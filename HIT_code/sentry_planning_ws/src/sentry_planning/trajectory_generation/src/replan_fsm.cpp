@@ -40,6 +40,11 @@ void ReplanFSM::init(ros::NodeHandle &nh)
 
     plannerManager.reset(new planner_manager);
     plannerManager->init(nh);
+    int test_random_seed = -1;
+    nh.param("trajectory_generator/test_random_seed", test_random_seed, -1);
+    if (test_random_seed >= 0) {
+        plannerManager->topo_prm->setRandomSeed(static_cast<unsigned int>(test_random_seed));
+    }
 
     vislization.reset(new Vislization);
     vislization->init(nh);
@@ -413,7 +418,6 @@ void ReplanFSM::checkReplanCallback(const std_msgs::BoolConstPtr &msg)  //检查
         return;
     }
 }
-
 
 
 

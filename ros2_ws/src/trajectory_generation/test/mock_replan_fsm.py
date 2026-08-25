@@ -5,6 +5,8 @@ Start trajectory_generator_node first, then run this program in the same ROS2
 domain.  It uses the deterministic free-space pair selected from occtopo.png.
 """
 
+import argparse
+import json
 import math
 import struct
 import sys
@@ -126,13 +128,37 @@ class ReplanFsmMock(Node):
         self.replan_pub.publish(message)
 
 
+def trajectory_metrics(message):
+    total_time = sum(message.duration)
+    length = 0.0
+    previous = None
+    for segment, duration in enumerate(message.duration):
+        for sample in range(21):
+            time_value = duration * sample / 20.0
+            coefficients_x = message.coef_x[segment * 4:(segment + 1) * 4]
+            coefficients_y = message.coef_y[segment * 4:(segment + 1) * 4]
+            x = ((coefficients_x[0] * time_value + coefficients_x[1]) * time_value + coefficients_x[2]) * time_value + coefficients_x[3]
+            y = ((coefficients_y[0] * time_value + coefficients_y[1]) * time_value + coefficients_y[2]) * time_value + coefficients_y[3]
+            if previous is not None:
+                length += math.hypot(x - previous[0], y - previous[1])
+            previous = (x, y)
+    return {'end': [previous[0], previous[1]], 'length': length, 'total_time': total_time,
+            'segments': len(message.duration)}
+
+
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--baseline-output')
+    arguments = parser.parse_args()
     rclpy.init()
     node = ReplanFsmMock()
     try:
         node.wait_for_subscribers(5.0)
         node.publish_initial_inputs()
         node.wait_for(1, 12.0)
+        if arguments.baseline_output:
+            with open(arguments.baseline_output, 'w', encoding='utf-8') as output:
+                json.dump(trajectory_metrics(node.trajectories[0]), output, indent=2, sort_keys=True)
         # Cooldown starts in ReplanFSM initialisation, matching ROS1.
         time.sleep(1.1)
         node.publish_static_transform()

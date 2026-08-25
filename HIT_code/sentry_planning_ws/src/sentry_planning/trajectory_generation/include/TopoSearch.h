@@ -49,6 +49,9 @@ public:
 
 class TopoSearcher{
 public:
+    // Test-only hook: default construction retains the original random-device
+    // behaviour, while ROS1/ROS2 regression runs can share a fixed seed.
+    void setRandomSeed(unsigned int seed) { m_eng.seed(seed); }
     std::shared_ptr<GlobalMap> global_map;  // 地图
 
     // 定义随机采样器
