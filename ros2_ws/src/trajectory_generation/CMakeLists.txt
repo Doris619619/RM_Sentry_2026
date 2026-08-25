@@ -33,13 +33,6 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   DEPENDENCIES builtin_interfaces
 )
 
-add_library(${PROJECT_NAME}_core src/planner_core.cpp)
-target_include_directories(${PROJECT_NAME}_core PUBLIC
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-  $<INSTALL_INTERFACE:include>)
-target_link_libraries(${PROJECT_NAME}_core PUBLIC Eigen3::Eigen ${OpenCV_LIBS})
-target_include_directories(${PROJECT_NAME}_core PRIVATE ${OpenCV_INCLUDE_DIRS})
-
 # Direct ROS1 algorithm port.  The source bodies are preserved under port/;
 # ROS2 adapters are introduced around their ROS1 communication boundaries.
 add_library(${PROJECT_NAME}_legacy_algorithms
@@ -71,14 +64,16 @@ target_link_libraries(trajectory_generator_node "${cpp_typesupport_target}")
 install(DIRECTORY include/ port/include/trajectory_generation/
   DESTINATION include/${PROJECT_NAME})
 install(DIRECTORY config launch rviz map DESTINATION share/${PROJECT_NAME})
-install(TARGETS ${PROJECT_NAME}_core ${PROJECT_NAME}_legacy_algorithms trajectory_generator_node
+install(TARGETS ${PROJECT_NAME}_legacy_algorithms trajectory_generator_node
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
-  ament_add_gtest(test_planner_core test/test_planner_core.cpp)
-  target_link_libraries(test_planner_core ${PROJECT_NAME}_core)
+  ament_add_gtest(test_legacy_planning test/test_legacy_planning.cpp)
+  target_link_libraries(test_legacy_planning ${PROJECT_NAME}_legacy_algorithms)
+  target_compile_definitions(test_legacy_planning PRIVATE
+    TEST_LEGACY_MAP_DIR="${CMAKE_CURRENT_SOURCE_DIR}/map")
 endif()
 
 ament_export_dependencies(rosidl_default_runtime)
