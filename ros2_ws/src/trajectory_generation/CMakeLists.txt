@@ -63,7 +63,7 @@ target_link_libraries(trajectory_generator_node "${cpp_typesupport_target}")
 
 install(DIRECTORY port/include/trajectory_generation/
   DESTINATION include/${PROJECT_NAME})
-install(DIRECTORY config launch rviz map DESTINATION share/${PROJECT_NAME})
+install(DIRECTORY config launch rviz map test DESTINATION share/${PROJECT_NAME})
 install(TARGETS ${PROJECT_NAME}_legacy_algorithms trajectory_generator_node
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
