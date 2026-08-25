@@ -61,7 +61,7 @@ ament_target_dependencies(trajectory_generator_node
 rosidl_get_typesupport_target(cpp_typesupport_target ${PROJECT_NAME} "rosidl_typesupport_cpp")
 target_link_libraries(trajectory_generator_node "${cpp_typesupport_target}")
 
-install(DIRECTORY include/ port/include/trajectory_generation/
+install(DIRECTORY port/include/trajectory_generation/
   DESTINATION include/${PROJECT_NAME})
 install(DIRECTORY config launch rviz map DESTINATION share/${PROJECT_NAME})
 install(TARGETS ${PROJECT_NAME}_legacy_algorithms trajectory_generator_node
