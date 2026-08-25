@@ -62,6 +62,30 @@ TEST(LegacyPlanningTest, ConvertsMapCoordinatesAndBuildsTopoPath) {
     EXPECT_TRUE(std::isfinite(duration));
     EXPECT_GT(duration, 0.0);
   }
+  const auto position = [](const Eigen::MatrixXd& coefficients, Eigen::Index segment, double time) {
+    return ((coefficients(segment, 0) * time + coefficients(segment, 1)) * time +
+            coefficients(segment, 2)) * time + coefficients(segment, 3);
+  };
+  const auto velocity = [](const Eigen::MatrixXd& coefficients, Eigen::Index segment, double time) {
+    return (3.0 * coefficients(segment, 0) * time + 2.0 * coefficients(segment, 1)) * time +
+           coefficients(segment, 2);
+  };
+  const auto& durations = manager.reference_path->m_trapezoidal_time;
+  for (Eigen::Index segment = 0; segment + 1 < static_cast<Eigen::Index>(durations.size()); ++segment) {
+    const double duration = durations[static_cast<std::size_t>(segment)];
+    EXPECT_NEAR(position(manager.reference_path->m_polyMatrix_x, segment, duration),
+                position(manager.reference_path->m_polyMatrix_x, segment + 1, 0.0), 1e-6);
+    EXPECT_NEAR(position(manager.reference_path->m_polyMatrix_y, segment, duration),
+                position(manager.reference_path->m_polyMatrix_y, segment + 1, 0.0), 1e-6);
+    EXPECT_NEAR(velocity(manager.reference_path->m_polyMatrix_x, segment, duration),
+                velocity(manager.reference_path->m_polyMatrix_x, segment + 1, 0.0), 1e-5);
+    EXPECT_NEAR(velocity(manager.reference_path->m_polyMatrix_y, segment, duration),
+                velocity(manager.reference_path->m_polyMatrix_y, segment + 1, 0.0), 1e-5);
+  }
+  for (const auto& point : manager.final_path) {
+    EXPECT_FALSE(manager.global_map->isOccupied(
+        manager.global_map->coord2gridIndex(Eigen::Vector3d(point.x(), point.y(), 0.0)), false));
+  }
 }
 
 TEST(LegacyPlanningTest, ClampsCoordinatesAndRepairsOccupiedGoalAndDynamicObstacle) {
