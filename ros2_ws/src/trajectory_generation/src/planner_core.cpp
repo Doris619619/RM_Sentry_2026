@@ -1,5 +1,6 @@
 #include "trajectory_generation/planner_core.hpp"
 
+#include <Eigen/LU>
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/imgproc.hpp>
 
@@ -270,22 +271,20 @@ PolynomialTrajectory PlannerCore::generate_reference(const std::vector<Eigen::Ve
     rhs_y(index) = 6.0 * ((path[index + 1].y() - path[index].y()) / time(index) -
                           (path[index].y() - path[index - 1].y()) / time(index - 1));
   }
-  const auto second_x = system.fullPivLu().solve(rhs_x);
-  const auto second_y = system.fullPivLu().solve(rhs_y);
+  const Eigen::VectorXd second_x = system.fullPivLu().solve(rhs_x);
+  const Eigen::VectorXd second_y = system.fullPivLu().solve(rhs_y);
   for (Eigen::Index index = 0; index < count; ++index) {
     const double duration = time(index);
-    result.coef_x.insert(result.coef_x.end(), {
-        static_cast<float>((second_x(index + 1) - second_x(index)) / (6.0 * duration)),
-        static_cast<float>(second_x(index) / 2.0),
-        static_cast<float>((path[index + 1].x() - path[index].x()) / duration -
-                           duration * (2.0 * second_x(index) + second_x(index + 1)) / 6.0),
-        static_cast<float>(path[index].x())});
-    result.coef_y.insert(result.coef_y.end(), {
-        static_cast<float>((second_y(index + 1) - second_y(index)) / (6.0 * duration)),
-        static_cast<float>(second_y(index) / 2.0),
-        static_cast<float>((path[index + 1].y() - path[index].y()) / duration -
-                           duration * (2.0 * second_y(index) + second_y(index + 1)) / 6.0),
-        static_cast<float>(path[index].y())});
+    result.coef_x.push_back(static_cast<float>((second_x(index + 1) - second_x(index)) / (6.0 * duration)));
+    result.coef_x.push_back(static_cast<float>(second_x(index) / 2.0));
+    result.coef_x.push_back(static_cast<float>((path[index + 1].x() - path[index].x()) / duration -
+                                               duration * (2.0 * second_x(index) + second_x(index + 1)) / 6.0));
+    result.coef_x.push_back(static_cast<float>(path[index].x()));
+    result.coef_y.push_back(static_cast<float>((second_y(index + 1) - second_y(index)) / (6.0 * duration)));
+    result.coef_y.push_back(static_cast<float>(second_y(index) / 2.0));
+    result.coef_y.push_back(static_cast<float>((path[index + 1].y() - path[index].y()) / duration -
+                                               duration * (2.0 * second_y(index) + second_y(index + 1)) / 6.0));
+    result.coef_y.push_back(static_cast<float>(path[index].y()));
   }
   return result;
 }

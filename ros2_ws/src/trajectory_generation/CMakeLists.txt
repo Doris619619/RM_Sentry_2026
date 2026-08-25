@@ -38,12 +38,12 @@ target_link_libraries(${PROJECT_NAME}_core PUBLIC Eigen3::Eigen ${OpenCV_LIBS})
 target_include_directories(${PROJECT_NAME}_core PRIVATE ${OpenCV_INCLUDE_DIRS})
 
 add_executable(global_planner_node src/global_planner_node.cpp)
-target_link_libraries(global_planner_node PRIVATE ${PROJECT_NAME}_core)
+target_link_libraries(global_planner_node ${PROJECT_NAME}_core)
 ament_target_dependencies(global_planner_node
   ament_index_cpp geometry_msgs nav_msgs rclcpp sensor_msgs std_msgs
   tf2 tf2_geometry_msgs tf2_ros visualization_msgs)
 rosidl_get_typesupport_target(cpp_typesupport_target ${PROJECT_NAME} "rosidl_typesupport_cpp")
-target_link_libraries(global_planner_node PRIVATE "${cpp_typesupport_target}")
+target_link_libraries(global_planner_node "${cpp_typesupport_target}")
 
 install(DIRECTORY include/ DESTINATION include)
 install(DIRECTORY config launch rviz map DESTINATION share/${PROJECT_NAME})
