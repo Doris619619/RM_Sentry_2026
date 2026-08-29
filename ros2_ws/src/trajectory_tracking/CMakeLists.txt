@@ -10,7 +10,6 @@ find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(trajectory_generation REQUIRED)
 find_package(sentry_msgs REQUIRED)
-find_package(ament_cmake_gtest REQUIRED)
 find_package(Eigen3 REQUIRED)
 find_package(OpenCV REQUIRED)
 find_package(PCL REQUIRED COMPONENTS common filters io)
@@ -43,6 +42,7 @@ ament_target_dependencies(trajectory_tracking_core rclcpp nav_msgs sensor_msgs s
 target_compile_features(trajectory_tracking_core PUBLIC cxx_std_14)
 
 if(BUILD_TESTING)
+  find_package(ament_cmake_gtest REQUIRED)
   ament_add_gtest(test_sentry_dynamics test/test_sentry_dynamics.cpp)
   target_link_libraries(test_sentry_dynamics trajectory_tracking_core)
   ament_add_gtest(test_kmf test/test_kmf.cpp)
@@ -56,6 +56,8 @@ if(BUILD_TESTING)
   ament_add_gtest(test_rm_grid_map test/test_rm_grid_map.cpp)
   target_link_libraries(test_rm_grid_map trajectory_tracking_core)
   ament_target_dependencies(test_rm_grid_map ament_index_cpp)
+  ament_add_gtest(test_tracking_semantics test/test_tracking_semantics.cpp)
+  target_link_libraries(test_tracking_semantics trajectory_tracking_core)
 endif()
 
 add_executable(sentry_sqp_benchmark test/sentry_sqp_benchmark.cpp)
@@ -75,7 +77,7 @@ install(TARGETS trajectory_tracking_node hit_bridge sentry_sqp_benchmark
 install(TARGETS trajectory_tracking_core EXPORT export_trajectory_tracking
   ARCHIVE DESTINATION lib LIBRARY DESTINATION lib RUNTIME DESTINATION bin)
 install(DIRECTORY include/ DESTINATION include)
-install(DIRECTORY cfg launch DESTINATION share/trajectory_tracking)
+install(DIRECTORY cfg config launch DESTINATION share/trajectory_tracking)
 
 ament_export_targets(export_trajectory_tracking HAS_LIBRARY_TARGET)
 ament_export_dependencies(rclcpp nav_msgs sensor_msgs std_msgs geometry_msgs visualization_msgs tf2_ros tf2_sensor_msgs Eigen3 Boost OpenCV PCL pcl_conversions trajectory_generation ocs2_core ocs2_oc ocs2_mpc ocs2_sqp)

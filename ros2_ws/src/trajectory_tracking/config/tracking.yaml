@@ -1,0 +1,13 @@
+trajectory_tracking:
+  ros__parameters:
+    # task.info remains the source of the original OCS2 horizon, rollout and
+    # SQP settings. These runtime values replace node-local control literals.
+    output.max_speed: 2.0
+    reference.dt: 0.1
+    heading.velocity_epsilon: 0.03
+    heading.reference_override_speed: 0.3
+    arrival.distance: 0.3
+    collision.horizon_steps: 20
+    collision.time_step: 0.1
+    collision.penalty_mu: 20.0
+    collision.penalty_delta: 0.5

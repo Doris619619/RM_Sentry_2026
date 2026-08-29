@@ -1,0 +1,40 @@
+# Shared map metadata for Global Planning and Trajectory Tracking.
+# Keep both node namespaces here so their independently named ROS2 parameters
+# cannot silently diverge while they consume the same occupancy/BEV/topology map.
+trajectory_generation:
+  ros__parameters:
+    planner.map_resolution: 0.05
+    planner.map_x_size: 20.0
+    planner.map_y_size: 20.0
+    planner.map_z_size: 2.0
+    planner.map_lower_x: -13.394
+    planner.map_lower_y: -12.079
+    planner.map_lower_z: 0.0
+    planner.robot_radius: 0.35
+    planner.robot_radius_dash: 0.35
+    planner.search_height_min: -0.05
+    planner.search_height_max: 1.2
+    planner.search_radius: 6.0
+    planner.height_bias: 0.015294117853045464
+    planner.height_interval: 1.5
+    planner.height_threshold: 0.08
+    planner.height_second_high_threshold: 0.2
+    planner.replan_cooldown_seconds: 1.0
+    planner.deviation_replan_distance: 1.0
+trajectory_tracking:
+  ros__parameters:
+    map.resolution: 0.05
+    map.x_size: 20.0
+    map.y_size: 20.0
+    map.z_size: 2.0
+    map.lower_x: -13.394
+    map.lower_y: -12.079
+    map.lower_z: 0.0
+    map.robot_radius: 0.35
+    map.search_height_min: -0.05
+    map.search_height_max: 1.2
+    map.search_radius: 6.0
+    map.height_bias: 0.015294117853045464
+    map.height_interval: 1.5
+    map.height_threshold: 0.08
+    map.height_second_high_threshold: 0.2

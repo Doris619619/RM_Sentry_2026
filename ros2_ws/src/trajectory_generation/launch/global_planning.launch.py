@@ -11,6 +11,7 @@ def generate_launch_description():
     planner_share = get_package_share_directory('trajectory_generation')
     waypoint_share = get_package_share_directory('waypoint_generator')
     planner_params = LaunchConfiguration('planner_params')
+    map_metadata = os.path.join(planner_share, 'config', 'map_metadata.yaml')
     waypoint_params = LaunchConfiguration('waypoint_params')
     use_rviz = LaunchConfiguration('use_rviz')
     planner_prefix = LaunchConfiguration('planner_prefix')
@@ -26,7 +27,7 @@ def generate_launch_description():
         Node(package='waypoint_generator', executable='waypoint_generator_node',
              name='waypoint_generator', output='screen', parameters=[waypoint_params]),
         Node(package='trajectory_generation', executable='trajectory_generator_node',
-             name='trajectory_generation', output='screen', parameters=[planner_params], prefix=planner_prefix),
+             name='trajectory_generation', output='screen', parameters=[planner_params, map_metadata], prefix=planner_prefix),
         Node(package='rviz2', executable='rviz2', name='rviz2', output='screen',
              arguments=['-d', os.path.join(planner_share, 'rviz', 'global_planning.rviz')],
              condition=IfCondition(use_rviz)),
