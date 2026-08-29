@@ -40,6 +40,10 @@ if(BUILD_TESTING)
   target_link_libraries(test_kmf trajectory_tracking_core)
 endif()
 
+add_executable(sentry_sqp_benchmark test/sentry_sqp_benchmark.cpp)
+target_link_libraries(sentry_sqp_benchmark trajectory_tracking_core)
+ament_target_dependencies(sentry_sqp_benchmark ament_index_cpp)
+
 add_executable(hit_bridge src/hit_bridge.cpp)
 ament_target_dependencies(hit_bridge rclcpp geometry_msgs std_msgs sentry_msgs)
 
@@ -47,7 +51,7 @@ add_executable(trajectory_tracking_node src/trajectory_tracking_node.cpp)
 target_link_libraries(trajectory_tracking_node trajectory_tracking_core)
 ament_target_dependencies(trajectory_tracking_node ament_index_cpp rclcpp nav_msgs sensor_msgs std_msgs geometry_msgs trajectory_generation sentry_msgs)
 
-install(TARGETS trajectory_tracking_node hit_bridge
+install(TARGETS trajectory_tracking_node hit_bridge sentry_sqp_benchmark
   RUNTIME DESTINATION lib/trajectory_tracking)
 
 install(TARGETS trajectory_tracking_core EXPORT export_trajectory_tracking
