@@ -16,6 +16,8 @@ find_package(OpenCV REQUIRED)
 find_package(PCL REQUIRED COMPONENTS common filters io)
 find_package(pcl_conversions REQUIRED)
 find_package(visualization_msgs REQUIRED)
+find_package(tf2_ros REQUIRED)
+find_package(tf2_sensor_msgs REQUIRED)
 find_package(Boost REQUIRED COMPONENTS system filesystem log_setup log)
 find_package(ocs2_core REQUIRED)
 find_package(ocs2_oc REQUIRED)
@@ -37,7 +39,7 @@ target_include_directories(trajectory_tracking_core PUBLIC
 target_link_libraries(trajectory_tracking_core
   Eigen3::Eigen Boost::filesystem ${OpenCV_LIBS} ${PCL_LIBRARIES}
   ocs2_core::ocs2_core ocs2_oc::ocs2_oc ocs2_mpc::ocs2_mpc ocs2_sqp::ocs2_sqp)
-ament_target_dependencies(trajectory_tracking_core rclcpp nav_msgs sensor_msgs std_msgs geometry_msgs pcl_conversions trajectory_generation visualization_msgs)
+ament_target_dependencies(trajectory_tracking_core rclcpp nav_msgs sensor_msgs std_msgs geometry_msgs pcl_conversions trajectory_generation visualization_msgs tf2_ros tf2_sensor_msgs)
 target_compile_features(trajectory_tracking_core PUBLIC cxx_std_14)
 
 if(BUILD_TESTING)
@@ -76,5 +78,5 @@ install(DIRECTORY include/ DESTINATION include)
 install(DIRECTORY cfg launch DESTINATION share/trajectory_tracking)
 
 ament_export_targets(export_trajectory_tracking HAS_LIBRARY_TARGET)
-ament_export_dependencies(rclcpp nav_msgs sensor_msgs std_msgs geometry_msgs visualization_msgs Eigen3 Boost OpenCV PCL pcl_conversions trajectory_generation ocs2_core ocs2_oc ocs2_mpc ocs2_sqp)
+ament_export_dependencies(rclcpp nav_msgs sensor_msgs std_msgs geometry_msgs visualization_msgs tf2_ros tf2_sensor_msgs Eigen3 Boost OpenCV PCL pcl_conversions trajectory_generation ocs2_core ocs2_oc ocs2_mpc ocs2_sqp)
 ament_package()

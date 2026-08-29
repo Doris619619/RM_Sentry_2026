@@ -29,6 +29,17 @@ The command components meet the 0.02 m/s fixture tolerance. `line_speed` remains
 the ROS1 compatibility field; actual base_link `vx`/`vy` are
 `angle_target`/`angle_current`, copied by `hit_bridge` to `/cmd_vel.linear.x/.y`.
 
+## ROS2 adapter runtime checks
+
+- A lidar-frame `/aligned_points` message was accepted through an explicit
+  identity `map -> lidar` tf2 transform. No missing-TF or malformed-cloud
+  diagnostic was emitted. A cloud without that transform is dropped rather than
+  being inserted into the map-frame grid.
+- Real node output contained nonempty `map`-frame
+  `/tracking/mpc_predicted_path` (5,961 bytes) and
+  `/tracking/mpc_reference_path` (4,668 bytes), plus
+  `/robot_cur_yaw_reg=0.0` for the zero-yaw fixture.
+
 ## Safety and replanning runtime checks
 
 - A malformed trajectory with three coefficients for one duration produced

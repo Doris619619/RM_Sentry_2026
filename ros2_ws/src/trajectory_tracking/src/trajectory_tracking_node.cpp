@@ -9,6 +9,7 @@
 
 #include <ament_index_cpp/get_package_share_directory.hpp>
 #include <geometry_msgs/msg/twist.hpp>
+#include <geometry_msgs/msg/pose_stamped.hpp>
 #include <geometry_msgs/msg/vector3.hpp>
 #include <nav_msgs/msg/odometry.hpp>
 #include <rclcpp/rclcpp.hpp>
@@ -18,6 +19,12 @@
 #include <pcl/point_cloud.h>
 #include <pcl/point_types.h>
 #include <std_msgs/msg/bool.hpp>
+#include <std_msgs/msg/float64.hpp>
+#include <visualization_msgs/msg/marker.hpp>
+#include <tf2/exceptions.h>
+#include <tf2_sensor_msgs/tf2_sensor_msgs.hpp>
+#include <tf2_ros/buffer.h>
+#include <tf2_ros/transform_listener.h>
 
 #include <ocs2_mpc/SystemObservation.h>
 #include <ocs2_sqp/SqpMpc.h>
@@ -90,6 +97,8 @@ class TrajectoryTrackingNode final : public rclcpp::Node {
       400, 400, 40, 0.35, -0.05, 1.2, 6.0);
     gridMapReady_ = gridMap_->data != nullptr;
     if (!gridMapReady_) RCLCPP_ERROR(get_logger(), "RM_GridMap initialization failed; dynamic-obstacle replanning disabled");
+    tfBuffer_ = std::make_unique<tf2_ros::Buffer>(get_clock());
+    tfListener_ = std::make_shared<tf2_ros::TransformListener>(*tfBuffer_);
 
     trajectorySub_ = create_subscription<trajectory_generation::msg::TrajectoryPoly>(
       "/global_trajectory", rclcpp::QoS(10).reliable(),
@@ -117,6 +126,12 @@ class TrajectoryTrackingNode final : public rclcpp::Node {
     solverStatusPub_ = create_publisher<std_msgs::msg::Bool>("/solver_status", rclcpp::QoS(10).reliable());
     replanPub_ = create_publisher<std_msgs::msg::Bool>("/replan_flag", rclcpp::QoS(10).reliable());
     redecisionPub_ = create_publisher<std_msgs::msg::Bool>("/redecide_flag", rclcpp::QoS(10).reliable());
+    robotYawPub_ = create_publisher<std_msgs::msg::Float64>("/robot_cur_yaw_reg", rclcpp::QoS(10).reliable());
+    predictedPathPub_ = create_publisher<nav_msgs::msg::Path>("/tracking/mpc_predicted_path", rclcpp::QoS(10).reliable());
+    referencePathPub_ = create_publisher<nav_msgs::msg::Path>("/tracking/mpc_reference_path", rclcpp::QoS(10).reliable());
+    candidateMarkerPub_ = create_publisher<visualization_msgs::msg::Marker>("candidate_path_vis", rclcpp::QoS(10).reliable());
+    referenceMarkerPub_ = create_publisher<visualization_msgs::msg::Marker>("reference_path_vis", rclcpp::QoS(10).reliable());
+    obstacleMarkerPub_ = create_publisher<visualization_msgs::msg::Marker>("obs_center_vis", rclcpp::QoS(10).reliable());
   }
 
  private:
@@ -216,6 +231,9 @@ class TrajectoryTrackingNode final : public rclcpp::Node {
     if (!current.valid) { stop("no valid trajectory"); return; }
 
     const double yaw = yawOf(odometry->pose.pose.orientation);
+    std_msgs::msg::Float64 yawMessage;
+    yawMessage.data = yaw;
+    robotYawPub_->publish(yawMessage);
     if (gridMapReady_) {
       gridMap_->odom_position << odometry->pose.pose.position.x, odometry->pose.pose.position.y,
         odometry->pose.pose.position.z;
@@ -273,9 +291,67 @@ class TrajectoryTrackingNode final : public rclcpp::Node {
       command.in_bridge = inBridge ? 1 : 0;
       speedPub_->publish(command);
       std_msgs::msg::Bool status; status.data = true; solverStatusPub_->publish(status);
+      publishVisualization(solution, reference);
       const bool collision = predictedDynamicObstacle(solution);
       updateReplanFlag(collision || reference.off_course, start, reference.redecision);
     } catch (const std::exception& error) { stop(error.what()); }
+  }
+
+  static geometry_msgs::msg::PoseStamped poseFromState(const Eigen::Vector4d& state, const rclcpp::Time& stamp) {
+    geometry_msgs::msg::PoseStamped pose;
+    pose.header.frame_id = "map";
+    pose.header.stamp = stamp;
+    pose.pose.position.x = state(0);
+    pose.pose.position.y = state(1);
+    pose.pose.orientation.z = std::sin(state(3) * 0.5);
+    pose.pose.orientation.w = std::cos(state(3) * 0.5);
+    return pose;
+  }
+
+  void publishVisualization(const ocs2::PrimalSolution& solution,
+                            const trajectory_tracking::LocalPlanner::Reference& reference) {
+    const auto stamp = now();
+    nav_msgs::msg::Path predicted, referencePath;
+    predicted.header.frame_id = referencePath.header.frame_id = "map";
+    predicted.header.stamp = referencePath.header.stamp = stamp;
+    for (const auto& state : solution.stateTrajectory_) {
+      if (state.size() >= 4 && state.allFinite()) predicted.poses.push_back(poseFromState(state, stamp));
+    }
+    for (const auto& state : reference.states) referencePath.poses.push_back(poseFromState(state, stamp));
+    predictedPathPub_->publish(predicted);
+    referencePathPub_->publish(referencePath);
+
+    const auto marker = [stamp](const char* ns, float r, float g, float b) {
+      visualization_msgs::msg::Marker message;
+      message.header.frame_id = "map";
+      message.header.stamp = stamp;
+      message.ns = ns;
+      message.id = 0;
+      message.type = visualization_msgs::msg::Marker::CUBE_LIST;
+      message.action = visualization_msgs::msg::Marker::ADD;
+      message.pose.orientation.w = 1.0;
+      message.scale.x = message.scale.y = message.scale.z = 0.08;
+      message.color.a = 1.0;
+      message.color.r = r; message.color.g = g; message.color.b = b;
+      return message;
+    };
+    auto candidate = marker("candidate_path", 1.0f, 0.2f, 0.0f);
+    for (const auto& pose : predicted.poses) candidate.points.push_back(pose.pose.position);
+    candidateMarkerPub_->publish(candidate);
+    auto referenceMarker = marker("reference_path", 0.0f, 1.0f, 0.0f);
+    for (const auto& pose : referencePath.poses) referenceMarker.points.push_back(pose.pose.position);
+    referenceMarkerPub_->publish(referenceMarker);
+    auto obstacles = marker("obstacle_centers", 1.0f, 0.0f, 0.0f);
+    if (robot_.obsConstraintPtr_) {
+      for (const auto& step : robot_.obsConstraintPtr_->obs_points_t_) {
+        for (const auto& obstacle : step) {
+          geometry_msgs::msg::Point point;
+          point.x = obstacle.second.x(); point.y = obstacle.second.y(); point.z = obstacle.second.z();
+          obstacles.points.push_back(point);
+        }
+      }
+    }
+    obstacleMarkerPub_->publish(obstacles);
   }
 
   void updateCollisionConstraints(const trajectory_tracking::LocalPlanner::Reference& reference) {
@@ -347,17 +423,24 @@ class TrajectoryTrackingNode final : public rclcpp::Node {
   }
 
   void alignedPointsCallback(const sensor_msgs::msg::PointCloud2::SharedPtr cloud) {
-    if (cloud->header.frame_id != "map") {
-      RCLCPP_WARN_THROTTLE(get_logger(), *get_clock(), 2000,
-        "dropping /aligned_points outside map frame: %s", cloud->header.frame_id.c_str());
-      return;
-    }
     if (!gridMapReady_) return;
     try {
+      sensor_msgs::msg::PointCloud2 mapCloud;
+      if (cloud->header.frame_id == "map") {
+        mapCloud = *cloud;
+      } else {
+        // A non-map cloud is admissible only after an explicit TF conversion.
+        // This keeps body-frame scans out of the world-frame RM_GridMap.
+        const auto transform = tfBuffer_->lookupTransform(
+          "map", cloud->header.frame_id, cloud->header.stamp, rclcpp::Duration::from_seconds(0.1));
+        tf2::doTransform(*cloud, mapCloud, transform);
+      }
       pcl::PointCloud<pcl::PointXYZ> points;
-      pcl::fromROSMsg(*cloud, points);
-      // /aligned_points is already map-frame by contract; do not apply a second transform.
+      pcl::fromROSMsg(mapCloud, points);
       gridMap_->localPointCloudToObstacle(points, true, gridMap_->odom_position);
+    } catch (const tf2::TransformException& error) {
+      RCLCPP_WARN_THROTTLE(get_logger(), *get_clock(), 2000,
+        "dropping /aligned_points without map TF: %s", error.what());
     } catch (const std::exception& error) {
       RCLCPP_WARN_THROTTLE(get_logger(), *get_clock(), 2000,
         "dropping malformed /aligned_points: %s", error.what());
@@ -372,6 +455,8 @@ class TrajectoryTrackingNode final : public rclcpp::Node {
   double outputMaxSpeed_{2.0}, referenceDt_{0.1};
   trajectory_tracking::LocalPlanner planner_;
   std::unique_ptr<TrackingGridMap> gridMap_;
+  std::unique_ptr<tf2_ros::Buffer> tfBuffer_;
+  std::shared_ptr<tf2_ros::TransformListener> tfListener_;
   bool gridMapReady_{false};
   std::vector<bool> replanHistory_;
   bool teamIsRed_{true}, isXtl_{false}, isAttacked_{false}, replanNow_{false};
@@ -389,6 +474,9 @@ class TrajectoryTrackingNode final : public rclcpp::Node {
   rclcpp::Subscription<sentry_msgs::msg::RobotsHP>::SharedPtr robotHpSub_;
   rclcpp::Publisher<sentry_msgs::msg::SlaverSpeed>::SharedPtr speedPub_;
   rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr solverStatusPub_, replanPub_, redecisionPub_;
+  rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr robotYawPub_;
+  rclcpp::Publisher<nav_msgs::msg::Path>::SharedPtr predictedPathPub_, referencePathPub_;
+  rclcpp::Publisher<visualization_msgs::msg::Marker>::SharedPtr candidateMarkerPub_, referenceMarkerPub_, obstacleMarkerPub_;
 };
 
 int main(int argc, char** argv) {
