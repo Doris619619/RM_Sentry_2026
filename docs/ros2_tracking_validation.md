@@ -179,8 +179,13 @@ measurement, not a promise encoded by Tracking.
 The prior fixed ROS1/ROS2 command fixture remains valid for yaw=0/reference=0
 (`angle_target` absolute difference `0.008612`, `angle_current` `0.003851`, both
 below `0.02 m/s`). Low-speed heading is now compared against the current ROS1
-Fix45/46 source contract through deterministic regression rather than the old
-ROS2 yaw fallback. Existing malformed-trajectory safety and dynamic-obstacle
-replan evidence remains applicable because this change does not alter trajectory
-validation, collision ingestion or ReplanFSM wiring; they are retained as
-separate safety/replan behavior, not claimed as pure-equivalence changes.
+Fix45/Fix46 source contract through deterministic regression rather than the old
+ROS2 yaw fallback.
+
+Dynamic replanning was rerun after this follow-up: Global Planning and Tracking
+were launched together; map odometry was published at `(-3.82, 2.4)`, goal was
+`(-1.35, -4.2)`, then map-frame obstacle cloud was published to both
+`/aligned_points` and `/filted_topic_3d`. The recorder received **6**
+`/global_trajectory` messages and **4** `replan_flag=true` messages. This is a
+real `aligned_points -> RM_GridMap -> replan_flag -> ReplanFSM -> new trajectory`
+check. Safety/replan behavior remains separate from pure-equivalence claims.
