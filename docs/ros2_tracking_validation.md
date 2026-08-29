@@ -70,7 +70,21 @@ received 1,130 solver-status messages (18.817 Hz), with output interval p95
 not change scheduling, horizon, iteration limit, constraints, or QP backend to
 hide that miss.
 
+## Master post-merge verification
+
+On Doris `master` at `81aa443`, a clean Release `--packages-up-to` build of the
+localization, global-planning, OCS2/HPIPM/BLASFEO and tracking closure completed
+all 13 packages. The three primary packages
+`hdl_localization`, `trajectory_generation`, and `trajectory_tracking` then
+reported **25 tests, 0 errors, 0 failures, 0 skipped**.
+
+`global_planning_sim.launch.py use_rviz:=false` was kept live for 10 s without a
+fatal launch error. Its launch graph requires `waypoint_generator`; that package
+is now an explicit `trajectory_generation` runtime dependency so a
+`--packages-up-to trajectory_generation` installation contains the executable.
+
 ## Deferred scope
 
 Gazebo is deferred and not claimed validated. MCU serial I/O and real-robot
-hardware validation are also deferred.
+hardware validation are also deferred. See `ros2_gazebo_deferred.md` for the
+verified environment and asset gaps.
