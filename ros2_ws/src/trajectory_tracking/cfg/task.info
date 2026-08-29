@@ -1,0 +1,71 @@
+; Multiple_Shooting SQP settings
+sqp
+{
+  nThreads                              2
+  dt                                    0.1
+  sqpIteration                          8    ; Fix 61e: 12→8; reduced to cut solve time; 8 iterations sufficient with precomputed obstacle map
+  inequalityConstraintMu                0.1
+  inequalityConstraintDelta             0.2
+  useFeedbackPolicy                     true
+  projectStateInputEqualityConstraints  true
+  printSolverStatistics                 false
+  printSolverStatus                     false
+  printLinesearch                       false
+  useFeedbackPolicy                     true
+  integratorType                        RK2
+  threadPriority                        50
+}
+
+; Rollout settings
+rollout
+{
+  AbsTolODE                       1e-5
+  RelTolODE                       1e-3
+  timeStep                        0.02
+  maxNumStepsPerSecond            10000
+  checkNumericalStability         true
+}
+
+mpc
+{
+  timeHorizon                     2.0  ; [s]
+  solutionTimeWindow              2.0   ; maximum [s]
+  coldStart                       false
+
+  debugPrint                      false
+
+  mpcDesiredFrequency             100  ; [Hz]
+  mrtDesiredFrequency             400 ; [Hz]
+}
+
+initialState
+{
+   (0,0)  5.0     ; x
+   (1,0)  8.0     ; y
+   (2,0)  0.0     ; v
+   (3,0)  0.0     ; phi
+}
+
+; standard state weight matrix
+Q
+{
+    (0,0)   150.0   ; x (was 80; increased to tighten position tracking)
+    (1,1)   150.0   ; y
+    (2,2)   60.0    ; v (was 0.0 - enables velocity tracking)
+    (3,3)   80.0    ; yaw
+}
+
+; control weight matrix
+R
+{
+    (0,0)   1.5     ; a (Fix 33e: restored from 1.0; lower R was too aggressive, causing oscillation)
+    (1,1)   0.15    ; omega (was 0.5→0.15; mild smoothing only)
+}
+
+Q_final
+{
+    (0,0)   150.0   ; x (was 80)
+    (1,1)   150.0   ; y
+    (2,2)   60.0    ; v
+    (3,3)   80.0    ; yaw
+}

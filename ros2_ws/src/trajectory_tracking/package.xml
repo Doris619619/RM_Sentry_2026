@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>trajectory_tracking</name>
+  <version>0.1.0</version>
+  <description>ROS2 OCS2 Sentry trajectory tracking core.</description>
+  <maintainer email="liangys@example.com">liangys</maintainer>
+  <license>BSD-3-Clause</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>eigen</depend>
+  <depend>boost</depend>
+  <depend>ocs2_core</depend>
+  <depend>ocs2_oc</depend>
+  <depend>ocs2_mpc</depend>
+  <depend>ocs2_sqp</depend>
+  <depend>ament_index_cpp</depend>
+  <depend>rclcpp</depend>
+  <depend>nav_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>trajectory_generation</depend>
+  <depend>sentry_msgs</depend>
+  <export><build_type>ament_cmake</build_type></export>
+</package>
