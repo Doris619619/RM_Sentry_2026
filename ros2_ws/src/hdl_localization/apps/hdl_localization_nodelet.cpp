@@ -32,6 +32,7 @@
 #include <hdl_localization/pose_estimator.hpp>
 #include <hdl_localization/delta_estimater.hpp>
 #include <hdl_localization/tf_contract.hpp>
+#include <hdl_localization/odometry_twist_contract.hpp>
 
 #include <hdl_localization/msg/scan_matching_status.hpp>
 #include <hdl_localization/msg/hdl_reloc_status.hpp>
@@ -712,6 +713,19 @@ private:
     odom.header.frame_id = "map";
     odom.child_frame_id = odom_child_frame_id;
     odom.pose.pose = tf2::toMsg(map_base);
+    nav_msgs::msg::Odometry::ConstSharedPtr odom_snapshot;
+    {
+      std::lock_guard<std::mutex> lock(odom_mutex);
+      odom_snapshot = latest_odom;
+    }
+    const bool stale_odom = !odom_snapshot ||
+      std::abs((stamp - rclcpp::Time(odom_snapshot->header.stamp)).seconds()) > max_prediction_age_seconds;
+    if (stale_odom || !copyTwistInBaseLink(*odom_snapshot, odom)) {
+      markTwistUnavailable(odom);
+      RCLCPP_WARN_THROTTLE(
+        get_logger(), *get_clock(), 5000,
+        "Point-LIO odometry unavailable or stale for /localization/odometry twist; publishing zero twist");
+    }
     pose_pub->publish(odom);
   }
 

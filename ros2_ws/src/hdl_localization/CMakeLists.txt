@@ -111,6 +111,12 @@ install(DIRECTORY launch config
 if(BUILD_TESTING)
   find_package(ament_cmake_gtest REQUIRED)
   ament_add_gtest(test_tf_contract test/test_tf_contract.cpp)
+  ament_add_gtest(test_odometry_twist_contract test/test_odometry_twist_contract.cpp)
+  if(TARGET test_odometry_twist_contract)
+    ament_target_dependencies(test_odometry_twist_contract nav_msgs geometry_msgs)
+    target_link_libraries(test_odometry_twist_contract Eigen3::Eigen)
+    target_include_directories(test_odometry_twist_contract PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+  endif()
   if(TARGET test_tf_contract)
     target_link_libraries(test_tf_contract Eigen3::Eigen)
     target_include_directories(test_tf_contract PRIVATE
