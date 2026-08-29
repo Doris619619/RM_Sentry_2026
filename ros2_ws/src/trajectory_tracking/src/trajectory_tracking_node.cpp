@@ -21,6 +21,7 @@
 #include <sentry_msgs/msg/slaver_speed.hpp>
 #include <trajectory_generation/msg/trajectory_poly.hpp>
 #include "ocs2_sentry/SentryRobotInterface.h"
+#include "KMF.h"
 
 namespace {
 double yawOf(const geometry_msgs::msg::Quaternion& q) {

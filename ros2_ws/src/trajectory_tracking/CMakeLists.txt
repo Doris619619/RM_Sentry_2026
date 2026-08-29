@@ -23,6 +23,7 @@ add_library(trajectory_tracking_core SHARED
   src/ocs2_sentry/constraint/SentryRobotStateInputConstraint.cpp
   src/ocs2_sentry/constraint/SentryRobotCollisionConstraint.cpp
   src/ocs2_sentry/cost/SentryRobotQuadraticTrackingCost.cpp
+  src/KMF.cpp
   src/ocs2_sentry/SentryRobotInterface.cpp)
 target_include_directories(trajectory_tracking_core PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
@@ -35,6 +36,8 @@ target_compile_features(trajectory_tracking_core PUBLIC cxx_std_14)
 if(BUILD_TESTING)
   ament_add_gtest(test_sentry_dynamics test/test_sentry_dynamics.cpp)
   target_link_libraries(test_sentry_dynamics trajectory_tracking_core)
+  ament_add_gtest(test_kmf test/test_kmf.cpp)
+  target_link_libraries(test_kmf trajectory_tracking_core)
 endif()
 
 add_executable(hit_bridge src/hit_bridge.cpp)
