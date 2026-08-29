@@ -11,6 +11,7 @@ class HitBridge final : public rclcpp::Node {
     const auto commandTopic = declare_parameter<std::string>("cmd_vel_topic", "/cmd_vel");
     const auto speedTopic = declare_parameter<std::string>("speed_topic", "/sentry_des_speed");
     const auto arrivedTopic = declare_parameter<std::string>("arrived_topic", "/dstar_status");
+    const auto trackingArrivedTopic = declare_parameter<std::string>("tracking_arrived_topic", "/tracking/arrived");
     commandPub_ = create_publisher<geometry_msgs::msg::Twist>(commandTopic, rclcpp::QoS(10).reliable());
     arrivedPub_ = create_publisher<std_msgs::msg::Bool>(arrivedTopic, rclcpp::QoS(10).reliable());
     speedSub_ = create_subscription<sentry_msgs::msg::SlaverSpeed>(
@@ -21,15 +22,18 @@ class HitBridge final : public rclcpp::Node {
         command.linear.x = speed->angle_target;
         command.linear.y = speed->angle_current;
         commandPub_->publish(command);
-        std_msgs::msg::Bool arrived;
-        arrived.data = std::fabs(command.linear.x) < 0.01 && std::fabs(command.linear.y) < 0.01;
-        arrivedPub_->publish(arrived);
       });
+    // Arrival is an explicit Tracking state. A safe zero command from a failed
+    // solver must never be reinterpreted as a successful arrival.
+    arrivedSub_ = create_subscription<std_msgs::msg::Bool>(
+      trackingArrivedTopic, rclcpp::QoS(10).reliable(),
+      [this](std_msgs::msg::Bool::ConstSharedPtr arrived) { arrivedPub_->publish(*arrived); });
   }
  private:
   rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr commandPub_;
   rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr arrivedPub_;
   rclcpp::Subscription<sentry_msgs::msg::SlaverSpeed>::SharedPtr speedSub_;
+  rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr arrivedSub_;
 };
 int main(int argc, char** argv) {
   rclcpp::init(argc, argv);

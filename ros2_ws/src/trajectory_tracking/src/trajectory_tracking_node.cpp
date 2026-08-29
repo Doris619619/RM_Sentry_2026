@@ -41,6 +41,7 @@
 #include "trajectory_tracking/trajectory_poly.hpp"
 #include "trajectory_tracking/local_planner.hpp"
 #include "trajectory_tracking/RM_GridMap.h"
+#include "trajectory_tracking/tracking_semantics.hpp"
 
 namespace {
 double yawOf(const geometry_msgs::msg::Quaternion& q) {
@@ -56,19 +57,29 @@ class TrajectoryTrackingNode final : public rclcpp::Node {
     taskFile_ = declare_parameter<std::string>("task_file", defaultTask);
     outputMaxSpeed_ = declare_parameter<double>("output.max_speed", 2.0);
     referenceDt_ = declare_parameter<double>("reference.dt", 0.1);
-    if (std::abs(referenceDt_ - 0.1) > 1e-12) {
-      throw std::invalid_argument("reference.dt must remain 0.1 to preserve the ROS1 LocalPlanner contract");
+    velocityEpsilon_ = declare_parameter<double>("heading.velocity_epsilon", 0.03);
+    referenceOverrideSpeed_ = declare_parameter<double>("heading.reference_override_speed", 0.3);
+    arrivalDistance_ = declare_parameter<double>("arrival.distance", 0.3);
+    collisionHorizonSteps_ = declare_parameter<int>("collision.horizon_steps", 20);
+    collisionTimeStep_ = declare_parameter<double>("collision.time_step", 0.1);
+    collisionPenaltyMu_ = declare_parameter<double>("collision.penalty_mu", 20.0);
+    collisionPenaltyDelta_ = declare_parameter<double>("collision.penalty_delta", 0.5);
+    if (std::abs(referenceDt_ - 0.1) > 1e-12 || collisionHorizonSteps_ != 20 ||
+        std::abs(collisionTimeStep_ - 0.1) > 1e-12 || velocityEpsilon_ <= 0.0 ||
+        referenceOverrideSpeed_ <= 0.0 || arrivalDistance_ <= 0.0) {
+      throw std::invalid_argument("tracking parameters violate the frozen ROS1 MPC contract");
     }
 
     robot_.init(taskFile_);
     // This is the active ROS1 LocalPlanner collision wiring: a single shared
     // obstacle set is updated before every real SQP solve, while the solver and
     // HPIPM warm start survive across odometry callbacks.
-    ocs2::scalar_array_t collisionTimes(20);
-    std::vector<std::vector<std::pair<int, Eigen::Vector3d>>> collisionPoints(20);
-    for (std::size_t i = 0; i < collisionTimes.size(); ++i) collisionTimes[i] = 0.1 * i;
+    ocs2::scalar_array_t collisionTimes(static_cast<std::size_t>(collisionHorizonSteps_));
+    std::vector<std::vector<std::pair<int, Eigen::Vector3d>>> collisionPoints(
+      static_cast<std::size_t>(collisionHorizonSteps_));
+    for (std::size_t i = 0; i < collisionTimes.size(); ++i) collisionTimes[i] = collisionTimeStep_ * i;
     robot_.obsConstraintPtr_ = std::make_shared<ObsConstraintSet>(collisionTimes, collisionPoints);
-    const ocs2::RelaxedBarrierPenalty::Config collisionPenalty(20.0, 0.5);
+    const ocs2::RelaxedBarrierPenalty::Config collisionPenalty(collisionPenaltyMu_, collisionPenaltyDelta_);
     robot_.problem_.stateSoftConstraintPtr->add(
       "stateCollisionBounds",
       std::make_unique<ocs2::StateSoftConstraint>(
@@ -84,17 +95,42 @@ class TrajectoryTrackingNode final : public rclcpp::Node {
     // ROS2 owns the subscriptions; the compatibility NodeHandle is only the original
     // algorithm's parameter carrier.
     const auto globalPlanningShare = ament_index_cpp::get_package_share_directory("trajectory_generation");
+    const double mapResolution = declare_parameter<double>("map.resolution", 0.05);
+    const double mapXSize = declare_parameter<double>("map.x_size", 20.0);
+    const double mapYSize = declare_parameter<double>("map.y_size", 20.0);
+    const double mapZSize = declare_parameter<double>("map.z_size", 2.0);
+    const double mapLowerX = declare_parameter<double>("map.lower_x", -13.394);
+    const double mapLowerY = declare_parameter<double>("map.lower_y", -12.079);
+    const double mapLowerZ = declare_parameter<double>("map.lower_z", 0.0);
+    const double mapRobotRadius = declare_parameter<double>("map.robot_radius", 0.35);
+    const double mapSearchHeightMin = declare_parameter<double>("map.search_height_min", -0.05);
+    const double mapSearchHeightMax = declare_parameter<double>("map.search_height_max", 1.2);
+    const double mapSearchRadius = declare_parameter<double>("map.search_radius", 6.0);
+    const double mapHeightBias = declare_parameter<double>("map.height_bias", 0.015294117853045464);
+    const double mapHeightInterval = declare_parameter<double>("map.height_interval", 1.5);
+    const double mapHeightThreshold = declare_parameter<double>("map.height_threshold", 0.08);
+    const double mapSecondHeightThreshold = declare_parameter<double>("map.height_second_high_threshold", 0.2);
+    if (mapResolution <= 0.0 || mapXSize <= 0.0 || mapYSize <= 0.0 || mapZSize <= 0.0 ||
+        mapRobotRadius <= 0.0 || mapSearchRadius <= 0.0 || mapSearchHeightMin > mapSearchHeightMax ||
+        mapHeightInterval <= 0.0) {
+      throw std::invalid_argument("invalid shared map metadata");
+    }
     ros::NodeHandle mapParameters;
-    mapParameters.setParam("trajectory_generator/height_bias", 0.015294117853045464);
-    mapParameters.setParam("trajectory_generator/height_interval", 1.5);
-    mapParameters.setParam("trajectory_generator/height_threshold", 0.08);
-    mapParameters.setParam("trajectory_generator/height_sencond_high_threshold", 0.2);
+    mapParameters.setParam("trajectory_generator/height_bias", mapHeightBias);
+    mapParameters.setParam("trajectory_generator/height_interval", mapHeightInterval);
+    mapParameters.setParam("trajectory_generator/height_threshold", mapHeightThreshold);
+    mapParameters.setParam("trajectory_generator/height_sencond_high_threshold", mapSecondHeightThreshold);
+    const Eigen::Vector3d mapLower(mapLowerX, mapLowerY, mapLowerZ);
+    const Eigen::Vector3d mapUpper = mapLower + Eigen::Vector3d(mapXSize, mapYSize, mapZSize);
     gridMap_ = std::make_unique<TrackingGridMap>();
     gridMap_->initGridMap(
       mapParameters, globalPlanningShare + "/map/occfinal.png",
       globalPlanningShare + "/map/bevfinal.png", globalPlanningShare + "/map/occtopo.png",
-      0.05, Eigen::Vector3d(-13.394, -12.079, 0.0), Eigen::Vector3d(6.606, 7.921, 2.0),
-      400, 400, 40, 0.35, -0.05, 1.2, 6.0);
+      mapResolution, mapLower, mapUpper,
+      static_cast<int>(std::lround(mapXSize / mapResolution)),
+      static_cast<int>(std::lround(mapYSize / mapResolution)),
+      static_cast<int>(std::lround(mapZSize / mapResolution)), mapRobotRadius,
+      mapSearchHeightMin, mapSearchHeightMax, mapSearchRadius);
     gridMapReady_ = gridMap_->data != nullptr;
     if (!gridMapReady_) RCLCPP_ERROR(get_logger(), "RM_GridMap initialization failed; dynamic-obstacle replanning disabled");
     tfBuffer_ = std::make_unique<tf2_ros::Buffer>(get_clock());
@@ -126,6 +162,7 @@ class TrajectoryTrackingNode final : public rclcpp::Node {
     solverStatusPub_ = create_publisher<std_msgs::msg::Bool>("/solver_status", rclcpp::QoS(10).reliable());
     replanPub_ = create_publisher<std_msgs::msg::Bool>("/replan_flag", rclcpp::QoS(10).reliable());
     redecisionPub_ = create_publisher<std_msgs::msg::Bool>("/redecide_flag", rclcpp::QoS(10).reliable());
+    arrivedPub_ = create_publisher<std_msgs::msg::Bool>("/tracking/arrived", rclcpp::QoS(10).reliable());
     robotYawPub_ = create_publisher<std_msgs::msg::Float64>("/robot_cur_yaw_reg", rclcpp::QoS(10).reliable());
     predictedPathPub_ = create_publisher<nav_msgs::msg::Path>("/tracking/mpc_predicted_path", rclcpp::QoS(10).reliable());
     referencePathPub_ = create_publisher<nav_msgs::msg::Path>("/tracking/mpc_reference_path", rclcpp::QoS(10).reliable());
@@ -181,7 +218,14 @@ class TrajectoryTrackingNode final : public rclcpp::Node {
     return static_cast<uint8_t>(lastMotionMode_);
   }
 
+  void publishArrival(bool arrived) {
+    std_msgs::msg::Bool message;
+    message.data = arrived;
+    arrivedPub_->publish(message);
+  }
+
   void publishArrivedStop() {
+    publishArrival(true);
     sentry_msgs::msg::SlaverSpeed command;
     command.line_speed = 0.0f;
     command.angle_target = 0.0f;
@@ -195,6 +239,7 @@ class TrajectoryTrackingNode final : public rclcpp::Node {
 
   void stop(const char* reason) {
     solver_->reset();
+    publishArrival(false);
     sentry_msgs::msg::SlaverSpeed command;
     command.line_speed = 0.0f; command.angle_target = 0.0f; command.angle_current = 0.0f;
     speedPub_->publish(command);
@@ -218,6 +263,7 @@ class TrajectoryTrackingNode final : public rclcpp::Node {
     if (!planner_.setTrajectory(parsed)) { stop("unable to initialize LocalPlanner"); return; }
     { std::lock_guard<std::mutex> lock(mutex_); trajectory_ = std::move(parsed); trajectoryStart_ = now(); lastReplanRequest_ = trajectoryStart_; replanHistory_.clear(); }
     solver_->reset();
+    publishArrival(false);
   }
 
   bool sample(const trajectory_tracking::Polynomial& trajectory, double elapsed, Eigen::Vector4d& state) const {
@@ -241,14 +287,16 @@ class TrajectoryTrackingNode final : public rclcpp::Node {
     const auto& body = odometry->twist.twist.linear;
     const double worldVx = body.x * std::cos(yaw) - body.y * std::sin(yaw);
     const double worldVy = body.x * std::sin(yaw) + body.y * std::cos(yaw);
-    ocs2::vector_t observation(4);
+    const Eigen::Vector2d position2d(odometry->pose.pose.position.x, odometry->pose.pose.position.y);
+    const Eigen::Vector2d target = planner_.target();
     const double speed = std::hypot(worldVx, worldVy);
-    observation << odometry->pose.pose.position.x, odometry->pose.pose.position.y, speed,
-      speed > 0.03 ? std::atan2(worldVy, worldVx) : yaw;
+    velocityHeading_ = trajectory_tracking::updateVelocityHeading(
+      worldVx, worldVy, position2d, target, target.norm() > 0.1, velocityHeading_, velocityEpsilon_);
+    ocs2::vector_t observation(4);
+    observation << position2d.x(), position2d.y(), speed, velocityHeading_.heading;
     if (!observation.allFinite()) { stop("non-finite observation"); return; }
 
-    const Eigen::Vector2d target = planner_.target();
-    const bool arrived = (observation.head<2>() - target).norm() < 0.3 && current.motion_mode != 8;
+    const bool arrived = trajectory_tracking::hasArrived(position2d, target, current.motion_mode, arrivalDistance_);
     if (arrived) {
       publishArrivedStop();
       return;
@@ -259,6 +307,12 @@ class TrajectoryTrackingNode final : public rclcpp::Node {
     if (!planner_.makeFightReference(position, (now() - start).seconds(), yaw, reference)) {
       stop("invalid LocalPlanner reference"); return;
     }
+    const bool haveReferencePhi = !reference.states.empty() && reference.states.front().allFinite();
+    observation(3) = trajectory_tracking::observationHeading(
+      velocityHeading_, speed, haveReferencePhi, haveReferencePhi ? reference.states.front()(3) : 0.0,
+      referenceOverrideSpeed_);
+    if (speed < referenceOverrideSpeed_ && haveReferencePhi) velocityHeading_.heading = observation(3);
+    publishArrival(false);
     ocs2::vector_array_t states, inputs;
     states.reserve(reference.states.size());
     inputs.reserve(reference.states.size());
@@ -452,7 +506,10 @@ class TrajectoryTrackingNode final : public rclcpp::Node {
   rclcpp::Time trajectoryStart_{0, 0, RCL_ROS_TIME};
   rclcpp::Time lastReplanRequest_{0, 0, RCL_ROS_TIME};
   std::string taskFile_;
-  double outputMaxSpeed_{2.0}, referenceDt_{0.1};
+  double outputMaxSpeed_{2.0}, referenceDt_{0.1}, velocityEpsilon_{0.03}, referenceOverrideSpeed_{0.3};
+  double arrivalDistance_{0.3}, collisionTimeStep_{0.1}, collisionPenaltyMu_{20.0}, collisionPenaltyDelta_{0.5};
+  int collisionHorizonSteps_{20};
+  trajectory_tracking::HeadingState velocityHeading_;
   trajectory_tracking::LocalPlanner planner_;
   std::unique_ptr<TrackingGridMap> gridMap_;
   std::unique_ptr<tf2_ros::Buffer> tfBuffer_;
@@ -473,7 +530,7 @@ class TrajectoryTrackingNode final : public rclcpp::Node {
   rclcpp::Subscription<sentry_msgs::msg::RobotStatus>::SharedPtr robotStatusSub_;
   rclcpp::Subscription<sentry_msgs::msg::RobotsHP>::SharedPtr robotHpSub_;
   rclcpp::Publisher<sentry_msgs::msg::SlaverSpeed>::SharedPtr speedPub_;
-  rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr solverStatusPub_, replanPub_, redecisionPub_;
+  rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr solverStatusPub_, replanPub_, redecisionPub_, arrivedPub_;
   rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr robotYawPub_;
   rclcpp::Publisher<nav_msgs::msg::Path>::SharedPtr predictedPathPub_, referencePathPub_;
   rclcpp::Publisher<visualization_msgs::msg::Marker>::SharedPtr candidateMarkerPub_, referenceMarkerPub_, obstacleMarkerPub_;
