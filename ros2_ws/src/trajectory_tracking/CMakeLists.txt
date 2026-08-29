@@ -53,7 +53,7 @@ install(TARGETS trajectory_tracking_node hit_bridge
 install(TARGETS trajectory_tracking_core EXPORT export_trajectory_tracking
   ARCHIVE DESTINATION lib LIBRARY DESTINATION lib RUNTIME DESTINATION bin)
 install(DIRECTORY include/ DESTINATION include)
-install(DIRECTORY cfg DESTINATION share/trajectory_tracking)
+install(DIRECTORY cfg launch DESTINATION share/trajectory_tracking)
 
 ament_export_targets(export_trajectory_tracking HAS_LIBRARY_TARGET)
 ament_export_dependencies(Eigen3 Boost ocs2_core ocs2_oc ocs2_mpc ocs2_sqp)
