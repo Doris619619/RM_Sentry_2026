@@ -76,7 +76,9 @@ On Doris `master` at `81aa443`, a clean Release `--packages-up-to` build of the
 localization, global-planning, OCS2/HPIPM/BLASFEO and tracking closure completed
 all 13 packages. The three primary packages
 `hdl_localization`, `trajectory_generation`, and `trajectory_tracking` then
-reported **25 tests, 0 errors, 0 failures, 0 skipped**.
+reported **25 tests, 0 errors, 0 failures, 0 skipped**. The installed
+`test_sqp_mpc_smoke` also passed on this master build; its runtime path reaches
+HPIPM, and ELF inspection confirmed `libhpipm.so` needs `libblasfeo.so`.
 
 `global_planning_sim.launch.py use_rviz:=false` was kept live for 10 s without a
 fatal launch error. Its launch graph requires `waypoint_generator`; that package
