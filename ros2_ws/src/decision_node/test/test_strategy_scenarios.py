@@ -83,6 +83,11 @@ class TestStrategyScenarios(unittest.TestCase):
             self.publish(publisher, kind, value)
         self.assertTrue(self.spin_until(lambda: (1.0, 1.0) in self.goals and 3 in self.motion), "game start did not produce INITPUSH output")
 
+        # The real arrival feedback moves PUSH/INITPUSH into OCCUPY, whose
+        # normal, non-attacked motion mode is 1.
+        self.publish(self.arrived, Bool, True)
+        self.assertTrue(self.spin_until(lambda: 1 in self.motion), "arrival did not move INITPUSH into OCCUPY")
+
         # Low HP plus arrival enters supply, asks for free recovery and buys the delta to max bullet.
         for publisher, kind, value in (
             (self.hp, UInt16, 50), (self.arrived, Bool, True),
@@ -104,3 +109,11 @@ class TestStrategyScenarios(unittest.TestCase):
         self.assertTrue(self.spin_until(lambda: (0.5, 0.5) in self.goals), "neutral fallback did not choose WAITFOROP")
         self.publish(self.hp, UInt16, 330)
         self.assertTrue(self.spin_until(lambda: (9.0, 9.0) in self.goals), "two-second intense-harm latch did not choose retreat")
+
+        # Death has priority over all normal actions; once HP returns, the
+        # persisted RESPAWN state transitions to SUPPLY.
+        motion_three_before_respawn = self.motion.count(3)
+        self.publish(self.hp, UInt16, 0)
+        self.assertTrue(self.spin_until(lambda: 0 in self.motion), "dead sentry did not enter RESPAWN")
+        self.publish(self.hp, UInt16, 400)
+        self.assertTrue(self.spin_until(lambda: self.motion.count(3) > motion_three_before_respawn), "revived sentry did not transition from RESPAWN to SUPPLY")
