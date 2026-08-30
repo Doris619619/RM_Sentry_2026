@@ -36,8 +36,11 @@ install(TARGETS decision_mcu_protocol mcu_communicator strategy_node
   RUNTIME DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
+  find_package(launch_testing_ament_cmake REQUIRED)
   ament_add_gtest(test_mcu_protocol test/test_mcu_protocol.cpp)
   target_link_libraries(test_mcu_protocol decision_mcu_protocol)
+  add_launch_test(test/test_mcu_pty.py TIMEOUT 45)
+  add_launch_test(test/test_strategy_scenarios.py TIMEOUT 45)
 endif()
 
 ament_package()

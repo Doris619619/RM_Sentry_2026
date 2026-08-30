@@ -24,6 +24,26 @@
 - The XML passes `occupy_threshold`, but ROS1 reads `~central_threshold` in the accumulator (default 20). ROS2 exposes both and uses only `central_threshold` for that node.
 - No formal publisher of `/referee/friendly_score` or `/referee/enemy_score` exists in source. Both inputs remain optional and default to zero; no score is inferred from HP, death bits, or game result.
 - Legacy standalone launches default to 115200, but the integrated launch and HK protocol comment use 921600. ROS2 production MCU config defaults to 921600; 115200 remains a parameter override.
+- ROS1 advertised `/mcu/yaw_angle`, but the 78-byte `HKGameData` has no yaw field and the ROS1 runtime never populated it. The ROS2 bridge intentionally does not publish a fabricated yaw topic.
+
+## Automated validation
+
+- `test_mcu_protocol` verifies exact 78/21/7-byte layouts, known CRC vectors, fragmented/noisy RX parsing, every integrity rejection/resync path, unit conversion, TX scaling, and saturation.
+- `test_mcu_pty.py` starts the installed MCU executable against a real PTY. It checks fragmented RX publication, navigation and motion TX CRCs and fields, `cmd_vel` watchdog zeroing, I/O failure, and automatic reopen through a replaced PTY.
+- `test_strategy_scenarios.py` starts the installed BehaviorTree node. It observes public ROS outputs for game-start push, danger supply/revive/bullet delta, score-led radar chase, WAITFOROP, and two-second intense-harm retreat.
+- The core software closure builds and tests `decision_node`, `trajectory_generation`, `trajectory_tracking`, and `hdl_localization`. Hardware, live lidar, field-map, and referee integration remain outside that software evidence.
+
+## Reproducible software check
+
+```bash
+source /opt/ros/humble/setup.bash
+cd ~/RM_Sentry_2026/ros2_ws
+colcon build --packages-up-to decision_node trajectory_generation trajectory_tracking hdl_localization
+colcon test --packages-select decision_node trajectory_generation trajectory_tracking hdl_localization
+colcon test-result --all --verbose
+```
+
+On this host, BehaviorTree.CPP v3 was unavailable as a system package. Build validation used an extracted package under `/tmp/decision_bt_pkg`; deployment must install the matching `ros-humble-behaviortree-cpp-v3` dependency normally (for example via the workspace dependency setup), rather than relying on that temporary path.
 
 ## Deferred hardware validation
 
