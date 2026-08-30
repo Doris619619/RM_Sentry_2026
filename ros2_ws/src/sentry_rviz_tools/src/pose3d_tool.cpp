@@ -55,14 +55,23 @@ int Pose3DTool::processMouseEvent(rviz_common::ViewportMouseEvent& event) {
         arrow_->getSceneNode()->setVisible(true);
         arrow_->setOrientation(Ogre::Quaternion(Ogre::Radian(yaw_), Ogre::Vector3::UNIT_Z) *
                                Ogre::Quaternion(Ogre::Radian(-Ogre::Math::HALF_PI), Ogre::Vector3::UNIT_Y));
-        if (event.right()) state_ = State::height;
+        if (event.right()) {
+          // Match the ROS1 tool: while holding right button, vertical mouse
+          // drag changes height.  The wheel is intentionally not part of the
+          // 3D-goal contract.
+          if (state_ != State::height) {
+            state_ = State::height;
+            last_mouse_y_ = event.y;
+          } else {
+            position_.z += static_cast<float>(last_mouse_y_ - event.y) * 0.01f;
+            last_mouse_y_ = event.y;
+            arrow_->setPosition(position_);
+          }
+        } else if (state_ == State::height) {
+          state_ = State::orientation;
+        }
         flags |= Render;
       }
-    }
-    if (state_ == State::height) {
-      position_.z += static_cast<float>(event.wheel_delta) / 120.0f;
-      arrow_->setPosition(position_);
-      flags |= Render;
     }
   } else if (event.leftUp() && (state_ == State::orientation || state_ == State::height)) {
     onPoseSet(position_.x, position_.y, position_.z, yaw_);

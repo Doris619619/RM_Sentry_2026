@@ -20,6 +20,7 @@
 #include <tf2_sensor_msgs/tf2_sensor_msgs.hpp>
 
 #include <std_srvs/srv/empty.hpp>
+#include <std_msgs/msg/bool.hpp>
 #include <sensor_msgs/msg/imu.hpp>
 #include <sensor_msgs/msg/point_cloud2.hpp>
 #include <nav_msgs/msg/odometry.hpp>
@@ -113,6 +114,8 @@ public:
     status_pub = create_publisher<hdl_localization::msg::ScanMatchingStatus>("/status", 5);
     reloc_status_pub = create_publisher<hdl_localization::msg::HdlRelocStatus>(
       "/hdl_localization/reloc_status", 5);
+    relocalize_applied_pub = create_publisher<std_msgs::msg::Bool>(
+      "/hdl_localization/relocalize_applied", rclcpp::QoS(1).reliable().transient_local());
 
     initialize_params();
 
@@ -135,8 +138,10 @@ public:
         rmw_qos_profile_services_default,
         relocalize_cb_group);
 
+      // This timer only polls readiness.  It must never wait inside an executor
+      // callback because the same executor dispatches service responses.
       global_loc_init_timer = create_wall_timer(
-        std::chrono::milliseconds(0),
+        std::chrono::milliseconds(250),
         std::bind(&HdlLocalizationNodelet::wait_for_global_localization_services, this));
 
       RCLCPP_INFO(get_logger(), "/relocalize service advertised");
@@ -448,50 +453,45 @@ private:
   }
 
   void wait_for_global_localization_services() {
-    global_loc_init_timer.reset();
-
-    RCLCPP_INFO(get_logger(), "wait for global localization services");
-    constexpr auto k_wait_timeout = std::chrono::seconds(120);
-    if (!set_global_map_service->wait_for_service(k_wait_timeout)) {
-      RCLCPP_ERROR(get_logger(), "SetGlobalMap service not available (is hdl_global_localization running?)");
-      return;
-    }
-    if (!query_global_localization_service->wait_for_service(std::chrono::seconds(5))) {
-      RCLCPP_ERROR(get_logger(), "QueryGlobalLocalization service not available");
+    if (!set_global_map_service->service_is_ready() ||
+        !query_global_localization_service->service_is_ready()) {
+      RCLCPP_DEBUG_THROTTLE(
+        get_logger(), *get_clock(), 5000,
+        "waiting for hdl_global_localization services without blocking the executor");
       return;
     }
 
     global_loc_services_ready = true;
+    global_loc_init_timer.reset();
     RCLCPP_INFO(get_logger(), "global localization services are ready");
     send_global_map_to_engine();
   }
 
   bool send_global_map_to_engine() {
-    if (!use_global_localization || !set_global_map_service || !globalmap) {
+    if (!use_global_localization || !set_global_map_service || !globalmap ||
+        !set_global_map_service->service_is_ready()) {
       return false;
     }
-    if (!set_global_map_service->service_is_ready()) {
-      return false;
+    if (global_map_request_pending.exchange(true)) {
+      return true;
     }
 
     auto req = std::make_shared<hdl_global_localization::srv::SetGlobalMap::Request>();
     pcl::toROSMsg(*globalmap, req->global_map);
     req->global_map.header.frame_id = "map";
 
-    auto future = set_global_map_service->async_send_request(req);
-    if (future.wait_for(std::chrono::seconds(60)) != std::future_status::ready) {
-      RCLCPP_ERROR(get_logger(), "SetGlobalMap timeout");
-      return false;
-    }
-
-    try {
-      future.get();
-      RCLCPP_INFO(get_logger(), "SetGlobalMap finished");
-      return true;
-    } catch (const std::exception& e) {
-      RCLCPP_ERROR(get_logger(), "SetGlobalMap failed: %s", e.what());
-      return false;
-    }
+    set_global_map_service->async_send_request(
+      req,
+      [this](rclcpp::Client<hdl_global_localization::srv::SetGlobalMap>::SharedFuture future) {
+        global_map_request_pending = false;
+        try {
+          future.get();
+          RCLCPP_INFO(get_logger(), "SetGlobalMap finished");
+        } catch (const std::exception& e) {
+          RCLCPP_ERROR(get_logger(), "SetGlobalMap failed: %s", e.what());
+        }
+      });
+    return true;
   }
 
   void globalmap_callback(const sensor_msgs::msg::PointCloud2::ConstSharedPtr points_msg) {
@@ -547,10 +547,8 @@ private:
   void auto_relocalize_timer_callback() {
     auto_relocalize_timer.reset();
 
-    const bool ok = execute_relocalize("auto_monitor");
-    auto_relocalize_in_progress = false;
-    if (ok) {
-      last_auto_relocalize_time_ = get_clock()->now();
+    if (!execute_relocalize("auto_monitor")) {
+      auto_relocalize_in_progress = false;
     }
   }
 
@@ -559,94 +557,73 @@ private:
       RCLCPP_WARN(get_logger(), "[%s] no scan has been received", trigger_source);
       return false;
     }
-
-    if (!query_global_localization_service) {
-      RCLCPP_WARN(get_logger(), "[%s] global localization client is not available", trigger_source);
-      return false;
-    }
-
-    if (!query_global_localization_service->service_is_ready()) {
+    if (!query_global_localization_service ||
+        !query_global_localization_service->service_is_ready()) {
       RCLCPP_ERROR(get_logger(),
         "[%s] QueryGlobalLocalization service not available "
         "(ensure hdl_global_localization is running and services are ready)",
         trigger_source);
       return false;
     }
+    if (relocalizing.exchange(true)) {
+      RCLCPP_WARN(get_logger(), "[%s] relocalization already in progress", trigger_source);
+      return false;
+    }
 
-    relocalizing = true;
     delta_estimater->reset();
-
-    pcl::PointCloud<PointT>::ConstPtr scan = last_scan;
-
-    RCLCPP_INFO(
-      get_logger(),
-      "[%s] relocalize query cloud: %zu points, frame=%s",
-      trigger_source,
-      scan->size(),
-      scan->header.frame_id.c_str());
-
+    const pcl::PointCloud<PointT>::ConstPtr scan = last_scan;
+    const std::string trigger(trigger_source);
     auto query_req = std::make_shared<hdl_global_localization::srv::QueryGlobalLocalization::Request>();
     pcl::toROSMsg(*scan, query_req->cloud);
     query_req->cloud.header.frame_id = scan->header.frame_id;
     query_req->max_num_candidates = 1;
 
-    auto future = query_global_localization_service->async_send_request(query_req);
-    if (future.wait_for(std::chrono::seconds(60)) != std::future_status::ready) {
-      RCLCPP_ERROR(get_logger(), "[%s] QueryGlobalLocalization timeout", trigger_source);
-      relocalizing = false;
-      return false;
-    }
-
-    auto query_result = future.get();
-    if (query_result->poses.empty()) {
-      RCLCPP_ERROR(get_logger(), "[%s] global localization failed", trigger_source);
-      relocalizing = false;
-      return false;
-    }
-
-    const auto& result = query_result->poses[0];
-
-    RCLCPP_INFO_STREAM(get_logger(), "--- Global localization result (" << trigger_source << ") ---");
-    RCLCPP_INFO_STREAM(get_logger(),
-      "Trans :" << result.position.x << " " << result.position.y << " " << result.position.z);
-    RCLCPP_INFO_STREAM(get_logger(),
-      "Quat  :" << result.orientation.x << " " << result.orientation.y << " "
-                << result.orientation.z << " " << result.orientation.w);
-    RCLCPP_INFO_STREAM(get_logger(), "Error :" << query_result->errors[0]);
-    RCLCPP_INFO_STREAM(get_logger(), "Inlier:" << query_result->inlier_fractions[0]);
-
-    Eigen::Isometry3f pose = Eigen::Isometry3f::Identity();
-    pose.linear() = Eigen::Quaternionf(
-      result.orientation.w,
-      result.orientation.x,
-      result.orientation.y,
-      result.orientation.z).toRotationMatrix();
-    pose.translation() = Eigen::Vector3f(
-      result.position.x,
-      result.position.y,
-      result.position.z);
-
-    pose = pose * delta_estimater->estimated_delta();
-
-    {
-      std::lock_guard<std::mutex> lock(pose_estimator_mutex);
-      pose_estimator.reset(new hdl_localization::PoseEstimator(
-        registration,
-        get_clock()->now(),
-        pose.translation(),
-        Eigen::Quaternionf(pose.linear()),
-        cool_time_duration));
-    }
-
-    relocalizing = false;
+    RCLCPP_INFO(get_logger(), "[%s] queued relocalize query cloud: %zu points, frame=%s",
+      trigger.c_str(), scan->size(), scan->header.frame_id.c_str());
+    query_global_localization_service->async_send_request(
+      query_req,
+      [this, trigger](rclcpp::Client<hdl_global_localization::srv::QueryGlobalLocalization>::SharedFuture future) {
+        bool success = false;
+        try {
+          const auto query_result = future.get();
+          if (query_result->poses.empty() || query_result->errors.empty() ||
+              query_result->inlier_fractions.empty()) {
+            RCLCPP_ERROR(get_logger(), "[%s] global localization returned no candidate", trigger.c_str());
+          } else {
+            const auto& result = query_result->poses.front();
+            Eigen::Isometry3f pose = Eigen::Isometry3f::Identity();
+            pose.linear() = Eigen::Quaternionf(
+              result.orientation.w, result.orientation.x, result.orientation.y, result.orientation.z).toRotationMatrix();
+            pose.translation() = Eigen::Vector3f(result.position.x, result.position.y, result.position.z);
+            pose = pose * delta_estimater->estimated_delta();
+            {
+              std::lock_guard<std::mutex> lock(pose_estimator_mutex);
+              pose_estimator.reset(new hdl_localization::PoseEstimator(
+                registration, get_clock()->now(), pose.translation(),
+                Eigen::Quaternionf(pose.linear()), cool_time_duration));
+            }
+            RCLCPP_INFO(get_logger(), "[%s] relocalize applied candidate error=%.6f inlier=%.6f",
+              trigger.c_str(), query_result->errors.front(), query_result->inlier_fractions.front());
+            success = true;
+          }
+        } catch (const std::exception& e) {
+          RCLCPP_ERROR(get_logger(), "[%s] QueryGlobalLocalization failed: %s", trigger.c_str(), e.what());
+        }
+        std_msgs::msg::Bool applied;
+        applied.data = success;
+        relocalize_applied_pub->publish(applied);
+        if (success && trigger == "auto_monitor") last_auto_relocalize_time_ = get_clock()->now();
+        if (trigger == "auto_monitor") auto_relocalize_in_progress = false;
+        relocalizing = false;
+      });
     return true;
   }
 
-  bool relocalize(
+  void relocalize(
     std::shared_ptr<std_srvs::srv::Empty::Request> /*req*/,
     std::shared_ptr<std_srvs::srv::Empty::Response> /*res*/)
   {
-    return execute_relocalize("service");
+    execute_relocalize("service");
   }
 
   void initialpose_callback(const geometry_msgs::msg::PoseWithCovarianceStamped::ConstSharedPtr pose_msg) {
@@ -795,6 +772,7 @@ private:
   rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr aligned_pub;
   rclcpp::Publisher<hdl_localization::msg::ScanMatchingStatus>::SharedPtr status_pub;
   rclcpp::Publisher<hdl_localization::msg::HdlRelocStatus>::SharedPtr reloc_status_pub;
+  rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr relocalize_applied_pub;
 
   std::shared_ptr<tf2_ros::TransformListener> tf_listener;
   std::unique_ptr<tf2_ros::Buffer> tf_buffer;
@@ -832,6 +810,7 @@ private:
   rclcpp::CallbackGroup::SharedPtr global_loc_client_cb_group;
   rclcpp::TimerBase::SharedPtr global_loc_init_timer;
   std::atomic_bool global_loc_services_ready{false};
+  std::atomic_bool global_map_request_pending{false};
 
   double cool_time_duration;
   std::string reg_method;

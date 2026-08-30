@@ -40,7 +40,8 @@ def generate_launch_description():
                               description='Explicitly permit physical chassis command output.'),
         DeclareLaunchArgument('serial_port', default_value='/dev/ttyUSB0'),
         DeclareLaunchArgument('baudrate', default_value='921600'),
-        DeclareLaunchArgument('enable_global_localization', default_value='true'),
+        DeclareLaunchArgument('enable_global_localization', default_value='false',
+                              description='Start optional global relocalization and connect it to HDL only when explicitly enabled.'),
         DeclareLaunchArgument('enable_dual_lidar_fusion', default_value='false'),
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(_launch('livox_cloudpoint_processor', 'dual_mid360_cloud.launch.py')),
@@ -51,11 +52,13 @@ def generate_launch_description():
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(_launch('point_lio', 'sentry_left_mid360.launch.py')),
             condition=IfCondition(enable_sensor_pipeline)),
+        # HDL-only launch: never nest sentry_localization_bringup here because it owns
+        # Livox/cloud/Point-LIO and would bypass enable_sensor_pipeline.
         IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(_launch('hdl_localization', 'sentry_localization_bringup.launch.py')),
+            PythonLaunchDescriptionSource(_launch('hdl_localization', 'sentry_localization.launch.py')),
             launch_arguments={
                 'globalmap_pcd': globalmap_pcd,
-                'enable_dual_lidar_fusion': LaunchConfiguration('enable_dual_lidar_fusion'),
+                'use_global_localization': LaunchConfiguration('enable_global_localization'),
             }.items()),
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(_launch('hdl_global_localization', 'global_localization.launch.py')),

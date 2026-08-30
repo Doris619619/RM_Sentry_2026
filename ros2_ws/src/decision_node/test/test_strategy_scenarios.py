@@ -75,8 +75,13 @@ class TestStrategyScenarios(unittest.TestCase):
         publisher.publish(message)
 
     def test_push_supply_radical_and_harm_retreat(self):
-        # Discover all inputs before the state sequence begins.
-        self.assertTrue(self.spin_until(lambda: self.game.get_subscription_count() == 1))
+        # Discover every input before the state sequence begins. Waiting only
+        # for /game_progress made this black-box scenario racy: a later HP or
+        # arrival transition could be published before its subscription matched.
+        inputs = (self.game, self.hp, self.bullets, self.arrived, self.friendly,
+                  self.enemy, self.target, self.hero)
+        self.assertTrue(self.spin_until(lambda: all(pub.get_subscription_count() >= 1 for pub in inputs)),
+                        'strategy node did not subscribe to every scenario input')
         for publisher, kind, value in (
             (self.hp, UInt16, 400), (self.bullets, UInt16, 50), (self.game, UInt8, 4),
         ):

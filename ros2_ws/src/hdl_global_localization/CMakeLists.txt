@@ -5,8 +5,6 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(ament_cmake REQUIRED)
-find_package(ament_cmake_gtest REQUIRED)
-find_package(ament_cmake_pytest REQUIRED)
 find_package(Eigen3 REQUIRED)
 find_package(OpenCV REQUIRED)
 find_package(OpenMP REQUIRED)
@@ -53,6 +51,9 @@ install(DIRECTORY include/ DESTINATION include)
 install(DIRECTORY config launch DESTINATION share/${PROJECT_NAME})
 
 if(BUILD_TESTING)
+  find_package(ament_cmake_gtest REQUIRED)
+  find_package(ament_cmake_pytest REQUIRED)
+  find_package(launch_testing_ament_cmake REQUIRED)
   ament_add_gtest(test_engine_defaults test/test_engine_defaults.cpp)
   target_link_libraries(test_engine_defaults ${PROJECT_NAME}_algorithms)
   ament_target_dependencies(test_engine_defaults rclcpp)
@@ -60,6 +61,7 @@ if(BUILD_TESTING)
     TIMEOUT 30
     ENV PYTHONNOUSERSITE=1
         HDL_GLOBAL_LOCALIZATION_NODE=$<TARGET_FILE:hdl_global_localization_node>)
+  add_launch_test(test/test_service_algorithms.py TIMEOUT 90)
 endif()
 
 ament_export_include_directories(include)

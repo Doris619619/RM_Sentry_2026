@@ -26,9 +26,11 @@ public:
     set_engine_service_ = create_service<srv::SetGlobalLocalizationEngine>(
       "/hdl_global_localization/set_engine",
       [this](const std::shared_ptr<srv::SetGlobalLocalizationEngine::Request> request,
-             std::shared_ptr<srv::SetGlobalLocalizationEngine::Response>) {
-        if (!set_engine(request->engine_name.data)) {
-          RCLCPP_ERROR(get_logger(), "unsupported global localization engine: %s", request->engine_name.data.c_str());
+             std::shared_ptr<srv::SetGlobalLocalizationEngine::Response> response) {
+        response->success = set_engine(request->engine_name);
+        response->message = response->success ? "engine selected" : "unsupported or unavailable engine";
+        if (!response->success) {
+          RCLCPP_ERROR(get_logger(), "unsupported global localization engine: %s", request->engine_name.c_str());
         }
       });
     set_map_service_ = create_service<srv::SetGlobalMap>(

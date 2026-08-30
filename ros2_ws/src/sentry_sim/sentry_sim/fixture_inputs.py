@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
-"""Publish deterministic odometry, cloud and referee/radar interface fixtures.
+"""Publish deterministic planner/control and referee/radar fixtures.
 
-This is deliberately interface-level software simulation. It does not model a
-robot, chassis, sensors, or a competition world.
+This is deliberately interface-level software simulation.  It does not claim
+Point-LIO validation: Point-LIO requires a topic-aligned non-empty Livox
+CustomMsg plus synchronized IMU, which is deferred to a recorded rosbag2
+fixture.  It does not model a robot, chassis, sensors, or a competition world.
 """
 
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Point
-from livox_ros_driver2.msg import CustomMsg
 from nav_msgs.msg import Odometry
-from sensor_msgs.msg import Imu, PointCloud2
+from sensor_msgs.msg import PointCloud2
 from std_msgs.msg import UInt8, UInt16
 
 
@@ -20,8 +21,6 @@ class FixtureInputs(Node):
         qos = 10
         self.odom = self.create_publisher(Odometry, '/localization/odometry', qos)
         self.cloud = self.create_publisher(PointCloud2, '/filted_topic_3d', qos)
-        self.imu = self.create_publisher(Imu, '/livox/imu_192_168_1_3', qos)
-        self.livox = self.create_publisher(CustomMsg, '/livox/lidar', qos)
         self.game = self.create_publisher(UInt8, '/referee/game_progress', qos)
         self.hp = self.create_publisher(UInt16, '/referee/remain_hp', qos)
         self.bullets = self.create_publisher(UInt16, '/referee/bullet_remain', qos)
@@ -44,19 +43,6 @@ class FixtureInputs(Node):
         cloud.header.stamp = stamp
         cloud.header.frame_id = 'base_link'
         self.cloud.publish(cloud)
-
-        imu = Imu()
-        imu.header.stamp = stamp
-        imu.header.frame_id = 'base_link'
-        imu.orientation.w = 1.0
-        self.imu.publish(imu)
-
-        livox = CustomMsg()
-        livox.header.stamp = stamp
-        livox.header.frame_id = 'base_link'
-        livox.timebase = stamp.sec * 1000000000 + stamp.nanosec
-        livox.point_num = 0
-        self.livox.publish(livox)
 
         self.game.publish(UInt8(data=4))
         self.hp.publish(UInt16(data=400))

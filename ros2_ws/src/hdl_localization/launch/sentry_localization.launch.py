@@ -54,6 +54,9 @@ def generate_launch_description():
         DeclareLaunchArgument(
             'downsample_resolution', default_value='0.1',
             description='输入地图与点云的下采样分辨率。'),
+        DeclareLaunchArgument(
+            'use_global_localization', default_value='false',
+            description='Enable the optional hdl_global_localization service client and /relocalize.'),
         Node(
             package='hdl_localization', executable='hdl_localization_map_server',
             name='globalmap_server', output='screen',
@@ -77,6 +80,7 @@ def generate_launch_description():
                 'max_prediction_age_seconds': LaunchConfiguration('max_prediction_age_seconds'),
                 'ndt_resolution': LaunchConfiguration('ndt_resolution'),
                 'downsample_resolution': LaunchConfiguration('downsample_resolution'),
+                'use_global_localization': LaunchConfiguration('use_global_localization'),
                 'use_imu': False,
             }]),
     ])

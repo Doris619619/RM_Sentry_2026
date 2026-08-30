@@ -21,6 +21,7 @@ protected:
   rviz_rendering::Arrow* arrow_{nullptr};
   Ogre::Vector3 position_;
   double yaw_{0.0};
+  int last_mouse_y_{0};
   enum class State { position, orientation, height } state_{State::position};
 };
 }  // namespace sentry_rviz_tools

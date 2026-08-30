@@ -1,6 +1,14 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+verify_offline_build=false
+if [[ "${1:-}" == "--verify-offline-build" ]]; then
+  verify_offline_build=true
+elif [[ $# -ne 0 ]]; then
+  echo "usage: $0 [--verify-offline-build]" >&2
+  exit 2
+fi
+
 # The only networked setup step. It records fixed commits in third_party.repos;
 # after it succeeds, colcon builds consume local sources and can run offline.
 workspace_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -14,6 +22,20 @@ test -f "${sdk_source}/CMakeLists.txt" || { echo "missing repository Livox-SDK2:
 
 
 vcs import "${workspace_dir}/src" < "${workspace_dir}/third_party.repos"
+
+verify_revision() {
+  local source_dir="$1"
+  local expected="$2"
+  local actual
+  actual="$(git -C "${source_dir}" rev-parse HEAD)"
+  if [[ "${actual}" != "${expected}" ]]; then
+    echo "pinned source mismatch: ${source_dir} expected ${expected}, got ${actual}" >&2
+    exit 1
+  fi
+}
+verify_revision "${workspace_dir}/src/vendor/blasfeo" "ae6e2d1dea015862a09990b95905038a756ffc7d"
+verify_revision "${workspace_dir}/src/vendor/hpipm" "255ffdf38d3a5e2c3285b29568ce65ae286e5faf"
+verify_revision "${workspace_dir}/src/livox_ros_driver2" "dd6c8de14479197e314270af8133f8a4cbe16ff9"
 
 # BLASFEO and HPIPM are non-ROS vendor dependencies, consumed only by the catkin wrappers.
 touch "${workspace_dir}/src/vendor/blasfeo/COLCON_IGNORE" "${workspace_dir}/src/vendor/hpipm/COLCON_IGNORE"
@@ -46,3 +68,16 @@ rosdep install --from-paths "${workspace_dir}/src" --ignore-src \
 echo "bootstrap complete"
 echo "For every build: export CMAKE_PREFIX_PATH=${sdk_prefix}:\${CMAKE_PREFIX_PATH:-}"
 echo "Then source /opt/ros/humble/setup.bash and run colcon build; it performs no network fetch."
+
+if [[ "${verify_offline_build}" == true ]]; then
+  command -v unshare >/dev/null || { echo "unshare is required for offline-build verification" >&2; exit 1; }
+  # A network namespace has no interfaces.  Any accidental fetch fails instead
+  # of silently using the host network.
+  unshare --user --map-root-user --net -- bash -lc "
+    set -eo pipefail
+    source /opt/ros/humble/setup.bash
+    export CMAKE_PREFIX_PATH='${sdk_prefix}:'"\${CMAKE_PREFIX_PATH:-}"
+    cd '${workspace_dir}'
+    colcon --log-base /tmp/rm-sentry-offline-log build --build-base /tmp/rm-sentry-offline-build --install-base /tmp/rm-sentry-offline-install --parallel-workers 1 --cmake-args -DBUILD_TESTING=OFF
+  "
+fi

@@ -35,7 +35,13 @@ public:
   ValueT param(const std::string& name, const ValueT& fallback) const {
     const auto normalized = normalize(name);
     if (!node_->has_parameter(normalized)) {
-      node_->declare_parameter<ValueT>(normalized, fallback);
+      // Engines can be replaced at runtime.  Another parameter lookup may have
+      // declared the same normalized ROS2 name between this check and declare.
+      // In that case the existing value is the authoritative one.
+      try {
+        node_->declare_parameter<ValueT>(normalized, fallback);
+      } catch (const rclcpp::exceptions::ParameterAlreadyDeclaredException&) {
+      }
     }
     ValueT value = fallback;
     node_->get_parameter_or<ValueT>(normalized, value, fallback);
