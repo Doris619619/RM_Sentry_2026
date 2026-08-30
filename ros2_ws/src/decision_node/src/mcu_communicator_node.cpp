@@ -15,6 +15,7 @@
 #include <cstring>
 #include <fcntl.h>
 #include <memory>
+#include <stdexcept>
 #include <termios.h>
 #include <unistd.h>
 
