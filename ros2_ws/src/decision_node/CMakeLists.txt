@@ -8,14 +8,13 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(ament_cmake REQUIRED)
-find_package(ament_cmake_gtest REQUIRED)
 find_package(ament_index_cpp REQUIRED)
 find_package(behaviortree_cpp_v3 REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 
-add_library(decision_mcu_protocol src/mcu_protocol.cpp)
+add_library(decision_mcu_protocol src/mcu_protocol.cpp src/serial_config.cpp)
 target_include_directories(decision_mcu_protocol PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
@@ -36,9 +35,12 @@ install(TARGETS decision_mcu_protocol mcu_communicator strategy_node
   RUNTIME DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
+  find_package(ament_cmake_gtest REQUIRED)
   find_package(launch_testing_ament_cmake REQUIRED)
   ament_add_gtest(test_mcu_protocol test/test_mcu_protocol.cpp)
   target_link_libraries(test_mcu_protocol decision_mcu_protocol)
+  ament_add_gtest(test_serial_config test/test_serial_config.cpp)
+  target_link_libraries(test_serial_config decision_mcu_protocol)
   add_launch_test(test/test_mcu_pty.py TIMEOUT 45)
   add_launch_test(test/test_strategy_scenarios.py TIMEOUT 45)
   add_launch_test(test/test_system_e2e.py TIMEOUT 90)
