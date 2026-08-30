@@ -10,6 +10,7 @@ import pty
 import select
 import struct
 import tempfile
+import termios
 import time
 import unittest
 
@@ -103,7 +104,7 @@ def generate_test_description():
                     # A stable symlink lets the test replace the PTY and prove
                     # that the node's automatic reopen path works.
                     "serial_port": serial_link,
-                    "baudrate": 115200,
+                    "baudrate": 921600,
                     "nav_frequency": 100.0,
                     "cmd_vel_timeout": 0.20,
                     "reconnect_interval": 0.05,
@@ -150,6 +151,15 @@ class TestMcuPty(unittest.TestCase):
         os.write(serial_master, b"noise" + frame[:13])
         os.write(serial_master, frame[13:])
         self.assertTrue(self.spin_until(lambda: self.hp == [321] and self.hero == [(1.23, -4.56)]))
+        attributes = termios.tcgetattr(serial_slave)
+        self.assertEqual(attributes[4], termios.B921600)
+        self.assertEqual(attributes[5], termios.B921600)
+        self.assertEqual(attributes[2] & termios.CSIZE, termios.CS8)
+        self.assertFalse(attributes[2] & termios.PARENB)
+        self.assertFalse(attributes[2] & termios.CSTOPB)
+        if hasattr(termios, "CRTSCTS"):
+            self.assertFalse(attributes[2] & termios.CRTSCTS)
+        self.assertFalse(attributes[0] & (termios.IXON | termios.IXOFF | termios.IXANY))
 
         command = Twist()
         command.linear.x, command.linear.y, command.angular.z = 1.234, -0.5, 2.0

@@ -1,4 +1,5 @@
 #include "decision_node/mcu_protocol.hpp"
+#include "decision_node/serial_config.hpp"
 
 #include <geometry_msgs/msg/point.hpp>
 #include <geometry_msgs/msg/twist.hpp>
@@ -14,7 +15,6 @@
 #include <cstring>
 #include <fcntl.h>
 #include <memory>
-#include <stdexcept>
 #include <termios.h>
 #include <unistd.h>
 
@@ -22,17 +22,6 @@ namespace
 {
 using namespace std::chrono_literals;
 using QoS = rclcpp::QoS;
-
-speed_t baudToTermios(const int baud)
-{
-  switch (baud) {
-    case 115200: return B115200;
-#ifdef B921600
-    case 921600: return B921600;
-#endif
-    default: throw std::invalid_argument("unsupported serial baudrate: " + std::to_string(baud));
-  }
-}
 }
 
 class McuCommunicator final : public rclcpp::Node
@@ -111,10 +100,7 @@ private:
       if (fd < 0) throw std::runtime_error(std::strerror(errno));
       termios options{};
       if (tcgetattr(fd, &options) != 0) { ::close(fd); throw std::runtime_error(std::strerror(errno)); }
-      cfmakeraw(&options);
-      const auto speed = baudToTermios(baudrate_);
-      cfsetispeed(&options, speed); cfsetospeed(&options, speed);
-      options.c_cflag |= (CLOCAL | CREAD);
+      decision_node::serial::configureRaw8N1(options, baudrate_);
       if (tcsetattr(fd, TCSANOW, &options) != 0) { ::close(fd); throw std::runtime_error(std::strerror(errno)); }
       fd_ = fd;
       RCLCPP_INFO(get_logger(), "opened %s at %d baud", serial_port_.c_str(), baudrate_);

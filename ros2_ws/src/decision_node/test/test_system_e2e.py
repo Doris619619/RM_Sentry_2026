@@ -45,7 +45,7 @@ def generate_test_description():
         launch_ros.actions.Node(package="trajectory_tracking", executable="hit_bridge"),
         launch_ros.actions.Node(package="decision_node", executable="strategy_node", parameters=[decision]),
         launch_ros.actions.Node(package="decision_node", executable="mcu_communicator", parameters=[{
-            "serial_port": os.ttyname(slave_fd), "baudrate": 115200, "nav_frequency": 100.0,
+            "serial_port": os.ttyname(slave_fd), "baudrate": 921600, "nav_frequency": 100.0,
             "cmd_vel_timeout": 0.5, "reconnect_interval": 0.05,
         }]),
         launch_testing.actions.ReadyToTest(),
