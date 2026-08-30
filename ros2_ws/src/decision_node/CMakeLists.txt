@@ -42,6 +42,7 @@ if(BUILD_TESTING)
   add_launch_test(test/test_mcu_pty.py TIMEOUT 45)
   add_launch_test(test/test_strategy_scenarios.py TIMEOUT 45)
   add_launch_test(test/test_system_e2e.py TIMEOUT 90)
+  add_test(NAME test_central_occupancy_contract COMMAND ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/test/test_central_occupancy_contract.py)
 endif()
 
 ament_package()
