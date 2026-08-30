@@ -9,6 +9,8 @@
 
   <buildtool_depend>ament_cmake</buildtool_depend>
   <depend>ocs2_core</depend>
+  <!-- Required by CMake's find_package(ocs2_oc); also enforces colcon build order. -->
+  <depend>ocs2_oc</depend>
 
   <depend>blasfeo_catkin</depend>
 
