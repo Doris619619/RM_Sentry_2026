@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>decision_node</name>
+  <version>0.2.0</version>
+  <description>ROS 2 Humble behavior-tree decision and HK MCU serial bridge for RM Sentry.</description>
+  <maintainer email="maintainers@example.invalid">RM Sentry maintainers</maintainer>
+  <license>BSD-3-Clause</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <test_depend>ament_cmake_gtest</test_depend>
+  <test_depend>launch_testing</test_depend>
+  <test_depend>launch_testing_ament_cmake</test_depend>
+  <test_depend>launch_testing_ros</test_depend>
+  <test_depend>rclpy</test_depend>
+  <test_depend>trajectory_generation</test_depend>
+  <test_depend>trajectory_tracking</test_depend>
+  <depend>ament_index_cpp</depend>
+  <depend>behaviortree_cpp_v3</depend>
+  <depend>geometry_msgs</depend>
+  <depend>rclcpp</depend>
+  <depend>std_msgs</depend>
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <export><build_type>ament_cmake</build_type></export>
+</package>

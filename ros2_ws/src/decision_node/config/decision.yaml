@@ -1,0 +1,33 @@
+strategy_node:
+  ros__parameters:
+    tick_hz: 20
+    danger_hp: 100
+    sufficient_bullet: 10
+    max_bullet: 150
+    fixed_supply: 50
+    # This is the actual ROS1 threshold read by AccumulateCentralOccupiable.
+    central_threshold: 20
+    # Retained because the ROS1 XML supplied it, but intentionally not consumed by the accumulator.
+    occupy_threshold: 30
+    aggressive_threshold: 50
+    attack_threshold: 5
+    harm_threshold_on: 50
+    harm_threshold_off: 10
+    publish_on_change_only: true
+    # These are the only coordinates present in the ROS1 temporary launch. Replace for competition hardware.
+    goals.occupy.point_0.x: 1.0
+    goals.occupy.point_0.y: 1.0
+    goals.occupy.point_1.x: 2.0
+    goals.occupy.point_1.y: 2.0
+    goals.occupy.point_2.x: 3.0
+    goals.occupy.point_2.y: 3.0
+    goals.occupy.point_3.x: 4.0
+    goals.occupy.point_3.y: 4.0
+    goals.supply.x: 6.0
+    goals.supply.y: 6.0
+    goals.waitforop.x: 0.5
+    goals.waitforop.y: 0.5
+    goals.retreat.x: 9.0
+    goals.retreat.y: 9.0
+    goals.radical.x: 5.0
+    goals.radical.y: 5.0

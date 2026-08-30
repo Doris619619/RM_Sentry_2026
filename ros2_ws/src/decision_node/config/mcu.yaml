@@ -1,0 +1,8 @@
+mcu_communicator:
+  ros__parameters:
+    serial_port: /dev/ttyUSB0
+    baudrate: 921600
+    nav_frequency: 50.0
+    # Tracking fixture is about 19 Hz; 0.5 s leaves substantial scheduling margin.
+    cmd_vel_timeout: 0.5
+    reconnect_interval: 2.0
