@@ -41,6 +41,7 @@ if(BUILD_TESTING)
   target_link_libraries(test_mcu_protocol decision_mcu_protocol)
   add_launch_test(test/test_mcu_pty.py TIMEOUT 45)
   add_launch_test(test/test_strategy_scenarios.py TIMEOUT 45)
+  add_launch_test(test/test_system_e2e.py TIMEOUT 90)
 endif()
 
 ament_package()
