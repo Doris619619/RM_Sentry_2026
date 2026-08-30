@@ -1,34 +1,79 @@
-# ROS 2 Humble 工作区
+# RM Sentry ROS 2 Humble workspace
 
-此目录仅承载 ROS 2 迁移后的源码与构建产物，与仓库内既有的 ROS 1 catkin 工作区完全隔离。不要在 `ws_livox/` 中切换 `package.xml` 或运行 ROS 2 构建脚本。
+`ros2_ws` is the ROS 2 production workspace for Ubuntu 22.04 + ROS 2 Humble.  The
+ROS 1 workspaces in this repository are legacy audit sources, not build or runtime
+entry points.
 
-## 已固定的外部依赖
+## Reproducible setup
 
-`livox_ros_driver2.repos` 固定检出官方 `Livox-SDK/livox_ros_driver2` 的 `1.0.0` release commit `dd6c8de14479197e314270af8133f8a4cbe16ff9`。该版本与本仓库现有 Livox 驱动版本一致，并支持 Ubuntu 22.04 上的 ROS 2 Humble；第一阶段不升级驱动版本，以保持 `CustomMsg` 接口和下游 Point-LIO 预期稳定。
-
-## 前置条件
-
-- Ubuntu 22.04 + ROS 2 Humble，且可执行 `source /opt/ros/humble/setup.bash`。
-- 已安装 `python3-vcstool`、`python3-colcon-common-extensions`、PCL 与驱动的 ROS 2 依赖。
-- 仓库根目录的 `Livox-SDK2` 已编译并安装 shared library。按其 README 在 `Livox-SDK2/build` 中执行 `cmake .. && make -j`、`sudo make install`，然后执行 `sudo ldconfig`。驱动构建需要 `/usr/local/lib/liblivox_lidar_sdk_shared.so` 与对应头文件。
-
-## 导入与构建
+The only supported setup path is:
 
 ```bash
 cd /home/liangys/RM_Sentry_2026/ros2_ws
-mkdir -p src
-vcs import src < livox_ros_driver2.repos
-
+./tools/bootstrap_sources.sh
 source /opt/ros/humble/setup.bash
-cd src/livox_ros_driver2
-./build.sh humble
-
-source ../../install/setup.bash
-ros2 pkg executables livox_ros_driver2
+source install/setup.bash
 ```
 
-`build.sh humble` 只允许从 `ros2_ws/src/livox_ros_driver2` 执行：该脚本会清理其上两级目录的 `build/`、`install/` 和 `devel/`，在此工作区中这是预期行为；在现有 ROS 1 `ws_livox` 中执行会污染其构建状态。
+The bootstrap script imports the pinned sources in `third_party.repos`, builds the
+repository's existing `../Livox-SDK2` into `.deps/livox-sdk2`, and runs rosdep.
+It does not use `sudo`, `ldconfig`, or a second Livox SDK checkout.  It may use
+normal proxy environment variables only while importing the pinned sources.
+After bootstrap completes, `colcon build` must not fetch source code.
 
-## 最小验证
+Build with the workspace SDK prefix visible to CMake:
 
-构建完成后，先确认 `livox_ros_driver2_node` 出现在 `ros2 pkg executables livox_ros_driver2` 的输出中。连接真实设备并使用对应 JSON 配置后，再通过 `ros2 launch livox_ros_driver2 msg_MID360_launch.py` 验证 ROS 2 的 `CustomMsg`、帧名和时间戳；下游点云处理、Point-LIO 与仿真节点不属于本提交范围。
+```bash
+export CMAKE_PREFIX_PATH="$PWD/.deps/livox-sdk2:${CMAKE_PREFIX_PATH}"
+colcon build --symlink-install
+colcon test
+colcon test-result --all --verbose
+```
+
+## Supported entry points
+
+Production composition is explicit and safety-closed by default:
+
+```bash
+ros2 launch sentry_bringup production.launch.py \
+  globalmap_pcd:=/absolute/path/to/competition_map.pcd \
+  enable_sensor_pipeline:=true
+```
+
+When `enable_sensor_pipeline:=true`, it starts the localization/control chain
+`Livox + IMU -> cloud processing -> Point-LIO -> HDL localization -> planning ->
+tracking -> /cmd_vel`, and the connected decision loop
+`MCU/referee/radar -> Decision -> /clicked_point -> planning -> tracking ->
+/tracking/arrived,/dstar_status -> Decision`.
+
+`enable_sensor_pipeline`, `enable_mcu`, and `allow_motion_output` all default to `false`.
+The first gate protects physical Livox/Point-LIO startup; the latter two protect the chassis path.  A real serial
+MCU is opened only when both are explicitly enabled.  The normal serial contract
+is `921600`; `115200` is only for a deliberately selected compatibility test.
+
+For deterministic software fixtures (not hardware or physics validation):
+
+```bash
+ros2 launch sentry_bringup fixture.launch.py
+```
+
+The fixture publishes odometry, filtered cloud, Livox `CustomMsg`, IMU and
+referee/radar inputs.  It does not model a robot, chassis, sensors, or a world.
+The existing Decision PTY E2E test remains the required decision-loop contract.
+
+`run_planning_sim.sh` and `send_goal.sh` at repository root are ROS 1/Noetic
+legacy scripts.  Do not use them for ROS 2 deployment.
+
+## Scope and hardware boundary
+
+`hdl_global_localization` is part of this workspace: normal launch loads BBS as
+its effective default; a node started without parameter configuration falls back
+to FPFH_RANSAC.  TEASER is intentionally unavailable in this production build and
+must not download code.
+
+This workspace does not claim ROS 2 Gazebo physics simulation, ROS 2
+`hdl_graph_slam` offline mapping, FAST_LIO, or LiDAR_IMU_Init migration.  PCD map
+delivery is the controlled replacement for offline graph-SLAM in the runtime
+chain.  Successful builds and fixtures are not hardware acceptance: real
+MID360/IMU, MCU/referee/radar, chassis safety, map convergence and long-running
+vehicle tests remain mandatory.

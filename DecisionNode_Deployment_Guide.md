@@ -1,3 +1,7 @@
+# Legacy ROS 1 guide — not a ROS 2 deployment entry point
+
+This document describes the historical `old_nav`/ROS 1 stack and is retained only for audit. For Ubuntu 22.04 + ROS 2 Humble deployment, use `ros2_ws/README.md` and `sentry_bringup production.launch.py`; do not execute the launch paths or scripts below as ROS 2 instructions.
+
 # DecisionNode Deployment Guide For Old_nav
 
 ## Purpose

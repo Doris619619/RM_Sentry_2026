@@ -5,3 +5,7 @@ log/
 
 # Imported external Livox source is pinned by livox_ros_driver2.repos
 src/livox_ros_driver2/
+
+# Fixed-source bootstrap dependencies; generated from third_party.repos
+src/vendor/
+.deps/

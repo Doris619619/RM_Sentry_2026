@@ -25,7 +25,7 @@
   <depend>std_msgs</depend>
   <depend>geometry_msgs</depend>
   <depend>nav_msgs</depend>
-  <depend>Eigen3</depend>
+  <depend>eigen</depend>
   <depend>ndt_omp</depend>
   <depend>hdl_global_localization</depend>
 

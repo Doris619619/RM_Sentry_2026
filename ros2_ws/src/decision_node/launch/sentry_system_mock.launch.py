@@ -13,7 +13,7 @@ def generate_launch_description():
     tracking = get_package_share_directory("trajectory_tracking")
     return LaunchDescription([
         DeclareLaunchArgument("serial_port", default_value="/dev/ttyUSB_MOCK"),
-        DeclareLaunchArgument("baudrate", default_value="115200"),
+        DeclareLaunchArgument("baudrate", default_value="921600"),
         DeclareLaunchArgument("decision_params", default_value=decision + "/config/decision.yaml"),
         Node(package="trajectory_generation", executable="trajectory_generator_node", parameters=[
             planning + "/config/global_planning.yaml", planning + "/config/map_metadata.yaml"]),

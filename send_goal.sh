@@ -10,6 +10,9 @@
 
 set -euo pipefail
 
+echo "[legacy] send_goal.sh targets the ROS 1/Noetic Docker workflow. " >&2
+echo "[legacy] For ROS 2 use: ros2 launch sentry_bringup production.launch.py ..." >&2
+
 CONTAINER="${CONTAINER:-rm_sentry_gui}"
 X="${1:-2.0}"
 Y="${2:-0.0}"

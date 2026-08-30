@@ -1,0 +1,13 @@
+repositories:
+  vendor/blasfeo:
+    type: git
+    url: https://github.com/giaf/blasfeo.git
+    version: ae6e2d1dea015862a09990b95905038a756ffc7d
+  vendor/hpipm:
+    type: git
+    url: https://github.com/giaf/hpipm.git
+    version: 255ffdf38d3a5e2c3285b29568ce65ae286e5faf
+  livox_ros_driver2:
+    type: git
+    url: https://github.com/Livox-SDK/livox_ros_driver2.git
+    version: dd6c8de14479197e314270af8133f8a4cbe16ff9

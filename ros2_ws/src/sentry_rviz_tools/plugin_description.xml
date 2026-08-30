@@ -1,0 +1,7 @@
+<library path="sentry_rviz_tools">
+  <class name="sentry_rviz_tools/Goal3DTool"
+         type="sentry_rviz_tools::Goal3DTool"
+         base_class_type="rviz_common::Tool">
+    <description>Port of ROS1 Goal3DTool; publishes geometry_msgs/PoseStamped on /goal by default.</description>
+  </class>
+</library>
