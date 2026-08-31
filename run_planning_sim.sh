@@ -9,6 +9,9 @@
 
 set -euo pipefail
 
+echo "[legacy] run_planning_sim.sh targets the ROS 1/Noetic Docker workflow. " >&2
+echo "[legacy] For ROS 2 use: ros2 launch sentry_bringup production.launch.py ..." >&2
+
 CONTAINER="${CONTAINER:-rm_sentry_gui}"
 IMAGE="${IMAGE:-rm_sentry_noetic:built}"
 REPO="/home/liangys/RM_Sentry_2026"

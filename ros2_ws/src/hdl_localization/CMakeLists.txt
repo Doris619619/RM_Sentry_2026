@@ -110,6 +110,7 @@ install(DIRECTORY launch config
 
 if(BUILD_TESTING)
   find_package(ament_cmake_gtest REQUIRED)
+  find_package(launch_testing_ament_cmake REQUIRED)
   ament_add_gtest(test_tf_contract test/test_tf_contract.cpp)
   ament_add_gtest(test_odometry_twist_contract test/test_odometry_twist_contract.cpp)
   if(TARGET test_odometry_twist_contract)
@@ -123,6 +124,7 @@ if(BUILD_TESTING)
       ${CMAKE_CURRENT_SOURCE_DIR}/include
     )
   endif()
+  add_launch_test(test/test_relocalize_integration.py TIMEOUT 90)
 endif()
 
 ament_package()

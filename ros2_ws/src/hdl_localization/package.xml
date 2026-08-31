@@ -25,13 +25,15 @@
   <depend>std_msgs</depend>
   <depend>geometry_msgs</depend>
   <depend>nav_msgs</depend>
-  <depend>Eigen3</depend>
+  <depend>eigen</depend>
   <depend>ndt_omp</depend>
   <depend>hdl_global_localization</depend>
 
   <exec_depend>rosidl_default_runtime</exec_depend>
 
   <test_depend>ament_cmake_gtest</test_depend>
+  <test_depend>launch_testing_ament_cmake</test_depend>
+  <test_depend>sensor_msgs_py</test_depend>
   <member_of_group>rosidl_interface_packages</member_of_group>
 
   <export>
