@@ -17,15 +17,42 @@ from std_msgs.msg import Bool, Header
 from std_srvs.srv import Empty
 
 
+EXPECTED_TRANSLATION = (1.35, -0.85, 0.45)
+EXPECTED_YAW = 0.41
+POSITION_TOLERANCE = 0.12
+YAW_TOLERANCE = 0.08
+
+
 def points():
-    return [(0.17 * i, 0.19 * j, 0.13 * k + 0.01 * ((3 * i + j) % 5))
-            for i in range(7) for j in range(6) for k in range(4)]
+    """Asymmetric deterministic scan-frame geometry for FPFH/RANSAC and NDT."""
+    result = []
+    for i in range(9):
+        for j in range(7):
+            for k in range(4):
+                if (5 * i + 3 * j + 7 * k) % 6 == 0:
+                    continue
+                result.append((
+                    0.16 * i + 0.013 * j,
+                    0.21 * j + 0.007 * k + 0.004 * i * j,
+                    0.14 * k + 0.011 * ((2 * i + j + 3 * k) % 5),
+                ))
+    return result
 
 
-def cloud(frame='map'):
+def transformed_map_points():
+    cosine, sine = math.cos(EXPECTED_YAW), math.sin(EXPECTED_YAW)
+    return [
+        (cosine * x - sine * y + EXPECTED_TRANSLATION[0],
+         sine * x + cosine * y + EXPECTED_TRANSLATION[1],
+         z + EXPECTED_TRANSLATION[2])
+        for x, y, z in points()
+    ]
+
+
+def cloud(frame='map', map_frame=False):
     header = Header()
     header.frame_id = frame
-    return point_cloud2.create_cloud_xyz32(header, points())
+    return point_cloud2.create_cloud_xyz32(header, transformed_map_points() if map_frame else points())
 
 
 def generate_test_description():
@@ -36,9 +63,9 @@ def generate_test_description():
         'fpfh.normal_estimation_radius': 0.35,
         'fpfh.search_radius': 0.6,
         'ransac.voxel_based': False,
-        'ransac.max_iterations': 2500,
-        'ransac.matching_budget': 300,
-        'ransac.correspondence_randomness': 3,
+        'ransac.max_iterations': 10000,
+        'ransac.matching_budget': 1200,
+        'ransac.correspondence_randomness': 1,
         'ransac.max_correspondence_distance': 0.2,
         'ransac.similarity_threshold': 0.8,
         'ransac.inlier_fraction': 0.2,
@@ -57,7 +84,8 @@ def generate_test_description():
     }
     return launch.LaunchDescription([
         launch_ros.actions.Node(package='hdl_global_localization', executable='hdl_global_localization_node',
-                                name='hdl_global_localization', output='screen', parameters=[engine_parameters]),
+                                name='hdl_global_localization', output='screen',
+                                additional_env={'OMP_NUM_THREADS': '1'}, parameters=[engine_parameters]),
         launch_ros.actions.Node(package='hdl_localization', executable='hdl_localization_node',
                                 name='hdl_localization', output='screen', parameters=[hdl_parameters]),
         launch_testing.actions.ReadyToTest(),
@@ -107,13 +135,30 @@ class TestRelocalizeIntegration(unittest.TestCase):
 
     def publish_inputs(self, count=6):
         for _ in range(count):
-            self.map_pub.publish(cloud('map'))
+            self.map_pub.publish(cloud('map', map_frame=True))
             self.scan_pub.publish(cloud('base_link'))
             self.spin_until(lambda: False, timeout=0.15)
 
+    def assert_pose_close(self, pose, label):
+        translation_error = math.dist(
+            (pose.position.x, pose.position.y, pose.position.z), EXPECTED_TRANSLATION)
+        yaw = math.atan2(
+            2.0 * (pose.orientation.w * pose.orientation.z + pose.orientation.x * pose.orientation.y),
+            1.0 - 2.0 * (pose.orientation.y ** 2 + pose.orientation.z ** 2))
+        yaw_error = abs(math.atan2(math.sin(yaw - EXPECTED_YAW), math.cos(yaw - EXPECTED_YAW)))
+        self.assertLessEqual(
+            translation_error, POSITION_TOLERANCE,
+            f'{label} translation error {translation_error:.4f} m exceeds '
+            f'{POSITION_TOLERANCE:.4f} m; expected={EXPECTED_TRANSLATION}, '
+            f'actual=({pose.position.x:.4f}, {pose.position.y:.4f}, {pose.position.z:.4f})')
+        self.assertLessEqual(
+            yaw_error, YAW_TOLERANCE,
+            f'{label} yaw error {yaw_error:.4f} rad exceeds {YAW_TOLERANCE:.4f} rad; '
+            f'expected={EXPECTED_YAW:.4f}, actual={yaw:.4f}')
+
     def test_relocalize_completes_asynchronously_and_resets_pose_estimator(self):
         request = SetGlobalMap.Request()
-        request.global_map = cloud('map')
+        request.global_map = cloud('map', map_frame=True)
         self.call(self.set_map, request)
         self.publish_inputs()
         self.assertTrue(self.spin_until(lambda: bool(self.odometry)), 'HDL did not process fixture scan')
@@ -125,6 +170,7 @@ class TestRelocalizeIntegration(unittest.TestCase):
         self.assertTrue(response.poses, 'global query did not produce a candidate before /relocalize')
         self.assertEqual(len(response.poses), len(response.errors))
         self.assertTrue(all(math.isfinite(v) for v in response.errors))
+        self.assert_pose_close(response.poses[0], 'FPFH+RANSAC pre-relocalize candidate')
 
         odometry_before = len(self.odometry)
         start = time.monotonic()
@@ -135,3 +181,4 @@ class TestRelocalizeIntegration(unittest.TestCase):
         self.publish_inputs(3)
         self.assertTrue(self.spin_until(lambda: len(self.odometry) > odometry_before, timeout=10.0),
                         'PoseEstimator did not resume odometry after relocalize reset')
+        self.assert_pose_close(self.odometry[-1].pose.pose, 'PoseEstimator reset odometry')
