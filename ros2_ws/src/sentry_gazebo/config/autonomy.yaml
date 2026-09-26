@@ -1,6 +1,7 @@
 # Low-speed simulation parameters; production planning/tracking defaults are unchanged.
 trajectory_generation:
   ros__parameters:
+    planner.robot_radius: 0.45
     topics.goal: /sim/planner_goal
     topics.global_trajectory: /sim/planned_trajectory
     planner.reference_desire_speed: 0.3

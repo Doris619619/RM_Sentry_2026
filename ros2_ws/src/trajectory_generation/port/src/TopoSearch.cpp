@@ -1,5 +1,5 @@
 //
-// Created by zzt on 23-10-22.
+// Build height-aware topological routes with finite, endpoint-inclusive visibility checks.
 //
 
 #include "trajectory_generation/TopoSearch.h"
@@ -384,31 +384,17 @@ void TopoSearcher::createGraph(Eigen::Vector3d start, Eigen::Vector3d end)
     }
     t2 = ros::Time::now();
 
-    // Ensure start/end nodes are connected to the graph.
-    // When start/end are far from topo keypoints (>5m) or in open areas,
-    // the sampling process may fail to connect them.
-    for(int ti = 0; ti <= 1; ti++) {
-        if(m_graph[ti]->neighbors.empty()) {
-            double best_dist = 1e9;
-            int best_g = -1;
-            for(int g = 0; g < (int)m_graph.size(); g++) {
-                if(g == ti) continue;
-                if(m_graph[g]->type_ != GraphNode::Guard) continue;
-                double d = (m_graph[g]->pos - m_graph[ti]->pos).head<2>().norm();
-                if(d < best_dist) {
-                    Eigen::Vector3d pc;
-                    if(lineVisib(m_graph[ti]->pos, m_graph[g]->pos, 0.2, pc, 0)) {
-                        best_dist = d;
-                        best_g = g;
-                    }
-                }
-            }
-            if(best_g >= 0) {
-                m_graph[ti]->neighbors.push_back(m_graph[best_g]);
-                m_graph[best_g]->neighbors.push_back(m_graph[ti]);
-                ROS_WARN("[Topo] Force-connected %s node to guard %d (dist=%.2fm)",
-                         ti == 0 ? "start" : "end", m_graph[best_g]->m_id, best_dist);
-            }
+    // Attach both terminals to all visible guards, including coincident guards.
+    // A single nearest neighbor may belong to a disconnected sampled component.
+    for (int terminal=0; terminal<2; ++terminal) {
+        for (int g=0; g<static_cast<int>(m_graph.size()); ++g) {
+            if (g==terminal || m_graph[g]->type_!=GraphNode::Guard) continue;
+            Eigen::Vector3d collision;
+            if (!lineVisib(m_graph[terminal]->pos,m_graph[g]->pos,0.025,collision,0)) continue;
+            int direction=0;
+            const bool both=heightFeasible(m_graph[terminal]->pos,m_graph[g]->pos,direction);
+            if (both || direction==1) m_graph[terminal]->neighbors.push_back(m_graph[g]);
+            if (both || direction==2) m_graph[g]->neighbors.push_back(m_graph[terminal]);
         }
     }
 
@@ -487,7 +473,7 @@ void TopoSearcher::DijkstraSearch(int node_id){
 
     minDist[0] = 0;
     for (int i = 0; i < m_graph.size(); i++) { // 遍历所有节点
-        int minVal = 100000.0;
+        double minVal = 100000.0;
         int cur_id = -1;
         int index = -1;
         Eigen::Vector3d temp_point;
@@ -650,7 +636,7 @@ bool TopoSearcher::heightFeasible(const Eigen::Vector3d& p1, const Eigen::Vector
 
     double distance = std::sqrt(pow(x_offset, 2) + pow(y_offset, 2));
 
-    int n = std::sqrt(pow(x_offset, 2) + pow(y_offset, 2)) / step;
+    const int n = std::max(1,static_cast<int>(std::ceil(distance / step)));
     int idx, idy, idz, idx_end, idy_end, idz_end;
     global_map->coord2gridIndex(p2_x, p2_y, p2_z, idx, idy, idz);
     global_map->coord2gridIndex(p1_x, p1_y, p1_z, idx_end, idy_end, idz_end);
@@ -668,8 +654,8 @@ bool TopoSearcher::heightFeasible(const Eigen::Vector3d& p1, const Eigen::Vector
 
     // 采样查看是否存在高度差距过大的点
     for(int i = 0; i<(n+1); i++){
-        ray_ptx = p2_x + i * step * x_offset / distance;
-        ray_pty = p2_y + i * step * y_offset / distance;
+        ray_ptx = p2_x + (static_cast<double>(i)/n) * x_offset;
+        ray_pty = p2_y + (static_cast<double>(i)/n) * y_offset;
         ray_ptz = 0.0;
 
         int pt_idx, pt_idy, pt_idz;
@@ -1002,7 +988,7 @@ bool TopoSearcher::lineVisib(const Eigen::Vector3d& p1, const Eigen::Vector3d& p
 
     double distance = std::sqrt(pow(x_offset, 2) + pow(y_offset, 2));
 
-    int n = std::sqrt(pow(x_offset, 2) + pow(y_offset, 2)) / thresh;
+    const int n = std::max(1,static_cast<int>(std::ceil(distance / std::min(thresh,global_map->m_resolution*0.5))));
     if(caster_id == 1) {
         distance_thresh = 4.0;
     }
@@ -1014,8 +1000,8 @@ bool TopoSearcher::lineVisib(const Eigen::Vector3d& p1, const Eigen::Vector3d& p
 
     for(int i = 0; i<n+1; i++)
     {
-        ray_ptx = p2_x + i * thresh * x_offset / distance;
-        ray_pty = p2_y + i * thresh * y_offset / distance;
+        ray_ptx = p2_x + (static_cast<double>(i)/n) * x_offset;
+        ray_pty = p2_y + (static_cast<double>(i)/n) * y_offset;
         ray_ptz = 0.0;
 
         int pt_idx, pt_idy, pt_idz;

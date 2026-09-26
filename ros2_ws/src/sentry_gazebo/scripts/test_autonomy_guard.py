@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Isolated synthetic safety contract tests; these are not Gazebo motion acceptance."""
 import math
+import numpy as np
+from autonomy_geometry import StaticSafetyGrid
 import unittest
 from unittest.mock import patch
 import rclpy
@@ -15,6 +17,7 @@ class GuardTests(unittest.TestCase):
     # Use a private domain in the runner; wall stamps avoid an external simulated clock dependency.
     def setUp(self):
         self.node=AutonomyGuard()
+        self.node.static_grid=StaticSafetyGrid(np.zeros((400,400),dtype=bool))
         self.refresh()
         self.goal=PoseStamped()
         self.goal.header.frame_id='map'
@@ -79,6 +82,28 @@ class GuardTests(unittest.TestCase):
         old=self.path();old.start_time.sec-=5;self.node.on_trajectory(old)
         self.assertEqual(self.node.state,'planning')
 
+    # Collision rejection uses a synthetic occupied cell on a known line, not a replica of planner internals.
+    def test_occupied_reference(self):
+        col=int((.5+13.394)/.05);row=399-int(12.079/.05)
+        self.node.static_grid.mask[row,col]=True
+        self.node.on_goal(self.goal);self.node.on_trajectory(self.path())
+        self.assertEqual(self.node.state,'stopped')
+        self.assertIn('occupied',self.node.reason)
+
+    # Independently finite pieces must also agree in position and velocity at the join.
+    def test_discontinuous_reference(self):
+        self.node.on_goal(self.goal)
+        msg=self.path();msg.duration=[5.,5.];msg.coef_x=[0.,0.,.1,0.,0.,0.,.1,2.];msg.coef_y=[0.]*8
+        self.node.on_trajectory(msg)
+        self.assertIn('discontinuous',self.node.reason)
+
+    # A stalled sensor stream during planning must cancel, not resume a queued goal automatically.
+    def test_fault_while_planning(self):
+        self.node.on_goal(self.goal);self.node.cloud_received=-math.inf
+        self.node.tick()
+        self.assertEqual(self.node.state,'stopped')
+        self.assertIn('cloud',self.node.reason)
+
     # Analytic velocity checks reject fast paths rather than silently clipping only actuator output.
     def test_fast_reference(self):
         self.node.on_goal(self.goal)
@@ -98,9 +123,9 @@ class GuardTests(unittest.TestCase):
     def test_pause_latches(self):
         self.node.on_goal(self.goal);self.node.on_trajectory(self.path())
         self.node.tick()
-        self.node.sim_previous=self.node.get_clock().now().nanoseconds*1e-9
+        stamp=rclpy.time.Time(nanoseconds=self.node.get_clock().now().nanoseconds)
+        self.node.sim_previous=stamp.nanoseconds*1e-9
         with patch.object(self.node.get_clock(),'now') as now:
-            stamp=rclpy.time.Time(seconds=self.node.sim_previous)
             now.return_value=stamp
             self.node.clock_progress-=1
             self.node.tick()

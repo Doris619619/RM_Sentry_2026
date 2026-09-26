@@ -241,3 +241,21 @@ TEST(ReferenceTimingTest, PreservesNonzeroInitialVelocityWhileConverging) {
   expectContinuous(reference,path,initial);
 }
 }  // namespace
+
+// Reproduce both directions of the autonomous route with its larger planning clearance.
+TEST(LegacyPlanningTest, AutonomousRouteIsConnectedInBothDirections) {
+  auto parameters = make_parameters();
+  parameters.setParam("trajectory_generator/robot_radius", 0.45);
+  planner_manager manager;
+  manager.init(parameters);
+  const Eigen::Vector3d a(-0.919,-4.454,0), b(-3.219,2.146,0);
+  for (int reverse=0; reverse<2; ++reverse) {
+    manager.topo_prm->setRandomSeed(7);
+    const auto start=reverse ? b : a, goal=reverse ? a : b;
+    manager.global_map->odom_position=start;
+    EXPECT_FALSE(manager.global_map->isStaticOccupied(manager.global_map->coord2gridIndex(start),false));
+    EXPECT_FALSE(manager.global_map->isStaticOccupied(manager.global_map->coord2gridIndex(goal),false));
+    manager.topo_prm->createGraph(start,goal);
+    EXPECT_GE(manager.topo_prm->min_path.size(),2U) << "reverse=" << reverse;
+  }
+}

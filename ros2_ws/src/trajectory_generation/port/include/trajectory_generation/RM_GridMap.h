@@ -1,3 +1,4 @@
+// Hold shared static/local occupancy and initialized robot state for legacy planning.
 //
 // Created by hitcrt on 2023/5/4.
 //
@@ -34,7 +35,7 @@ public:
     GridNodePtr **GridNodeLocalMap;  /// 局部地图，两个地图用于全局规划和轨迹优化
 
     pcl::PointCloud<pcl::PointXYZ>::Ptr m_local_cloud;  // 回调的局部点云地图
-    Eigen::Vector3d odom_position;
+    Eigen::Vector3d odom_position = Eigen::Vector3d::Zero();
     Eigen::Vector3d odom_posture;
 
     bool m_localmap_update;  // 局部地图是否已被规划

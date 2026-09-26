@@ -11,7 +11,8 @@ from rclpy.executors import ExternalShutdownException
 from rclpy.node import Node
 from rclpy.qos import qos_profile_sensor_data
 from geometry_msgs.msg import PoseStamped, Twist
-from nav_msgs.msg import Odometry
+from nav_msgs.msg import Odometry, Path as PathMsg
+from autonomy_geometry import StaticSafetyGrid
 from sensor_msgs.msg import PointCloud2
 from std_msgs.msg import Bool, String
 from trajectory_generation.msg import TrajectoryPoly
@@ -32,8 +33,13 @@ def trajectory_limits(message):
     if not np.isfinite(x).all() or not np.isfinite(y).all():
         raise ValueError('non-finite coefficients')
     speed = acceleration = 0.
-    for cx, cy, duration in zip(x, y, durations):
+    for index, (cx, cy, duration) in enumerate(zip(x, y, durations)):
         vx, vy = np.polyder(cx), np.polyder(cy)
+        if index+1 < len(durations):
+            if math.hypot(np.polyval(cx,duration)-x[index+1,3],np.polyval(cy,duration)-y[index+1,3])>1e-4:
+                raise ValueError('discontinuous position')
+            if math.hypot(np.polyval(vx,duration)-x[index+1,2],np.polyval(vy,duration)-y[index+1,2])>1e-4:
+                raise ValueError('discontinuous velocity')
         slope = np.polyadd(np.polymul(vx, np.polyder(vx)), np.polymul(vy, np.polyder(vy)))
         extrema = [0., duration] + [float(t.real) for t in np.roots(slope)
                                   if abs(t.imag) < 1e-8 and 0 < t.real < duration]
@@ -47,6 +53,8 @@ class AutonomyGuard(Node):
     # Wire a single protected output; all fail states require a fresh goal or manual takeover.
     def __init__(self):
         super().__init__('sentry_autonomy_guard')
+        self.static_grid = StaticSafetyGrid.load()
+        self.prediction_stamp = -math.inf
         self.mode = 'auto'
         self.state = 'idle'
         self.reason = 'waiting for goal'
@@ -73,6 +81,7 @@ class AutonomyGuard(Node):
         self.create_subscription(Odometry, '/localization/odometry', self.on_odom, 10)
         self.create_subscription(PointCloud2, '/aligned_points', self.on_cloud, qos_profile_sensor_data)
         self.create_subscription(Twist, '/sim/auto_cmd_vel', self.on_auto, 1)
+        self.create_subscription(PathMsg, '/tracking/mpc_predicted_path', self.on_prediction, 1)
         self.create_subscription(Twist, '/sim/manual_cmd_vel', self.on_manual, 1)
         self.create_subscription(String, '/sim/control_mode', self.on_mode, 10)
         self.create_timer(.02, self.tick, clock=Clock(clock_type=ClockType.STEADY_TIME))
@@ -148,20 +157,35 @@ class AutonomyGuard(Node):
             duration, speed, acceleration, endpoint = trajectory_limits(message)
             if seconds(message.start_time) < self.requested_at - .05:
                 return
+            if not -.05 <= sim-seconds(message.start_time) <= .5:
+                raise ValueError('stale trajectory timestamp')
             if speed > .5 or acceleration > .4:
                 raise ValueError('reference exceeds simulation speed/acceleration limits')
             if math.hypot(endpoint[0]-self.goal.pose.position.x, endpoint[1]-self.goal.pose.position.y) > .2:
                 return
+            if not self.static_grid.trajectory_free(message):
+                raise ValueError('reference intersects occupied footprint grid')
             if self.healthy(time.monotonic(), sim):
                 raise ValueError('stale observation')
         except (ValueError, IndexError, TypeError) as error:
             self.invalidate(str(error))
             return
+        self.prediction_stamp = -math.inf
         self.endpoint = endpoint
         self.accepted_at, self.valid_until = sim, sim+duration+5.
         self.state, self.reason = 'tracking', 'valid trajectory'
         self.command_received = -math.inf
         self.trajectory_pub.publish(message)
+
+    # Reject predicted footprint intrusion before allowing its associated motion command.
+    def on_prediction(self, message):
+        if self.state != 'tracking': return
+        stamp = seconds(message.header.stamp)
+        if stamp < self.accepted_at: return
+        if not self.static_grid.prediction_free(message):
+            self.invalidate('MPC prediction intersects occupied footprint grid')
+            return
+        self.prediction_stamp = stamp
 
     # Controller output is only stored for an accepted trajectory, not used to arm the guard.
     def on_auto(self, message):
@@ -198,6 +222,8 @@ class AutonomyGuard(Node):
         if fault and self.mode == 'manual':
             self.command = Twist()
             self.command_received = -math.inf
+        if self.state == 'planning' and fault:
+            self.invalidate(fault)
         if self.state == 'planning' and wall-self.goal_wall > 8:
             self.invalidate('planner returned no valid path')
         if self.state == 'tracking':
@@ -219,7 +245,11 @@ class AutonomyGuard(Node):
             if wall-self.command_received <= .5:
                 values = [self.command.linear.x,self.command.linear.y,self.command.angular.z]
                 if all(map(math.isfinite, values)):
-                    output = self.command
+                    moving = math.hypot(self.command.linear.x,self.command.linear.y)>1e-6
+                    if self.mode == 'manual' or not moving or -.05 <= sim-self.prediction_stamp <= .5:
+                        output = self.command
+                    elif sim-self.accepted_at > .5:
+                        self.invalidate('MPC prediction timeout')
                 elif self.state == 'tracking':
                     self.invalidate('non-finite control')
             elif self.state == 'tracking' and sim-self.accepted_at > .5:

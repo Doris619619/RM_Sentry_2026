@@ -88,7 +88,7 @@ class ReplanFsmMock(Node):
         transform.transform.rotation.w = 1.0
         self.tf_static_pub.publish(TFMessage(transforms=[transform]))
 
-    def publish_transformed_dynamic_cloud(self):
+    def publish_transformed_dynamic_cloud(self, point=(-3.50,1.45,0.10)):
         cloud = PointCloud2()
         cloud.header.frame_id = 'test_lidar'
         cloud.height = 1
@@ -102,9 +102,8 @@ class ReplanFsmMock(Node):
         cloud.point_step = 12
         cloud.row_step = 12
         cloud.is_dense = True
-        # It lies within the ROS1 six-metre local-map radius.  Arrival of a
-        # TF-valid cloud in EXEC_TRAJ must route through ReplanFSM.
-        cloud.data = struct.pack('<fff', -3.50, 1.45, 0.10)
+        # Fixtures distinguish an off-route return from an actual route obstruction.
+        cloud.data = struct.pack('<fff', *point)
         self.cloud_pub.publish(cloud)
 
     def publish_initial_inputs(self):
@@ -169,6 +168,20 @@ def main():
         node.publish_static_transform()
         node.spin_for(0.4)
         node.publish_transformed_dynamic_cloud()
+        node.spin_for(1.2)
+        assert len(node.trajectories)==1, 'off-route cloud restarted reference'
+        # Select an actual published path point ahead of the stationary fixture.
+        message=node.trajectories[0]
+        obstacle=None
+        for i,duration in enumerate(message.duration):
+            t=duration*.5
+            x=message.coef_x[4*i:4*i+4];y=message.coef_y[4*i:4*i+4]
+            point=(((x[0]*t+x[1])*t+x[2])*t+x[3],
+                   ((y[0]*t+y[1])*t+y[2])*t+y[3],.8)
+            if 1.<math.hypot(point[0]+3.82,point[1]-2.40)<2.5:
+                obstacle=point;break
+        assert obstacle is not None, 'no suitable path point for obstruction fixture'
+        node.publish_transformed_dynamic_cloud(obstacle)
         node.wait_for(2, 12.0)
         node.publish_replan(False)
         node.publish_replan(True)

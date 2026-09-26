@@ -5,7 +5,7 @@
 
 | 顺序 | 项目 | 状态 |
 |---|---|---|
-| 1 | 现有 MPC 自动跟踪闭环 | 实施中，尚未验收 |
+| 1 | 现有 MPC 自动跟踪闭环 | 已通过 15 次实际闭环及 90° 航向复核 |
 | 2 | 安全停车、控制权及异常恢复 | 待验收 |
 | 3 | 移动中换目标与动态障碍重规划 | 待验收 |
 | 4 | 实际定位算法与真值误差对照 | 待实施 |
@@ -33,7 +33,16 @@ bash scripts/gazebo_autonomy.sh
 目标验收是位置误差 <=0.15 m、实测线速度 <=0.03 m/s、角速度 <=0.05 rad/s，连续稳定 0.5 秒。
 
 构建复用本机已验收 OCS2、HPIPM、消息依赖所在的 install_closure_fix，再独立构建五个包，
-不会覆盖第一、二阶段构建。新机器需要先完成仓库已有 OCS2 依赖构建，不能假定该目录存在。
+不会覆盖第一、二阶段构建。新机器需要先按 ros2_ws/README.md 的固定源码 bootstrap 和完整构建步骤准备依赖，
+再显式指定标准安装目录；本机 install_closure_fix 只是已验证的可复用构建：
+
+~~~bash
+export SENTRY_DEPENDENCY_SETUP=/absolute/path/RM_Sentry_2026/ros2_ws/install/local_setup.bash
+bash scripts/gazebo_autonomy.sh build
+bash scripts/gazebo_autonomy.sh
+~~~
+
+新机器的完整从零构建尚未作为本次验收数据，不能假定归档 underlay 目录随仓库存在。
 
 ## 控制与参数
 
@@ -58,11 +67,42 @@ bash scripts/gazebo_autonomy.sh
 - 原 mu=20 的低速控制在距原始墙面约 1.3 米处趋近停止，180 秒不能到达。
   仿真使用 mu=1 后首条完整路线通过：45.31 秒、终点误差 0.1130 m、最大横向偏差 0.0319 m、
   最高速度 0.3244 m/s、占据样本 0。见 evidence/closed-loop-cost-tuned.json。
-- 9 项隔离保护测试通过，见 evidence/guard-contract-tests.log；合成输入仅用于异常契约，
+- 12 项隔离保护测试通过，见 evidence/guard-terminal-fixed-tests-rerun.log；合成输入仅用于异常契约，
   实际运动使用 Gazebo 反馈。
-- 五组各三次及 310 秒性能测试正在执行，不能将单路线成功视作全部阶段通过。
+- 最终源码五组各三次 15/15 通过；空间审计 15/15 通过，90° 航向复核通过。310 秒双窗口性能通过。第二至六项仍单独验收。
 
 GUI 布局辅助只调整当前 launch 的 Gazebo/RViz 子窗口，不占用鼠标；
 低刷新率 RViz 与可见小窗口用于减少软件渲染负载。
 
-规划器初速度坐标检查另发现：原适配器直接把 base_link 线速度当作 map 速度使用。已补充按定位航向旋转一次；默认零航向路线不变，非零航向闭环验证待执行。
+规划器初速度坐标检查另发现：原适配器直接把 base_link 线速度当作 map 速度使用。已补充按定位航向旋转一次；90° 初始航向实测通过，终点误差 0.1142 m、最大横向偏差 0.0345 m，见 evidence/closed-loop-clearance-yaw90.json。
+
+
+## 扩大回归后发现的边界问题
+
+第一轮 15 次实测在第 11 次发现实际占据区样本；归档
+evidence/closed-loop-15-final.json，不能算该轮通过。对应重规划多项式也有占据区采样，
+所以增加原生产占据图的参考轨迹及 MPC 预测检查，并在自主配置增加 0.45 m 规划余量。
+演示终点改用有充分净空的 (-3.219, 2.146)，原图、元数据与第二阶段入口保留。
+规划 re-anchor 在跳到前方路径点前必须检查连线，防止裁剪跨墙角。
+
+反向路线在拓扑图端点连接失败，已增加双向回归。端点连接所有可见守卫，
+可见性采样包含两端且间隔不超过半栅格；零距离不再除零，Dijkstra 最小代价保留浮点精度。
+修复后独立反向实测通过，见 evidence/closed-loop-reverse-fixed.json；
+9 项规划回归通过，见 evidence/topo-after-fix-correct-overlay.log。
+早期 topo-after-fix.log 误加载旧 underlay 动态库，属于测试启动错误；正确 overlay 的 ldd 已核验。
+
+ROS2 适配器已将当前位姿传入旧拓扑采样器的 odom_position；最终 closed-loop-final-source-15.json 包含此修正，15/15 通过。
+
+实际运动原始采样按约 12 Hz 保存；audit_closed_loop.py 对相邻实测位置按 <=0.02 m
+插值检查，并对每一条已接受多项式按解析速度界限控制 <=0.02 m 间隔检查。
+插值检查不冒充额外传感器测量。
+
+
+## 第一项最终验收
+
+最终批量 evidence/closed-loop-final-source-15.json：15/15 到点，累计实际路线测试 577.16 秒；
+最大位置误差 0.1172 m、最大横向偏差 0.0374 m、最大速度 0.4202 m/s。
+所有接受轨迹及实测位置插值通过原占据图检查，见 evidence/closed-loop-final-source-audit.json。
+最终 90° 航向实测 49.42 秒，误差 0.1138 m，见 evidence/closed-loop-final-yaw90.json。
+源文件与实际加载程序哈希见 evidence/step1-final-source-manifest.json。
+第二项进程卡死、暂停、接管与重启实际测试尚未计入本结论。

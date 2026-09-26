@@ -229,6 +229,8 @@ class ReplanFsmNode final : public rclcpp::Node {
   void receive_odometry(const nav_msgs::msg::Odometry& state) {
     const auto& pose = state.pose.pose;
     robot_position_ = Eigen::Vector3d(pose.position.x, pose.position.y, 0.0);
+    // The ROS2 adapter owns odometry; legacy ROS1 subscriptions are inactive.
+    manager_->global_map->odom_position = robot_position_;
     const auto& q = pose.orientation;
     const double yaw = std::atan2(2.0 * (q.w * q.z + q.x * q.y),
                                  1.0 - 2.0 * (q.y * q.y + q.z * q.z));

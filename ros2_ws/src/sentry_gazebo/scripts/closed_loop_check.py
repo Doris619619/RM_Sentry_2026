@@ -14,6 +14,13 @@ from std_msgs.msg import String
 from trajectory_generation.msg import TrajectoryPoly
 from planning_check import LivePlanning, map_cases, ROOT
 
+# Select goals with sufficient clearance for the autonomous tracking reserve; retain five route variants.
+def autonomy_cases():
+    pairs,mask=map_cases()
+    start=pairs[0][0];goal=pairs[2][1]
+    pairs[0]=(start,goal);pairs[1]=(goal,start)
+    return pairs,mask
+
 class ClosedLoop(LivePlanning):
     # Add measured truth and explicit safety status to the existing actual-scene client.
     def __init__(self):
@@ -48,9 +55,11 @@ class ClosedLoop(LivePlanning):
     def on_truth(self, message):
         if not self.samples or time.monotonic()-self.samples[-1]['wall'] >= .08:
             p=message.pose.pose.position;v=message.twist.twist
+            q=message.pose.pose.orientation
+            yaw=math.atan2(2*(q.w*q.z+q.x*q.y),1-2*(q.y*q.y+q.z*q.z))
             error=None if self.current_path is None else float(np.linalg.norm(self.current_path-[p.x,p.y],axis=1).min())
             self.samples.append({'wall':time.monotonic(),'sim':message.header.stamp.sec+message.header.stamp.nanosec*1e-9,
-                'x':p.x,'y':p.y,'speed':math.hypot(v.linear.x,v.linear.y),'wz':v.angular.z,'cross_track':error})
+                'x':p.x,'y':p.y,'yaw':yaw,'speed':math.hypot(v.linear.x,v.linear.y),'wz':v.angular.z,'cross_track':error})
 
     # Reset between cases while stopped; no teleport is permitted during a timed route.
     def prepare(self, start):
@@ -72,12 +81,13 @@ class ClosedLoop(LivePlanning):
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--single',action='store_true')
+    parser.add_argument('--case',type=int,choices=range(1,6),default=1)
     parser.add_argument('--yaw',type=float,default=0.)
     parser.add_argument('--timeout',type=float,default=180)
     parser.add_argument('--output',default=str(ROOT/'docs/simulation/autonomy/evidence/closed-loop.json'))
     args=parser.parse_args()
-    pairs,mask=map_cases()
-    if args.single:pairs=pairs[:1]
+    pairs,mask=autonomy_cases()
+    if args.single:pairs=pairs[args.case-1:args.case]
     rclpy.init();live=ClosedLoop();live.yaw=args.yaw;records=[]
     try:
         ready_until=time.monotonic()+30
@@ -102,15 +112,16 @@ def main():
                         col=int(math.floor((pt['x']+13.394)/.05));row=399-int(math.floor((pt['y']+12.079)/.05))
                         occupied+=int(not(0<=col<400 and 0<=row<400) or (0<=col<400 and 0<=row<400 and mask[row,col]))
                     errors=[pt['cross_track'] for pt in sample if pt['cross_track'] is not None]
-                    result={'case':index+1,'repeat':repetition+1,'start':start,'goal':goal,
+                    result={'case':args.case if args.single else index+1,'repeat':repetition+1,'start':start,'goal':goal,
                         'wall_duration':time.monotonic()-start_wall,'status':live.status,'endpoint_error':distance,
-                        'max_speed':max(pt['speed'] for pt in sample),'occupied_samples':occupied,
+                        'max_speed':max(pt['speed'] for pt in sample),
+                        'max_yaw_error':max(abs(math.atan2(math.sin(pt['yaw']-args.yaw),math.cos(pt['yaw']-args.yaw))) for pt in sample),'occupied_samples':occupied,
                         'max_cross_track':max(errors) if errors else None,
                         'p95_cross_track':float(np.percentile(errors,95)) if errors else None,
                         'samples':sample,'trajectories':live.paths,
-                        'passed':live.status.get('state')=='arrived' and distance<=.15 and occupied==0 and max(pt['speed'] for pt in sample)<=.501}
+                        'passed':live.status.get('state')=='arrived' and distance<=.15 and occupied==0 and max(pt['speed'] for pt in sample)<=.501 and max(abs(math.atan2(math.sin(pt['yaw']-args.yaw),math.cos(pt['yaw']-args.yaw))) for pt in sample)<=.05}
                 except Exception as error:
-                    result={'case':index+1,'repeat':repetition+1,'passed':False,'error':str(error),'status':live.status,
+                    result={'case':args.case if args.single else index+1,'repeat':repetition+1,'passed':False,'error':str(error),'status':live.status,
                             'samples':live.samples,'trajectories':live.paths}
                 records.append(result)
                 Path(args.output).write_text(json.dumps(records,indent=2))

@@ -1,3 +1,4 @@
+// Compose global/local planning and visibility-checked reference re-anchoring.
 //
 // Created by zzt on 23-9-25.
 //
@@ -231,6 +232,11 @@ bool planner_manager::replanFinding(const Eigen::Vector3d start_point, const Eig
                     }
                 }
                 int trim_idx = std::min(closest_idx + 1, (int)optimized_path.size() - 1);
+                Eigen::Vector3d collision;
+                // Re-anchoring may not shortcut a wall corner.
+                if (!astar_path_finder->lineVisib(start_point,optimized_path[trim_idx],collision,0.025)) {
+                    return pathFinding(start_point,target_point,start_vel);
+                }
                 std::vector<Eigen::Vector3d> trimmed;
                 trimmed.push_back(start_point);
                 for (int i = trim_idx; i < (int)optimized_path.size(); i++) {

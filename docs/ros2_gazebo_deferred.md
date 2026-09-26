@@ -46,3 +46,10 @@ obstacle runtime fixtures documented in `ros2_tracking_validation.md`.
 
 MCU serial and physical robot validation remain separate hardware work and were
 not attempted.
+
+
+### 自主仿真第一项验收（2026-09-26）
+
+独立自主入口已通过五组各三次实际 MPC 到点及 90° 初始航向复核；最大到点误差 0.1172 m。
+报告与原始证据见 [六项后续仿真验收报告](simulation/autonomy/验收报告.md)。
+安全故障注入、动态场景、实际定位、物理底盘与完整通信联调仍分别验收；不宣称六项全部完成。

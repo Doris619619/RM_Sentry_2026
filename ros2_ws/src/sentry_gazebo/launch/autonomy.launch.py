@@ -29,7 +29,7 @@ def generate_launch_description():
         parameters=[str(tracking_share/'config/tracking.yaml'),str(planner_share/'config/map_metadata.yaml'),
                     str(share/'config/autonomy.yaml'),{'use_sim_time':True}],output='screen')
     hit=Node(package='trajectory_tracking',executable='hit_bridge',parameters=[
-        {'use_sim_time':True,'cmd_vel_topic':'/sim/auto_cmd_vel'}],output='screen')
+        {'use_sim_time':True,'cmd_vel_topic':'/sim/auto_cmd_vel','tracking_arrived_topic':'/sim/arrived'}],output='screen')
     guard=Node(package='sentry_gazebo',executable='autonomy_guard.py',parameters=[{'use_sim_time':True}],output='screen')
     processes=[gazebo,bridge,adapter,cloud,display,planner,rviz,tracking,hit,guard]
     actions=[DeclareLaunchArgument('enable_planner',default_value='true'),

@@ -8,11 +8,12 @@ export ROS_DOMAIN_ID="${ROS_DOMAIN_ID:-26}" ROS_LOCALHOST_ONLY=1
 export IGN_PARTITION="sentry_basic_${USER}_${ROS_DOMAIN_ID}"
 export QT_QPA_PLATFORM=xcb PYTHONNOUSERSITE=1
 export QT_AUTO_SCREEN_SCALE_FACTOR=0 QT_SCALE_FACTOR=1 QT_ENABLE_HIGHDPI_SCALING=0
-if [[ ! -f "$WS/install_closure_fix/local_setup.bash" ]]; then
-  echo '缺少已构建的 OCS2 依赖环境 install_closure_fix；请先按仓库跟踪模块构建说明准备依赖。'
+DEPENDENCY_SETUP="${SENTRY_DEPENDENCY_SETUP:-$WS/install_closure_fix/local_setup.bash}"
+if [[ ! -f "$DEPENDENCY_SETUP" ]]; then
+  echo '缺少 OCS2 依赖环境；按 ros2_ws/README.md 构建后，将 SENTRY_DEPENDENCY_SETUP 指向 install/local_setup.bash。'
   exit 1
 fi
-source "$WS/install_closure_fix/local_setup.bash"
+source "$DEPENDENCY_SETUP"
 MODE="${1:-start}"
 if [[ "$MODE" == build ]]; then
   cd "$WS"
