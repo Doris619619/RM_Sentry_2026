@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/closed_loop_check.py", line 108, in <module>
+    if __name__=='__main__':main()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/closed_loop_check.py", line 74, in main
+    live.prepare(start)
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/closed_loop_check.py", line 56, in prepare
+    self.teleport(start)
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/planning_check.py", line 102, in teleport
+    p=self.odom.pose.pose.position
+AttributeError: 'NoneType' object has no attribute 'pose'

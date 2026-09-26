@@ -1,0 +1,25 @@
+Starting >>> waypoint_generator
+Finished <<< waypoint_generator [0.13s]
+Starting >>> trajectory_generation
+--- stderr: trajectory_generation
+** WARNING ** io features related to pcap will be disabled
+** WARNING ** io features related to png will be disabled
+In file included from /home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/include/trajectory_generation/path_smooth.h:9,
+                 from /home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/include/trajectory_generation/plan_manager.h:16,
+                 from /home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/replan_fsm_node.cpp:28:
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/include/trajectory_generation/root_solver/minco_trajectory.hpp: In member function ‘void MincoTrajectory::getGradTimes(Eigen::VectorXd&) const’:
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/include/trajectory_generation/root_solver/minco_trajectory.hpp:258:26: warning: unused variable ‘Ti4’ [-Wunused-variable]
+  258 |             const double Ti4 = Ti3 * Ti;
+      |                          ^~~
+---
+[Processing: trajectory_generation]
+Finished <<< trajectory_generation [40.6s]
+Starting >>> trajectory_tracking
+Finished <<< trajectory_tracking [0.54s]
+Starting >>> sentry_gazebo
+Finished <<< sentry_gazebo [1.56s]
+Starting >>> sentry_bringup
+Finished <<< sentry_bringup [0.07s]
+
+Summary: 5 packages finished [43.1s]
+  1 package had stderr output: trajectory_generation

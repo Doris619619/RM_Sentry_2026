@@ -1,0 +1,202 @@
+[Manager Init] map/file_path: 
+[Manager Init] map/occ_file_path: /home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/trajectory_generation/share/trajectory_generation/map/occfinal.png
+[Manager Init] map/bev_file_path: /home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/trajectory_generation/share/trajectory_generation/map/bevfinal.png
+[Manager Init] map/distance_map_file_path: /home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/trajectory_generation/share/trajectory_generation/map/occtopo.png
+m_height_bias: 0.0152941 m_height_interval: 1.5 m_height_threshold: 0.08 height_sencond_high_threshold: 0.2
+map swell done
+second_heights_points: 10
+[Map Build] bev build done
+xmax: 0.781 xmin: -0.719 ymax: -3.154 ymin: -5.354
+R.rows 400 R.cols 400
+start topo sample map
+[GridMap] topo_sample_map size: 185
+[GridMap] topo_keypoint size: 1603
+[WARN] [1790448809.162531967] [trajectory_generation]: discarded dynamic cloud without map <- missing_cloud TF: "map" passed to lookupTransform argument target_frame does not exist. 
+[INFO] [1790448809.466709044] [trajectory_generation]: FSM accepted clicked point goal=(-1.37, -4.20, 0.02)
+[Manager] start point, (x, y): (-3.82, 2.40)
+[Manager] receive target, (x, y): (-1.37, -4.20)
+[Topo]: m_graph before num: 1605
+[Topo]: dijkstra time: 0.027950
+[Topo]: topo search time: 0.349796
+[Topo]: m_graph num: 2560
+[DIAG] origin_path (Dijkstra) size: 4
+[DIAG]   origin[0]: (-3.819, 2.396, 0.015)
+[DIAG]   origin[1]: (-4.219, 1.896, 0.015)
+[DIAG]   origin[2]: (-4.700, -1.100, 0.015)
+[DIAG]   origin[3]: (-1.369, -4.204, 0.015)
+[DIAG] lineVisib(start→end DIRECT): false  colli=(-3.47,1.45)
+[DIAG] direct line: 140 steps, 61 wall cells
+[smoothTopoPath] INPUT size=4
+[smoothTopoPath]   in[0]: (-3.819, 2.396, 0.015)
+[smoothTopoPath]   in[1]: (-4.219, 1.896, 0.015)
+[smoothTopoPath]   in[2]: (-4.700, -1.100, 0.015)
+[smoothTopoPath]   in[3]: (-1.369, -4.204, 0.015)
+[smoothTopoPath] lineVisib(start→end): false  colli=(-3.47,1.45)
+[smoothTopoPath] OUTPUT size=4, iter_count=3
+[smoothTopoPath]   out[0]: (-3.819, 2.396, 0.015)
+[smoothTopoPath]   out[1]: (-4.767, 0.356, 0.015)
+[smoothTopoPath]   out[2]: (-4.626, -1.511, 0.015)
+[smoothTopoPath]   out[3]: (-1.369, -4.204, 0.015)
+[DIAG] optimized_path (smoothTopoPath) size: 4
+[DIAG]   opt[0]: (-3.819, 2.396, 0.015)
+[DIAG]   opt[1]: (-4.767, 0.356, 0.015)
+[DIAG]   opt[2]: (-4.626, -1.511, 0.015)
+[DIAG]   opt[3]: (-1.369, -4.204, 0.015)
+optimized_path size: 4
+[Manager] reference_speed: (2.00)
+[LBFGS] search direction d: -0.000795032 -0.000472189   0.00213319   0.00284833  0.000585694 -0.000961377  -0.00218945  -0.00232831  3.15785e-05   0.00235165  0.000858304  -0.00177833 -6.77842e-05   0.00362321   0.00153204  -0.00337428  -0.00308309   0.00239798   0.00396684 -0.000458698  -0.00508014  -0.00331188   0.00357003   0.00665241   0.00313839  -0.00016253 -0.000586308  0.000562488   0.00137256   0.00376182   0.00767675   0.00345466  -0.00414111  -0.00361186   0.00307371   0.00618356  0.000638469  -0.00434087  -0.00320742  0.000757816  0.000836225 -0.000470048  0.000720851    0.0021545  -0.00169356  -0.00436791  0.000208519   0.00634895   0.00305321  -0.00485048  -0.00560828  -0.00165497  0.000492377 -0.000418335   0.00351693   0.00335782   0.00281385   0.00153312 -0.000140717 -0.000605934  1.04068e-06  0.000463481  0.000248521   0.00173748 -0.000835288 -0.000132322  0.000328902  0.000184624  0.000347232  0.000594405    9.594e-05 -0.000515796 -2.79062e-05  0.000966326   0.00093257 -0.000247658 -0.000886664  4.26558e-05   0.00181331   0.00300415   0.00331181   0.00250757
+[Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[Smooth Optimize] MINCO: cost=85.2 total_T=4.212(init 4.160) max_drift=0.294 max_vel=3.1 segs=28
+[Smooth Resample] resample
+[Smooth Resample] 29 -> 15 waypoints, 14 time segs, max_turn=24.8 deg
+[Manager] optimizer generate time: 0.006769
+[Reference] path size : 15
+[Reference] solvePolyMatrix ENTER: N=14, path_size=15, trap_time_size=14
+[Reference]   path[0]=(-3.8190,2.3960) path[1]=(-3.9473,2.1017) t[0]=0.317792 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=-1.720397 b[N]=-3.386434 b2[0]=-4.664828 b2[N]=2.620715
+[Reference] solvePolyMatrix EXIT: polyX[0]=[-1.290395 -0.860198 0.000000 -3.819000]
+[Reference] solvePolyMatrix ENTER: N=14, path_size=15, trap_time_size=14
+[Reference]   path[0]=(-3.8190,2.3960) path[1]=(-3.9473,2.1017) t[0]=0.349571 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=-1.421641 b[N]=-2.808394 b2[0]=-3.855853 b2[N]=2.173853
+[Reference] solvePolyMatrix EXIT: polyX[0]=[-0.969743 -0.710821 0.000000 -3.819000]
+[Reference] solvePolyMatrix ENTER: N=14, path_size=15, trap_time_size=14
+[Reference]   path[0]=(-3.8190,2.3960) path[1]=(-3.9473,2.1017) t[0]=0.384528 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=-1.174743 b[N]=-2.305788 b2[0]=-3.187275 b2[N]=1.782306
+[Reference] solvePolyMatrix EXIT: polyX[0]=[-0.728799 -0.587372 0.000000 -3.819000]
+[Reference] solvePolyMatrix ENTER: N=14, path_size=15, trap_time_size=14
+[Reference]   path[0]=(-3.8190,2.3960) path[1]=(-3.9473,2.1017) t[0]=0.422981 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=-0.969315 b[N]=-1.890047 b2[0]=-2.619165 b2[N]=1.458600
+[Reference] solvePolyMatrix EXIT: polyX[0]=[-0.549386 -0.484658 0.000000 -3.819000]
+[Reference] solvePolyMatrix ENTER: N=14, path_size=15, trap_time_size=14
+[Reference]   path[0]=(-3.8190,2.3960) path[1]=(-3.9473,2.1017) t[0]=0.465279 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=-0.799113 b[N]=-1.546380 b2[0]=-2.149527 b2[N]=1.191146
+[Reference] solvePolyMatrix EXIT: polyX[0]=[-0.414883 -0.399557 -0.000000 -3.819000]
+[Reference] solvePolyMatrix ENTER: N=14, path_size=15, trap_time_size=14
+[Reference]   path[0]=(-3.8190,2.3960) path[1]=(-3.9473,2.1017) t[0]=0.511807 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=-0.658143 b[N]=-1.262506 b2[0]=-1.761494 b2[N]=0.970357
+[Reference] solvePolyMatrix EXIT: polyX[0]=[-0.313936 -0.329071 0.000000 -3.819000]
+[INFO] [1790448809.850301699] [trajectory_generation]: FSM published 14 trajectory pieces
+[A Star] find collision pos: -4.619570 0.673231
+[A Star] find start pos: -3.819000 2.396000
+[Manager REPLAN]  cur position point (X, Y) = (-3.820000, 2.400000), target point (X, Y) = (-1.369000, -4.204000)
+[Manager REPLAN] target_temp (X, Y) = (-1.369000, -4.204000)
+[A Star] find collision pos: -4.619570 0.673231
+[A Star] find start pos: -3.819000 2.396000
+[Manager REPLAN] start local planning
+[Topo Local]: complete sample
+[Topo Local]: sample time: 0.245369
+[Manager Local] local path find! size is 3
+[smoothTopoPath] INPUT size=5
+[smoothTopoPath]   in[0]: (-3.820, 2.400, 0.015)
+[smoothTopoPath]   in[1]: (-4.269, 1.846, 0.015)
+[smoothTopoPath]   in[2]: (-4.767, 0.356, 0.015)
+[smoothTopoPath]   in[3]: (-4.626, -1.511, 0.015)
+[smoothTopoPath]   in[4]: (-1.369, -4.204, 0.015)
+[smoothTopoPath] lineVisib(start→end): false  colli=(-3.47,1.45)
+[smoothTopoPath] OUTPUT size=3, iter_count=2
+[smoothTopoPath]   out[0]: (-3.820, 2.400, 0.015)
+[smoothTopoPath]   out[1]: (-4.710, -0.392, 0.015)
+[smoothTopoPath]   out[2]: (-1.369, -4.204, 0.015)
+[Manager REPLAN] optimized path size is 3
+[LBFGS] search direction d: -0.000360739 -0.000973616 -0.000418791  0.000946358  0.000934096   0.00175141  -0.00018938  -0.00177645 -0.000339556   0.00133795 -0.000789627 -0.000724674  0.000581953   0.00104987  -0.00170223  1.52519e-05  0.000767804   0.00105298  -0.00133822 -0.000732431  0.000398657   0.00138906  0.000150488  -0.00088217  -0.00125103  -0.00034757  -0.00061837  -0.00148037  -0.00207217   0.00240182   0.00110732  0.000633052 -0.000714465  0.000210008 -0.000343398  8.24682e-05  2.68077e-05 -0.000252888 -4.22217e-06  6.58033e-05   5.1598e-06 -5.10327e-05  0.000387058  -0.00071187 -0.000402276   0.00171302 -4.58461e-05  -0.00172574  -0.00080995   0.00155537   0.00156026  0.000247865 -0.000265408 -0.000164198  8.18543e-05  0.000497721 -0.000113064  0.000200196 -0.000144732 -4.22014e-05 -3.38042e-06  5.48117e-05  5.76846e-05  -1.9729e-05  -7.1901e-05  -9.3336e-06   0.00010795   -6.524e-05 -6.47046e-05 -3.77261e-05  0.000165234  6.24142e-05 -0.000205005 -0.000153901  0.000168521  0.000391656 -4.34207e-06 -0.000315143 -0.000211738
+[Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[Smooth Optimize] MINCO: cost=163.3 total_T=4.037(init 3.986) max_drift=0.304 max_vel=3.1 segs=27
+[Smooth Resample] resample
+[Smooth Resample] 28 -> 15 waypoints, 14 time segs, max_turn=37.1 deg
+[Reference] path size : 15
+[Reference] solvePolyMatrix ENTER: N=14, path_size=15, trap_time_size=14
+[Reference]   path[0]=(-3.8200,2.4000) path[1]=(-3.8574,2.0955) t[0]=0.314561 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=-1.251152 b[N]=0.631984 b2[0]=-4.753714 b2[N]=-0.589395
+[Reference] solvePolyMatrix EXIT: polyX[0]=[0.785941 -0.625576 0.000000 -3.820000]
+[Reference] solvePolyMatrix ENTER: N=14, path_size=15, trap_time_size=14
+[Reference]   path[0]=(-3.8200,2.4000) path[1]=(-3.8574,2.0955) t[0]=0.346017 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=-1.034111 b[N]=0.524565 b2[0]=-3.928559 b2[N]=-0.490091
+[Reference] solvePolyMatrix EXIT: polyX[0]=[0.590635 -0.517055 0.000000 -3.820000]
+[Reference] solvePolyMatrix ENTER: N=14, path_size=15, trap_time_size=14
+[Reference]   path[0]=(-3.8200,2.4000) path[1]=(-3.8574,2.0955) t[0]=0.380619 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=-0.854739 b[N]=0.435798 b2[0]=-3.246614 b2[N]=-0.407998
+[Reference] solvePolyMatrix EXIT: polyX[0]=[0.443887 -0.427370 0.000000 -3.820000]
+[Reference] solvePolyMatrix ENTER: N=14, path_size=15, trap_time_size=14
+[Reference]   path[0]=(-3.8200,2.4000) path[1]=(-3.8574,2.0955) t[0]=0.418681 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=-0.705999 b[N]=0.362590 b2[0]=-2.683469 b2[N]=-0.340237
+[Reference] solvePolyMatrix EXIT: polyX[0]=[0.333024 -0.352999 0.000000 -3.820000]
+[Reference] solvePolyMatrix ENTER: N=14, path_size=15, trap_time_size=14
+[Reference]   path[0]=(-3.8200,2.4000) path[1]=(-3.8574,2.0955) t[0]=0.460549 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=-0.571170 b[N]=0.311426 b2[0]=-2.207350 b2[N]=-0.296463
+[Reference] solvePolyMatrix EXIT: polyX[0]=[0.236853 -0.285585 0.000000 -3.820000]
+[Reference] solvePolyMatrix ENTER: N=14, path_size=15, trap_time_size=14
+[Reference]   path[0]=(-3.8200,2.4000) path[1]=(-3.8574,2.0955) t[0]=0.506604 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=-0.459710 b[N]=0.269863 b2[0]=-1.813448 b2[N]=-0.260988
+[Reference] solvePolyMatrix EXIT: polyX[0]=[0.165780 -0.229855 0.000000 -3.820000]
+[Reference] solvePolyMatrix ENTER: N=14, path_size=15, trap_time_size=14
+[Reference]   path[0]=(-3.8200,2.4000) path[1]=(-3.8574,2.0955) t[0]=0.506604 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=-0.459709 b[N]=0.235915 b2[0]=-1.813448 b2[N]=-0.232014
+[Reference] solvePolyMatrix EXIT: polyX[0]=[0.165779 -0.229855 0.000000 -3.820000]
+[INFO] [1790448812.853964737] [trajectory_generation]: FSM published 14 trajectory pieces
+[Manager REPLAN]  cur position point (X, Y) = (-3.820000, 2.400000), target point (X, Y) = (-1.369000, -4.204000)
+[Manager REPLAN] target_temp (X, Y) = (-1.369000, -4.204000)
+[A Star] find collision pos: -4.363349 0.696415
+[A Star] find start pos: -3.820000 2.400000
+[Manager REPLAN] start local planning
+[Topo Local]: complete sample
+[Topo Local]: sample time: 0.198519
+[Manager Local] local path find! size is 3
+[smoothTopoPath] INPUT size=4
+[smoothTopoPath]   in[0]: (-3.820, 2.400, 0.015)
+[smoothTopoPath]   in[1]: (-4.419, 1.246, 0.015)
+[smoothTopoPath]   in[2]: (-4.710, -0.392, 0.015)
+[smoothTopoPath]   in[3]: (-1.369, -4.204, 0.015)
+[smoothTopoPath] lineVisib(start→end): false  colli=(-3.47,1.45)
+[smoothTopoPath] stuck detected, skipping to topo[2]
+[smoothTopoPath] OUTPUT size=6, iter_count=5
+[smoothTopoPath]   out[0]: (-3.820, 2.400, 0.015)
+[smoothTopoPath]   out[1]: (-4.890, -0.268, 0.015)
+[smoothTopoPath]   out[2]: (-4.142, 1.107, 0.015)
+[smoothTopoPath]   out[3]: (-4.858, -0.105, 0.015)
+[smoothTopoPath]   out[4]: (-4.710, -0.392, 0.015)
+[smoothTopoPath]   out[5]: (-1.369, -4.204, 0.015)
+[Manager REPLAN] optimized path size is 6
+[LBFGS] search direction d:   0.00205134   0.00538322   0.00764476    0.0131638    0.0162771   0.00806579  -0.00122977  -0.00322294  -0.00273042  -0.00135397  -0.00357969  -0.00372338  -0.00515517   -0.0034116  -0.00181631 -0.000302371  -0.00134408   0.00290677   0.00318767  -0.00028645 -0.000890703  -0.00133662  -0.00235442 -0.000589036  0.000460871  0.000632303  0.000284245  -0.00104386  0.000523375   0.00217478  -0.00172985  -0.00367548   0.00113514   0.00367669   0.00435934   0.00413283   0.00680662    0.0161829    0.0103782   0.00200603  -0.00343975  -0.00443463  -0.00298245  0.000999893   0.00496827   0.00646151   0.00323555 -0.000221185  -0.00118105  -0.00161697   0.00146935      0.00612   0.00240747  -0.00192959 -0.000869789  -0.00285968  -0.00354852 -0.000765467 -0.000520037  -0.00124163 -0.000487304  0.000163443   0.00214726  0.000722423  -0.00388484 -0.000846145   0.00388433    0.0019815   -0.0010049  -0.00330812  -0.00574187  -0.00440327   0.00412125   0.00387539  0.000928754  -0.00101045   0.00350681   0.00610737 -0.000309805 -3.10392e-05  0.000705589  0.000467487   0.00130822  0.000441488  0.000403683   0.00591366   0.00159965   0.00333524   0.00606123 -0.000520693 -0.000638183  0.000607774  0.000475367  0.000431776  0.000352687  0.000105576  0.000154971  0.000244145  0.000296622  7.44782e-05 -0.000120433  0.000455308  0.000773691  0.000249598 -0.000246484 -5.73892e-05   0.00113595   0.00281945   0.00647257
+[Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[Smooth Optimize] MINCO: cost=531.9 total_T=5.509(init 5.439) max_drift=0.354 max_vel=3.1 segs=37
+[Smooth Resample] resample
+[Smooth Resample] 38 -> 20 waypoints, 19 time segs, max_turn=169.3 deg
+[Reference] path size : 20
+[Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[Reference]   path[0]=(-3.8200,2.4000) path[1]=(-3.9322,2.1797) t[0]=0.313110 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=-3.647622 b[N]=-2.483190 b2[0]=-2.464914 b2[N]=2.784521
+[Reference] solvePolyMatrix EXIT: polyX[0]=[2.170426 -1.823811 0.000000 -3.820000]
+[Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[Reference]   path[0]=(-3.8200,2.4000) path[1]=(-3.9322,2.1797) t[0]=0.344421 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=-3.014564 b[N]=-2.061936 b2[0]=-2.037119 b2[N]=2.310907
+[Reference] solvePolyMatrix EXIT: polyX[0]=[1.630675 -1.507282 0.000000 -3.820000]
+[Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[Reference]   path[0]=(-3.8200,2.4000) path[1]=(-3.9322,2.1797) t[0]=0.378863 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=-2.491376 b[N]=-1.689189 b2[0]=-1.683569 b2[N]=1.889706
+[Reference] solvePolyMatrix EXIT: polyX[0]=[1.225151 -1.245688 -0.000000 -3.820000]
+[Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[Reference]   path[0]=(-3.8200,2.4000) path[1]=(-3.9322,2.1797) t[0]=0.416750 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=-2.058989 b[N]=-1.380901 b2[0]=-1.391379 b2[N]=1.541573
+[Reference] solvePolyMatrix EXIT: polyX[0]=[0.920475 -1.029495 0.000000 -3.820000]
+[Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[Reference]   path[0]=(-3.8200,2.4000) path[1]=(-3.9322,2.1797) t[0]=0.458425 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=-1.689982 b[N]=-1.126132 b2[0]=-1.133717 b2[N]=1.254096
+[Reference] solvePolyMatrix EXIT: polyX[0]=[0.678847 -0.844991 0.000000 -3.820000]
+[Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[Reference]   path[0]=(-3.8200,2.4000) path[1]=(-3.9322,2.1797) t[0]=0.504267 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=-1.396680 b[N]=-0.915794 b2[0]=-0.936956 b2[N]=1.016962
+[Reference] solvePolyMatrix EXIT: polyX[0]=[0.510028 -0.698340 0.000000 -3.820000]
+[Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[Reference]   path[0]=(-3.8200,2.4000) path[1]=(-3.9322,2.1797) t[0]=0.504267 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=-1.397462 b[N]=-0.742335 b2[0]=-0.936580 b2[N]=0.821622
+[Reference] solvePolyMatrix EXIT: polyX[0]=[0.510804 -0.698731 0.000000 -3.820000]
+[Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[Reference]   path[0]=(-3.8200,2.4000) path[1]=(-3.9322,2.1797) t[0]=0.504267 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=-1.397542 b[N]=-0.742337 b2[0]=-0.936305 b2[N]=0.821620
+[Reference] solvePolyMatrix EXIT: polyX[0]=[0.510883 -0.698771 -0.000000 -3.820000]
+[Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[Reference]   path[0]=(-3.8200,2.4000) path[1]=(-3.9322,2.1797) t[0]=0.504267 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=-1.397616 b[N]=-0.742339 b2[0]=-0.936062 b2[N]=0.821619
+[Reference] solvePolyMatrix EXIT: polyX[0]=[0.510956 -0.698808 0.000000 -3.820000]
+[INFO] [1790448814.488509817] [trajectory_generation]: FSM published 19 trajectory pieces
+[INFO] [1790448814.690887756] [rclcpp]: signal_handler(SIGINT/SIGTERM)

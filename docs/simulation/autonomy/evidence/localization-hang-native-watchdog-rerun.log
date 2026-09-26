@@ -1,0 +1,1 @@
+{"name": "localization_loss", "passed": true, "detail": {"reason": "localization timeout", "stop_status_latency_wall": 0.540297573999851, "post_stop_displacement": 0.0}, "wall_seconds": 8.052245205999498}

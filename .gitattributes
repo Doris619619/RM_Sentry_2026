@@ -1,0 +1,2 @@
+# Mark machine-generated simulation measurements as generated so PR review focuses on source and reports.
+docs/simulation/autonomy/evidence/** linguist-generated=true

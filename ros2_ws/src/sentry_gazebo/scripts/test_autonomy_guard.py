@@ -9,7 +9,7 @@ import rclpy
 from geometry_msgs.msg import PoseStamped, Twist
 from nav_msgs.msg import Odometry
 from sensor_msgs.msg import PointCloud2
-from std_msgs.msg import String
+from std_msgs.msg import String, UInt8
 from trajectory_generation.msg import TrajectoryPoly
 from autonomy_guard import AutonomyGuard, trajectory_limits
 
@@ -156,6 +156,26 @@ class GuardTests(unittest.TestCase):
         self.assertEqual(self.node.state,'planning')
         self.assertIn('dynamic obstacle',self.node.reason)
         self.assertIsNone(self.node.endpoint)
+
+
+    # Full-system referee state must be fresh and active before any automatic reference is accepted.
+    def test_referee_gate_and_game_stop(self):
+        self.node.require_referee=True
+        self.node.on_goal(self.goal)
+        self.assertIn('referee serial timeout',self.node.reason)
+        self.node.on_referee(UInt8(data=4));self.node.on_goal(self.goal);self.node.on_trajectory(self.path())
+        self.assertEqual(self.node.state,'tracking')
+        self.node.on_referee(UInt8(data=0));self.node.tick()
+        self.assertEqual(self.node.state,'stopped')
+        self.assertIn('not active',self.node.reason)
+
+    # A corrupted serial receive stream cannot keep authorizing motion using previously decoded state.
+    def test_referee_timeout(self):
+        self.node.require_referee=True;self.node.on_referee(UInt8(data=4))
+        self.node.on_goal(self.goal);self.node.on_trajectory(self.path())
+        self.node.referee_wall-=1.;self.node.tick()
+        self.assertEqual(self.node.state,'stopped')
+        self.assertIn('referee serial timeout',self.node.reason)
 
 
 if __name__=='__main__':

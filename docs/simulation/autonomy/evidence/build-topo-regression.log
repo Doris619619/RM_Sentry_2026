@@ -1,0 +1,27 @@
+[0.427s] WARNING:colcon.colcon_core.package_selection:Some selected packages are already built in one or more underlay workspaces:
+	'trajectory_generation' is in: /home/liangys/RM_Sentry_2026/ros2_ws/install_closure_fix/trajectory_generation
+If a package in a merged underlay workspace is overridden and it installs headers, then all packages in the overlay must sort their include directories by workspace order. Failure to do so may result in build failures or undefined behavior at run time.
+If the overridden package is used by another package in any underlay, then the overriding package in the overlay must be API and ABI compatible or undefined behavior at run time may occur.
+
+If you understand the risks and want to override a package anyways, add the following to the command line:
+	--allow-overriding trajectory_generation
+
+This may be promoted to an error in a future release of colcon-override-check.
+Starting >>> trajectory_generation
+--- stderr: trajectory_generation
+In file included from /home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/include/trajectory_generation/path_smooth.h:9,
+                 from /home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/include/trajectory_generation/plan_manager.h:16,
+                 from /home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:2:
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/include/trajectory_generation/root_solver/minco_trajectory.hpp: In member function ‘void MincoTrajectory::getGradTimes(Eigen::VectorXd&) const’:
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/include/trajectory_generation/root_solver/minco_trajectory.hpp:258:26: warning: unused variable ‘Ti4’ [-Wunused-variable]
+  258 |             const double Ti4 = Ti3 * Ti;
+      |                          ^~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp: In function ‘void {anonymous}::expectContinuous(const Refenecesmooth&, const std::vector<Eigen::Matrix<double, 2, 1> >&, const Vector2d&)’:
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:155:10: warning: suggest explicit braces to avoid ambiguous ‘else’ [-Wdangling-else]
+  155 |       if (i+1<static_cast<int>(reference.m_trapezoidal_time.size()))
+      |          ^
+---
+Finished <<< trajectory_generation [15.7s]
+
+Summary: 1 package finished [16.0s]
+  1 package had stderr output: trajectory_generation

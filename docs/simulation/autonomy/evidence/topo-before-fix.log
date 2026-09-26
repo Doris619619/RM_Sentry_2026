@@ -1,0 +1,43 @@
+Running main() from /opt/ros/humble/src/gtest_vendor/src/gtest_main.cc
+Note: Google Test filter = *AutonomousRoute*
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from LegacyPlanningTest
+[ RUN      ] LegacyPlanningTest.AutonomousRouteIsConnectedInBothDirections
+[Manager Init] map/file_path: 
+[Manager Init] map/occ_file_path: /home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/map/occfinal.png
+[Manager Init] map/bev_file_path: /home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/map/bevfinal.png
+[Manager Init] map/distance_map_file_path: /home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/map/occtopo.png
+m_height_bias: 0.0152941 m_height_interval: 1.5 m_height_threshold: 0.08 height_sencond_high_threshold: 0.2
+map swell done
+second_heights_points: 0
+[Map Build] bev build done
+R.rows 400 R.cols 400
+start topo sample map
+[GridMap] topo_sample_map size: 185
+[GridMap] topo_keypoint size: 1603
+[Topo]: m_graph before num: 1605
+[Topo Search] No Path, No point connect to end point
+[Topo] Force-connected end to reachable node 58 (dist=0.00m)
+[Topo]: dijkstra time: 0.016246
+[Topo]: topo search time: 0.066085
+[Topo]: m_graph num: 2548
+[Topo]: m_graph before num: 1605
+[Topo Search] No Path, No point connect to end point
+[Topo] End node is unreachable and no visible reachable guard found
+[Topo]: dijkstra time: 0.009389
+[Topo]: topo search time: 0.064618
+[Topo]: m_graph num: 2531
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:259: Failure
+Expected: (manager.topo_prm->min_path.size()) >= (2U), actual: 0 vs 2
+reverse=1
+[  FAILED  ] LegacyPlanningTest.AutonomousRouteIsConnectedInBothDirections (170 ms)
+[----------] 1 test from LegacyPlanningTest (170 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (170 ms total)
+[  PASSED  ] 0 tests.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] LegacyPlanningTest.AutonomousRouteIsConnectedInBothDirections
+
+ 1 FAILED TEST

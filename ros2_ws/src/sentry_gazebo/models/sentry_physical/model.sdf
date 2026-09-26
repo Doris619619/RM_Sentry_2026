@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <sdf version="1.8">
+  <!-- Generic force-driven physical chassis with actual four-line lidar observations. -->
   <model name="sentry">
     <pose>0 0 0 0 0 0</pose>
     <link name="base_link">

@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sdf version="1.8">
+  <!-- Static physical collisions and visuals reuse the exact raw planning-map extrusion mesh. -->
+  <model name="planning_map_physical">
+    <static>true</static>
+    <link name="map">
+      <visual name="obstacles">
+        <geometry>
+          <mesh>
+            <uri>model://planning_map/meshes/obstacles.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.38 0.48 0.58 1</ambient>
+          <diffuse>0.38 0.48 0.58 1</diffuse>
+        </material>
+      </visual>
+      <collision name="raw_occupied_geometry">
+        <geometry>
+          <mesh>
+            <uri>model://planning_map/meshes/obstacles.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+</sdf>

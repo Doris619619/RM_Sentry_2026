@@ -29,7 +29,7 @@ def main():
                     f=Path(mapping.path)
                     if f.is_file():paths.add(f)
         except psutil.Error:pass
-    for package in ['sentry_gazebo','trajectory_generation','trajectory_tracking']:
+    for package in ['sentry_gazebo','trajectory_generation','trajectory_tracking','decision_node','hdl_localization']:
         base=root/'ros2_ws/src'/package
         for name in ['config','scripts','launch','port/src','port/include','src']:
             directory=base/name
@@ -37,6 +37,7 @@ def main():
                 paths.update(f for f in directory.rglob('*') if f.is_file() and '__pycache__' not in str(f))
     maps=root/'ros2_ws/src/trajectory_generation/map'
     paths.update(maps/name for name in ['occfinal.png','bevfinal.png','occtopo.png'])
+    paths.add(root/'ros2_ws/install_sentry_autonomy/sentry_gazebo/share/sentry_gazebo/maps/ndt_reference.pcd')
     output={'head':subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip(),
             'dirty':subprocess.check_output(['git','status','--short','--untracked-files=no'],cwd=root,text=True),
             'launch_pid':args.pid,'processes':processes,

@@ -134,3 +134,35 @@
 [rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_common/icons/classes/Displays.svg, at ./src/rviz_common/load_resource.cpp:71
 [rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_common/icons/close.png, at ./src/rviz_common/load_resource.cpp:71
 [cloud_adapter.py-4] [WARN] [1790454753.223004915] [sentry_cloud_adapter]: Dropped lidar frame: no TF at measurement time
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[INFO] [rviz_safe-5]: sending signal 'SIGINT' to process[rviz_safe-5]
+[INFO] [cloud_adapter.py-4]: sending signal 'SIGINT' to process[cloud_adapter.py-4]
+[INFO] [sim_adapter.py-3]: sending signal 'SIGINT' to process[sim_adapter.py-3]
+[INFO] [parameter_bridge-2]: sending signal 'SIGINT' to process[parameter_bridge-2]
+[INFO] [ign-1]: sending signal 'SIGINT' to process[ign-1]
+[parameter_bridge-2] [INFO] [1790455307.203873811] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [parameter_bridge-2]: process has finished cleanly [pid 71582]
+[INFO] [rviz_safe-5]: process has finished cleanly [pid 71588]
+[INFO] [cloud_adapter.py-4]: process has finished cleanly [pid 71586]
+[INFO] [sim_adapter.py-3]: process has finished cleanly [pid 71584]
+[ERROR] [ign-1]: process[ign-1] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+[INFO] [ign-1]: sending signal 'SIGTERM' to process[ign-1]
+[ign-1] [1;32m[Msg] [0m[1;32mLoading plugin [[0m[1;32mignition-rendering-ogre2[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing scene information on [[0m[1;32m/world/sentry_physics[0m[1;32m/[0m[1;32mscene/info[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing graph information on [[0m[1;32m/world/sentry_physics[0m[1;32m/[0m[1;32mscene/graph[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing full state on [[0m[1;32m/world/sentry_physics[0m[1;32m/[0m[1;32mstate[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing full state (async) on [[0m[1;32m/world/sentry_physics[0m[1;32m/[0m[1;32mstate_async[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPublishing scene information on [[0m[1;32m/world/sentry_physics/scene/info[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPublishing entity deletions on [[0m[1;32m/world/sentry_physics/scene/deletion[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPublishing state changes on [[0m[1;32m/world/sentry_physics/state[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPublishing pose messages on [[0m[1;32m/world/sentry_physics[0m[1;32m/[0m[1;32mpose/info[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPublishing dynamic pose messages on [[0m[1;32m/world/sentry_physics[0m[1;32m/[0m[1;32mdynamic_pose/info[0m[1;32m][0m[1;32m[0m
+[ign-1] /usr/lib/ruby/ignition/cmdgazebo6.rb:183:in `kill': No such process (Errno::ESRCH)
+[ign-1] 	from /usr/lib/ruby/ignition/cmdgazebo6.rb:183:in `killProcess'
+[ign-1] 	from /usr/lib/ruby/ignition/cmdgazebo6.rb:509:in `handle_signal'
+[ign-1] 	from /usr/lib/ruby/ignition/cmdgazebo6.rb:519:in `block in execute'
+[ign-1] 	from /usr/lib/ruby/ignition/cmdgazebo6.rb:524:in `wait2'
+[ign-1] 	from /usr/lib/ruby/ignition/cmdgazebo6.rb:524:in `execute'
+[ign-1] 	from /usr/bin/ign:301:in `<main>'
+[ign-1] Escalating to SIGKILL on [Ignition Gazebo GUI]
+[ERROR] [ign-1]: process has died [pid 71580, exit code 1, cmd 'ign gazebo -r -v 3 /home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/sentry_gazebo/share/sentry_gazebo/worlds/physics.sdf --gui-config /home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/sentry_gazebo/share/sentry_gazebo/config/physics-gui.config'].

@@ -1,0 +1,50 @@
+[
+  {
+    "case": 1,
+    "repeat": 1,
+    "actual_sample_max_gap_m": 0.04006127187230376,
+    "interpolated_motion_free": true,
+    "all_reference_polynomials_free": true,
+    "passed": true
+  },
+  {
+    "case": 1,
+    "repeat": 2,
+    "actual_sample_max_gap_m": 0.03565049414222262,
+    "interpolated_motion_free": true,
+    "all_reference_polynomials_free": true,
+    "passed": true
+  },
+  {
+    "case": 1,
+    "repeat": 3,
+    "actual_sample_max_gap_m": 0.03242880811107456,
+    "interpolated_motion_free": true,
+    "all_reference_polynomials_free": true,
+    "passed": true
+  },
+  {
+    "case": 2,
+    "repeat": 1,
+    "actual_sample_max_gap_m": 0.03334178463762343,
+    "interpolated_motion_free": true,
+    "all_reference_polynomials_free": true,
+    "passed": true
+  },
+  {
+    "case": 2,
+    "repeat": 2,
+    "actual_sample_max_gap_m": 0.03356336424767897,
+    "interpolated_motion_free": true,
+    "all_reference_polynomials_free": true,
+    "passed": true
+  },
+  {
+    "case": 2,
+    "repeat": 3,
+    "actual_sample_max_gap_m": 0.03326176418026312,
+    "interpolated_motion_free": true,
+    "all_reference_polynomials_free": true,
+    "passed": true
+  }
+]

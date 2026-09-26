@@ -1,0 +1,22 @@
+{
+  "before": {
+    "/clock": 1,
+    "/localization/odometry": 1,
+    "/sim/lidar/native": 1,
+    "/cmd_vel": 1,
+    "/global_trajectory": 1,
+    "/sim/serial_cmd_vel": 1,
+    "/referee/game_progress": 1
+  },
+  "after": {
+    "/clock": 0,
+    "/localization/odometry": 0,
+    "/sim/lidar/native": 0,
+    "/cmd_vel": 0,
+    "/global_trajectory": 0,
+    "/sim/serial_cmd_vel": 0,
+    "/referee/game_progress": 0
+  },
+  "remaining_children": [],
+  "passed": true
+}

@@ -18,7 +18,7 @@ add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/ndt_reference.pcd ${CMAKE_
   DEPENDS scripts/ndt_reference_map.py ../trajectory_generation/map/occfinal.png ../trajectory_generation/config/map_metadata.yaml)
 add_custom_target(ndt_reference ALL DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/ndt_reference.pcd)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/ndt_reference.pcd ${CMAKE_CURRENT_BINARY_DIR}/ndt_reference.json DESTINATION share/${PROJECT_NAME}/maps)
-install(PROGRAMS scripts/estimated_odometry.py scripts/sim_adapter.py scripts/keyboard.py scripts/cloud_adapter.py scripts/map_display.py scripts/autonomy_guard.py scripts/autonomy_geometry.py scripts/gui_layout.py DESTINATION lib/${PROJECT_NAME})
+install(PROGRAMS scripts/pty_mcu_sim.py scripts/mcu_wire.py scripts/decision_goal_router.py scripts/estimated_odometry.py scripts/sim_adapter.py scripts/keyboard.py scripts/cloud_adapter.py scripts/map_display.py scripts/autonomy_guard.py scripts/autonomy_geometry.py scripts/gui_layout.py DESTINATION lib/${PROJECT_NAME})
 find_package(rclcpp REQUIRED)
 find_package(rviz_common REQUIRED)
 find_package(Qt5 REQUIRED COMPONENTS Widgets)

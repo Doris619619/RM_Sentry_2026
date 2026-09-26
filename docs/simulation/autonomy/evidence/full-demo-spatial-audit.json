@@ -1,0 +1,13 @@
+[
+  {
+    "case": [
+      -3.219,
+      2.146
+    ],
+    "repeat": 1,
+    "actual_sample_max_gap_m": 0.025932832132700565,
+    "interpolated_motion_free": true,
+    "all_reference_polynomials_free": true,
+    "passed": true
+  }
+]

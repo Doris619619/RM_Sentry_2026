@@ -1,0 +1,1 @@
+0.2m NDT at stationary physical spawn converged to raw z=-0.4927m despite matching_error=0.00528 and inlier_fraction=1. The z acceptance gate correctly rejected odometry and no goal was forwarded. Reverted to tested 0.3m resolution; retain full-only speed reduction.

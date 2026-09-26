@@ -48,21 +48,17 @@ MCU serial and physical robot validation remain separate hardware work and were
 not attempted.
 
 
-### 自主仿真第一项验收（2026-09-26）
+## 当前自主仿真状态
 
-独立自主入口已通过五组各三次实际 MPC 到点及 90° 初始航向复核；最大到点误差 0.1172 m。
-报告与原始证据见 [六项后续仿真验收报告](simulation/autonomy/验收报告.md)。
-安全故障注入、动态场景、实际定位、物理底盘与完整通信联调仍分别验收；不宣称六项全部完成。
+六项自主导航仿真已经分别验收通过：实际 MPC 闭环、异常停车与接管、
+真实动态障碍重规划、实际 CPU NDT、通用接触动力学，以及真实策略和 MCU 可执行程序的 PTY 完整链路。
+完整栈双 GUI 310 秒平均 RTF 0.853、RSS 峰值 2.05 GiB；完整重启关键发布者 1 → 0 → 1，
+旧子进程无残留，重启一辆车且不执行旧目标。
 
-Autonomy step 2 now passes nine actual fault-injection cases and the verified full-restart CLI.
-Native clock rewind is fail-stop and requires a complete restart; it is not supported in place.
-See [autonomy acceptance](simulation/autonomy/验收报告.md).
+上文 Deferred 是历史环境记录，已不代表当前 Gazebo 能力。
+真实电控硬件、真实轮系辨识、Point-LIO、未知位置重定位和完整比赛行为仍需单独验收。
+原生时间回拨必须完整重启，不能原地恢复。
 
-第三项移动中重规划已通过：换目标、真实箱体绕行、箱体位移和封路停车。
-实际定位、底盘动力学和完整 MCU 链路仍待第四至六项验收。
-
-第四项实际 CPU HDL/NDT 定位导航已通过往返与故障恢复验收，真值只供评估。
-详情见 docs/simulation/autonomy/验收报告.md；第五、六项仍待验收。
-
-第五项通用底盘物理验收已完成：8 项测试通过，包括真实重力、摩擦、撞墙、制动和 5° 坡道。
-这仍是通用模型，不能作为真车轮系和电机动力学验收；第六项完整系统联调待完成。
+[六项实测与失败记录](simulation/autonomy/验收报告.md) ·
+[完整接口与命令](simulation/autonomy/完整系统接口.md) ·
+[队会汇报和交接](simulation/autonomy/队会汇报与交接.md)。

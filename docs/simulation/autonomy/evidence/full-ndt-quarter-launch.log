@@ -1,0 +1,917 @@
+[INFO] [launch]: All log files can be found below /home/liangys/.ros/log/2026-09-26-17-05-11-550957-ubuntu64-oc-80318
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [estimated_odometry.py-1]: process started with pid [80362]
+[INFO] [ign-2]: process started with pid [80364]
+[INFO] [parameter_bridge-3]: process started with pid [80366]
+[INFO] [sim_adapter.py-4]: process started with pid [80368]
+[INFO] [cloud_adapter.py-5]: process started with pid [80370]
+[INFO] [map_display.py-6]: process started with pid [80372]
+[INFO] [trajectory_generator_node-7]: process started with pid [80374]
+[INFO] [rviz_safe-8]: process started with pid [80376]
+[INFO] [trajectory_tracking_node-9]: process started with pid [80378]
+[INFO] [hit_bridge-10]: process started with pid [80380]
+[INFO] [autonomy_guard.py-11]: process started with pid [80382]
+[INFO] [pty_mcu_sim.py-12]: process started with pid [80384]
+[INFO] [strategy_node-13]: process started with pid [80390]
+[INFO] [decision_goal_router.py-14]: process started with pid [80399]
+[INFO] [hdl_localization_map_server-15]: process started with pid [80409]
+[INFO] [hdl_localization_node-16]: process started with pid [80431]
+[INFO] [python3-17]: process started with pid [80435]
+[hdl_localization_map_server-15] [INFO] [1790456712.255856442] [sim_ndt_map]: Loading global map: /home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/sentry_gazebo/share/sentry_gazebo/maps/ndt_reference.pcd
+[trajectory_tracking_node-9] [SentryRobotInterface] Loading task file: "/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/trajectory_tracking/share/trajectory_tracking/cfg/task.info"
+[trajectory_tracking_node-9] x_init:   5 8 0 0
+[trajectory_tracking_node-9] 
+[trajectory_tracking_node-9]  #### Multiple-Shooting SQP Settings:
+[trajectory_tracking_node-9]  #### =============================================================================
+[trajectory_tracking_node-9]  #### 'sqpIteration'...........................................................8
+[trajectory_tracking_node-9]  #### 'deltaTol'...........................................................1e-06
+[trajectory_tracking_node-9]  #### 'alpha_decay'..........................................................0.5 (default)
+[trajectory_tracking_node-9]  #### 'alpha_min'.........................................................0.0001 (default)
+[trajectory_tracking_node-9]  #### 'gamma_c'............................................................1e-06 (default)
+[trajectory_tracking_node-9]  #### 'g_max'..............................................................1e+06 (default)
+[trajectory_tracking_node-9]  #### 'g_min'..............................................................1e-06
+[trajectory_tracking_node-9]  #### 'armijoFactor'......................................................0.0001 (default)
+[trajectory_tracking_node-9]  #### 'costTol'...........................................................0.0001
+[trajectory_tracking_node-9]  #### 'dt'...................................................................0.1
+[trajectory_tracking_node-9]  #### 'useFeedbackPolicy'......................................................1
+[trajectory_tracking_node-9]  #### 'createValueFunction'....................................................0 (default)
+[trajectory_tracking_node-9]  #### 'integratorType'.......................................................RK2
+[trajectory_tracking_node-9]  #### 'inequalityConstraintMu'...............................................0.1
+[trajectory_tracking_node-9]  #### 'inequalityConstraintDelta'............................................0.2
+[trajectory_tracking_node-9]  #### 'projectStateInputEqualityConstraints'...................................1
+[trajectory_tracking_node-9]  #### 'extractProjectionMultiplier'............................................0 (default)
+[trajectory_tracking_node-9]  #### 'printSolverStatus'......................................................0
+[trajectory_tracking_node-9]  #### 'printSolverStatistics'..................................................0
+[trajectory_tracking_node-9]  #### 'printLinesearch'........................................................0
+[trajectory_tracking_node-9]  #### 'enableLogging'..........................................................1 (default)
+[trajectory_tracking_node-9]  #### 'logSize'.............................................................1000 (default)
+[trajectory_tracking_node-9]  #### 'logFilePath'.........................................../tmp/ocs2/sqp_log/ (default)
+[trajectory_tracking_node-9]  #### 'nThreads'...............................................................2
+[trajectory_tracking_node-9]  #### 'threadPriority'........................................................50
+[trajectory_tracking_node-9] 
+[trajectory_tracking_node-9]  #### HPIPM Settings:
+[trajectory_tracking_node-9]  #### =============================================================================
+[trajectory_tracking_node-9]  #### 'mode'...................................................................1 (default)
+[trajectory_tracking_node-9]  #### 'iter_max'..............................................................30 (default)
+[trajectory_tracking_node-9]  #### 'alpha_min'..........................................................1e-12 (default)
+[trajectory_tracking_node-9]  #### 'mu0'...................................................................10 (default)
+[trajectory_tracking_node-9]  #### 'tol_stat'...........................................................1e-06 (default)
+[trajectory_tracking_node-9]  #### 'tol_eq'.............................................................1e-08 (default)
+[trajectory_tracking_node-9]  #### 'tol_ineq'...........................................................1e-08 (default)
+[trajectory_tracking_node-9]  #### 'tol_comp'...........................................................1e-08 (default)
+[trajectory_tracking_node-9]  #### 'reg_prim'...........................................................1e-12 (default)
+[trajectory_tracking_node-9]  #### 'warm_start'.............................................................0 (default)
+[trajectory_tracking_node-9]  #### 'pred_corr'..............................................................1 (default)
+[trajectory_tracking_node-9]  #### 'ric_alg'................................................................0 (default)
+[trajectory_tracking_node-9]  #### =============================================================================
+[trajectory_tracking_node-9]  #### =============================================================================
+[trajectory_tracking_node-9] 
+[trajectory_tracking_node-9]  #### MPC Settings:
+[trajectory_tracking_node-9]  #### =============================================================================
+[trajectory_tracking_node-9]  #### 'timeHorizon'............................................................2
+[trajectory_tracking_node-9]  #### 'solutionTimeWindow'.....................................................2
+[trajectory_tracking_node-9]  #### 'coldStart'..............................................................0
+[trajectory_tracking_node-9]  #### 'debugPrint'.............................................................0
+[trajectory_tracking_node-9]  #### 'mpcDesiredFrequency'..................................................100
+[trajectory_tracking_node-9]  #### 'mrtDesiredFrequency'..................................................400
+[trajectory_tracking_node-9]  #### =============================================================================
+[trajectory_tracking_node-9] 
+[trajectory_tracking_node-9]  #### Rollout Settings: 
+[trajectory_tracking_node-9]  #### =============================================================================
+[trajectory_tracking_node-9]  #### 'AbsTolODE'..........................................................1e-05
+[trajectory_tracking_node-9]  #### 'RelTolODE'..........................................................0.001
+[trajectory_tracking_node-9]  #### 'maxNumStepsPerSecond'...............................................10000
+[trajectory_tracking_node-9]  #### 'timeStep'............................................................0.02
+[trajectory_tracking_node-9]  #### 'integratorType'.....................................................ODE45 (default)
+[trajectory_tracking_node-9]  #### 'checkNumericalStability'................................................1
+[trajectory_tracking_node-9]  #### 'reconstructInputTrajectory'.............................................1 (default)
+[trajectory_tracking_node-9]  #### 'rootFindingAlgorithm'...................................................0 (default)
+[trajectory_tracking_node-9]  #### 'maxSingleEventIterations'..............................................10 (default)
+[trajectory_tracking_node-9]  #### 'useTrajectorySpreadingController'.......................................0 (default)
+[trajectory_tracking_node-9]  #### =============================================================================
+[trajectory_tracking_node-9] WARNING: Loaded at least one default value in matrix: "Q"
+[trajectory_tracking_node-9] WARNING: Loaded at least one default value in matrix: "R"
+[trajectory_tracking_node-9] WARNING: Loaded at least one default value in matrix: "Q_final"
+[trajectory_tracking_node-9] Q:  
+[trajectory_tracking_node-9] 150   0   0   0
+[trajectory_tracking_node-9]   0 150   0   0
+[trajectory_tracking_node-9]   0   0  60   0
+[trajectory_tracking_node-9]   0   0   0  80
+[trajectory_tracking_node-9] R:  
+[trajectory_tracking_node-9]  1.5    0
+[trajectory_tracking_node-9]    0 0.15
+[trajectory_tracking_node-9] Qf: 
+[trajectory_tracking_node-9] 150   0   0   0
+[trajectory_tracking_node-9]   0 150   0   0
+[trajectory_tracking_node-9]   0   0  60   0
+[trajectory_tracking_node-9]   0   0   0  80
+[trajectory_tracking_node-9] m_height_bias: 0.0152941 m_height_interval: 1.5 m_height_threshold: 0.08 height_sencond_high_threshold: 0.2
+[hdl_localization_map_server-15] [INFO] [1790456712.350421980] [sim_ndt_map]: Global map loaded: 424654 points
+[hdl_localization_node-16] [INFO] [1790456712.368861364] [sim_ndt]: create registration method for localization
+[hdl_localization_node-16] [INFO] [1790456712.368990995] [sim_ndt]: NDT_OMP is selected
+[hdl_localization_node-16] [INFO] [1790456712.369059857] [sim_ndt]: search_method DIRECT7 is selected
+[hdl_localization_node-16] [INFO] [1790456712.369068663] [sim_ndt]: create registration method for fallback during relocalization
+[hdl_localization_node-16] [INFO] [1790456712.369075560] [sim_ndt]: NDT_OMP is selected
+[hdl_localization_node-16] [INFO] [1790456712.369086998] [sim_ndt]: search_method DIRECT7 is selected
+[hdl_localization_node-16] [INFO] [1790456712.369182952] [sim_ndt]: initialize pose estimator with specified parameters
+[hdl_localization_node-16] [INFO] [1790456712.369191377] [sim_ndt]:   init position (map): -0.769, -4.354, 0.000
+[hdl_localization_node-16] [INFO] [1790456712.369204267] [sim_ndt]:   init orientation (wxyz): 1.0000, 0.0000, 0.0000, 0.0000
+[trajectory_generator_node-7] [Manager Init] map/file_path: 
+[trajectory_generator_node-7] [Manager Init] map/occ_file_path: /home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/trajectory_generation/share/trajectory_generation/map/occfinal.png
+[trajectory_generator_node-7] [Manager Init] map/bev_file_path: /home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/trajectory_generation/share/trajectory_generation/map/bevfinal.png
+[trajectory_generator_node-7] [Manager Init] map/distance_map_file_path: /home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/trajectory_generation/share/trajectory_generation/map/occtopo.png
+[trajectory_generator_node-7] m_height_bias: 0.0152941 m_height_interval: 1.5 m_height_threshold: 0.08 height_sencond_high_threshold: 0.2
+[pty_mcu_sim.py-12] [INFO] [1790456712.517719289] [sentry_pty_mcu]: Actual MCU child 80556 connected only to /dev/pts/3
+[trajectory_tracking_node-9] map swell done
+[trajectory_tracking_node-9] second_heights_points: 10
+[trajectory_tracking_node-9] xmax: 0.781 xmin: -0.719 ymax: -3.154 ymin: -5.354
+[trajectory_tracking_node-9] [Map Build] bev build done
+[trajectory_tracking_node-9] R.rows 400 R.cols 400
+[trajectory_tracking_node-9] start topo sample map
+[trajectory_tracking_node-9] [GridMap] topo_sample_map size: 185
+[trajectory_tracking_node-9] [GridMap] topo_keypoint size: 1603
+[trajectory_generator_node-7] map swell done
+[trajectory_generator_node-7] second_heights_points: 0
+[trajectory_generator_node-7] [Map Build] bev build done
+[trajectory_generator_node-7] R.rows 400 R.cols 400
+[trajectory_generator_node-7] start topo sample map
+[trajectory_generator_node-7] [GridMap] topo_sample_map size: 185
+[trajectory_generator_node-7] [GridMap] topo_keypoint size: 1603
+[pty_mcu_sim.py-12] [INFO] [1790456712.637680894] [mcu_communicator]: opened /dev/pts/3 at 921600 baud
+[parameter_bridge-3] [INFO] [1790456712.730516125] [sentry_gazebo_bridge]: Creating GZ->ROS Bridge: [/clock (ignition.msgs.Clock) -> /clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1790456712.736360522] [sentry_gazebo_bridge]: Creating ROS->GZ Bridge: [/sim/serial_cmd_vel (geometry_msgs/msg/Twist) -> /model/sentry/cmd_vel (ignition.msgs.Twist)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1790456712.746829670] [sentry_gazebo_bridge]: Creating GZ->ROS Bridge: [/model/sentry/odometry (ignition.msgs.Odometry) -> /sim/ground_truth/odometry (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1790456712.752422930] [sentry_gazebo_bridge]: Creating GZ->ROS Bridge: [/sentry/lidar/points (ignition.msgs.PointCloudPacked) -> /sim/lidar/native (sensor_msgs/msg/PointCloud2)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1790456712.761366742] [sentry_gazebo_bridge]: Creating GZ->ROS Bridge: [/sim/drive_force (ignition.msgs.Double) -> /sim/drive_force (std_msgs/msg/Float64)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1790456712.766306667] [sentry_gazebo_bridge]: Passing message from ROS geometry_msgs/msg/Twist to Gazebo gz.msgs.Twist (showing msg only once per type)
+[ign-2] [1;33m[GUI] [Wrn] [Application.cc:802] [0m[1;33m[QT] file::/Gazebo/GazeboDrawer.qml:242:3: QML Connections: Implicitly defined onFoo properties in Connections are deprecated. Use this syntax instead: function onFoo(<arguments>) { ... }[0m[1;33m[0m
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_common/images/splash_overlay.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Available Renderers(1): OpenGL Rendering Subsystem, at ./src/rviz_rendering/render_system.cpp:301
+[rviz_safe-8] [rviz_common:info] Stereo is NOT SUPPORTED, at ./src/rviz_rendering/render_system.cpp:543
+[rviz_safe-8] [rviz_common:info] OpenGl version: 4.5 (GLSL 4.5), at ./src/rviz_rendering/render_system.cpp:284
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_common/icons/plus.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_common/icons/minus.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:info] Stereo is NOT SUPPORTED, at ./src/rviz_rendering/render_system.cpp:543
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/TF.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/TF.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/TF.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/TF.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_common/icons/classes/Identity.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_common/icons/classes/Identity.svg]: Couldn't open file /opt/ros/humble/share/rviz_common/icons/classes/Identity.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_common/icons/classes/Identity.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_common/icons/classes/Identity.png]: Couldn't open file /opt/ros/humble/share/rviz_common/icons/classes/Identity.png, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_common/icons/default_class_icon.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_common/icons/options.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_common/icons/ok.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_common/icons/warning.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_common/icons/error.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Orbit.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/Orbit.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/Orbit.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Orbit.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/Orbit.png]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/Orbit.png, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_common/icons/rotate.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_common/icons/cursor.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_common/icons/rotate_cam.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_common/icons/move2d.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_common/icons/move_z.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_common/icons/zoom.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_common/icons/crosshair.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/FocusCamera.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Interact.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/Interact.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/Interact.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Interact.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Measure.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/MoveCamera.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/MoveCamera.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/MoveCamera.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/MoveCamera.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/PublishPoint.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Select.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/Select.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/Select.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Select.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/SetGoal.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/SetGoal.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/SetGoal.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/SetGoal.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/SetInitialPose.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/SetInitialPose.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/SetInitialPose.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/SetInitialPose.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Map.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/Map.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/Map.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Map.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Grid.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/Grid.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/Grid.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Grid.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/PointCloud2.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/PointCloud2.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/PointCloud2.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/PointCloud2.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Pose.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/Pose.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/Pose.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Pose.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Marker.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/Marker.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/Marker.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Marker.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Path.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/Path.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/Path.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Path.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/FlatColor.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/FlatColor.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/FlatColor.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/FlatColor.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/FlatColor.png]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/FlatColor.png, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Intensity.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/Intensity.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/Intensity.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Intensity.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/Intensity.png]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/Intensity.png, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/AxisColor.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/AxisColor.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/AxisColor.svg, at ./src/rviz_common/load_resource.cpp:55
+[sim_adapter.py-4] [INFO] [1790456713.440567315] [sentry_sim_adapter]: 0.5 s command watchdog; truth localization disabled
+[ign-2] [1;33m[GUI] [Wrn] [Application.cc:802] [0m[1;33m[QT] file::/WorldStats/WorldStats.qml:53:3: QML RowLayout: Binding loop detected for property "x"[0m[1;33m[0m
+[hdl_localization_node-16] [INFO] [1790456713.674577446] [sim_ndt]: globalmap received!
+[rviz_safe-8] [rviz_common:error] Vertex Program:rviz/glsl120/indexed_8bit_image.vert Fragment Program:rviz/glsl120/indexed_8bit_image.frag GLSL link result : 
+[rviz_safe-8] active samplers with a different type refer to the same texture image unit, at ./src/rviz_rendering/ogre_logging.cpp:70
+[ign-2] libEGL warning: Not allowed to force software rendering when API explicitly selects a hardware device.
+[python3-17] Visible simulation windows arranged: gazebo,rviz
+[INFO] [python3-17]: process has finished cleanly [pid 80435]
+[ign-2] [1;32m[Msg] [0m[1;32mReceived world [[0m[1;32m/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/sentry_gazebo/share/sentry_gazebo/worlds/planning_physics.sdf[0m[1;32m] from the GUI.[0m[1;32m[0m
+[ign-2] [1;32m[Msg] [0m[1;32mIgnition Gazebo Server v[0m[1;32m6.18.0[0m[1;32m[0m
+[ign-2] [1;32m[Msg] [0m[1;32mLoading SDF world file[[0m[1;32m/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/sentry_gazebo/share/sentry_gazebo/worlds/planning_physics.sdf[0m[1;32m].[0m
+[ign-2] [1;32m[Msg] [0m[1;32mServing entity system service on [[0m[1;32m/[0m[1;32mentity/system/add[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[Msg] [0m[1;32mCreate service on [[0m[1;32m/world/sentry_planning/create[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[Msg] [0m[1;32mRemove service on [[0m[1;32m/world/sentry_planning/remove[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[Msg] [0m[1;32mPose service on [[0m[1;32m/world/sentry_planning/set_pose[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[Msg] [0m[1;32mPose service on [[0m[1;32m/world/sentry_planning/set_pose_vector[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[Msg] [0m[1;32mLight configuration service on [[0m[1;32m/world/sentry_planning/light_config[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[Msg] [0m[1;32mPhysics service on [[0m[1;32m/world/sentry_planning/set_physics[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[Msg] [0m[1;32mSphericalCoordinates service on [[0m[1;32m/world/sentry_planning/set_spherical_coordinates[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[Msg] [0m[1;32mEnable collision service on [[0m[1;32m/world/sentry_planning/enable_collision[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[Msg] [0m[1;32mDisable collision service on [[0m[1;32m/world/sentry_planning/disable_collision[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[Msg] [0m[1;32mMaterial service on [[0m[1;32m/world/sentry_planning/visual_config[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[Msg] [0m[1;32mMaterial service on [[0m[1;32m/world/sentry_planning/wheel_slip[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[Msg] [0m[1;32mOdometryPublisher publishing odometry on [[0m[1;32m/model/sentry/odometry[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[Msg] [0m[1;32mOdometryPublisher publishing odometry with covariance on [[0m[1;32m/model/sentry/odometry_with_covariance[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[Msg] [0m[1;32mOdometryPublisher publishing Pose_V (TF) on [[0m[1;32m/model/sentry/pose[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[Msg] [0m[1;32mLoaded level [[0m[1;32m3[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[Msg] [0m[1;32mServing world controls on [[0m[1;32m/world/sentry_planning[0m[1;32m/control], [[0m[1;32m/world/sentry_planning[0m[1;32m/control/state] and [[0m[1;32m/world/sentry_planning[0m[1;32m/playback/control][0m[1;32m[0m
+[ign-2] [1;32m[Msg] [0m[1;32mServing GUI information on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mgui/info[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[Msg] [0m[1;32mWorld [[0m[1;32msentry_planning[0m[1;32m] initialized with [[0m[1;32mfixed_step[0m[1;32m] physics profile.[0m[1;32m[0m
+[ign-2] [1;32m[Msg] [0m[1;32mServing world SDF generation service on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mgenerate_world_sdf[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[Msg] [0m[1;32mServing world names on [[0m[1;32m/gazebo/worlds[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[Msg] [0m[1;32mResource path add service on [[0m[1;32m/gazebo/resource_paths/add[0m[1;32m].[0m[1;32m[0m
+[ign-2] [1;32m[Msg] [0m[1;32mResource path get service on [[0m[1;32m/gazebo/resource_paths/get[0m[1;32m].[0m[1;32m[0m
+[ign-2] [1;32m[Msg] [0m[1;32mResource path resolve service on [[0m[1;32m/gazebo/resource_paths/resolve[0m[1;32m].[0m[1;32m[0m
+[ign-2] [1;32m[Msg] [0m[1;32mResource paths published on [[0m[1;32m/gazebo/resource_paths[0m[1;32m].[0m[1;32m[0m
+[ign-2] [1;32m[Msg] [0m[1;32mServer control service on [[0m[1;32m/server_control[0m[1;32m].[0m[1;32m[0m
+[ign-2] [1;32m[Msg] [0m[1;32mFound no publishers on /stats, adding root stats topic[0m[1;32m[0m
+[ign-2] [1;32m[Msg] [0m[1;32mFound no publishers on /clock, adding root clock topic[0m[1;32m[0m
+[ign-2] [1;33m[GUI] [Wrn] [Ogre2RenderTarget.cc:574] [0m[1;33mAnti-aliasing level of '[0m[1;33m8[0m[1;33m' [0m[1;33mis not supported; valid FSAA levels are: [0m[1;33m[ 0 4 ][0m[1;33m. Setting to 0[0m[1;33m[0m
+[ign-2] libEGL warning: Not allowed to force software rendering when API explicitly selects a hardware device.
+[hdl_localization_node-16] [INFO] [1790456714.703199625] [sim_ndt]: scan points: raw=1373 downsampled=1105 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456714.841904565] [sim_ndt]: Metrics -> Error: 0.000808887 (RMSE ~0.0284409 m) | Time: 106 ms | CovTrace: 0.483102 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456714.972852194] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456715.010846398] [sim_ndt]: Metrics -> Error: 0.000799044 (RMSE ~0.0282674 m) | Time: 32 ms | CovTrace: 0.477256 | Converged: True
+[cloud_adapter.py-5] [WARN] [1790456715.283844802] [sentry_cloud_adapter]: Dropped lidar frame: no TF at measurement time
+[hdl_localization_node-16] [INFO] [1790456715.294942562] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456715.338156187] [sim_ndt]: Metrics -> Error: 0.000815419 (RMSE ~0.0285555 m) | Time: 22 ms | CovTrace: 0.474827 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456715.496631051] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456715.539276172] [sim_ndt]: Metrics -> Error: 0.000824678 (RMSE ~0.0287172 m) | Time: 34 ms | CovTrace: 0.493547 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456715.730264083] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456715.756737960] [sim_ndt]: Metrics -> Error: 0.000794806 (RMSE ~0.0281923 m) | Time: 4 ms | CovTrace: 0.517831 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456715.975666835] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456716.007674270] [sim_ndt]: Metrics -> Error: 0.000798816 (RMSE ~0.0282633 m) | Time: 22 ms | CovTrace: 0.533091 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456716.210401660] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456716.238933810] [sim_ndt]: Metrics -> Error: 0.000807685 (RMSE ~0.0284198 m) | Time: 16 ms | CovTrace: 0.5423 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456716.424876202] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456716.451079654] [sim_ndt]: Metrics -> Error: 0.000846664 (RMSE ~0.0290975 m) | Time: 18 ms | CovTrace: 0.547718 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456716.664951133] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456716.677623991] [sim_ndt]: Metrics -> Error: 0.000816253 (RMSE ~0.0285701 m) | Time: 0 ms | CovTrace: 0.550858 | Converged: True
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/AxisColor.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/AxisColor.png]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/AxisColor.png, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/RGBF32.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/RGBF32.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/RGBF32.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/RGBF32.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/RGBF32.png]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/RGBF32.png, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/XYZ.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/XYZ.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/XYZ.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/XYZ.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/XYZ.png]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/XYZ.png, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/RGB8.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/RGB8.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/RGB8.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/RGB8.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/RGB8.png]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/RGB8.png, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_common/icons/classes/Displays.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Load pixmap at package://rviz_common/icons/close.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-8] [rviz_common:debug] Received a 400 X 400 map @ 0.05m/pix
+[rviz_safe-8] , at ./src/rviz_default_plugins/displays/map/map_display.cpp:520
+[rviz_safe-8] [rviz_common:info] Trying to create a map of size 400 x 400 using 1 swatches, at ./src/rviz_default_plugins/displays/map/map_display.cpp:399
+[hdl_localization_node-16] [INFO] [1790456716.875444277] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456716.903309939] [sim_ndt]: Metrics -> Error: 0.000790489 (RMSE ~0.0281156 m) | Time: 20 ms | CovTrace: 0.552662 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456717.098161196] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456717.135913084] [sim_ndt]: Metrics -> Error: 0.000818878 (RMSE ~0.028616 m) | Time: 10 ms | CovTrace: 0.553694 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456717.328404230] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456717.365722179] [sim_ndt]: Metrics -> Error: 0.000829336 (RMSE ~0.0287982 m) | Time: 16 ms | CovTrace: 0.554282 | Converged: True
+[cloud_adapter.py-5] [WARN] [1790456717.384924852] [sentry_cloud_adapter]: Dropped lidar frame: no TF at measurement time
+[hdl_localization_node-16] [INFO] [1790456717.583556354] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456717.595082918] [sim_ndt]: Metrics -> Error: 0.000856036 (RMSE ~0.0292581 m) | Time: 0 ms | CovTrace: 0.554618 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456717.809328340] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456717.821103143] [sim_ndt]: Metrics -> Error: 0.000839542 (RMSE ~0.0289749 m) | Time: 4 ms | CovTrace: 0.554809 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456718.079139162] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456718.110834172] [sim_ndt]: Metrics -> Error: 0.000822853 (RMSE ~0.0286854 m) | Time: 18 ms | CovTrace: 0.554918 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456718.292945478] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456718.320275582] [sim_ndt]: Metrics -> Error: 0.000844862 (RMSE ~0.0290665 m) | Time: 8 ms | CovTrace: 0.554981 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456718.541600309] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456718.573978051] [sim_ndt]: Metrics -> Error: 0.000834117 (RMSE ~0.0288811 m) | Time: 10 ms | CovTrace: 0.555017 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456718.753329352] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456718.769486741] [sim_ndt]: Metrics -> Error: 0.000843353 (RMSE ~0.0290405 m) | Time: 8 ms | CovTrace: 0.555037 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456719.047227532] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456719.061774921] [sim_ndt]: Metrics -> Error: 0.00079353 (RMSE ~0.0281697 m) | Time: 4 ms | CovTrace: 0.55505 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456719.293054841] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456719.326198210] [sim_ndt]: Metrics -> Error: 0.000857318 (RMSE ~0.02928 m) | Time: 2 ms | CovTrace: 0.555057 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456719.564042267] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[cloud_adapter.py-5] [WARN] [1790456719.565172401] [sentry_cloud_adapter]: Dropped lidar frame: no TF at measurement time
+[hdl_localization_node-16] [INFO] [1790456719.603732017] [sim_ndt]: Metrics -> Error: 0.000779216 (RMSE ~0.0279144 m) | Time: 14 ms | CovTrace: 0.555062 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456719.787610428] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456719.797415690] [sim_ndt]: Metrics -> Error: 0.000819258 (RMSE ~0.0286227 m) | Time: 0 ms | CovTrace: 0.555066 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456720.020615384] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456720.036871566] [sim_ndt]: Metrics -> Error: 0.000816335 (RMSE ~0.0285716 m) | Time: 10 ms | CovTrace: 0.555068 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456720.218626145] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456720.262947792] [sim_ndt]: Metrics -> Error: 0.000851826 (RMSE ~0.0291861 m) | Time: 16 ms | CovTrace: 0.55507 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456720.460464486] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456720.473412990] [sim_ndt]: Metrics -> Error: 0.000829485 (RMSE ~0.0288008 m) | Time: 6 ms | CovTrace: 0.555071 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456720.688963835] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456720.709031852] [sim_ndt]: Metrics -> Error: 0.000853206 (RMSE ~0.0292097 m) | Time: 10 ms | CovTrace: 0.555073 | Converged: True
+[hdl_localization_node-16] [WARN] [1790456720.712056023] [sim_ndt]: Point-LIO odometry unavailable or stale for /localization/odometry twist; publishing zero twist
+[hdl_localization_node-16] [INFO] [1790456720.909460055] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456720.934944615] [sim_ndt]: Metrics -> Error: 0.000770189 (RMSE ~0.0277523 m) | Time: 18 ms | CovTrace: 0.555074 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456721.113792497] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456721.135635792] [sim_ndt]: Metrics -> Error: 0.000831172 (RMSE ~0.0288301 m) | Time: 14 ms | CovTrace: 0.555075 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456721.362695786] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456721.373769771] [sim_ndt]: Metrics -> Error: 0.000802665 (RMSE ~0.0283313 m) | Time: 12 ms | CovTrace: 0.555077 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456721.581702647] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456721.600833495] [sim_ndt]: Metrics -> Error: 0.000855198 (RMSE ~0.0292438 m) | Time: 10 ms | CovTrace: 0.555078 | Converged: True
+[cloud_adapter.py-5] [WARN] [1790456721.625861617] [sentry_cloud_adapter]: Dropped lidar frame: no TF at measurement time
+[hdl_localization_node-16] [INFO] [1790456721.831423469] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456721.850681629] [sim_ndt]: Metrics -> Error: 0.000790367 (RMSE ~0.0281135 m) | Time: 12 ms | CovTrace: 0.555079 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456722.029251934] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456722.050029289] [sim_ndt]: Metrics -> Error: 0.000840428 (RMSE ~0.0289901 m) | Time: 4 ms | CovTrace: 0.55508 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456722.244139996] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456722.266952248] [sim_ndt]: Metrics -> Error: 0.000856823 (RMSE ~0.0292715 m) | Time: 14 ms | CovTrace: 0.555082 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456722.488859431] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456722.517015317] [sim_ndt]: Metrics -> Error: 0.000834104 (RMSE ~0.0288809 m) | Time: 16 ms | CovTrace: 0.555083 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456722.714639111] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456722.743996167] [sim_ndt]: Metrics -> Error: 0.000821402 (RMSE ~0.0286601 m) | Time: 8 ms | CovTrace: 0.555084 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456722.940087908] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456722.950902845] [sim_ndt]: Metrics -> Error: 0.000857291 (RMSE ~0.0292795 m) | Time: 8 ms | CovTrace: 0.555085 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456723.187781664] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456723.203087625] [sim_ndt]: Metrics -> Error: 0.000822078 (RMSE ~0.0286719 m) | Time: 2 ms | CovTrace: 0.555086 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456723.444889593] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456723.506413575] [sim_ndt]: Metrics -> Error: 0.000844093 (RMSE ~0.0290533 m) | Time: 30 ms | CovTrace: 0.555088 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456723.698883198] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[cloud_adapter.py-5] [WARN] [1790456723.701384508] [sentry_cloud_adapter]: Dropped lidar frame: no TF at measurement time
+[hdl_localization_node-16] [INFO] [1790456723.726130330] [sim_ndt]: Metrics -> Error: 0.00080734 (RMSE ~0.0284137 m) | Time: 12 ms | CovTrace: 0.555089 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456724.029693786] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456724.085319471] [sim_ndt]: Metrics -> Error: 0.000825417 (RMSE ~0.0287301 m) | Time: 20 ms | CovTrace: 0.55509 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456724.255758709] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456724.278409333] [sim_ndt]: Metrics -> Error: 0.000834025 (RMSE ~0.0288795 m) | Time: 12 ms | CovTrace: 0.555091 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456724.483287857] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456724.499511403] [sim_ndt]: Metrics -> Error: 0.000843963 (RMSE ~0.029051 m) | Time: 6 ms | CovTrace: 0.555092 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456724.718412823] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456724.735656269] [sim_ndt]: Metrics -> Error: 0.000827901 (RMSE ~0.0287733 m) | Time: 8 ms | CovTrace: 0.555094 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456724.957940633] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456724.970552405] [sim_ndt]: Metrics -> Error: 0.000825599 (RMSE ~0.0287332 m) | Time: 8 ms | CovTrace: 0.555095 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456725.204955695] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456725.245940256] [sim_ndt]: Metrics -> Error: 0.00082179 (RMSE ~0.0286669 m) | Time: 24 ms | CovTrace: 0.555096 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456725.425691199] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456725.449212749] [sim_ndt]: Metrics -> Error: 0.0008185 (RMSE ~0.0286094 m) | Time: 16 ms | CovTrace: 0.555097 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456725.637758158] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456725.649421257] [sim_ndt]: Metrics -> Error: 0.000817476 (RMSE ~0.0285915 m) | Time: 2 ms | CovTrace: 0.555098 | Converged: True
+[cloud_adapter.py-5] [WARN] [1790456725.704794140] [sentry_cloud_adapter]: Dropped lidar frame: no TF at measurement time
+[hdl_localization_node-16] [INFO] [1790456725.880712046] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456725.904570697] [sim_ndt]: Metrics -> Error: 0.000824801 (RMSE ~0.0287193 m) | Time: 16 ms | CovTrace: 0.5551 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456726.129524033] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456726.150916883] [sim_ndt]: Metrics -> Error: 0.000831196 (RMSE ~0.0288305 m) | Time: 20 ms | CovTrace: 0.555101 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456726.340956642] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456726.371816197] [sim_ndt]: Metrics -> Error: 0.000820243 (RMSE ~0.0286399 m) | Time: 16 ms | CovTrace: 0.555102 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456726.561148469] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456726.598751297] [sim_ndt]: Metrics -> Error: 0.000821244 (RMSE ~0.0286574 m) | Time: 22 ms | CovTrace: 0.555103 | Converged: True
+[hdl_localization_node-16] [WARN] [1790456726.606202465] [sim_ndt]: Point-LIO odometry unavailable or stale for /localization/odometry twist; publishing zero twist
+[hdl_localization_node-16] [INFO] [1790456726.777978325] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456726.806470814] [sim_ndt]: Metrics -> Error: 0.000826844 (RMSE ~0.0287549 m) | Time: 18 ms | CovTrace: 0.555104 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456727.003668235] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456727.032999429] [sim_ndt]: Metrics -> Error: 0.000833029 (RMSE ~0.0288622 m) | Time: 22 ms | CovTrace: 0.555106 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456727.244770015] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456727.285726499] [sim_ndt]: Metrics -> Error: 0.000818301 (RMSE ~0.028606 m) | Time: 22 ms | CovTrace: 0.555107 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456727.499570388] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456727.520940756] [sim_ndt]: Metrics -> Error: 0.000828895 (RMSE ~0.0287905 m) | Time: 8 ms | CovTrace: 0.555108 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456727.690684162] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456727.704702596] [sim_ndt]: Metrics -> Error: 0.000831254 (RMSE ~0.0288315 m) | Time: 0 ms | CovTrace: 0.555109 | Converged: True
+[cloud_adapter.py-5] [WARN] [1790456727.744778167] [sentry_cloud_adapter]: Dropped lidar frame: no TF at measurement time
+[hdl_localization_node-16] [INFO] [1790456727.902996426] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456727.915931275] [sim_ndt]: Metrics -> Error: 0.000823906 (RMSE ~0.0287038 m) | Time: 8 ms | CovTrace: 0.555111 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456728.171474572] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456728.196279776] [sim_ndt]: Metrics -> Error: 0.000826229 (RMSE ~0.0287442 m) | Time: 10 ms | CovTrace: 0.555112 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456728.383547523] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456728.410519843] [sim_ndt]: Metrics -> Error: 0.000837582 (RMSE ~0.028941 m) | Time: 14 ms | CovTrace: 0.555113 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456728.635557724] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456728.659137889] [sim_ndt]: Metrics -> Error: 0.000827415 (RMSE ~0.0287648 m) | Time: 12 ms | CovTrace: 0.555114 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456728.849457568] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456728.883018263] [sim_ndt]: Metrics -> Error: 0.000832133 (RMSE ~0.0288467 m) | Time: 24 ms | CovTrace: 0.555115 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456729.090584539] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456729.105357989] [sim_ndt]: Metrics -> Error: 0.000824014 (RMSE ~0.0287056 m) | Time: 10 ms | CovTrace: 0.555117 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456729.374106607] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456729.398828336] [sim_ndt]: Metrics -> Error: 0.000827429 (RMSE ~0.0287651 m) | Time: 16 ms | CovTrace: 0.555118 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456729.632595517] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456729.669584718] [sim_ndt]: Metrics -> Error: 0.000832716 (RMSE ~0.0288568 m) | Time: 26 ms | CovTrace: 0.555119 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456729.809633709] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456729.834859231] [sim_ndt]: Metrics -> Error: 0.000823056 (RMSE ~0.028689 m) | Time: 6 ms | CovTrace: 0.55512 | Converged: True
+[cloud_adapter.py-5] [WARN] [1790456729.887250852] [sentry_cloud_adapter]: Dropped lidar frame: no TF at measurement time
+[hdl_localization_node-16] [INFO] [1790456730.054932422] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456730.071954497] [sim_ndt]: Metrics -> Error: 0.000824881 (RMSE ~0.0287208 m) | Time: 14 ms | CovTrace: 0.555121 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456730.269155524] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456730.296283815] [sim_ndt]: Metrics -> Error: 0.000828955 (RMSE ~0.0287916 m) | Time: 16 ms | CovTrace: 0.555123 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456730.588356630] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456730.624730636] [sim_ndt]: Metrics -> Error: 0.000819739 (RMSE ~0.0286311 m) | Time: 8 ms | CovTrace: 0.555124 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456730.834328734] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456730.859636299] [sim_ndt]: Metrics -> Error: 0.000837353 (RMSE ~0.0289371 m) | Time: 8 ms | CovTrace: 0.555125 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456731.114078788] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456731.123775056] [sim_ndt]: Metrics -> Error: 0.000826154 (RMSE ~0.0287429 m) | Time: 4 ms | CovTrace: 0.555126 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456731.357921686] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456731.397032734] [sim_ndt]: Metrics -> Error: 0.000828467 (RMSE ~0.0287831 m) | Time: 32 ms | CovTrace: 0.555128 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456731.582238857] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456731.607930384] [sim_ndt]: Metrics -> Error: 0.000823658 (RMSE ~0.0286994 m) | Time: 26 ms | CovTrace: 0.555129 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456731.789008995] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456731.801846732] [sim_ndt]: Metrics -> Error: 0.000831532 (RMSE ~0.0288363 m) | Time: 6 ms | CovTrace: 0.55513 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456732.058519933] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[cloud_adapter.py-5] [WARN] [1790456732.077787748] [sentry_cloud_adapter]: Dropped lidar frame: no TF at measurement time
+[hdl_localization_node-16] [INFO] [1790456732.092747010] [sim_ndt]: Metrics -> Error: 0.000828406 (RMSE ~0.028782 m) | Time: 12 ms | CovTrace: 0.555131 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456732.350611343] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456732.393845731] [sim_ndt]: Metrics -> Error: 0.000827318 (RMSE ~0.0287631 m) | Time: 14 ms | CovTrace: 0.555132 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456732.575595700] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456732.608830657] [sim_ndt]: Metrics -> Error: 0.000817712 (RMSE ~0.0285957 m) | Time: 28 ms | CovTrace: 0.555133 | Converged: True
+[hdl_localization_node-16] [WARN] [1790456732.620673767] [sim_ndt]: Point-LIO odometry unavailable or stale for /localization/odometry twist; publishing zero twist
+[hdl_localization_node-16] [INFO] [1790456732.829341463] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456732.861642291] [sim_ndt]: Metrics -> Error: 0.000833019 (RMSE ~0.0288621 m) | Time: 22 ms | CovTrace: 0.555135 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456733.088917924] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456733.146105215] [sim_ndt]: Metrics -> Error: 0.000823629 (RMSE ~0.0286989 m) | Time: 28 ms | CovTrace: 0.555136 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456733.432946717] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456733.506865957] [sim_ndt]: Metrics -> Error: 0.000829263 (RMSE ~0.0287969 m) | Time: 38 ms | CovTrace: 0.555137 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456733.722805815] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456733.774530367] [sim_ndt]: Metrics -> Error: 0.000834766 (RMSE ~0.0288923 m) | Time: 16 ms | CovTrace: 0.555138 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456734.003053503] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456734.057401016] [sim_ndt]: Metrics -> Error: 0.000855806 (RMSE ~0.0292542 m) | Time: 24 ms | CovTrace: 0.555139 | Converged: True
+[cloud_adapter.py-5] [WARN] [1790456734.225425022] [sentry_cloud_adapter]: Dropped lidar frame: no TF at measurement time
+[hdl_localization_node-16] [INFO] [1790456734.246862950] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456734.279728322] [sim_ndt]: Metrics -> Error: 0.000835774 (RMSE ~0.0289097 m) | Time: 8 ms | CovTrace: 0.555141 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456734.549047228] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456734.591226616] [sim_ndt]: Metrics -> Error: 0.000832228 (RMSE ~0.0288484 m) | Time: 14 ms | CovTrace: 0.555142 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456734.790607759] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456734.824950722] [sim_ndt]: Metrics -> Error: 0.000828301 (RMSE ~0.0287802 m) | Time: 14 ms | CovTrace: 0.555143 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456735.053190242] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456735.072847368] [sim_ndt]: Metrics -> Error: 0.000842951 (RMSE ~0.0290336 m) | Time: 6 ms | CovTrace: 0.555144 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456735.269239158] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456735.320113816] [sim_ndt]: Metrics -> Error: 0.000833583 (RMSE ~0.0288718 m) | Time: 28 ms | CovTrace: 0.555146 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456735.488698333] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456735.506991642] [sim_ndt]: Metrics -> Error: 0.000827032 (RMSE ~0.0287582 m) | Time: 2 ms | CovTrace: 0.555147 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456735.714473646] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456735.747417101] [sim_ndt]: Metrics -> Error: 0.000821813 (RMSE ~0.0286673 m) | Time: 10 ms | CovTrace: 0.555148 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456735.947755869] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456735.975269650] [sim_ndt]: Metrics -> Error: 0.000842068 (RMSE ~0.0290184 m) | Time: 20 ms | CovTrace: 0.555149 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456736.170995719] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456736.197319164] [sim_ndt]: Metrics -> Error: 0.00083428 (RMSE ~0.0288839 m) | Time: 12 ms | CovTrace: 0.55515 | Converged: True
+[cloud_adapter.py-5] [WARN] [1790456736.229753509] [sentry_cloud_adapter]: Dropped lidar frame: no TF at measurement time
+[hdl_localization_node-16] [INFO] [1790456736.392408677] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456736.409496300] [sim_ndt]: Metrics -> Error: 0.000843839 (RMSE ~0.0290489 m) | Time: 10 ms | CovTrace: 0.555152 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456736.625629115] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456736.635753652] [sim_ndt]: Metrics -> Error: 0.000836893 (RMSE ~0.0289291 m) | Time: 6 ms | CovTrace: 0.555153 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456736.876281045] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456736.898799651] [sim_ndt]: Metrics -> Error: 0.00083728 (RMSE ~0.0289358 m) | Time: 16 ms | CovTrace: 0.555154 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456737.078132045] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456737.116685820] [sim_ndt]: Metrics -> Error: 0.000837275 (RMSE ~0.0289357 m) | Time: 24 ms | CovTrace: 0.555155 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456737.316375545] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456737.342058718] [sim_ndt]: Metrics -> Error: 0.000829485 (RMSE ~0.0288008 m) | Time: 10 ms | CovTrace: 0.555156 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456737.524154624] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456737.533767314] [sim_ndt]: Metrics -> Error: 0.000838302 (RMSE ~0.0289534 m) | Time: 4 ms | CovTrace: 0.555157 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456737.767090964] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456737.790767158] [sim_ndt]: Metrics -> Error: 0.000830072 (RMSE ~0.028811 m) | Time: 14 ms | CovTrace: 0.555159 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456737.973000524] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456737.999017285] [sim_ndt]: Metrics -> Error: 0.000833949 (RMSE ~0.0288782 m) | Time: 24 ms | CovTrace: 0.55516 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456738.191643536] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456738.210091585] [sim_ndt]: Metrics -> Error: 0.000837816 (RMSE ~0.0289451 m) | Time: 8 ms | CovTrace: 0.555161 | Converged: True
+[cloud_adapter.py-5] [WARN] [1790456738.265488051] [sentry_cloud_adapter]: Dropped lidar frame: no TF at measurement time
+[hdl_localization_node-16] [INFO] [1790456738.421480864] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456738.459774624] [sim_ndt]: Metrics -> Error: 0.000831175 (RMSE ~0.0288301 m) | Time: 32 ms | CovTrace: 0.555162 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456738.662538215] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456738.675382452] [sim_ndt]: Metrics -> Error: 0.000838941 (RMSE ~0.0289645 m) | Time: 4 ms | CovTrace: 0.555164 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456738.882592451] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456738.903503971] [sim_ndt]: Metrics -> Error: 0.000831327 (RMSE ~0.0288327 m) | Time: 10 ms | CovTrace: 0.555165 | Converged: True
+[hdl_localization_node-16] [WARN] [1790456738.910775507] [sim_ndt]: Point-LIO odometry unavailable or stale for /localization/odometry twist; publishing zero twist
+[hdl_localization_node-16] [INFO] [1790456739.144699369] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456739.183812302] [sim_ndt]: Metrics -> Error: 0.000827006 (RMSE ~0.0287577 m) | Time: 30 ms | CovTrace: 0.555166 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456739.343663036] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456739.354333873] [sim_ndt]: Metrics -> Error: 0.000845446 (RMSE ~0.0290766 m) | Time: 0 ms | CovTrace: 0.555167 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456739.556288493] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456739.589518684] [sim_ndt]: Metrics -> Error: 0.00083604 (RMSE ~0.0289144 m) | Time: 16 ms | CovTrace: 0.555168 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456739.799038846] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456739.812906159] [sim_ndt]: Metrics -> Error: 0.00083543 (RMSE ~0.0289038 m) | Time: 8 ms | CovTrace: 0.55517 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456740.064467732] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456740.078094979] [sim_ndt]: Metrics -> Error: 0.000834582 (RMSE ~0.0288891 m) | Time: 8 ms | CovTrace: 0.555171 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456740.252820210] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456740.270067659] [sim_ndt]: Metrics -> Error: 0.000837 (RMSE ~0.028931 m) | Time: 8 ms | CovTrace: 0.555172 | Converged: True
+[cloud_adapter.py-5] [WARN] [1790456740.309861162] [sentry_cloud_adapter]: Dropped lidar frame: no TF at measurement time
+[hdl_localization_node-16] [INFO] [1790456740.493958046] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456740.511423687] [sim_ndt]: Metrics -> Error: 0.000828525 (RMSE ~0.0287841 m) | Time: 14 ms | CovTrace: 0.555173 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456740.672919003] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456740.691657313] [sim_ndt]: Metrics -> Error: 0.000827928 (RMSE ~0.0287737 m) | Time: 10 ms | CovTrace: 0.555174 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456740.896671620] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456740.912732854] [sim_ndt]: Metrics -> Error: 0.000846906 (RMSE ~0.0291016 m) | Time: 6 ms | CovTrace: 0.555176 | Converged: True
+[trajectory_tracking_node-9] [WARN] [1790456741.099129384] [trajectory_tracking]: trajectory tracking stopped: invalid coefficient array length
+[hdl_localization_node-16] [INFO] [1790456741.135180939] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456741.171906115] [sim_ndt]: Metrics -> Error: 0.00083317 (RMSE ~0.0288647 m) | Time: 22 ms | CovTrace: 0.555177 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456741.376624701] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456741.385478384] [sim_ndt]: Metrics -> Error: 0.000843657 (RMSE ~0.0290458 m) | Time: 2 ms | CovTrace: 0.555178 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456741.579227515] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456741.600248243] [sim_ndt]: Metrics -> Error: 0.000824017 (RMSE ~0.0287057 m) | Time: 12 ms | CovTrace: 0.555179 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456741.836291732] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456741.852083365] [sim_ndt]: Metrics -> Error: 0.000833028 (RMSE ~0.0288622 m) | Time: 0 ms | CovTrace: 0.55518 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456742.037581187] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456742.050634432] [sim_ndt]: Metrics -> Error: 0.000823219 (RMSE ~0.0286918 m) | Time: 0 ms | CovTrace: 0.555182 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456742.293133806] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456742.307777008] [sim_ndt]: Metrics -> Error: 0.000829492 (RMSE ~0.0288009 m) | Time: 14 ms | CovTrace: 0.555183 | Converged: True
+[cloud_adapter.py-5] [WARN] [1790456742.346494532] [sentry_cloud_adapter]: Dropped lidar frame: no TF at measurement time
+[hdl_localization_node-16] [INFO] [1790456742.503896354] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456742.518295387] [sim_ndt]: Metrics -> Error: 0.000832109 (RMSE ~0.0288463 m) | Time: 4 ms | CovTrace: 0.555184 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456742.716200261] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456742.740414953] [sim_ndt]: Metrics -> Error: 0.000827017 (RMSE ~0.0287579 m) | Time: 8 ms | CovTrace: 0.555185 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456742.943867779] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456742.971711371] [sim_ndt]: Metrics -> Error: 0.000831363 (RMSE ~0.0288334 m) | Time: 24 ms | CovTrace: 0.555186 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456743.148666548] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456743.192675818] [sim_ndt]: Metrics -> Error: 0.000836297 (RMSE ~0.0289188 m) | Time: 18 ms | CovTrace: 0.555188 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456743.459046561] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456743.481565340] [sim_ndt]: Metrics -> Error: 0.000838762 (RMSE ~0.0289614 m) | Time: 8 ms | CovTrace: 0.555189 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456743.656042813] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456743.670979765] [sim_ndt]: Metrics -> Error: 0.000832372 (RMSE ~0.0288509 m) | Time: 8 ms | CovTrace: 0.55519 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456743.918342925] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456743.947657038] [sim_ndt]: Metrics -> Error: 0.000834494 (RMSE ~0.0288876 m) | Time: 14 ms | CovTrace: 0.555191 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456744.125339388] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456744.138621271] [sim_ndt]: Metrics -> Error: 0.000831196 (RMSE ~0.0288305 m) | Time: 0 ms | CovTrace: 0.555192 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456744.361979122] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456744.374592008] [sim_ndt]: Metrics -> Error: 0.000825612 (RMSE ~0.0287335 m) | Time: 10 ms | CovTrace: 0.555194 | Converged: True
+[cloud_adapter.py-5] [WARN] [1790456744.427630284] [sentry_cloud_adapter]: Dropped lidar frame: no TF at measurement time
+[hdl_localization_node-16] [INFO] [1790456744.585672724] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456744.599739156] [sim_ndt]: Metrics -> Error: 0.0008273 (RMSE ~0.0287628 m) | Time: 4 ms | CovTrace: 0.555195 | Converged: True
+[hdl_localization_node-16] [WARN] [1790456744.603219679] [sim_ndt]: Point-LIO odometry unavailable or stale for /localization/odometry twist; publishing zero twist
+[hdl_localization_node-16] [INFO] [1790456744.800792199] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456744.816209696] [sim_ndt]: Metrics -> Error: 0.000833888 (RMSE ~0.0288771 m) | Time: 10 ms | CovTrace: 0.555196 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456744.999454980] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456745.011607355] [sim_ndt]: Metrics -> Error: 0.000826817 (RMSE ~0.0287544 m) | Time: 4 ms | CovTrace: 0.555197 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456745.246548520] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456745.269172145] [sim_ndt]: Metrics -> Error: 0.000825638 (RMSE ~0.0287339 m) | Time: 14 ms | CovTrace: 0.555198 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456745.428934764] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456745.468684037] [sim_ndt]: Metrics -> Error: 0.000843496 (RMSE ~0.029043 m) | Time: 24 ms | CovTrace: 0.5552 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456745.675899719] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456745.696839547] [sim_ndt]: Metrics -> Error: 0.000836053 (RMSE ~0.0289146 m) | Time: 6 ms | CovTrace: 0.555201 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456745.926530888] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456745.989131420] [sim_ndt]: Metrics -> Error: 0.000837571 (RMSE ~0.0289408 m) | Time: 24 ms | CovTrace: 0.555202 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456746.131616682] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456746.181433632] [sim_ndt]: Metrics -> Error: 0.000834594 (RMSE ~0.0288893 m) | Time: 30 ms | CovTrace: 0.555203 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456746.369999741] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456746.383622102] [sim_ndt]: Metrics -> Error: 0.000825613 (RMSE ~0.0287335 m) | Time: 8 ms | CovTrace: 0.555204 | Converged: True
+[cloud_adapter.py-5] [WARN] [1790456746.445710157] [sentry_cloud_adapter]: Dropped lidar frame: no TF at measurement time
+[hdl_localization_node-16] [INFO] [1790456746.586433845] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456746.606200914] [sim_ndt]: Metrics -> Error: 0.000832696 (RMSE ~0.0288565 m) | Time: 8 ms | CovTrace: 0.555206 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456746.805647897] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456746.830732758] [sim_ndt]: Metrics -> Error: 0.000826898 (RMSE ~0.0287558 m) | Time: 0 ms | CovTrace: 0.555207 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456747.178475992] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456747.202095290] [sim_ndt]: Metrics -> Error: 0.000837511 (RMSE ~0.0289398 m) | Time: 22 ms | CovTrace: 0.555208 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456747.374231147] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456747.399300774] [sim_ndt]: Metrics -> Error: 0.000826737 (RMSE ~0.028753 m) | Time: 16 ms | CovTrace: 0.555209 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456747.608342513] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456747.617882802] [sim_ndt]: Metrics -> Error: 0.000829938 (RMSE ~0.0288086 m) | Time: 8 ms | CovTrace: 0.55521 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456747.847921573] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456747.868287367] [sim_ndt]: Metrics -> Error: 0.00082417 (RMSE ~0.0287084 m) | Time: 16 ms | CovTrace: 0.555212 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456748.073929652] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456748.092442990] [sim_ndt]: Metrics -> Error: 0.000837904 (RMSE ~0.0289466 m) | Time: 8 ms | CovTrace: 0.555213 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456748.287516846] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456748.331580723] [sim_ndt]: Metrics -> Error: 0.000825597 (RMSE ~0.0287332 m) | Time: 36 ms | CovTrace: 0.555214 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456748.478800889] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456748.491493202] [sim_ndt]: Metrics -> Error: 0.00083211 (RMSE ~0.0288463 m) | Time: 8 ms | CovTrace: 0.555215 | Converged: True
+[cloud_adapter.py-5] [WARN] [1790456748.585084550] [sentry_cloud_adapter]: Dropped lidar frame: no TF at measurement time
+[hdl_localization_node-16] [INFO] [1790456748.699179418] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456748.711924638] [sim_ndt]: Metrics -> Error: 0.000823542 (RMSE ~0.0286974 m) | Time: 2 ms | CovTrace: 0.555216 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456748.921940100] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456748.930004984] [sim_ndt]: Metrics -> Error: 0.000841892 (RMSE ~0.0290154 m) | Time: 2 ms | CovTrace: 0.555218 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456749.135904429] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456749.152652268] [sim_ndt]: Metrics -> Error: 0.000833001 (RMSE ~0.0288618 m) | Time: 8 ms | CovTrace: 0.555219 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456749.352854214] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456749.392813078] [sim_ndt]: Metrics -> Error: 0.000852658 (RMSE ~0.0292003 m) | Time: 24 ms | CovTrace: 0.55522 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456749.573545536] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456749.584887860] [sim_ndt]: Metrics -> Error: 0.000836601 (RMSE ~0.0289241 m) | Time: 6 ms | CovTrace: 0.555221 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456749.808605817] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456749.849403751] [sim_ndt]: Metrics -> Error: 0.000843442 (RMSE ~0.0290421 m) | Time: 24 ms | CovTrace: 0.555222 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456750.031920093] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456750.052425547] [sim_ndt]: Metrics -> Error: 0.000834677 (RMSE ~0.0288908 m) | Time: 10 ms | CovTrace: 0.555224 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456750.237813065] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456750.262607928] [sim_ndt]: Metrics -> Error: 0.000839304 (RMSE ~0.0289707 m) | Time: 16 ms | CovTrace: 0.555225 | Converged: True
+[hdl_localization_node-16] [WARN] [1790456750.277015850] [sim_ndt]: Point-LIO odometry unavailable or stale for /localization/odometry twist; publishing zero twist
+[hdl_localization_node-16] [INFO] [1790456750.463604108] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456750.490206436] [sim_ndt]: Metrics -> Error: 0.000829269 (RMSE ~0.028797 m) | Time: 14 ms | CovTrace: 0.555226 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456750.662528284] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456750.684014763] [sim_ndt]: Metrics -> Error: 0.000829895 (RMSE ~0.0288079 m) | Time: 8 ms | CovTrace: 0.555227 | Converged: True
+[cloud_adapter.py-5] [WARN] [1790456750.746953756] [sentry_cloud_adapter]: Dropped lidar frame: no TF at measurement time
+[hdl_localization_node-16] [INFO] [1790456750.892559033] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456750.900937050] [sim_ndt]: Metrics -> Error: 0.00083936 (RMSE ~0.0289717 m) | Time: 0 ms | CovTrace: 0.555228 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456751.101638200] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456751.121656855] [sim_ndt]: Metrics -> Error: 0.000850022 (RMSE ~0.0291551 m) | Time: 16 ms | CovTrace: 0.55523 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456751.319440843] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456751.331922901] [sim_ndt]: Metrics -> Error: 0.000830937 (RMSE ~0.028826 m) | Time: 8 ms | CovTrace: 0.555231 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456751.540960400] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456751.555943859] [sim_ndt]: Metrics -> Error: 0.000823854 (RMSE ~0.0287029 m) | Time: 4 ms | CovTrace: 0.555232 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456751.743427337] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456751.758900867] [sim_ndt]: Metrics -> Error: 0.000829835 (RMSE ~0.0288069 m) | Time: 6 ms | CovTrace: 0.555233 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456751.993452814] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456752.009153907] [sim_ndt]: Metrics -> Error: 0.000825165 (RMSE ~0.0287257 m) | Time: 8 ms | CovTrace: 0.555234 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456752.184987692] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456752.194768248] [sim_ndt]: Metrics -> Error: 0.00083484 (RMSE ~0.0288936 m) | Time: 6 ms | CovTrace: 0.555236 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456752.381993545] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456752.397944220] [sim_ndt]: Metrics -> Error: 0.000836189 (RMSE ~0.0289169 m) | Time: 4 ms | CovTrace: 0.555237 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456752.593824737] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456752.609827990] [sim_ndt]: Metrics -> Error: 0.000830734 (RMSE ~0.0288225 m) | Time: 6 ms | CovTrace: 0.555238 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456752.799053145] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456752.808180628] [sim_ndt]: Metrics -> Error: 0.000834744 (RMSE ~0.0288919 m) | Time: 4 ms | CovTrace: 0.555239 | Converged: True
+[cloud_adapter.py-5] [WARN] [1790456752.884944700] [sentry_cloud_adapter]: Dropped lidar frame: no TF at measurement time
+[hdl_localization_node-16] [INFO] [1790456753.043928136] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456753.065688945] [sim_ndt]: Metrics -> Error: 0.000855387 (RMSE ~0.029247 m) | Time: 12 ms | CovTrace: 0.555241 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456753.286194058] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456753.311839385] [sim_ndt]: Metrics -> Error: 0.000834516 (RMSE ~0.028888 m) | Time: 12 ms | CovTrace: 0.555242 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456753.526693566] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456753.564910732] [sim_ndt]: Metrics -> Error: 0.000830052 (RMSE ~0.0288106 m) | Time: 12 ms | CovTrace: 0.555243 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456753.792931896] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456753.815319538] [sim_ndt]: Metrics -> Error: 0.000840984 (RMSE ~0.0289997 m) | Time: 16 ms | CovTrace: 0.555244 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456754.064503388] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456754.083595629] [sim_ndt]: Metrics -> Error: 0.000833657 (RMSE ~0.0288731 m) | Time: 8 ms | CovTrace: 0.555245 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456754.260243274] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456754.290051630] [sim_ndt]: Metrics -> Error: 0.000829372 (RMSE ~0.0287988 m) | Time: 14 ms | CovTrace: 0.555246 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456754.488457491] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456754.502940086] [sim_ndt]: Metrics -> Error: 0.00083386 (RMSE ~0.0288766 m) | Time: 6 ms | CovTrace: 0.555248 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456754.728572319] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456754.763050463] [sim_ndt]: Metrics -> Error: 0.000830349 (RMSE ~0.0288158 m) | Time: 10 ms | CovTrace: 0.555249 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456755.006391235] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[cloud_adapter.py-5] [WARN] [1790456755.006897381] [sentry_cloud_adapter]: Dropped lidar frame: no TF at measurement time
+[hdl_localization_node-16] [INFO] [1790456755.043646584] [sim_ndt]: Metrics -> Error: 0.000837482 (RMSE ~0.0289393 m) | Time: 20 ms | CovTrace: 0.55525 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456755.179237479] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456755.212091851] [sim_ndt]: Metrics -> Error: 0.000833277 (RMSE ~0.0288665 m) | Time: 32 ms | CovTrace: 0.555251 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456755.428571465] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456755.459569943] [sim_ndt]: Metrics -> Error: 0.000839515 (RMSE ~0.0289744 m) | Time: 16 ms | CovTrace: 0.555252 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456755.656894886] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456755.676410022] [sim_ndt]: Metrics -> Error: 0.000833774 (RMSE ~0.0288751 m) | Time: 12 ms | CovTrace: 0.555254 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456755.888614398] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456755.914996146] [sim_ndt]: Metrics -> Error: 0.000833085 (RMSE ~0.0288632 m) | Time: 20 ms | CovTrace: 0.555255 | Converged: True
+[hdl_localization_node-16] [WARN] [1790456755.925139413] [sim_ndt]: Point-LIO odometry unavailable or stale for /localization/odometry twist; publishing zero twist
+[hdl_localization_node-16] [INFO] [1790456756.127639314] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456756.158252142] [sim_ndt]: Metrics -> Error: 0.000824407 (RMSE ~0.0287125 m) | Time: 14 ms | CovTrace: 0.555256 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456756.379656471] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456756.390244867] [sim_ndt]: Metrics -> Error: 0.000829647 (RMSE ~0.0288036 m) | Time: 8 ms | CovTrace: 0.555257 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456756.599698224] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456756.617905428] [sim_ndt]: Metrics -> Error: 0.000833895 (RMSE ~0.0288772 m) | Time: 16 ms | CovTrace: 0.555258 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456756.802454275] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456756.823670798] [sim_ndt]: Metrics -> Error: 0.000824667 (RMSE ~0.028717 m) | Time: 16 ms | CovTrace: 0.55526 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456757.005299744] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456757.021309415] [sim_ndt]: Metrics -> Error: 0.000831203 (RMSE ~0.0288306 m) | Time: 6 ms | CovTrace: 0.555261 | Converged: True
+[cloud_adapter.py-5] [WARN] [1790456757.105073118] [sentry_cloud_adapter]: Dropped lidar frame: no TF at measurement time
+[hdl_localization_node-16] [INFO] [1790456757.218528839] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456757.227603275] [sim_ndt]: Metrics -> Error: 0.000830079 (RMSE ~0.0288111 m) | Time: 8 ms | CovTrace: 0.555262 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456757.420074764] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456757.447016686] [sim_ndt]: Metrics -> Error: 0.000847483 (RMSE ~0.0291116 m) | Time: 12 ms | CovTrace: 0.555263 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456757.655522795] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456757.678853387] [sim_ndt]: Metrics -> Error: 0.00082286 (RMSE ~0.0286855 m) | Time: 6 ms | CovTrace: 0.555265 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456757.887072439] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456757.912167847] [sim_ndt]: Metrics -> Error: 0.000818986 (RMSE ~0.0286179 m) | Time: 20 ms | CovTrace: 0.555266 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456758.113875143] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456758.123836963] [sim_ndt]: Metrics -> Error: 0.000824833 (RMSE ~0.0287199 m) | Time: 8 ms | CovTrace: 0.555267 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456758.361836652] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456758.383852000] [sim_ndt]: Metrics -> Error: 0.00082843 (RMSE ~0.0287825 m) | Time: 10 ms | CovTrace: 0.555268 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456758.590774502] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456758.603788858] [sim_ndt]: Metrics -> Error: 0.000832593 (RMSE ~0.0288547 m) | Time: 12 ms | CovTrace: 0.555269 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456758.795375774] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456758.812153851] [sim_ndt]: Metrics -> Error: 0.000816618 (RMSE ~0.0285765 m) | Time: 8 ms | CovTrace: 0.55527 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456759.035818135] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456759.065609999] [sim_ndt]: Metrics -> Error: 0.00082482 (RMSE ~0.0287197 m) | Time: 10 ms | CovTrace: 0.555272 | Converged: True
+[cloud_adapter.py-5] [WARN] [1790456759.107518593] [sentry_cloud_adapter]: Dropped lidar frame: no TF at measurement time
+[hdl_localization_node-16] [INFO] [1790456759.271304723] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456759.298704329] [sim_ndt]: Metrics -> Error: 0.000831331 (RMSE ~0.0288328 m) | Time: 24 ms | CovTrace: 0.555273 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456759.511349146] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456759.537334398] [sim_ndt]: Metrics -> Error: 0.000834612 (RMSE ~0.0288897 m) | Time: 18 ms | CovTrace: 0.555274 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456759.744208456] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456759.774828426] [sim_ndt]: Metrics -> Error: 0.000824052 (RMSE ~0.0287063 m) | Time: 14 ms | CovTrace: 0.555275 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456759.997625444] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456760.020250305] [sim_ndt]: Metrics -> Error: 0.000825185 (RMSE ~0.028726 m) | Time: 10 ms | CovTrace: 0.555277 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456760.213281239] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456760.249990783] [sim_ndt]: Metrics -> Error: 0.000821342 (RMSE ~0.0286591 m) | Time: 10 ms | CovTrace: 0.555278 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456760.409998248] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456760.420832056] [sim_ndt]: Metrics -> Error: 0.000838854 (RMSE ~0.028963 m) | Time: 8 ms | CovTrace: 0.555279 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456760.630792421] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456760.664848512] [sim_ndt]: Metrics -> Error: 0.000833561 (RMSE ~0.0288715 m) | Time: 16 ms | CovTrace: 0.55528 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456760.861823834] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456760.899747773] [sim_ndt]: Metrics -> Error: 0.000842699 (RMSE ~0.0290293 m) | Time: 18 ms | CovTrace: 0.555281 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456761.082863327] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456761.115356850] [sim_ndt]: Metrics -> Error: 0.000834625 (RMSE ~0.0288899 m) | Time: 18 ms | CovTrace: 0.555283 | Converged: True
+[cloud_adapter.py-5] [WARN] [1790456761.144954238] [sentry_cloud_adapter]: Dropped lidar frame: no TF at measurement time
+[hdl_localization_node-16] [INFO] [1790456761.301232604] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456761.350860653] [sim_ndt]: Metrics -> Error: 0.000819872 (RMSE ~0.0286334 m) | Time: 12 ms | CovTrace: 0.555284 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456761.519146741] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456761.527082856] [sim_ndt]: Metrics -> Error: 0.000833686 (RMSE ~0.0288736 m) | Time: 6 ms | CovTrace: 0.555285 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456761.750897297] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456761.776768209] [sim_ndt]: Metrics -> Error: 0.000824282 (RMSE ~0.0287103 m) | Time: 12 ms | CovTrace: 0.555286 | Converged: True
+[hdl_localization_node-16] [WARN] [1790456761.787081916] [sim_ndt]: Point-LIO odometry unavailable or stale for /localization/odometry twist; publishing zero twist
+[hdl_localization_node-16] [INFO] [1790456761.976075737] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456761.984680245] [sim_ndt]: Metrics -> Error: 0.00082524 (RMSE ~0.028727 m) | Time: 6 ms | CovTrace: 0.555287 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456762.202159117] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456762.213144462] [sim_ndt]: Metrics -> Error: 0.000830555 (RMSE ~0.0288193 m) | Time: 8 ms | CovTrace: 0.555289 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456762.405224254] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456762.419869652] [sim_ndt]: Metrics -> Error: 0.000828959 (RMSE ~0.0287917 m) | Time: 6 ms | CovTrace: 0.55529 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456762.618628947] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456762.630328824] [sim_ndt]: Metrics -> Error: 0.000838228 (RMSE ~0.0289522 m) | Time: 2 ms | CovTrace: 0.555291 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456762.860477579] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456762.869647537] [sim_ndt]: Metrics -> Error: 0.00082568 (RMSE ~0.0287347 m) | Time: 0 ms | CovTrace: 0.555292 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456763.084476344] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456763.099236409] [sim_ndt]: Metrics -> Error: 0.000832642 (RMSE ~0.0288555 m) | Time: 12 ms | CovTrace: 0.555293 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456763.301612766] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456763.350003498] [sim_ndt]: Metrics -> Error: 0.000843909 (RMSE ~0.0290501 m) | Time: 24 ms | CovTrace: 0.555295 | Converged: True
+[cloud_adapter.py-5] [WARN] [1790456763.366520176] [sentry_cloud_adapter]: Dropped lidar frame: no TF at measurement time
+[hdl_localization_node-16] [INFO] [1790456763.598719936] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456763.624697363] [sim_ndt]: Metrics -> Error: 0.000835325 (RMSE ~0.028902 m) | Time: 10 ms | CovTrace: 0.555296 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456763.832476568] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456763.864613172] [sim_ndt]: Metrics -> Error: 0.000820646 (RMSE ~0.0286469 m) | Time: 22 ms | CovTrace: 0.555297 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456764.069229026] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456764.090161757] [sim_ndt]: Metrics -> Error: 0.000815015 (RMSE ~0.0285485 m) | Time: 18 ms | CovTrace: 0.555298 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456764.297251921] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456764.310853339] [sim_ndt]: Metrics -> Error: 0.000820363 (RMSE ~0.028642 m) | Time: 12 ms | CovTrace: 0.5553 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456764.551353876] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456764.619461223] [sim_ndt]: Metrics -> Error: 0.00082341 (RMSE ~0.0286951 m) | Time: 28 ms | CovTrace: 0.555301 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456764.808689712] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456764.819212823] [sim_ndt]: Metrics -> Error: 0.000833841 (RMSE ~0.0288763 m) | Time: 10 ms | CovTrace: 0.555302 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456765.029168513] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456765.081528892] [sim_ndt]: Metrics -> Error: 0.000825652 (RMSE ~0.0287342 m) | Time: 28 ms | CovTrace: 0.555303 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456765.281550918] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456765.298832350] [sim_ndt]: Metrics -> Error: 0.000837744 (RMSE ~0.0289438 m) | Time: 10 ms | CovTrace: 0.555304 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456765.471972243] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456765.507658440] [sim_ndt]: Metrics -> Error: 0.000817199 (RMSE ~0.0285867 m) | Time: 30 ms | CovTrace: 0.555305 | Converged: True
+[cloud_adapter.py-5] [WARN] [1790456765.527849027] [sentry_cloud_adapter]: Dropped lidar frame: no TF at measurement time
+[hdl_localization_node-16] [INFO] [1790456765.712298792] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456765.724160308] [sim_ndt]: Metrics -> Error: 0.000827632 (RMSE ~0.0287686 m) | Time: 4 ms | CovTrace: 0.555307 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456765.936708345] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456765.952874429] [sim_ndt]: Metrics -> Error: 0.000832548 (RMSE ~0.0288539 m) | Time: 12 ms | CovTrace: 0.555308 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456766.147516161] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456766.158936985] [sim_ndt]: Metrics -> Error: 0.000828602 (RMSE ~0.0287855 m) | Time: 2 ms | CovTrace: 0.555309 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456766.358577038] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456766.384460371] [sim_ndt]: Metrics -> Error: 0.000821777 (RMSE ~0.0286666 m) | Time: 8 ms | CovTrace: 0.55531 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456766.592972198] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456766.615509235] [sim_ndt]: Metrics -> Error: 0.000813628 (RMSE ~0.0285242 m) | Time: 18 ms | CovTrace: 0.555312 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456766.807687359] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456766.830503510] [sim_ndt]: Metrics -> Error: 0.000826531 (RMSE ~0.0287495 m) | Time: 16 ms | CovTrace: 0.555313 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456767.013693343] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456767.032794223] [sim_ndt]: Metrics -> Error: 0.000829765 (RMSE ~0.0288056 m) | Time: 10 ms | CovTrace: 0.555314 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456767.279918356] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456767.319493862] [sim_ndt]: Metrics -> Error: 0.000826897 (RMSE ~0.0287558 m) | Time: 22 ms | CovTrace: 0.555315 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456767.471515169] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456767.484613718] [sim_ndt]: Metrics -> Error: 0.000825908 (RMSE ~0.0287386 m) | Time: 10 ms | CovTrace: 0.555316 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456767.691719798] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456767.706906123] [sim_ndt]: Metrics -> Error: 0.000828449 (RMSE ~0.0287828 m) | Time: 2 ms | CovTrace: 0.555318 | Converged: True
+[hdl_localization_node-16] [WARN] [1790456767.709943275] [sim_ndt]: Point-LIO odometry unavailable or stale for /localization/odometry twist; publishing zero twist
+[cloud_adapter.py-5] [WARN] [1790456767.785891597] [sentry_cloud_adapter]: Dropped lidar frame: no TF at measurement time
+[hdl_localization_node-16] [INFO] [1790456767.924799144] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456767.948803907] [sim_ndt]: Metrics -> Error: 0.000823649 (RMSE ~0.0286993 m) | Time: 20 ms | CovTrace: 0.555319 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456768.145828642] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456768.179503768] [sim_ndt]: Metrics -> Error: 0.000834231 (RMSE ~0.0288831 m) | Time: 12 ms | CovTrace: 0.55532 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456768.386372474] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456768.420932290] [sim_ndt]: Metrics -> Error: 0.000823343 (RMSE ~0.028694 m) | Time: 12 ms | CovTrace: 0.555321 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456768.634671537] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456768.650335069] [sim_ndt]: Metrics -> Error: 0.000842034 (RMSE ~0.0290178 m) | Time: 0 ms | CovTrace: 0.555323 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456768.889602348] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456768.924339817] [sim_ndt]: Metrics -> Error: 0.000828081 (RMSE ~0.0287764 m) | Time: 26 ms | CovTrace: 0.555324 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456769.098898357] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456769.119395840] [sim_ndt]: Metrics -> Error: 0.000832681 (RMSE ~0.0288562 m) | Time: 14 ms | CovTrace: 0.555325 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456769.305870341] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456769.318327900] [sim_ndt]: Metrics -> Error: 0.000825315 (RMSE ~0.0287283 m) | Time: 8 ms | CovTrace: 0.555326 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456769.536584724] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456769.555376249] [sim_ndt]: Metrics -> Error: 0.000823403 (RMSE ~0.028695 m) | Time: 8 ms | CovTrace: 0.555327 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456769.783846321] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456769.804252655] [sim_ndt]: Metrics -> Error: 0.000839674 (RMSE ~0.0289771 m) | Time: 10 ms | CovTrace: 0.555328 | Converged: True
+[cloud_adapter.py-5] [WARN] [1790456769.825888144] [sentry_cloud_adapter]: Dropped lidar frame: no TF at measurement time
+[hdl_localization_node-16] [INFO] [1790456769.994051627] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456770.006396240] [sim_ndt]: Metrics -> Error: 0.000823925 (RMSE ~0.0287041 m) | Time: 12 ms | CovTrace: 0.55533 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456770.193493761] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456770.208565410] [sim_ndt]: Metrics -> Error: 0.000845151 (RMSE ~0.0290715 m) | Time: 6 ms | CovTrace: 0.555331 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456770.420756742] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456770.438101679] [sim_ndt]: Metrics -> Error: 0.000832174 (RMSE ~0.0288474 m) | Time: 4 ms | CovTrace: 0.555332 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456770.691835079] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456770.709317355] [sim_ndt]: Metrics -> Error: 0.00083721 (RMSE ~0.0289346 m) | Time: 10 ms | CovTrace: 0.555333 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456770.909250672] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456770.933827294] [sim_ndt]: Metrics -> Error: 0.000830415 (RMSE ~0.0288169 m) | Time: 16 ms | CovTrace: 0.555334 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456771.165291276] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456771.177841792] [sim_ndt]: Metrics -> Error: 0.000833458 (RMSE ~0.0288697 m) | Time: 2 ms | CovTrace: 0.555336 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456771.385228805] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456771.406989063] [sim_ndt]: Metrics -> Error: 0.000829259 (RMSE ~0.0287969 m) | Time: 14 ms | CovTrace: 0.555337 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456771.581109543] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456771.587143886] [sim_ndt]: Metrics -> Error: 0.00083471 (RMSE ~0.0288913 m) | Time: 4 ms | CovTrace: 0.555338 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456771.807161947] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456771.822356819] [sim_ndt]: Metrics -> Error: 0.000830786 (RMSE ~0.0288234 m) | Time: 8 ms | CovTrace: 0.555339 | Converged: True
+[cloud_adapter.py-5] [WARN] [1790456771.887222999] [sentry_cloud_adapter]: Dropped lidar frame: no TF at measurement time
+[hdl_localization_node-16] [INFO] [1790456772.066549124] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456772.099249629] [sim_ndt]: Metrics -> Error: 0.000847099 (RMSE ~0.029105 m) | Time: 10 ms | CovTrace: 0.55534 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456772.319764774] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456772.336148248] [sim_ndt]: Metrics -> Error: 0.000837564 (RMSE ~0.0289407 m) | Time: 6 ms | CovTrace: 0.555342 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456772.522093213] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456772.552132998] [sim_ndt]: Metrics -> Error: 0.000832159 (RMSE ~0.0288472 m) | Time: 16 ms | CovTrace: 0.555343 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456772.822493798] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456772.835905264] [sim_ndt]: Metrics -> Error: 0.000841688 (RMSE ~0.0290119 m) | Time: 10 ms | CovTrace: 0.555344 | Converged: True
+[hdl_localization_node-16] [INFO] [1790456773.021951564] [sim_ndt]: scan points: raw=1380 downsampled=1112 (leaf=0.05 m)
+[hdl_localization_node-16] [INFO] [1790456773.030541588] [sim_ndt]: Metrics -> Error: 0.00081221 (RMSE ~0.0284993 m) | Time: 2 ms | CovTrace: 0.555345 | Converged: True
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[INFO] [hdl_localization_node-16]: sending signal 'SIGINT' to process[hdl_localization_node-16]
+[INFO] [hdl_localization_map_server-15]: sending signal 'SIGINT' to process[hdl_localization_map_server-15]
+[INFO] [decision_goal_router.py-14]: sending signal 'SIGINT' to process[decision_goal_router.py-14]
+[INFO] [strategy_node-13]: sending signal 'SIGINT' to process[strategy_node-13]
+[INFO] [pty_mcu_sim.py-12]: sending signal 'SIGINT' to process[pty_mcu_sim.py-12]
+[INFO] [autonomy_guard.py-11]: sending signal 'SIGINT' to process[autonomy_guard.py-11]
+[INFO] [hit_bridge-10]: sending signal 'SIGINT' to process[hit_bridge-10]
+[INFO] [trajectory_tracking_node-9]: sending signal 'SIGINT' to process[trajectory_tracking_node-9]
+[INFO] [rviz_safe-8]: sending signal 'SIGINT' to process[rviz_safe-8]
+[INFO] [trajectory_generator_node-7]: sending signal 'SIGINT' to process[trajectory_generator_node-7]
+[INFO] [map_display.py-6]: sending signal 'SIGINT' to process[map_display.py-6]
+[INFO] [cloud_adapter.py-5]: sending signal 'SIGINT' to process[cloud_adapter.py-5]
+[INFO] [sim_adapter.py-4]: sending signal 'SIGINT' to process[sim_adapter.py-4]
+[INFO] [parameter_bridge-3]: sending signal 'SIGINT' to process[parameter_bridge-3]
+[INFO] [ign-2]: sending signal 'SIGINT' to process[ign-2]
+[INFO] [estimated_odometry.py-1]: sending signal 'SIGINT' to process[estimated_odometry.py-1]
+[hdl_localization_node-16] [INFO] [1790456773.235828670] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [hdl_localization_map_server-15]: process has finished cleanly [pid 80409]
+[hdl_localization_map_server-15] [INFO] [1790456773.255644332] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[strategy_node-13] [INFO] [1790456773.283545029] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[pty_mcu_sim.py-12] [INFO] [1790456773.308268426] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[hit_bridge-10] [INFO] [1790456773.322215159] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[trajectory_tracking_node-9] [INFO] [1790456773.338326175] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[trajectory_generator_node-7] [INFO] [1790456773.370563113] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[parameter_bridge-3] [INFO] [1790456773.476749004] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[decision_goal_router.py-14] Traceback (most recent call last):
+[decision_goal_router.py-14]   File "/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/sentry_gazebo/lib/sentry_gazebo/decision_goal_router.py", line 57, in <module>
+[decision_goal_router.py-14]     if __name__=='__main__':main()
+[decision_goal_router.py-14]   File "/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/sentry_gazebo/lib/sentry_gazebo/decision_goal_router.py", line 52, in main
+[decision_goal_router.py-14]     try:rclpy.spin(node)
+[decision_goal_router.py-14]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 229, in spin
+[decision_goal_router.py-14]     executor.spin_once()
+[decision_goal_router.py-14]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 808, in spin_once
+[decision_goal_router.py-14]     self._spin_once_impl(timeout_sec)
+[decision_goal_router.py-14]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 805, in _spin_once_impl
+[decision_goal_router.py-14]     raise handler.exception()
+[decision_goal_router.py-14]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/task.py", line 272, in _execute_coroutine_step
+[decision_goal_router.py-14]     result = coro.send(None)
+[decision_goal_router.py-14]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 478, in handler
+[decision_goal_router.py-14]     arg = take_from_wait_list(entity)
+[decision_goal_router.py-14]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 400, in _take_subscription
+[decision_goal_router.py-14]     msg_info = sub.handle.take_message(sub.msg_type, sub.raw)
+[decision_goal_router.py-14] RuntimeError: Unable to convert call argument to Python object (compile in debug mode for details)
+[INFO] [hit_bridge-10]: process has finished cleanly [pid 80380]
+[INFO] [hdl_localization_node-16]: process has finished cleanly [pid 80431]
+[INFO] [strategy_node-13]: process has finished cleanly [pid 80390]
+[INFO] [parameter_bridge-3]: process has finished cleanly [pid 80366]
+[INFO] [map_display.py-6]: process has finished cleanly [pid 80372]
+[INFO] [trajectory_tracking_node-9]: process has finished cleanly [pid 80378]
+[INFO] [trajectory_generator_node-7]: process has finished cleanly [pid 80374]
+[INFO] [rviz_safe-8]: process has finished cleanly [pid 80376]
+[ERROR] [decision_goal_router.py-14]: process has died [pid 80399, exit code 1, cmd '/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/sentry_gazebo/lib/sentry_gazebo/decision_goal_router.py --ros-args --params-file /tmp/launch_params_zd_0q1sb'].
+[INFO] [autonomy_guard.py-11]: process has finished cleanly [pid 80382]
+[INFO] [estimated_odometry.py-1]: process has finished cleanly [pid 80362]
+[INFO] [cloud_adapter.py-5]: process has finished cleanly [pid 80370]
+[INFO] [sim_adapter.py-4]: process has finished cleanly [pid 80368]
+[INFO] [pty_mcu_sim.py-12]: process has finished cleanly [pid 80384]
+[ign-2] [1;32m[Msg] [0m[1;32mLoading plugin [[0m[1;32[1;32m[Msg] [0m[1;32mIgnition Gazebo GUI    v[0m[1;32m6.18.0[0m[1;32m[0m
+[ign-2] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoading config [[0m[1;32m/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/sentry_gazebo/share/sentry_gazebo/config/autonomy-gui.config[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mAdded plugin [[0m[1;32mRM Sentry - Basic Navigation[0m[1;32m] to main window[0m[1;32m[0m
+[ign-2] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoaded plugin [[0m[1;32mMinimalScene[0m[1;32m] from path [[0m[1;32m/usr/lib/x86_64-linux-gnu/ign-gui-6/plugins/libMinimalScene.so[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mAdded plugin [[0m[1;32mScene Manager[0m[1;32m] to main window[0m[1;32m[0m
+[ign-2] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoaded plugin [[0m[1;32mGzSceneManager[0m[1;32m] from path [[0m[1;32m/usr/lib/x86_64-linux-gnu/ign-gazebo-6/plugins/gui/libGzSceneManager.so[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mCamera view controller topic advertised on [[0m[1;32m/gui/camera/view_control[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mCamera reference visual topic advertised on [[0m[1;32m/gui/camera/view_control/reference_visual[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mCamera view control sensitivity advertised on [[0m[1;32m/gui/camera/view_control/sensitivity[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mAdded plugin [[0m[1;32mInteractive view control[0m[1;32m] to main window[0m[1;32m[0m
+[ign-2] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoaded plugin [[0m[1;32mInteractiveViewControl[0m[1;32m] from path [[0m[1;32m/usr/lib/x86_64-linux-gnu/ign-gui-6/plugins/libInteractiveViewControl.so[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mUsing world control service [[0m[1;32m/world/sentry_planning/control[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mListening to stats on [[0m[1;32m/world/sentry_planning/stats[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mAdded plugin [[0m[1;32mWorld control[0m[1;32m] to main window[0m[1;32m[0m
+[ign-2] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoaded plugin [[0m[1;32mWorldControl[0m[1;32m] from path [[0m[1;32m/usr/lib/x86_64-linux-gnu/ign-gui-6/plugins/libWorldControl.so[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mListening to stats on [[0m[1;32m/world/sentry_planning/stats[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mAdded plugin [[0m[1;32mWorld stats[0m[1;32m] to main window[0m[1;32m[0m
+[ign-2] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoaded plugin [[0m[1;32mWorldStats[0m[1;32m] from path [[0m[1;32m/usr/lib/x86_64-linux-gnu/ign-gui-6/plugins/libWorldStats.so[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mUsing server control service [[0m[1;32m/server_control[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoading plugin [[0m[1;32mignition-rendering-ogre2[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoading plugin [[0m[1;32mignition-rendering-ogre2[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoading plugin [[0m[1;32mignition-rendering-ogre2[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoading plugin [[0m[1;32mignition-rendering-ogre2[0m[1;32m][0m[1;32m[0m
+[ign-2] mignition-rendering-ogre2[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[Msg] [0m[1;32mServing scene information on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mscene/info[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[Msg] [0m[1;32mServing graph information on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mscene/graph[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[Msg] [0m[1;32mServing full state on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mstate[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[Msg] [0m[1;32mServing full state (async) on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mstate_async[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[Msg] [0m[1;32mPublishing scene information on [[0m[1;32m/world/sentry_planning/scene/info[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[Msg] [0m[1;32mPublishing entity deletions on [[0m[1;32m/world/sentry_planning/scene/deletion[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[Msg] [0m[1;32mPublishing state changes on [[0m[1;32m/world/sentry_planning/state[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[Msg] [0m[1;32mPublishing pose messages on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mpose/info[0m[1;32m][0m[1;32m[0m
+[ign-2] [1;32m[Msg] [0m[1;32mPublishing dynamic pose messages on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mdynamic_pose/info[0m[1;32m][0m[1;32m[0m
+[INFO] [ign-2]: process has finished cleanly [pid 80364]

@@ -15,7 +15,7 @@ from nav_msgs.msg import Odometry, Path as PathMsg
 from autonomy_geometry import StaticSafetyGrid, DynamicSafetyGrid
 from sensor_msgs.msg import PointCloud2
 from sensor_msgs_py import point_cloud2
-from std_msgs.msg import Bool, String
+from std_msgs.msg import Bool, String, UInt8
 from trajectory_generation.msg import TrajectoryPoly
 
 # Return seconds without replacing the sensor's measurement timestamp.
@@ -54,6 +54,10 @@ class AutonomyGuard(Node):
     # Wire a single protected output; all fail states require a fresh goal or manual takeover.
     def __init__(self):
         super().__init__('sentry_autonomy_guard')
+        self.declare_parameter('require_referee',False)
+        self.require_referee=bool(self.get_parameter('require_referee').value)
+        self.referee_progress=0;self.referee_wall=-math.inf
+        if self.require_referee:self.create_subscription(UInt8,'/referee/game_progress',self.on_referee,10)
         self.declare_parameter('arrival_distance',.15)
         self.arrival_distance=float(self.get_parameter('arrival_distance').value)
         self.static_grid = StaticSafetyGrid.load()
@@ -126,10 +130,17 @@ class AutonomyGuard(Node):
                 xyz=np.column_stack([points[name].reshape(-1) for name in ('x','y','z')])
                 self.dynamic_grid.update(xyz,self.cloud_stamp)
 
+    # Referee bytes decoded by the actual MCU node can permit an episode; stale / stopped games cannot move.
+    def on_referee(self,message):
+        self.referee_progress=message.data;self.referee_wall=time.monotonic()
+
     # Reject a stale localization/cloud even when a publisher keeps replaying its payload.
     def healthy(self, wall, sim):
         if self.epoch_fault:
             return 'simulation clock rewound; restart required'
+        if self.require_referee and self.mode=='auto':
+            if wall-self.referee_wall>.8:return 'referee serial timeout'
+            if self.referee_progress!=4:return 'referee game is not active'
         if self.odom is None or wall-self.odom_received > .5:
             return 'localization timeout'
         age = sim-seconds(self.odom.header.stamp)

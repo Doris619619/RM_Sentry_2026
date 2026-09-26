@@ -19,7 +19,7 @@ if [[ "$MODE" == build ]]; then
   cd "$WS"
   export CMAKE_BUILD_PARALLEL_LEVEL=2
   colcon --log-base log_sentry_autonomy build --build-base build_sentry_autonomy --install-base install_sentry_autonomy \
-    --base-paths src/sentry_gazebo src/sentry_bringup src/trajectory_generation src/waypoint_generator src/trajectory_tracking \
+    --base-paths src/decision_node src/sentry_gazebo src/sentry_bringup src/trajectory_generation src/waypoint_generator src/trajectory_tracking \
     --parallel-workers 2 --cmake-args -DBUILD_TESTING=ON -DCMAKE_BUILD_TYPE=Release
   exit
 fi
@@ -45,4 +45,4 @@ flock -n 9 || { echo '已有仿真运行，请先在原终端 Ctrl+C 停止。';
 python3 "$ROOT/ros2_ws/src/sentry_gazebo/scripts/preflight.py"
 export LIBGL_ALWAYS_SOFTWARE=1
 python3 "$ROOT/ros2_ws/src/sentry_gazebo/scripts/owned_launch.py" register
-exec ros2 launch sentry_gazebo autonomy.launch.py localization:="${SENTRY_LOCALIZATION:-truth}"
+exec ros2 launch sentry_gazebo autonomy.launch.py localization:="${SENTRY_LOCALIZATION:-truth}" physics:="${SENTRY_PHYSICS:-false}" full_system:="${SENTRY_FULL_SYSTEM:-false}"

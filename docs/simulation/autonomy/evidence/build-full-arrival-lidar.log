@@ -1,0 +1,16 @@
+Starting >>> waypoint_generator
+Finished <<< waypoint_generator [0.40s]
+Starting >>> trajectory_generation
+Finished <<< trajectory_generation [3.38s]
+Starting >>> trajectory_tracking
+Finished <<< trajectory_tracking [1.69s]
+Starting >>> decision_node
+[Processing: decision_node]
+[Processing: decision_node]
+Finished <<< decision_node [1min 1s]
+Starting >>> sentry_gazebo
+Finished <<< sentry_gazebo [0.21s]
+Starting >>> sentry_bringup
+Finished <<< sentry_bringup [0.10s]
+
+Summary: 6 packages finished [1min 8s]

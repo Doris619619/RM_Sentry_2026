@@ -21,7 +21,11 @@ def main():
     done=set()
     deadline=time.monotonic()+30
     while time.monotonic()<deadline and len(done)<2:
-        for line in subprocess.check_output(['wmctrl','-lpG'],text=True).splitlines():
+        # XWayland windows may disappear during initial listing; retry instead of abandoning layout.
+        listing=subprocess.run(['wmctrl','-lpG'],capture_output=True,text=True)
+        if listing.returncode:
+            time.sleep(.25);continue
+        for line in listing.stdout.splitlines():
             parts=line.split(None,8)
             if len(parts)<9:continue
             xid,pid,title=parts[0],int(parts[2]),parts[8]

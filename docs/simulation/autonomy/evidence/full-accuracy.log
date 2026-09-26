@@ -1,0 +1,7 @@
+{"scenario": "patrol", "passed": false, "error": "condition timed out: {'mode': 'auto', 'state': 'idle', 'reason': 'mode changed'}", "status": {"mode": "auto", "state": "idle", "reason": "mode changed"}, "mcu": {"endpoint": "/dev/pts/3", "mcu_pid": 75344, "nav_frames": 1515, "motion_frames": 700, "invalid_frames": 0, "referee_frames_sent": 291, "scenario": "patrol", "motion_mode": 3, "last_nav_hex": "484b15000200ea00ea0000000000000000749a4b48", "last_nav_age": -0.00010226199810858816}, "wiring": {"localization_publishers": ["sentry_estimated_odometry"], "guarded_command_subscribers": ["mcu_communicator", "full_system_acceptance"], "serial_actuation_publishers": ["sentry_pty_mcu"], "truth_consumers": ["full_system_acceptance"], "mcu_endpoint": "/dev/pts/3", "mcu_pid": 75344}}
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/full_system_check.py", line 135, in <module>
+    if __name__=='__main__':main()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/full_system_check.py", line 131, in main
+    if not result['passed']:raise RuntimeError('full system acceptance failed')
+RuntimeError: full system acceptance failed

@@ -1,0 +1,7 @@
+{"case": 1, "repeat": 1, "start": [-0.919, -4.454], "goal": [-2.719, 1.946], "wall_duration": 180.01196471599906, "status": {"mode": "auto", "state": "tracking", "reason": "valid trajectory"}, "endpoint_error": 5.835806971021045, "max_speed": 0.4499900455242874, "occupied_samples": 0, "max_cross_track": 0.1849923314710516, "p95_cross_track": 0.010539960611283539, "passed": false}
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/closed_loop_check.py", line 108, in <module>
+    if __name__=='__main__':main()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/closed_loop_check.py", line 102, in main
+    if not result['passed']:raise RuntimeError('closed-loop acceptance failed')
+RuntimeError: closed-loop acceptance failed
