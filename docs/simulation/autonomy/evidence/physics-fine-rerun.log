@@ -1,0 +1,9 @@
+{"name": "gravity", "fitted_gravity": 9.810000000000441, "height_start": 0.9989405200000001, "height_min": -0.006504088004112717, "height_end": -0.005024374829057438, "passed": true}
+{"name": "acceleration", "max_speed": 0.3999320755373681, "max_acceleration": 0.5123183618636219, "brake_distance": 0.1845035372294589, "steady_force_N": 2.9434587798863947, "stop_speed": 0.0, "passed": true}
+{"name": "lateral_rotation", "world_x_displacement": 1.1829384159309577e-16, "world_y_displacement": 0.5400399458282568, "rotation": 0.23865301063652897, "passed": false}
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/physics_check.py", line 117, in <module>
+    if __name__=='__main__':main()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/physics_check.py", line 114, in main
+    if not record['passed']:raise RuntimeError(name+' failed')
+RuntimeError: lateral_rotation failed

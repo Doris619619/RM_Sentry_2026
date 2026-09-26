@@ -1,0 +1,7 @@
+{"name": "gravity", "height_start": -4.9611375751402584e-05, "height_min": -0.014327798394923852, "height_end": -0.01272934879966057, "passed": false}
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/physics_check.py", line 111, in <module>
+    if __name__=='__main__':main()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/physics_check.py", line 108, in main
+    if not record['passed']:raise RuntimeError(name+' failed')
+RuntimeError: gravity failed

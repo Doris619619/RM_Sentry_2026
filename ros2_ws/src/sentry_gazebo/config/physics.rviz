@@ -1,0 +1,49 @@
+Panels:
+- Class: rviz_common/Displays
+  Name: Displays
+Visualization Manager:
+  Class: ''
+  Global Options:
+    Fixed Frame: map
+    Frame Rate: 10
+  Displays:
+  - Class: rviz_default_plugins/Grid
+    Name: Grid
+    Enabled: true
+    Cell Size: 1
+    Plane Cell Count: 20
+  - Class: rviz_default_plugins/TF
+    Name: Robot frames
+    Enabled: true
+  - Class: rviz_default_plugins/PointCloud2
+    Name: Real lidar returns
+    Enabled: true
+    Topic:
+      Value: /aligned_points
+      Reliability Policy: Best Effort
+      Durability Policy: Volatile
+      Depth: 5
+    Style: Points
+    Size (Pixels): 4
+    Color Transformer: FlatColor
+    Color: 255; 170; 30
+    Decay Time: 0
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 20
+      Pitch: 1.5
+      Yaw: 1.57
+      Focal Point:
+        X: -2
+        Y: -2
+        Z: 0
+      Target Frame: base_link
+  Tools:
+  - Class: rviz_default_plugins/Interact
+  - Class: rviz_default_plugins/MoveCamera
+  - Class: rviz_default_plugins/SetGoal
+    Topic: /goal
+Window Geometry:
+  Width: 1100
+  Height: 850

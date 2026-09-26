@@ -1,0 +1,6 @@
+{"name": "gravity", "fitted_gravity": 9.809999999999945, "height_start": 0.9982734442764469, "height_min": -0.006499968505103682, "height_end": -0.005040251453181884, "passed": true}
+{"name": "acceleration", "max_speed": 0.39993317527792227, "max_acceleration": 0.5123183542575458, "brake_distance": 0.18690407198288228, "steady_force_N": 2.9434517272289726, "stop_speed": 0.0, "passed": true}
+{"name": "lateral_rotation", "world_x_displacement": 1.237324366404559e-16, "world_y_displacement": 0.5562411882346594, "rotation": 0.39772005146148137, "passed": true}
+{"name": "timeout", "stop_wall_seconds": 1.3677906240009179, "travel_after_loss": 0.3656391015239818, "stop_speed": 0.0, "passed": true}
+{"name": "collision", "wall_front_x": 2.4, "body_half_x": 0.35, "max_center_x": 2.050506620329501, "final_center_x": 2.0500002526845886, "final_speed_under_command": 0.0, "max_force_N": 30.000000000000004, "passed": true}
+{"name": "ramp", "top_x": 3.5805149006342334, "top_z": 0.22548117652125932, "top_pitch_degrees": -4.999999097054476, "parked_speed": 0.0, "parked_z": 0.23516816610189928, "max_force_N": 15.979376525431611, "passed": true}

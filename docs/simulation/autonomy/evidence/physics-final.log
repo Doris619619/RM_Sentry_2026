@@ -1,0 +1,12 @@
+{"name": "gravity", "fitted_gravity": 9.809999999999963, "height_start": 0.9992152031707704, "height_min": -0.006505857315332262, "height_end": -0.005166204624773516, "passed": true}
+{"name": "acceleration", "max_speed": 0.39993224149743045, "max_acceleration": 0.5123217398435338, "brake_distance": 0.04712703984843469, "steady_force_N": 2.9434578747890554, "stop_speed": 0.0, "passed": true}
+{"name": "lateral_rotation", "world_x_displacement": 1.0736133144750284e-16, "world_y_displacement": 0.4937975130966912, "rotation": 0.34603652547808994, "passed": true}
+{"name": "timeout", "stop_wall_seconds": 0.7488580819990602, "travel_after_loss": 0.23018022686376538, "stop_speed": 0.0, "passed": true}
+{"name": "native_watchdog", "stop_wall_seconds": 0.7663560670007428, "travel_after_adapter_hang": 0.23160344144509834, "passed": true}
+{"name": "pause_resume", "clock_frozen": true, "resume_braking_distance": 0.11130790517841395, "stop_speed": 0.0006361208875990607, "passed": false}
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/physics_check.py", line 156, in <module>
+    if __name__=='__main__':main()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/physics_check.py", line 153, in main
+    if not record['passed']:raise RuntimeError(name+' failed')
+RuntimeError: pause_resume failed

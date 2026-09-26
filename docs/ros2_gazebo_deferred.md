@@ -63,3 +63,6 @@ See [autonomy acceptance](simulation/autonomy/验收报告.md).
 
 第四项实际 CPU HDL/NDT 定位导航已通过往返与故障恢复验收，真值只供评估。
 详情见 docs/simulation/autonomy/验收报告.md；第五、六项仍待验收。
+
+第五项通用底盘物理验收已完成：8 项测试通过，包括真实重力、摩擦、撞墙、制动和 5° 坡道。
+这仍是通用模型，不能作为真车轮系和电机动力学验收；第六项完整系统联调待完成。

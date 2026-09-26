@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sdf version="1.8">
+  <model name="sentry">
+    <pose>0 0 0 0 0 0</pose>
+    <link name="base_link">
+      <gravity>true</gravity>
+      <inertial>
+        <mass>15</mass>
+        <inertia>
+          <ixx>.35</ixx>
+          <iyy>.60</iyy>
+          <izz>.65</izz>
+        </inertia>
+        <pose>0 0 .20 0 0 0</pose>
+      </inertial>
+      <visual name="body">
+        <pose>0 0 0.25 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.7 0.5 0.3</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.05 0.3 0.65 1</ambient>
+          <diffuse>0.05 0.35 0.8 1</diffuse>
+        </material>
+      </visual>
+      <visual name="front">
+        <pose>0.36 0 0.25 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.03 0.35 0.15</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>1 0.2 0.05 1</ambient>
+          <diffuse>1 0.2 0.05 1</diffuse>
+        </material>
+      </visual>
+      <visual name="turret">
+        <pose>0 0 0.49 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.16</radius>
+            <length>0.18</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.1 0.14 0.2 1</ambient>
+          <diffuse>0.15 0.2 0.3 1</diffuse>
+        </material>
+      </visual>
+      <visual name="front_pointer">
+        <pose>0.24 0 0.5 0 1.5707963 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.035</radius>
+            <length>0.3</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>1 0.65 0.1 1</ambient>
+          <diffuse>1 0.65 0.1 1</diffuse>
+        </material>
+      </visual>
+      <sensor name="lidar_sensor" type="gpu_lidar">
+        <pose>0 0 0.7 0 0 0</pose>
+        <topic>/sentry/lidar</topic>
+        <update_rate>5</update_rate>
+        <always_on>true</always_on>
+        <visualize>false</visualize>
+        <lidar>
+          <scan>
+            <horizontal>
+              <samples>360</samples>
+              <resolution>1</resolution>
+              <min_angle>-3.141592653589793</min_angle>
+              <max_angle>3.141592653589793</max_angle>
+            </horizontal>
+            <vertical>
+              <samples>4</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.1</min_angle>
+              <max_angle>0.1</max_angle>
+            </vertical>
+          </scan>
+          <range>
+            <min>0.2</min>
+            <max>10</max>
+            <resolution>0.01</resolution>
+          </range>
+        </lidar>
+      </sensor>
+      <collision name="chassis">
+        <pose>0 0 .25 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>.7 .5 .3</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.02</mu>
+              <mu2>0.02</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <collision name="support_-0.25_-0.18">
+        <pose>-0.25 -0.18 .06 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>.06</radius>
+          </sphere>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.02</mu>
+              <mu2>0.02</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="support_-0.25_-0.18">
+        <pose>-0.25 -0.18 .06 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>.06</radius>
+          </sphere>
+        </geometry>
+      </visual>
+      <collision name="support_-0.25_0.18">
+        <pose>-0.25 0.18 .06 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>.06</radius>
+          </sphere>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.02</mu>
+              <mu2>0.02</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="support_-0.25_0.18">
+        <pose>-0.25 0.18 .06 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>.06</radius>
+          </sphere>
+        </geometry>
+      </visual>
+      <collision name="support_0.25_-0.18">
+        <pose>0.25 -0.18 .06 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>.06</radius>
+          </sphere>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.02</mu>
+              <mu2>0.02</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="support_0.25_-0.18">
+        <pose>0.25 -0.18 .06 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>.06</radius>
+          </sphere>
+        </geometry>
+      </visual>
+      <collision name="support_0.25_0.18">
+        <pose>0.25 0.18 .06 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>.06</radius>
+          </sphere>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.02</mu>
+              <mu2>0.02</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="support_0.25_0.18">
+        <pose>0.25 0.18 .06 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>.06</radius>
+          </sphere>
+        </geometry>
+      </visual>
+    </link>
+    <plugin filename="ignition-gazebo-odometry-publisher-system" name="ignition::gazebo::systems::OdometryPublisher">
+      <odom_frame>odom</odom_frame>
+      <robot_base_frame>base_link</robot_base_frame>
+      <dimensions>3</dimensions>
+      <odom_publish_frequency>50</odom_publish_frequency>
+      <odom_topic>/model/sentry/odometry</odom_topic>
+    </plugin>
+    <plugin filename="sentry_force_drive" name="sentry_gazebo::ForceDrive">
+      <mass>15</mass>
+      <yaw_inertia>.65</yaw_inertia>
+      <max_force>30</max_force>
+      <max_torque>2</max_torque>
+    </plugin>
+  </model>
+</sdf>

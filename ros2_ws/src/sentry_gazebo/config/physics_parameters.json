@@ -1,0 +1,18 @@
+{
+  "model": "generic holonomic force plant; not actual wheel identification",
+  "mass_kg": 15,
+  "body_m": [
+    0.7,
+    0.5,
+    0.3
+  ],
+  "com_z_m": 0.2,
+  "support_radius_m": 0.06,
+  "support_friction_mu": 0.02,
+  "max_force_N": 30,
+  "max_yaw_torque_Nm": 2,
+  "command_slew_mps2": 0.5,
+  "angular_slew_radps2": 0.8,
+  "command_timeout_wall_s": 0.5,
+  "ramp_degrees": 5
+}
