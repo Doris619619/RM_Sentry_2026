@@ -57,3 +57,6 @@ not attempted.
 Autonomy step 2 now passes nine actual fault-injection cases and the verified full-restart CLI.
 Native clock rewind is fail-stop and requires a complete restart; it is not supported in place.
 See [autonomy acceptance](simulation/autonomy/验收报告.md).
+
+第三项移动中重规划已通过：换目标、真实箱体绕行、箱体位移和封路停车。
+实际定位、底盘动力学和完整 MCU 链路仍待第四至六项验收。

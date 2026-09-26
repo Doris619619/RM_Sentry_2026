@@ -1,0 +1,23 @@
+[
+  {
+    "source": "docs/simulation/autonomy/evidence/dynamic-obstacle-guarded.json",
+    "interpolated_samples": 1312,
+    "occupied_samples": 0,
+    "min_box_clearance": 0.25068335717857737,
+    "passed": true
+  },
+  {
+    "source": "docs/simulation/autonomy/evidence/dynamic-road-blocked.json",
+    "interpolated_samples": 500,
+    "occupied_samples": 0,
+    "min_box_clearance": 0.15788194419443824,
+    "passed": true
+  },
+  {
+    "source": "docs/simulation/autonomy/evidence/dynamic-moving-box.json",
+    "interpolated_samples": 1273,
+    "occupied_samples": 0,
+    "min_box_clearance": 0.32814207325305433,
+    "passed": true
+  }
+]

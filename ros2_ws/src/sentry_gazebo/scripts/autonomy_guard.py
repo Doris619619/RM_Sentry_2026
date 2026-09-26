@@ -12,8 +12,9 @@ from rclpy.node import Node
 from rclpy.qos import qos_profile_sensor_data
 from geometry_msgs.msg import PoseStamped, Twist
 from nav_msgs.msg import Odometry, Path as PathMsg
-from autonomy_geometry import StaticSafetyGrid
+from autonomy_geometry import StaticSafetyGrid, DynamicSafetyGrid
 from sensor_msgs.msg import PointCloud2
+from sensor_msgs_py import point_cloud2
 from std_msgs.msg import Bool, String
 from trajectory_generation.msg import TrajectoryPoly
 
@@ -54,6 +55,8 @@ class AutonomyGuard(Node):
     def __init__(self):
         super().__init__('sentry_autonomy_guard')
         self.static_grid = StaticSafetyGrid.load()
+        self.dynamic_grid = DynamicSafetyGrid()
+        self.last_dynamic_request = -math.inf
         self.prediction_stamp = -math.inf
         self.mode = 'auto'
         self.state = 'idle'
@@ -116,6 +119,10 @@ class AutonomyGuard(Node):
         if message.header.frame_id == 'map' and message.width * message.height > 0:
             self.cloud_received = time.monotonic()
             self.cloud_stamp = seconds(message.header.stamp)
+            if message.fields:
+                points=point_cloud2.read_points(message,field_names=('x','y','z'),skip_nans=True)
+                xyz=np.column_stack([points[name].reshape(-1) for name in ('x','y','z')])
+                self.dynamic_grid.update(xyz,self.cloud_stamp)
 
     # Reject a stale localization/cloud even when a publisher keeps replaying its payload.
     def healthy(self, wall, sim):
@@ -173,6 +180,9 @@ class AutonomyGuard(Node):
                 return
             if not self.static_grid.trajectory_free(message):
                 raise ValueError('reference intersects occupied footprint grid')
+            if not self.dynamic_grid.trajectory_free(message):
+                self.dynamic_replan()
+                return
             if self.healthy(time.monotonic(), sim):
                 raise ValueError('stale observation')
         except (ValueError, IndexError, TypeError) as error:
@@ -193,7 +203,22 @@ class AutonomyGuard(Node):
         if not self.static_grid.prediction_free(message):
             self.invalidate('MPC prediction intersects occupied footprint grid')
             return
+        if not self.dynamic_grid.prediction_free(message):
+            self.dynamic_replan()
+            return
         self.prediction_stamp = stamp
+
+    # Hold zero and request the same goal from the current measured pose; never resume the old path.
+    def dynamic_replan(self):
+        wall=time.monotonic()
+        if self.goal is None:return
+        if self.state!='planning':self.goal_wall=wall
+        self.invalidate('dynamic obstacle; waiting for a safe replan','planning')
+        if wall-self.last_dynamic_request>=1.:
+            self.last_dynamic_request=wall
+            self.requested_at=self.get_clock().now().nanoseconds*1e-9
+            self.goal.header.stamp=self.get_clock().now().to_msg()
+            self.goal_pub.publish(self.goal)
 
     # Controller output is only stored for an accepted trajectory, not used to arm the guard.
     def on_auto(self, message):
@@ -242,6 +267,8 @@ class AutonomyGuard(Node):
             self.command_received = -math.inf
         if self.state == 'planning' and fault:
             self.invalidate(fault)
+        if self.state == 'planning' and self.reason.startswith('dynamic obstacle') and wall-self.last_dynamic_request>1.:
+            self.dynamic_replan()
         if self.state == 'planning' and wall-self.goal_wall > 8:
             self.invalidate('planner returned no valid path')
         if self.state == 'tracking':

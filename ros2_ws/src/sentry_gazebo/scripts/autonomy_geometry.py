@@ -63,3 +63,47 @@ class StaticSafetyGrid:
             count=max(2,math.ceil(float(np.linalg.norm(b-a))/.02)+1)
             if count>1000 or not self.points_free(np.linspace(a,b,count)):return False
         return True
+
+
+class DynamicSafetyGrid(StaticSafetyGrid):
+    # Identify new geometry against raw walls, not the much wider robot inflation mask.
+    def __init__(self):
+        base=StaticSafetyGrid.load()
+        super().__init__(np.zeros_like(base.mask),base.resolution,base.lower)
+        share=Path(get_package_share_directory('trajectory_generation'))
+        raw=np.asarray(Image.open(share/'map/occfinal.png'))
+        if raw.ndim==3:raw=raw[:,:,0]
+        self.known=raw>10
+        known=self.known.copy()
+        for dr in range(-2,3):
+            for dc in range(-2,3):
+                if dr*dr+dc*dc>4:continue
+                r0=max(0,dr);r1=min(400,400+dr);c0=max(0,dc);c1=min(400,400+dc)
+                known[r0:r1,c0:c1]|=self.known[r0-dr:r1-dr,c0-dc:c1-dc]
+        self.known=known
+        self.seen=np.full(self.mask.shape,-math.inf)
+        self.last_stamp=-math.inf
+        self.point_count=0
+
+    # Keep real elevated returns for one simulation second; expired observations cannot authorize motion.
+    def update(self,xyz,stamp):
+        if stamp<self.last_stamp:self.seen[:]=-math.inf
+        self.last_stamp=stamp
+        xyz=np.asarray(xyz).reshape(-1,3)
+        xyz=xyz[np.isfinite(xyz).all(axis=1)&(xyz[:,2]>.15)&(xyz[:,2]<1.2)]
+        col=np.floor((xyz[:,0]-self.lower[0])/self.resolution).astype(int)
+        row=self.mask.shape[0]-1-np.floor((xyz[:,1]-self.lower[1])/self.resolution).astype(int)
+        inside=(row>=0)&(row<400)&(col>=0)&(col<400)
+        row,col=row[inside],col[inside]
+        unknown=~self.known[row,col];row,col=row[unknown],col[unknown]
+        self.point_count=len(row)
+        self.seen[row,col]=stamp
+        rows,cols=np.where(stamp-self.seen<=1.)
+        self.mask[:]=False
+        # 0.35 m circular footprint plus one cell covers discretization of a measured surface.
+        for dr in range(-8,9):
+            for dc in range(-8,9):
+                if dr*dr+dc*dc>64:continue
+                rr,cc=rows+dr,cols+dc
+                keep=(rr>=0)&(rr<400)&(cc>=0)&(cc<400)
+                self.mask[rr[keep],cc[keep]]=True

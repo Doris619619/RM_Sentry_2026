@@ -92,7 +92,7 @@ void TopoSearcher::createLocalGraph(Eigen::Vector3d start, Eigen::Vector3d end, 
         Eigen::Vector3i pt_idx = global_map->coord2gridIndex(pt);
         ++sample_num;
         // (Fix 53a) Use static-only occupancy for local graph sample check
-        if(global_map->isStaticOccupied(pt_idx, false)) {
+        if(global_map->isOccupied(pt_idx, false)) {
             continue;
         }
 
@@ -121,7 +121,7 @@ void TopoSearcher::createLocalGraph(Eigen::Vector3d start, Eigen::Vector3d end, 
 
                 int pt_idx, pt_idy, pt_idz;
                 global_map->coord2gridIndex(edge_x, edge_y, edge_z, pt_idx, pt_idy, pt_idz);
-                if (global_map->isStaticOccupied(pt_idx, pt_idy, false)){
+                if (global_map->isOccupied(pt_idx, pt_idy, 0, false)){
                     obs_num ++;
                 }
             }
@@ -299,7 +299,7 @@ void TopoSearcher::createGraph(Eigen::Vector3d start, Eigen::Vector3d end)
                 if (si.x() < 0 || si.x() >= global_map->GLX_SIZE ||
                     si.y() < 0 || si.y() >= global_map->GLY_SIZE)
                     continue;
-                if (global_map->isStaticOccupied(si.x(), si.y(), false))
+                if (global_map->isOccupied(si.x(), si.y(), 0, false))
                     continue;
                 sp.z() = global_map->getHeight(si.x(), si.y());
                 double min_d = 0.0;
@@ -332,7 +332,7 @@ void TopoSearcher::createGraph(Eigen::Vector3d start, Eigen::Vector3d end)
             pt_idx.y() < 0 || pt_idx.y() >= global_map->GLY_SIZE) {
             continue;
         }
-        if (global_map->isStaticOccupied(pt_idx.x(), pt_idx.y(), false)) {
+        if (global_map->isOccupied(pt_idx.x(), pt_idx.y(), 0, false)) {
             continue;
         }
 
@@ -364,7 +364,7 @@ void TopoSearcher::createGraph(Eigen::Vector3d start, Eigen::Vector3d end)
 
                 int pt_idx, pt_idy, pt_idz;
                 global_map->coord2gridIndex(edge_x, edge_y, edge_z, pt_idx, pt_idy, pt_idz);
-                if (global_map->isStaticOccupied(pt_idx, pt_idy, false)){
+                if (global_map->isOccupied(pt_idx, pt_idy, 0, false)){
                     obs_num ++;
                 }
             }
@@ -728,7 +728,7 @@ Eigen::Vector3d TopoSearcher::getSample()
             if (pt_idx.x() < 0 || pt_idx.x() >= global_map->GLX_SIZE ||
                 pt_idx.y() < 0 || pt_idx.y() >= global_map->GLY_SIZE)
                 continue;
-            if (global_map->isStaticOccupied(pt_idx.x(), pt_idx.y(), false))
+            if (global_map->isOccupied(pt_idx.x(), pt_idx.y(), 0, false))
                 continue;
             pt.z() = global_map->getHeight(pt_idx.x(), pt_idx.y());
             return pt;
@@ -747,7 +747,7 @@ Eigen::Vector3d TopoSearcher::getSample()
             Eigen::Vector3i pt_idx = global_map->coord2gridIndex(pt);
             pt.z() = global_map->getHeight(pt_idx.x(), pt_idx.y());
             // (Fix 53a) Use static-only for global graph sample validity
-            if(!global_map->isStaticOccupied(pt_idx, false)) {
+            if(!global_map->isOccupied(pt_idx, false)) {
                 return pt;
             }
         }
@@ -759,7 +759,7 @@ Eigen::Vector3d TopoSearcher::getSample()
         Eigen::Vector3i pt_idx = global_map->coord2gridIndex(pt);
         if (pt_idx.x() >= 0 && pt_idx.x() < global_map->GLX_SIZE &&
             pt_idx.y() >= 0 && pt_idx.y() < global_map->GLY_SIZE &&
-            !global_map->isStaticOccupied(pt_idx.x(), pt_idx.y(), false)) {
+            !global_map->isOccupied(pt_idx.x(), pt_idx.y(), 0, false)) {
             return pt;
         }
         // Sample is in a wall or out of bounds — try another random sample
@@ -769,7 +769,7 @@ Eigen::Vector3d TopoSearcher::getSample()
             pt_idx = global_map->coord2gridIndex(pt);
             if (pt_idx.x() >= 0 && pt_idx.x() < global_map->GLX_SIZE &&
                 pt_idx.y() >= 0 && pt_idx.y() < global_map->GLY_SIZE &&
-                !global_map->isStaticOccupied(pt_idx.x(), pt_idx.y(), false)) {
+                !global_map->isOccupied(pt_idx.x(), pt_idx.y(), 0, false)) {
                 return pt;
             }
         }
@@ -1019,10 +1019,9 @@ bool TopoSearcher::lineVisib(const Eigen::Vector3d& p1, const Eigen::Vector3d& p
             return false;
         }
 
-        // (Fix 53a) Use static-only occupancy for topo graph construction.
-        // Live obstacles (l_data) were disconnecting the PRM graph entirely,
-        // making ALL pathfinding fail when lidar detects ANY obstacle.
-        if (global_map->isStaticOccupied(pt_idx, pt_idy, second_height)){
+        // Visibility must include measured dynamic occupancy; disconnected graphs
+        // correctly report no route instead of silently planning through a live obstacle.
+        if (global_map->isOccupied(pt_idx, pt_idy, 0, second_height)){
             return false;
         }
         last_height = height;

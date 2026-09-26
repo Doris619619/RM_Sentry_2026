@@ -1,0 +1,1 @@
+{"case": "goal_change", "change_sim": 162.92, "trajectories_before_change": 1, "endpoint_error": 0.11166806655474863, "new_trajectories": 6, "actual_obstacle_returns": 0, "min_box_clearance": null, "target": [-4.719, 1.096], "status": {"mode": "auto", "state": "arrived", "reason": "position and measured speed settled for 0.5 s"}, "passed": true}

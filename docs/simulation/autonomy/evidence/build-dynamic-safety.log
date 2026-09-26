@@ -1,0 +1,217 @@
+Starting >>> waypoint_generator
+Finished <<< waypoint_generator [0.27s]
+Starting >>> trajectory_generation
+--- stderr: trajectory_generation
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/Astar_searcher.cpp: In member function ‘void AstarPathFinder::initGridMap(ros::NodeHandle&, double, Eigen::Vector3d, Eigen::Vector3d, int, int, int, double, double, double, std::shared_ptr<GlobalMap>&)’:
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/Astar_searcher.cpp:8:63: warning: unused parameter ‘_resolution’ [-Wunused-parameter]
+    8 | void AstarPathFinder::initGridMap(ros::NodeHandle &nh, double _resolution, Vector3d global_xyz_l,
+      |                                                        ~~~~~~~^~~~~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/Astar_searcher.cpp:8:85: warning: unused parameter ‘global_xyz_l’ [-Wunused-parameter]
+    8 | void AstarPathFinder::initGridMap(ros::NodeHandle &nh, double _resolution, Vector3d global_xyz_l,
+      |                                                                            ~~~~~~~~~^~~~~~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/Astar_searcher.cpp:9:44: warning: unused parameter ‘global_xyz_u’ [-Wunused-parameter]
+    9 |                                   Vector3d global_xyz_u, int max_x_id, int max_y_id, int max_z_id, double robot_radius,
+      |                                   ~~~~~~~~~^~~~~~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/Astar_searcher.cpp:9:62: warning: unused parameter ‘max_x_id’ [-Wunused-parameter]
+    9 |                                   Vector3d global_xyz_u, int max_x_id, int max_y_id, int max_z_id, double robot_radius,
+      |                                                          ~~~~^~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/Astar_searcher.cpp:9:76: warning: unused parameter ‘max_y_id’ [-Wunused-parameter]
+    9 |                                   Vector3d global_xyz_u, int max_x_id, int max_y_id, int max_z_id, double robot_radius,
+      |                                                                        ~~~~^~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/Astar_searcher.cpp:9:90: warning: unused parameter ‘max_z_id’ [-Wunused-parameter]
+    9 |                                   Vector3d global_xyz_u, int max_x_id, int max_y_id, int max_z_id, double robot_radius,
+      |                                                                                      ~~~~^~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/Astar_searcher.cpp:9:107: warning: unused parameter ‘robot_radius’ [-Wunused-parameter]
+    9 |                                   Vector3d global_xyz_u, int max_x_id, int max_y_id, int max_z_id, double robot_radius,
+      |                                                                                                    ~~~~~~~^~~~~~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/Astar_searcher.cpp:10:42: warning: unused parameter ‘_2d_search_height_low’ [-Wunused-parameter]
+   10 |                                   double _2d_search_height_low, double _2d_search_height_high, std::shared_ptr<GlobalMap> &_global_map)
+      |                                   ~~~~~~~^~~~~~~~~~~~~~~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/Astar_searcher.cpp:10:72: warning: unused parameter ‘_2d_search_height_high’ [-Wunused-parameter]
+   10 |                                   double _2d_search_height_low, double _2d_search_height_high, std::shared_ptr<GlobalMap> &_global_map)
+      |                                                                 ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/Astar_searcher.cpp: In member function ‘void AstarPathFinder::getCurPositionIndex(std::vector<Eigen::Matrix<double, 3, 1> >, Eigen::Vector3d, int&)’:
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/Astar_searcher.cpp:32:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<Eigen::Matrix<double, 3, 1> >::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+   32 |     for (int i = 0; i < optimized_path.size() - 1; i++) {
+      |                     ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/Astar_searcher.cpp: In member function ‘bool AstarPathFinder::checkPathCollision(std::vector<Eigen::Matrix<double, 3, 1> >, Eigen::Vector3d&, Eigen::Vector3d, Eigen::Vector3d&, Eigen::Vector3d&, int&, int&)’:
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/Astar_searcher.cpp:68:34: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<Eigen::Matrix<double, 3, 1> >::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+   68 |     for(int i = cur_start_id ; i < optimized_path.size() - 1; i++){
+      |                                ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/Astar_searcher.cpp:91:24: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<Eigen::Matrix<double, 3, 1> >::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+   91 |                 while(i<optimized_path.size() - 1){
+      |                       ~^~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/Astar_searcher.cpp:63:9: warning: unused variable ‘path_start_count’ [-Wunused-variable]
+   63 |     int path_start_count = cur_start_id;
+      |         ^~~~~~~~~~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/Astar_searcher.cpp:64:9: warning: unused variable ‘path_end_count’ [-Wunused-variable]
+   64 |     int path_end_count = cur_start_id + 1;
+      |         ^~~~~~~~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/Astar_searcher.cpp: In member function ‘std::vector<Eigen::Matrix<double, 3, 1> > AstarPathFinder::smoothTopoPath(std::vector<Eigen::Matrix<double, 3, 1> >)’:
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/Astar_searcher.cpp:152:33: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<Eigen::Matrix<double, 3, 1> >::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+  152 |         for(int i = iter_idx; i <topo_path.size() - 1; i++)  // 找topo路径的每一段
+      |                               ~~^~~~~~~~~~~~~~~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/Astar_searcher.cpp:188:30: warning: unused variable ‘easy’ [-Wunused-variable]
+  188 |                         bool easy = getNearPoint(temp, head_pos, temp);
+      |                              ^~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/Astar_searcher.cpp:202:37: warning: variable ‘temp_id’ set but not used [-Wunused-but-set-variable]
+  202 |                     Eigen::Vector3i temp_id = global_map->coord2gridIndex(tail_pos);
+      |                                     ^~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/Astar_searcher.cpp:207:26: warning: unused variable ‘easy’ [-Wunused-variable]
+  207 |                     bool easy = getNearPoint(temp, head_pos, temp);
+      |                          ^~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/Astar_searcher.cpp: In member function ‘bool AstarPathFinder::lineVisib(const Vector3d&, const Vector3d&, Eigen::Vector3d&, double, int)’:
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/Astar_searcher.cpp:294:12: warning: unused variable ‘distance_thresh’ [-Wunused-variable]
+  294 |     double distance_thresh;
+      |            ^~~~~~~~~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/Astar_searcher.cpp:305:12: warning: unused variable ‘z_offset’ [-Wunused-variable]
+  305 |     double z_offset = p1.z() - p2.z();
+      |            ^~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/Astar_searcher.cpp: In member function ‘bool AstarPathFinder::getNearPoint(Eigen::Vector3d, Eigen::Vector3d, Eigen::Vector3d&)’:
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/Astar_searcher.cpp:420:18: warning: variable ‘tempID_left’ set but not used [-Wunused-but-set-variable]
+  420 |         Vector3i tempID_left = global_map->coord2gridIndex(headPos_left);
+      |                  ^~~~~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/Astar_searcher.cpp:421:18: warning: variable ‘tempID_right’ set but not used [-Wunused-but-set-variable]
+  421 |         Vector3i tempID_right = global_map->coord2gridIndex(headPos_right);
+      |                  ^~~~~~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/Astar_searcher.cpp:423:13: warning: unused variable ‘check_swell’ [-Wunused-variable]
+  423 |         int check_swell = (check_distance / 0.1) -1;
+      |             ^~~~~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp: In member function ‘void TopoSearcher::init(ros::NodeHandle&, std::shared_ptr<GlobalMap>&)’:
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp:7:42: warning: unused parameter ‘nh’ [-Wunused-parameter]
+    7 | void TopoSearcher::init(ros::NodeHandle &nh, std::shared_ptr<GlobalMap> &_global_map)
+      |                         ~~~~~~~~~~~~~~~~~^~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp: In member function ‘void TopoSearcher::createLocalGraph(Eigen::Vector3d, Eigen::Vector3d, bool)’:
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp:25:21: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<std::shared_ptr<GraphNode> >::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+   25 |     for(int i = 0; i<m_graph.size(); i++){  /// 注意shared_ptr引用计数问题
+      |                    ~^~~~~~~~~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp:61:22: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<Eigen::Matrix<double, 3, 1> >::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+   61 |     for(int i = 0; i < global_map->topo_keypoint.size(); i++)  // 只对关键点(路口点)进行采样
+      |                    ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp: In member function ‘void TopoSearcher::createGraph(Eigen::Vector3d, Eigen::Vector3d)’:
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp:238:21: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<std::shared_ptr<GraphNode> >::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+  238 |     for(int i = 0; i<m_graph.size(); i++)
+      |                    ~^~~~~~~~~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp:261:22: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<Eigen::Matrix<double, 3, 1> >::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+  261 |     for(int i = 0; i < global_map->topo_keypoint.size(); i++)  // 只对关键点(路口点)进行采样
+      |                    ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/include/trajectory_generation/TopoSearch.h:11,
+                 from /home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp:5:
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp:286:15: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘std::vector<std::shared_ptr<GraphNode> >::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  286 |     ROS_DEBUG("[Topo]: m_graph before num: %d", m_graph.size());
+      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~~~
+      |                                                             |
+      |                                                             std::vector<std::shared_ptr<GraphNode> >::size_type {aka long unsigned int}
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/include/trajectory_generation/ros1_compat.hpp:159:45: note: in definition of macro ‘ROS_DEBUG’
+  159 | #define ROS_DEBUG(...) std::fprintf(stderr, __VA_ARGS__), std::fprintf(stderr, "\n")
+      |                                             ^~~~~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp:286:45: note: format string is defined here
+  286 |     ROS_DEBUG("[Topo]: m_graph before num: %d", m_graph.size());
+      |                                            ~^
+      |                                             |
+      |                                             int
+      |                                            %ld
+In file included from /home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/include/trajectory_generation/TopoSearch.h:11,
+                 from /home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp:5:
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp:452:15: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘std::vector<std::shared_ptr<GraphNode> >::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  452 |     ROS_DEBUG("[Topo]: m_graph num: %d", m_graph.size());
+      |               ^~~~~~~~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~~~
+      |                                                      |
+      |                                                      std::vector<std::shared_ptr<GraphNode> >::size_type {aka long unsigned int}
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/include/trajectory_generation/ros1_compat.hpp:159:45: note: in definition of macro ‘ROS_DEBUG’
+  159 | #define ROS_DEBUG(...) std::fprintf(stderr, __VA_ARGS__), std::fprintf(stderr, "\n")
+      |                                             ^~~~~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp:452:38: note: format string is defined here
+  452 |     ROS_DEBUG("[Topo]: m_graph num: %d", m_graph.size());
+      |                                     ~^
+      |                                      |
+      |                                      int
+      |                                     %ld
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp: In member function ‘void TopoSearcher::DijkstraSearch(int)’:
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp:475:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<std::shared_ptr<GraphNode> >::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+  475 |     for (int i = 0; i < m_graph.size(); i++) { // 遍历所有节点
+      |                     ~~^~~~~~~~~~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp:482:25: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<std::shared_ptr<GraphNode> >::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+  482 |         for(int j = 0; j<m_graph.size(); j++){
+      |                        ~^~~~~~~~~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp:506:25: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<std::shared_ptr<GraphNode> >::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+  506 |         for(int j = 0; j<m_graph[cur_id]->neighbors.size(); j++){
+      |                        ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp:478:13: warning: variable ‘index’ set but not used [-Wunused-but-set-variable]
+  478 |         int index = -1;
+      |             ^~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp: In member function ‘void TopoSearcher::depthFirstSearch(std::vector<std::shared_ptr<GraphNode> >&)’:
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp:540:22: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<std::shared_ptr<GraphNode> >::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+  540 |     for(int i = 0; i < cur->neighbors.size(); ++i){
+      |                    ~~^~~~~~~~~~~~~~~~~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp:548:31: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<std::shared_ptr<GraphNode> >::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+  548 |             for (int j = 0; j < vis.size(); ++j){
+      |                             ~~^~~~~~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp:558:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<std::shared_ptr<GraphNode> >::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+  558 |     for (int i = 0; i < cur->neighbors.size(); ++i) {
+      |                     ~~^~~~~~~~~~~~~~~~~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp:563:27: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<std::shared_ptr<GraphNode> >::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+  563 |         for (int j = 0; j < vis.size(); ++j) {
+      |                         ~~^~~~~~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp: In member function ‘bool TopoSearcher::heightFeasible(const Vector3d&, const Vector3d&, int&, double, double)’:
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp:624:12: warning: unused variable ‘distance_thresh’ [-Wunused-variable]
+  624 |     double distance_thresh;
+      |            ^~~~~~~~~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp:635:12: warning: unused variable ‘z_offset’ [-Wunused-variable]
+  635 |     double z_offset = p1.z() - p2.z();
+      |            ^~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp: In member function ‘void TopoSearcher::checkDistanceFinalPath()’:
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp:697:22: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<std::vector<Eigen::Matrix<double, 3, 1> > >::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+  697 |     for(int i = 0; i < raw_paths.size(); i++){
+      |                    ~~^~~~~~~~~~~~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp: In member function ‘std::vector<std::shared_ptr<GraphNode> > TopoSearcher::findMinVisibGuard(Eigen::Vector3d, int&)’:
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp:833:9: warning: unused variable ‘visib_num’ [-Wunused-variable]
+  833 |     int visib_num = 0;
+      |         ^~~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp:825:86: warning: unused parameter ‘exist_unvisiual’ [-Wunused-parameter]
+  825 | std::vector<GraphNode::Ptr> TopoSearcher::findMinVisibGuard(Eigen::Vector3d pt, int &exist_unvisiual){
+      |                                                                                 ~~~~~^~~~~~~~~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp: In member function ‘bool TopoSearcher::needConnection(GraphNode::Ptr, GraphNode::Ptr, Eigen::Vector3d)’:
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp:917:22: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<std::shared_ptr<GraphNode> >::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+  917 |     for(int i = 0; i < g1->neighbors.size(); i++){
+      |                    ~~^~~~~~~~~~~~~~~~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp:918:26: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<std::shared_ptr<GraphNode> >::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+  918 |         for(int j = 0; j < g2->neighbors.size(); j++){
+      |                        ~~^~~~~~~~~~~~~~~~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp:911:89: warning: unused parameter ‘pt’ [-Wunused-parameter]
+  911 | bool TopoSearcher::needConnection(GraphNode::Ptr g1, GraphNode::Ptr g2, Eigen::Vector3d pt)
+      |                                                                         ~~~~~~~~~~~~~~~~^~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp: In member function ‘bool TopoSearcher::lineVisib(const Vector3d&, const Vector3d&, double, Eigen::Vector3d&, int)’:
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp:981:12: warning: variable ‘distance_thresh’ set but not used [-Wunused-but-set-variable]
+  981 |     double distance_thresh;
+      |            ^~~~~~~~~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp:977:116: warning: unused parameter ‘pc’ [-Wunused-parameter]
+  977 | bool TopoSearcher::lineVisib(const Eigen::Vector3d& p1, const Eigen::Vector3d& p2, double thresh, Eigen::Vector3d& pc, int caster_id)
+      |                                                                                                   ~~~~~~~~~~~~~~~~~^~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp: In member function ‘double TopoSearcher::pathLength(const std::vector<Eigen::Matrix<double, 3, 1> >&)’:
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/TopoSearch.cpp:1042:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<Eigen::Matrix<double, 3, 1> >::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+ 1042 |     for (int i = 0; i < path.size() - 1; ++i) {
+      |                     ~~^~~~~~~~~~~~~~~~~
+In file included from /home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/include/trajectory_generation/path_smooth.h:9,
+                 from /home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/include/trajectory_generation/plan_manager.h:16,
+                 from /home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:2:
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/include/trajectory_generation/root_solver/minco_trajectory.hpp: In member function ‘void MincoTrajectory::getGradTimes(Eigen::VectorXd&) const’:
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/include/trajectory_generation/root_solver/minco_trajectory.hpp:258:26: warning: unused variable ‘Ti4’ [-Wunused-variable]
+  258 |             const double Ti4 = Ti3 * Ti;
+      |                          ^~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp: In function ‘void {anonymous}::expectContinuous(const Refenecesmooth&, const std::vector<Eigen::Matrix<double, 2, 1> >&, const Vector2d&)’:
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:155:10: warning: suggest explicit braces to avoid ambiguous ‘else’ [-Wdangling-else]
+  155 |       if (i+1<static_cast<int>(reference.m_trapezoidal_time.size()))
+      |          ^
+---
+[Processing: trajectory_generation]
+Finished <<< trajectory_generation [58.0s]
+Starting >>> trajectory_tracking
+Finished <<< trajectory_tracking [1.45s]
+Starting >>> sentry_gazebo
+Finished <<< sentry_gazebo [0.37s]
+Starting >>> sentry_bringup
+Finished <<< sentry_bringup [0.15s]
+
+Summary: 5 packages finished [1min 1s]
+  1 package had stderr output: trajectory_generation

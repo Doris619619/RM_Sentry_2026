@@ -148,6 +148,16 @@ class GuardTests(unittest.TestCase):
             self.node.tick()
         self.assertEqual(self.node.state,'stopped')
 
+    # An otherwise valid reference intersecting measured occupancy stays stopped while requesting a new plan.
+    def test_dynamic_reference_cannot_reach_controller(self):
+        self.node.on_goal(self.goal)
+        self.node.dynamic_grid.mask[:]=True
+        self.node.on_trajectory(self.path())
+        self.assertEqual(self.node.state,'planning')
+        self.assertIn('dynamic obstacle',self.node.reason)
+        self.assertIsNone(self.node.endpoint)
+
+
 if __name__=='__main__':
     rclpy.init()
     try:unittest.main()
