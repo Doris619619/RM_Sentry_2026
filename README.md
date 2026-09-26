@@ -19,3 +19,5 @@
 [中文使用说明](docs/simulation/README.md) 包含启动、键盘控制和停止命令；
 [验收报告](docs/simulation/ACCEPTANCE.md) 包含实际截图、运动反馈和性能数据。
 当前阶段提供理想平面手动运动与位置反馈，后续地图、点云和导航接入见使用说明中的第二阶段交接。
+
+第二阶段的场地、雷达点云和规划展示进度见 [第二阶段说明](docs/simulation/part2/README.md)。

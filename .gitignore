@@ -50,3 +50,8 @@ ros2_ws/build_sentry_gazebo/
 ros2_ws/install_sentry_gazebo/
 ros2_ws/log_sentry_gazebo/
 ros2_ws/src/sentry_gazebo/**/__pycache__/
+
+# Isolated second-stage simulation build.
+ros2_ws/build_sentry_sim2/
+ros2_ws/install_sentry_sim2/
+ros2_ws/log_sentry_sim2/

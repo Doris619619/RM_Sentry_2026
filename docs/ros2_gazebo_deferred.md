@@ -1,3 +1,11 @@
+<!-- Purpose: retain historical Gazebo deferral and link current verified simulation milestones. -->
+
+# Gazebo validation status
+
+As of 2026-09-26, stage-one Fortress GUI and planar motion validation have passed; see [stage-one report](simulation/ACCEPTANCE.md). Stage-two real lidar probe has passed; full map/planning validation is in progress, see [stage two](simulation/part2/README.md).
+
+## Historical record (superseded environment status)
+
 # ROS2 Gazebo validation status
 
 Status: **Deferred — environment and assets unavailable**. This is a concrete
