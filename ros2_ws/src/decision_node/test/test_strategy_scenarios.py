@@ -74,6 +74,7 @@ class TestStrategyScenarios(unittest.TestCase):
             message.data = value
         publisher.publish(message)
 
+    # Exercise actual BT transitions, including repeated arrival feedback that must not skip patrol points.
     def test_push_supply_radical_and_harm_retreat(self):
         # Discover every input before the state sequence begins. Waiting only
         # for /game_progress made this black-box scenario racy: a later HP or
@@ -92,6 +93,15 @@ class TestStrategyScenarios(unittest.TestCase):
         # normal, non-attacked motion mode is 1.
         self.publish(self.arrived, Bool, True)
         self.assertTrue(self.spin_until(lambda: 1 in self.motion), "arrival did not move INITPUSH into OCCUPY")
+
+        # Repeated level feedback across many BT ticks advances exactly one waypoint.
+        self.assertTrue(self.spin_until(lambda: (2.0, 2.0) in self.goals))
+        for _ in range(10):
+            self.publish(self.arrived, Bool, True)
+            deadline=time.monotonic()+.1
+            self.spin_until(lambda: time.monotonic()>=deadline, timeout=.2)
+        self.assertNotIn((3.0, 3.0),self.goals)
+        self.assertNotIn((4.0, 4.0),self.goals)
 
         # Low HP plus arrival enters supply, asks for free recovery and buys the delta to max bullet.
         for publisher, kind, value in (

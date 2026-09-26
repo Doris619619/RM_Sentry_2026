@@ -1,14 +1,24 @@
-# Build the pause safety plugin, orderly RViz entry point and standalone simulation resources.
+# Build native command/pause protection, orderly RViz and standalone simulation resources.
 cmake_minimum_required(VERSION 3.16)
 project(sentry_gazebo)
 find_package(ament_cmake REQUIRED)
 find_package(ignition-gazebo6 REQUIRED)
+find_package(ignition-transport11 REQUIRED)
 add_library(sentry_resume_guard SHARED src/resume_guard.cpp)
 target_compile_features(sentry_resume_guard PRIVATE cxx_std_17)
-target_link_libraries(sentry_resume_guard ignition-gazebo6::ignition-gazebo6)
-install(TARGETS sentry_resume_guard LIBRARY DESTINATION lib)
+target_link_libraries(sentry_resume_guard ignition-gazebo6::ignition-gazebo6 ignition-transport11::ignition-transport11)
+add_library(sentry_force_drive SHARED src/force_drive.cpp)
+target_compile_features(sentry_force_drive PRIVATE cxx_std_17)
+target_link_libraries(sentry_force_drive ignition-gazebo6::ignition-gazebo6 ignition-transport11::ignition-transport11)
+install(TARGETS sentry_resume_guard sentry_force_drive LIBRARY DESTINATION lib)
 install(DIRECTORY launch worlds models config DESTINATION share/${PROJECT_NAME})
-install(PROGRAMS scripts/sim_adapter.py scripts/keyboard.py scripts/cloud_adapter.py scripts/map_display.py DESTINATION lib/${PROJECT_NAME})
+# Generate the simulation-only NDT reference; production PCD files remain excluded from Git.
+add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/ndt_reference.pcd ${CMAKE_CURRENT_BINARY_DIR}/ndt_reference.json
+  COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/scripts/ndt_reference_map.py --output ${CMAKE_CURRENT_BINARY_DIR}/ndt_reference.pcd
+  DEPENDS scripts/ndt_reference_map.py ../trajectory_generation/map/occfinal.png ../trajectory_generation/config/map_metadata.yaml)
+add_custom_target(ndt_reference ALL DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/ndt_reference.pcd)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/ndt_reference.pcd ${CMAKE_CURRENT_BINARY_DIR}/ndt_reference.json DESTINATION share/${PROJECT_NAME}/maps)
+install(PROGRAMS scripts/pty_mcu_sim.py scripts/mcu_wire.py scripts/decision_goal_router.py scripts/estimated_odometry.py scripts/sim_adapter.py scripts/keyboard.py scripts/cloud_adapter.py scripts/map_display.py scripts/autonomy_guard.py scripts/autonomy_geometry.py scripts/gui_layout.py DESTINATION lib/${PROJECT_NAME})
 find_package(rclcpp REQUIRED)
 find_package(rviz_common REQUIRED)
 find_package(Qt5 REQUIRED COMPONENTS Widgets)

@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/live_safety_check.py", line 209, in <module>
+    if __name__=='__main__':main()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/live_safety_check.py", line 192, in main
+    args=parser.parse_args();rclpy.init();qa=SafetyCheck(args.pid);out=Path(args.output)
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/live_safety_check.py", line 31, in __init__
+    raise RuntimeError('PID is not the autonomous simulation launch')
+RuntimeError: PID is not the autonomous simulation launch

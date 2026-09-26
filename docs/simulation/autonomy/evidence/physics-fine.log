@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/physics_check.py", line 114, in <module>
+    if __name__=='__main__':main()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/physics_check.py", line 105, in main
+    qa.run(4.);assert qa.samples,'No native physics odometry'
+AssertionError: No native physics odometry

@@ -1,0 +1,21 @@
+# Simulation-only valid-map strategy goals. Production defaults are not overwritten.
+strategy_node:
+  ros__parameters:
+    central_threshold: 999
+    publish_on_change_only: false
+    goals.occupy.point_0.x: -3.219
+    goals.occupy.point_0.y: 2.146
+    goals.occupy.point_1.x: -0.919
+    goals.occupy.point_1.y: -4.454
+    goals.occupy.point_2.x: -4.719
+    goals.occupy.point_2.y: 1.096
+    goals.occupy.point_3.x: -0.919
+    goals.occupy.point_3.y: -4.454
+    goals.supply.x: -0.919
+    goals.supply.y: -4.454
+    goals.waitforop.x: -0.919
+    goals.waitforop.y: -4.454
+    goals.retreat.x: -1.419
+    goals.retreat.y: -4.154
+    goals.radical.x: -3.219
+    goals.radical.y: 2.146

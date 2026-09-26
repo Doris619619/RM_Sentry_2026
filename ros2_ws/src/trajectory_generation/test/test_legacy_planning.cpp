@@ -240,4 +240,41 @@ TEST(ReferenceTimingTest, PreservesNonzeroInitialVelocityWhileConverging) {
   ASSERT_FALSE(points.empty());
   expectContinuous(reference,path,initial);
 }
+
+// Live occupied cells must obstruct both PRM visibility and path shortcut pruning.
+TEST(LegacyPlanningTest, DynamicOccupancyBlocksVisibilityAndClears) {
+  auto parameters = make_parameters();
+  planner_manager manager;
+  manager.init(parameters);
+  Eigen::Vector3d a(-3.4,-2.7,0.0), b(-4.3,-2.1,0.0);
+  a.z() = manager.global_map->getHeight(manager.global_map->coord2gridIndex(a).x(), manager.global_map->coord2gridIndex(a).y());
+  b.z() = a.z();
+  Eigen::Vector3d collision;
+  ASSERT_TRUE(manager.topo_prm->lineVisib(a,b,0.05,collision));
+  auto index = manager.global_map->coord2gridIndex((a+b)*0.5);
+  auto& cell = manager.global_map->l_data[index.x()*manager.global_map->GLY_SIZE+index.y()];
+  cell = 10;
+  EXPECT_FALSE(manager.topo_prm->lineVisib(a,b,0.05,collision));
+  cell = 0;
+  EXPECT_TRUE(manager.topo_prm->lineVisib(a,b,0.05,collision));
+}
+
 }  // namespace
+
+// Reproduce both directions of the autonomous route with its larger planning clearance.
+TEST(LegacyPlanningTest, AutonomousRouteIsConnectedInBothDirections) {
+  auto parameters = make_parameters();
+  parameters.setParam("trajectory_generator/robot_radius", 0.45);
+  planner_manager manager;
+  manager.init(parameters);
+  const Eigen::Vector3d a(-0.919,-4.454,0), b(-3.219,2.146,0);
+  for (int reverse=0; reverse<2; ++reverse) {
+    manager.topo_prm->setRandomSeed(7);
+    const auto start=reverse ? b : a, goal=reverse ? a : b;
+    manager.global_map->odom_position=start;
+    EXPECT_FALSE(manager.global_map->isStaticOccupied(manager.global_map->coord2gridIndex(start),false));
+    EXPECT_FALSE(manager.global_map->isStaticOccupied(manager.global_map->coord2gridIndex(goal),false));
+    manager.topo_prm->createGraph(start,goal);
+    EXPECT_GE(manager.topo_prm->min_path.size(),2U) << "reverse=" << reverse;
+  }
+}

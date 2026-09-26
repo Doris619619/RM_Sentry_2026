@@ -24,3 +24,21 @@
 **第二阶段验收通过：15/15 次轨迹检查、加速度上限、双 GUI 性能及退出复验通过。**
 已按用户后续授权修复轨迹时长/系数失配与加速度提前结束检查；自动跟踪仍留在第三阶段。
 [验收报告](docs/simulation/part2/ACCEPTANCE.md)、[五页队会提纲](docs/simulation/part2/TEAM_REPORT.md) 和 [演示视频](docs/simulation/part2/demo.mp4) 已归档。
+
+## 六项自主导航仿真
+
+六项分别通过：MPC 自动跟踪、安全异常与接管、动态障碍重规划、实际 NDT 定位、
+通用底盘接触动力学、真实决策与 MCU 程序的完整模拟串口联调。
+15/15 组次自动到点；完整物理往返误差 4.84 / 6.55 cm；
+双 GUI 310 秒平均实时率 0.853、RSS 峰值 2.05 GiB。
+
+- 完整演示入口：`bash scripts/gazebo_full.sh`；启动后由模拟裁判场景触发真实决策。
+- 真值定位的分层回归入口：`bash scripts/gazebo_autonomy.sh`。
+- 独立物理底盘与坡道入口：`bash scripts/gazebo_physics.sh`。
+- [启动、停止与完整接口](docs/simulation/autonomy/完整系统接口.md)
+- [六项验收报告与失败记录](docs/simulation/autonomy/验收报告.md)
+- [队会汇报与真车前交接](docs/simulation/autonomy/队会汇报与交接.md)
+
+底盘是通用全向力模型，MCU 连接专属 PTY；没有连接电控板。
+定位使用真实仿真雷达和已知位置附近的先验，不能等同于真车验收、
+未知起点全局重定位或比赛场地三维还原。第一、二阶段入口继续保留。

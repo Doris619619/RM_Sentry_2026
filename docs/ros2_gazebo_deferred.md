@@ -46,3 +46,19 @@ obstacle runtime fixtures documented in `ros2_tracking_validation.md`.
 
 MCU serial and physical robot validation remain separate hardware work and were
 not attempted.
+
+
+## 当前自主仿真状态
+
+六项自主导航仿真已经分别验收通过：实际 MPC 闭环、异常停车与接管、
+真实动态障碍重规划、实际 CPU NDT、通用接触动力学，以及真实策略和 MCU 可执行程序的 PTY 完整链路。
+完整栈双 GUI 310 秒平均 RTF 0.853、RSS 峰值 2.05 GiB；完整重启关键发布者 1 → 0 → 1，
+旧子进程无残留，重启一辆车且不执行旧目标。
+
+上文 Deferred 是历史环境记录，已不代表当前 Gazebo 能力。
+真实电控硬件、真实轮系辨识、Point-LIO、未知位置重定位和完整比赛行为仍需单独验收。
+原生时间回拨必须完整重启，不能原地恢复。
+
+[六项实测与失败记录](simulation/autonomy/验收报告.md) ·
+[完整接口与命令](simulation/autonomy/完整系统接口.md) ·
+[队会汇报和交接](simulation/autonomy/队会汇报与交接.md)。

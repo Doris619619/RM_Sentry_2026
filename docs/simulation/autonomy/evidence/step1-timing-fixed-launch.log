@@ -1,0 +1,1451 @@
+[INFO] [launch]: All log files can be found below /home/liangys/.ros/log/2026-09-26-14-10-15-402321-ubuntu64-oc-44374
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [ign-1]: process started with pid [44428]
+[INFO] [parameter_bridge-2]: process started with pid [44430]
+[INFO] [sim_adapter.py-3]: process started with pid [44432]
+[INFO] [cloud_adapter.py-4]: process started with pid [44434]
+[INFO] [map_display.py-5]: process started with pid [44436]
+[INFO] [trajectory_generator_node-6]: process started with pid [44438]
+[INFO] [rviz_safe-7]: process started with pid [44440]
+[INFO] [trajectory_tracking_node-8]: process started with pid [44442]
+[INFO] [hit_bridge-9]: process started with pid [44444]
+[INFO] [autonomy_guard.py-10]: process started with pid [44446]
+[trajectory_generator_node-6] [Manager Init] map/file_path: 
+[trajectory_generator_node-6] [Manager Init] map/occ_file_path: /home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/trajectory_generation/share/trajectory_generation/map/occfinal.png
+[trajectory_generator_node-6] [Manager Init] map/bev_file_path: /home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/trajectory_generation/share/trajectory_generation/map/bevfinal.png
+[trajectory_generator_node-6] [Manager Init] map/distance_map_file_path: /home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/trajectory_generation/share/trajectory_generation/map/occtopo.png
+[trajectory_generator_node-6] m_height_bias: 0.0152941 m_height_interval: 1.5 m_height_threshold: 0.08 height_sencond_high_threshold: 0.2
+[trajectory_tracking_node-8] [SentryRobotInterface] Loading task file: "/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/trajectory_tracking/share/trajectory_tracking/cfg/task.info"
+[trajectory_tracking_node-8] x_init:   5 8 0 0
+[trajectory_tracking_node-8] 
+[trajectory_tracking_node-8]  #### Multiple-Shooting SQP Settings:
+[trajectory_tracking_node-8]  #### =============================================================================
+[trajectory_tracking_node-8]  #### 'sqpIteration'...........................................................8
+[trajectory_tracking_node-8]  #### 'deltaTol'...........................................................1e-06
+[trajectory_tracking_node-8]  #### 'alpha_decay'..........................................................0.5 (default)
+[trajectory_tracking_node-8]  #### 'alpha_min'.........................................................0.0001 (default)
+[trajectory_tracking_node-8]  #### 'gamma_c'............................................................1e-06 (default)
+[trajectory_tracking_node-8]  #### 'g_max'..............................................................1e+06 (default)
+[trajectory_tracking_node-8]  #### 'g_min'..............................................................1e-06
+[trajectory_tracking_node-8]  #### 'armijoFactor'......................................................0.0001 (default)
+[trajectory_tracking_node-8]  #### 'costTol'...........................................................0.0001
+[trajectory_tracking_node-8]  #### 'dt'...................................................................0.1
+[trajectory_tracking_node-8]  #### 'useFeedbackPolicy'......................................................1
+[trajectory_tracking_node-8]  #### 'createValueFunction'....................................................0 (default)
+[trajectory_tracking_node-8]  #### 'integratorType'.......................................................RK2
+[trajectory_tracking_node-8]  #### 'inequalityConstraintMu'...............................................0.1
+[trajectory_tracking_node-8]  #### 'inequalityConstraintDelta'............................................0.2
+[trajectory_tracking_node-8]  #### 'projectStateInputEqualityConstraints'...................................1
+[trajectory_tracking_node-8]  #### 'extractProjectionMultiplier'............................................0 (default)
+[trajectory_tracking_node-8]  #### 'printSolverStatus'......................................................0
+[trajectory_tracking_node-8]  #### 'printSolverStatistics'..................................................0
+[trajectory_tracking_node-8]  #### 'printLinesearch'........................................................0
+[trajectory_tracking_node-8]  #### 'enableLogging'..........................................................1 (default)
+[trajectory_tracking_node-8]  #### 'logSize'.............................................................1000 (default)
+[trajectory_tracking_node-8]  #### 'logFilePath'.........................................../tmp/ocs2/sqp_log/ (default)
+[trajectory_tracking_node-8]  #### 'nThreads'...............................................................2
+[trajectory_tracking_node-8]  #### 'threadPriority'........................................................50
+[trajectory_tracking_node-8] 
+[trajectory_tracking_node-8]  #### HPIPM Settings:
+[trajectory_tracking_node-8]  #### =============================================================================
+[trajectory_tracking_node-8]  #### 'mode'...................................................................1 (default)
+[trajectory_tracking_node-8]  #### 'iter_max'..............................................................30 (default)
+[trajectory_tracking_node-8]  #### 'alpha_min'..........................................................1e-12 (default)
+[trajectory_tracking_node-8]  #### 'mu0'...................................................................10 (default)
+[trajectory_tracking_node-8]  #### 'tol_stat'...........................................................1e-06 (default)
+[trajectory_tracking_node-8]  #### 'tol_eq'.............................................................1e-08 (default)
+[trajectory_tracking_node-8]  #### 'tol_ineq'...........................................................1e-08 (default)
+[trajectory_tracking_node-8]  #### 'tol_comp'...........................................................1e-08 (default)
+[trajectory_tracking_node-8]  #### 'reg_prim'...........................................................1e-12 (default)
+[trajectory_tracking_node-8]  #### 'warm_start'.............................................................0 (default)
+[trajectory_tracking_node-8]  #### 'pred_corr'..............................................................1 (default)
+[trajectory_tracking_node-8]  #### 'ric_alg'................................................................0 (default)
+[trajectory_tracking_node-8]  #### =============================================================================
+[trajectory_tracking_node-8]  #### =============================================================================
+[trajectory_tracking_node-8] 
+[trajectory_tracking_node-8]  #### MPC Settings:
+[trajectory_tracking_node-8]  #### =============================================================================
+[trajectory_tracking_node-8]  #### 'timeHorizon'............................................................2
+[trajectory_tracking_node-8]  #### 'solutionTimeWindow'.....................................................2
+[trajectory_tracking_node-8]  #### 'coldStart'..............................................................0
+[trajectory_tracking_node-8]  #### 'debugPrint'.............................................................0
+[trajectory_tracking_node-8]  #### 'mpcDesiredFrequency'..................................................100
+[trajectory_tracking_node-8]  #### 'mrtDesiredFrequency'..................................................400
+[trajectory_tracking_node-8]  #### =============================================================================
+[trajectory_tracking_node-8] 
+[trajectory_tracking_node-8]  #### Rollout Settings: 
+[trajectory_tracking_node-8]  #### =============================================================================
+[trajectory_tracking_node-8]  #### 'AbsTolODE'..........................................................1e-05
+[trajectory_tracking_node-8]  #### 'RelTolODE'..........................................................0.001
+[trajectory_tracking_node-8]  #### 'maxNumStepsPerSecond'...............................................10000
+[trajectory_tracking_node-8]  #### 'timeStep'............................................................0.02
+[trajectory_tracking_node-8]  #### 'integratorType'.....................................................ODE45 (default)
+[trajectory_tracking_node-8]  #### 'checkNumericalStability'................................................1
+[trajectory_tracking_node-8]  #### 'reconstructInputTrajectory'.............................................1 (default)
+[trajectory_tracking_node-8]  #### 'rootFindingAlgorithm'...................................................0 (default)
+[trajectory_tracking_node-8]  #### 'maxSingleEventIterations'..............................................10 (default)
+[trajectory_tracking_node-8]  #### 'useTrajectorySpreadingController'.......................................0 (default)
+[trajectory_tracking_node-8]  #### =============================================================================
+[trajectory_tracking_node-8] WARNING: Loaded at least one default value in matrix: "Q"
+[trajectory_tracking_node-8] WARNING: Loaded at least one default value in matrix: "R"
+[trajectory_tracking_node-8] WARNING: Loaded at least one default value in matrix: "Q_final"
+[trajectory_tracking_node-8] Q:  
+[trajectory_tracking_node-8] 150   0   0   0
+[trajectory_tracking_node-8]   0 150   0   0
+[trajectory_tracking_node-8]   0   0  60   0
+[trajectory_tracking_node-8]   0   0   0  80
+[trajectory_tracking_node-8] R:  
+[trajectory_tracking_node-8]  1.5    0
+[trajectory_tracking_node-8]    0 0.15
+[trajectory_tracking_node-8] Qf: 
+[trajectory_tracking_node-8] 150   0   0   0
+[trajectory_tracking_node-8]   0 150   0   0
+[trajectory_tracking_node-8]   0   0  60   0
+[trajectory_tracking_node-8]   0   0   0  80
+[trajectory_tracking_node-8] m_height_bias: 0.0152941 m_height_interval: 1.5 m_height_threshold: 0.08 height_sencond_high_threshold: 0.2
+[trajectory_generator_node-6] map swell done
+[trajectory_generator_node-6] second_heights_points: 10
+[trajectory_generator_node-6] xmax: 0.781 xmin: -0.719 ymax: -3.154 ymin: -5.354
+[trajectory_generator_node-6] [Map Build] bev build done
+[trajectory_generator_node-6] R.rows 400 R.cols 400
+[trajectory_generator_node-6] start topo sample map
+[trajectory_generator_node-6] [GridMap] topo_sample_map size: 185
+[trajectory_generator_node-6] [GridMap] topo_keypoint size: 1603
+[trajectory_tracking_node-8] map swell done
+[trajectory_tracking_node-8] second_heights_points: 10
+[trajectory_tracking_node-8] xmax: 0.781 xmin: -0.719 ymax: -3.154 ymin: -5.354
+[trajectory_tracking_node-8] [Map Build] bev build done
+[trajectory_tracking_node-8] R.rows 400 R.cols 400
+[trajectory_tracking_node-8] start topo sample map
+[trajectory_tracking_node-8] [GridMap] topo_sample_map size: 185
+[trajectory_tracking_node-8] [GridMap] topo_keypoint size: 1603
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_common/images/splash_overlay.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Available Renderers(1): OpenGL Rendering Subsystem, at ./src/rviz_rendering/render_system.cpp:301
+[rviz_safe-7] [rviz_common:info] Stereo is NOT SUPPORTED, at ./src/rviz_rendering/render_system.cpp:543
+[rviz_safe-7] [rviz_common:info] OpenGl version: 4.5 (GLSL 4.5), at ./src/rviz_rendering/render_system.cpp:284
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_common/icons/plus.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_common/icons/minus.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:info] Stereo is NOT SUPPORTED, at ./src/rviz_rendering/render_system.cpp:543
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/TF.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/TF.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/TF.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/TF.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_common/icons/classes/Identity.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_common/icons/classes/Identity.svg]: Couldn't open file /opt/ros/humble/share/rviz_common/icons/classes/Identity.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_common/icons/classes/Identity.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_common/icons/classes/Identity.png]: Couldn't open file /opt/ros/humble/share/rviz_common/icons/classes/Identity.png, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_common/icons/default_class_icon.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_common/icons/options.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_common/icons/ok.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_common/icons/warning.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_common/icons/error.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Orbit.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/Orbit.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/Orbit.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Orbit.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/Orbit.png]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/Orbit.png, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_common/icons/rotate.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_common/icons/cursor.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_common/icons/rotate_cam.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_common/icons/move2d.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_common/icons/move_z.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_common/icons/zoom.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_common/icons/crosshair.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/FocusCamera.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Interact.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/Interact.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/Interact.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Interact.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Measure.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/MoveCamera.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/MoveCamera.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/MoveCamera.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/MoveCamera.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/PublishPoint.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Select.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/Select.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/Select.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Select.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/SetGoal.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/SetGoal.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/SetGoal.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/SetGoal.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/SetInitialPose.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/SetInitialPose.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/SetInitialPose.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/SetInitialPose.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Map.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/Map.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/Map.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Map.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Grid.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/Grid.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/Grid.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Grid.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/PointCloud2.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/PointCloud2.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/PointCloud2.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/PointCloud2.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Pose.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/Pose.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/Pose.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Pose.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Marker.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/Marker.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/Marker.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Marker.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/RGBF32.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/RGBF32.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/RGBF32.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/RGBF32.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/RGBF32.png]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/RGBF32.png, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/RGB8.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/RGB8.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/RGB8.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/RGB8.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/RGB8.png]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/RGB8.png, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Intensity.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/Intensity.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/Intensity.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Intensity.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/Intensity.png]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/Intensity.png, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/AxisColor.svg, at ./src/rviz_common/load_resource.cpp:71
+[ign-1] [1;33m[GUI] [Wrn] [Application.cc:802] [0m[1;33m[QT] file::/Gazebo/GazeboDrawer.qml:242:3: QML Connections: Implicitly defined onFoo properties in Connections are deprecated. Use this syntax instead: function onFoo(<arguments>) { ... }[0m[1;33m[0m
+[ign-1] [1;33m[GUI] [Wrn] [Application.cc:802] [0m[1;33m[QT] file::/WorldStats/WorldStats.qml:53:3: QML RowLayout: Binding loop detected for property "x"[0m[1;33m[0m
+[sim_adapter.py-3] [INFO] [1790446216.665584586] [sentry_sim_adapter]: Ideal planar simulator: 0.5 s wall-time watchdog, 50 Hz feedback
+[parameter_bridge-2] [INFO] [1790446216.686146057] [sentry_gazebo_bridge]: Creating GZ->ROS Bridge: [/clock (ignition.msgs.Clock) -> /clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+[parameter_bridge-2] [INFO] [1790446216.687217819] [sentry_gazebo_bridge]: Creating ROS->GZ Bridge: [/sim/guarded_cmd_vel (geometry_msgs/msg/Twist) -> /model/sentry/cmd_vel (ignition.msgs.Twist)] (Lazy 0)
+[parameter_bridge-2] [INFO] [1790446216.694733290] [sentry_gazebo_bridge]: Creating GZ->ROS Bridge: [/model/sentry/odometry (ignition.msgs.Odometry) -> /sim/ground_truth/odometry (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-2] [INFO] [1790446216.699895689] [sentry_gazebo_bridge]: Creating GZ->ROS Bridge: [/sentry/lidar/points (ignition.msgs.PointCloudPacked) -> /sim/lidar/native (sensor_msgs/msg/PointCloud2)] (Lazy 0)
+[parameter_bridge-2] [INFO] [1790446216.705448900] [sentry_gazebo_bridge]: Passing message from ROS geometry_msgs/msg/Twist to Gazebo gz.msgs.Twist (showing msg only once per type)
+[ign-1] libEGL warning: Not allowed to force software rendering when API explicitly selects a hardware device.
+[rviz_safe-7] [rviz_common:error] Vertex Program:rviz/glsl120/indexed_8bit_image.vert Fragment Program:rviz/glsl120/indexed_8bit_image.frag GLSL link result : 
+[rviz_safe-7] active samplers with a different type refer to the same texture image unit, at ./src/rviz_rendering/ogre_logging.cpp:70
+[ign-1] [1;33m[GUI] [Wrn] [Ogre2RenderTarget.cc:574] [0m[1;33mAnti-aliasing level of '[0m[1;33m8[0m[1;33m' [0m[1;33mis not supported; valid FSAA levels are: [0m[1;33m[ 0 4 ][0m[1;33m. Setting to 0[0m[1;33m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mReceived world [[0m[1;32m/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/sentry_gazebo/share/sentry_gazebo/worlds/planning.sdf[0m[1;32m] from the GUI.[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mIgnition Gazebo Server v[0m[1;32m6.18.0[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mLoading SDF world file[[0m[1;32m/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/sentry_gazebo/share/sentry_gazebo/worlds/planning.sdf[0m[1;32m].[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing entity system service on [[0m[1;32m/[0m[1;32mentity/system/add[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mCreate service on [[0m[1;32m/world/sentry_planning/create[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mRemove service on [[0m[1;32m/world/sentry_planning/remove[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPose service on [[0m[1;32m/world/sentry_planning/set_pose[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPose service on [[0m[1;32m/world/sentry_planning/set_pose_vector[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mLight configuration service on [[0m[1;32m/world/sentry_planning/light_config[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPhysics service on [[0m[1;32m/world/sentry_planning/set_physics[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mSphericalCoordinates service on [[0m[1;32m/world/sentry_planning/set_spherical_coordinates[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mEnable collision service on [[0m[1;32m/world/sentry_planning/enable_collision[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mDisable collision service on [[0m[1;32m/world/sentry_planning/disable_collision[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mMaterial service on [[0m[1;32m/world/sentry_planning/visual_config[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mMaterial service on [[0m[1;32m/world/sentry_planning/wheel_slip[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mVelocityControl subscribing to twist messages on [[0m[1;32m/model/sentry/cmd_vel[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mOdometryPublisher publishing odometry on [[0m[1;32m/model/sentry/odometry[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mOdometryPublisher publishing odometry with covariance on [[0m[1;32m/model/sentry/odometry_with_covariance[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mOdometryPublisher publishing Pose_V (TF) on [[0m[1;32m/model/sentry/pose[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mLoaded level [[0m[1;32m3[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing world controls on [[0m[1;32m/world/sentry_planning[0m[1;32m/control], [[0m[1;32m/world/sentry_planning[0m[1;32m/control/state] and [[0m[1;32m/world/sentry_planning[0m[1;32m/playback/control][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing GUI information on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mgui/info[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mWorld [[0m[1;32msentry_planning[0m[1;32m] initialized with [[0m[1;32mfixed_step[0m[1;32m] physics profile.[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing world SDF generation service on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mgenerate_world_sdf[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing world names on [[0m[1;32m/gazebo/worlds[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mResource path add service on [[0m[1;32m/gazebo/resource_paths/add[0m[1;32m].[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mResource path get service on [[0m[1;32m/gazebo/resource_paths/get[0m[1;32m].[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mResource path resolve service on [[0m[1;32m/gazebo/resource_paths/resolve[0m[1;32m].[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mResource paths published on [[0m[1;32m/gazebo/resource_paths[0m[1;32m].[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServer control service on [[0m[1;32m/server_control[0m[1;32m].[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mFound no publishers on /stats, adding root stats topic[0m[1;32m[0m
+[ign-1] libEGL warning: Not allowed to force software rendering when API explicitly selects a hardware device.
+[trajectory_tracking_node-8] [WARN] [1790446220.359335368] [trajectory_tracking]: trajectory tracking stopped: no valid trajectory
+[rviz_safe-7] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/AxisColor.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/AxisColor.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/AxisColor.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/AxisColor.png]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/AxisColor.png, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/FlatColor.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/FlatColor.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/FlatColor.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/FlatColor.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/FlatColor.png]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/FlatColor.png, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/XYZ.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/XYZ.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/XYZ.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/XYZ.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/XYZ.png]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/XYZ.png, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_common/icons/classes/Displays.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Load pixmap at package://rviz_common/icons/close.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-7] [rviz_common:debug] Received a 400 X 400 map @ 0.05m/pix
+[rviz_safe-7] , at ./src/rviz_default_plugins/displays/map/map_display.cpp:520
+[rviz_safe-7] [rviz_common:info] Trying to create a map of size 400 x 400 using 1 swatches, at ./src/rviz_default_plugins/displays/map/map_display.cpp:399
+[trajectory_generator_node-6] [INFO] [1790446221.785634750] [trajectory_generation]: FSM accepted manual goal goal=(-2.72, 1.95, 0.02)
+[trajectory_generator_node-6] [Manager] start point, (x, y): (-0.92, -4.45)
+[trajectory_generator_node-6] [Manager] receive target, (x, y): (-2.72, 1.95)
+[trajectory_generator_node-6] [Topo]: m_graph before num: 1605
+[trajectory_generator_node-6] [Topo]: dijkstra time: 0.009906
+[trajectory_generator_node-6] [Topo]: topo search time: 0.102683
+[trajectory_generator_node-6] [Topo]: m_graph num: 2575
+[trajectory_generator_node-6] [DIAG] origin_path (Dijkstra) size: 5
+[trajectory_generator_node-6] [DIAG]   origin[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[1]: (-5.019, -1.604, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[2]: (-3.769, 2.396, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[3]: (-1.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[4]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG] lineVisib(start→end DIRECT): false  colli=(-1.42,-2.65)
+[trajectory_generator_node-6] [DIAG] direct line: 132 steps, 92 wall cells
+[trajectory_generator_node-6] [smoothTopoPath] INPUT size=5
+[trajectory_generator_node-6] [smoothTopoPath]   in[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[1]: (-5.019, -1.604, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[2]: (-3.769, 2.396, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[3]: (-1.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[4]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath] lineVisib(start→end): false  colli=(-1.42,-2.65)
+[trajectory_generator_node-6] [smoothTopoPath] stuck detected, skipping to topo[4]
+[trajectory_generator_node-6] [smoothTopoPath] OUTPUT size=8, iter_count=7
+[trajectory_generator_node-6] [smoothTopoPath]   out[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[1]: (-4.840, -0.515, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[2]: (-3.299, 2.232, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[3]: (-2.168, 2.139, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[4]: (-2.555, 2.131, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[5]: (-2.134, 2.182, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[6]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[7]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG] optimized_path (smoothTopoPath) size: 8
+[trajectory_generator_node-6] [DIAG]   opt[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[1]: (-4.840, -0.515, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[2]: (-3.299, 2.232, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[3]: (-2.168, 2.139, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[4]: (-2.555, 2.131, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[5]: (-2.134, 2.182, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[6]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[7]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [Manager] reference_speed: (0.30)
+[trajectory_generator_node-6] optimized_path size: 8
+[trajectory_generator_node-6] [LBFGS] search direction d:  9.72701e-05  0.000608948 -0.000696394  0.000665139 -0.000514308  0.000335708 -0.000190591  9.36582e-05 -3.40051e-05 -5.19217e-06  3.76614e-05 -6.98701e-05  9.76316e-05 -0.000107128  9.35274e-05 -7.12418e-05  7.33323e-05  -0.00138255  5.54627e-05  0.000880797  -0.00238778  -0.00116952  -0.00335438  0.000871564  0.000706052  0.000139905  0.000229411  -0.00162901   0.00265262  -0.00378945   0.00457604  -0.00446943   0.00335193  -0.00154223   0.00269553   0.00481006  -0.00959312 -9.77561e-05 -0.000611596  0.000699358 -0.000667821  0.000516077 -0.000336315  0.000190085  -9.2338e-05  3.27507e-05   3.8762e-06 -2.72491e-05  3.47301e-05 -2.85764e-06 -0.000119359  0.000391869 -0.000848976   0.00151406  -0.00106218 -0.000809162  0.000417181   -0.0125796 -0.000699474  -0.00401588  8.45706e-05  0.000603718 -0.000222752   0.00024136  0.000943791  -0.00122748   0.00125223  -7.1353e-05  0.000838976  -0.00315361  0.000339528 -9.03712e-05 -0.000576974    0.0011445    0.0949257   -0.0136295   0.00530209  -0.00123535  0.000291593 -3.80125e-05  -4.8564e-06  1.04745e-05 -6.30001e-06  2.76882e-06 -1.03731e-06  4.51902e-06  -2.6217e-05   0.00012151 -0.000482646   0.00182703  -0.00540776    0.0171756  0.000873029      0.44301   0.00494741    0.0185574  -0.00311384 -0.000564884    0.0032259  -0.00293366   0.00399927  -0.00412859    0.0100312    0.0092992 -0.000346503  -0.00807744    0.0416481    0.0970421    0.0827994   0.00438845     0.101734     0.434675
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=5.0 total_T=41.286(init 35.954) max_drift=0.249 max_vel=0.4 segs=38
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 39 -> 20 waypoints, 19 time segs, max_turn=178.3 deg
+[trajectory_generator_node-6] [Manager] optimizer generate time: 0.005600
+[trajectory_generator_node-6] [Reference] path size : 20
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.3430,-4.0281) t[0]=2.604165 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.201982 b[N]=0.262278 b2[0]=0.202887 b2[N]=0.066101
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.014775 -0.100991 0.000000 -0.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.3430,-4.0281) t[0]=2.604165 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.201982 b[N]=0.216780 b2[0]=0.202887 b2[N]=0.054673
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.014775 -0.100991 0.000000 -0.919000]
+[trajectory_generator_node-6] [INFO] [1790446221.901604267] [trajectory_generation]: FSM published 19 trajectory pieces
+[trajectory_tracking_node-8] [WARN] [1790446226.922069797] [trajectory_tracking]: RM_GridMap predicted-path replan requested: collision_samples=0 trajectory_age=5.01
+[trajectory_generator_node-6] [Manager REPLAN]  cur position point (X, Y) = (-1.610653, -3.329246), target point (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] target_temp (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] robot 1.32m from path, full replan
+[trajectory_generator_node-6] [Manager] start point, (x, y): (-1.61, -3.33)
+[trajectory_generator_node-6] [Manager] receive target, (x, y): (-2.72, 1.95)
+[trajectory_generator_node-6] [Topo]: m_graph before num: 1605
+[trajectory_generator_node-6] [Topo]: dijkstra time: 0.019459
+[trajectory_generator_node-6] [Topo]: topo search time: 0.117022
+[trajectory_generator_node-6] [Topo]: m_graph num: 2580
+[trajectory_generator_node-6] [DIAG] origin_path (Dijkstra) size: 5
+[trajectory_generator_node-6] [DIAG]   origin[0]: (-1.611, -3.329, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[1]: (-4.840, -0.175, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[2]: (-3.769, 2.396, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[3]: (-1.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[4]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG] lineVisib(start→end DIRECT): false  colli=(-1.82,-2.40)
+[trajectory_generator_node-6] [DIAG] direct line: 107 steps, 75 wall cells
+[trajectory_generator_node-6] [smoothTopoPath] INPUT size=5
+[trajectory_generator_node-6] [smoothTopoPath]   in[0]: (-1.611, -3.329, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[1]: (-4.840, -0.175, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[2]: (-3.769, 2.396, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[3]: (-1.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[4]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath] lineVisib(start→end): false  colli=(-1.82,-2.40)
+[trajectory_generator_node-6] [smoothTopoPath] stuck detected, skipping to topo[1]
+[trajectory_generator_node-6] [smoothTopoPath] stuck detected, skipping to topo[4]
+[trajectory_generator_node-6] [smoothTopoPath] OUTPUT size=9, iter_count=10
+[trajectory_generator_node-6] [smoothTopoPath]   out[0]: (-1.611, -3.329, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[1]: (-4.794, -0.220, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[2]: (-4.544, -0.245, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[3]: (-4.706, 0.148, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[4]: (-3.063, 2.394, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[5]: (-2.121, 2.207, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[6]: (-2.558, 2.127, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[7]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[8]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG] optimized_path (smoothTopoPath) size: 9
+[trajectory_generator_node-6] [DIAG]   opt[0]: (-1.611, -3.329, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[1]: (-4.794, -0.220, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[2]: (-4.544, -0.245, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[3]: (-4.706, 0.148, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[4]: (-3.063, 2.394, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[5]: (-2.121, 2.207, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[6]: (-2.558, 2.127, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[7]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[8]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] optimized_path size: 9
+[trajectory_generator_node-6] [Manager] reference_speed: (0.30)
+[trajectory_generator_node-6] [LBFGS] search direction d: -0.000666357   0.00022857 -8.35185e-05  2.75834e-05 -7.24786e-06  3.99705e-07  2.52743e-06 -6.46493e-06  1.85338e-05 -4.67482e-05  0.000132023  3.10859e-05   0.00056703 -4.40135e-05 -0.000316635 -0.000125329 -2.35116e-05 -0.000572395  0.000123153 -1.46651e-05  0.000283502 -0.000148801  0.000203826  1.29117e-06  0.000321285 -0.000676737   0.00089735 -0.000903701 -6.45975e-05  0.000814516   0.00259426   0.00112421 -0.000384713  0.000140387 -4.61898e-05  1.17556e-05 -1.60459e-07 -3.93008e-06  6.48288e-06 -4.20261e-06  1.78642e-06  0.000222295 -6.53039e-05 -0.000378991 -0.000339014 -0.000364409  -0.00063966 -0.000308306 -0.000661662  0.000209561 -0.000189841  0.000128029 -0.000195758  0.000169604 -3.95573e-06 -0.000363091  0.000722734 -0.000995911   0.00148142 -0.000659273  -0.00203471  0.000261267  0.000262437  -4.8583e-05  3.89874e-06  4.80449e-06 -3.41781e-06   1.5846e-06 -5.13262e-07  2.01325e-07 -9.54636e-07  4.31849e-06 -1.78029e-05   6.6156e-05 -0.000116694  0.000501388  0.000167138   0.00157884 -1.79786e-05  0.000187236 -2.53666e-05 -1.22245e-05  4.06216e-05 -2.60699e-05  2.32707e-05 -7.35016e-06 -1.00447e-06  1.29649e-05  6.92007e-05 -9.60375e-05  0.000173485  4.10886e-05  0.000703602   0.00269589
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=5.0 total_T=31.162(init 30.188) max_drift=0.281 max_vel=0.5 segs=32
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 33 -> 17 waypoints, 16 time segs, max_turn=136.6 deg
+[trajectory_generator_node-6] [Manager] optimizer generate time: 0.015048
+[trajectory_generator_node-6] [Reference] path size : 17
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=16, path_size=17, trap_time_size=16
+[trajectory_generator_node-6] [Reference]   path[0]=(-1.6107,-3.3292) path[1]=(-2.0419,-2.9066) t[0]=2.010968 state_vel=(-0.1669,0.1282)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.082396 b[N]=0.629732 b2[0]=0.142659 b2[N]=0.295297
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.008737 -0.041198 -0.166917 -1.610653]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=16, path_size=17, trap_time_size=16
+[trajectory_generator_node-6] [Reference]   path[0]=(-1.6107,-3.3292) path[1]=(-2.0419,-2.9066) t[0]=2.010968 state_vel=(-0.1669,0.1282)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.082396 b[N]=0.520817 b2[0]=0.142659 b2[N]=0.245018
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.008737 -0.041198 -0.166917 -1.610653]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=16, path_size=17, trap_time_size=16
+[trajectory_generator_node-6] [Reference]   path[0]=(-1.6107,-3.3292) path[1]=(-2.0419,-2.9066) t[0]=2.010968 state_vel=(-0.1669,0.1282)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.082396 b[N]=0.430822 b2[0]=0.142659 b2[N]=0.203405
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.008737 -0.041198 -0.166917 -1.610653]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=16, path_size=17, trap_time_size=16
+[trajectory_generator_node-6] [Reference]   path[0]=(-1.6107,-3.3292) path[1]=(-2.0419,-2.9066) t[0]=2.010968 state_vel=(-0.1669,0.1282)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.082396 b[N]=0.356455 b2[0]=0.142659 b2[N]=0.168956
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.008737 -0.041198 -0.166917 -1.610653]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=16, path_size=17, trap_time_size=16
+[trajectory_generator_node-6] [Reference]   path[0]=(-1.6107,-3.3292) path[1]=(-2.0419,-2.9066) t[0]=2.010968 state_vel=(-0.1669,0.1282)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.082396 b[N]=0.294996 b2[0]=0.142659 b2[N]=0.140428
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.008737 -0.041198 -0.166917 -1.610653]
+[trajectory_generator_node-6] [INFO] [1790446227.081438940] [trajectory_generation]: FSM published 16 trajectory pieces
+[trajectory_tracking_node-8] [WARN] [1790446232.107153247] [trajectory_tracking]: RM_GridMap predicted-path replan requested: collision_samples=0 trajectory_age=5.01
+[trajectory_generator_node-6] [Manager REPLAN]  cur position point (X, Y) = (-2.995922, -2.525418), target point (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] target_temp (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] robot 1.60m from path, full replan
+[trajectory_generator_node-6] [Manager] start point, (x, y): (-3.00, -2.53)
+[trajectory_generator_node-6] [Manager] receive target, (x, y): (-2.72, 1.95)
+[trajectory_generator_node-6] [Topo]: m_graph before num: 1605
+[trajectory_generator_node-6] [Topo]: dijkstra time: 0.011361
+[trajectory_generator_node-6] [Topo]: topo search time: 0.146710
+[trajectory_generator_node-6] [Topo]: m_graph num: 2594
+[trajectory_generator_node-6] [DIAG] origin_path (Dijkstra) size: 5
+[trajectory_generator_node-6] [DIAG]   origin[0]: (-2.996, -2.525, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[1]: (-4.840, -0.175, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[2]: (-3.769, 2.396, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[3]: (-1.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[4]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG] lineVisib(start→end DIRECT): false  colli=(-2.92,-1.30)
+[trajectory_generator_node-6] [DIAG] direct line: 89 steps, 64 wall cells
+[trajectory_generator_node-6] [smoothTopoPath] INPUT size=5
+[trajectory_generator_node-6] [smoothTopoPath]   in[0]: (-2.996, -2.525, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[1]: (-4.840, -0.175, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[2]: (-3.769, 2.396, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[3]: (-1.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[4]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath] lineVisib(start→end): false  colli=(-2.92,-1.30)
+[trajectory_generator_node-6] [smoothTopoPath] stuck detected, skipping to topo[1]
+[trajectory_generator_node-6] [smoothTopoPath] stuck detected, skipping to topo[4]
+[trajectory_generator_node-6] [smoothTopoPath] OUTPUT size=9, iter_count=10
+[trajectory_generator_node-6] [smoothTopoPath]   out[0]: (-2.996, -2.525, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[1]: (-4.817, -0.205, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[2]: (-4.544, -0.245, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[3]: (-4.706, 0.148, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[4]: (-3.063, 2.394, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[5]: (-2.121, 2.207, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[6]: (-2.558, 2.127, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[7]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[8]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG] optimized_path (smoothTopoPath) size: 9
+[trajectory_generator_node-6] [DIAG]   opt[0]: (-2.996, -2.525, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[1]: (-4.817, -0.205, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[2]: (-4.544, -0.245, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[3]: (-4.706, 0.148, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[4]: (-3.063, 2.394, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[5]: (-2.121, 2.207, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[6]: (-2.558, 2.127, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[7]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[8]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] optimized_path size: 9
+[trajectory_generator_node-6] [Manager] reference_speed: (0.30)
+[trajectory_generator_node-6] [LBFGS] search direction d:  0.000511625  -0.00164361   0.00128558 -0.000748734  0.000358547 -0.000153518 -2.38994e-05  0.000349042 -0.000842016  0.000423696 -0.000178147  -7.7794e-05 -0.000404983  -0.00250809  0.000114033 -4.33227e-05  0.000680666  0.000451412  -0.00187074 -0.000706301  0.000857568 -0.000612525  9.74637e-05  -0.00146326   0.00231563  0.000534048 -0.000688071   0.00214675  -0.00171835   0.00105212 -0.000517956  0.000137138  0.000137399 -0.000732807 -0.000475531    2.155e-05  -0.00223494 -3.51294e-05  -0.00071429    0.0016346  0.000361506   0.00194464 -0.000165954 -0.000750665   0.00204432   0.00109005  -0.00172491   0.00181697 -0.000950817   0.00237773   -0.0056976  0.000557325    0.0436666  -0.00634139   0.00267444 -0.000706076   0.00034211 -0.000454258   0.00131477  -0.00157649   0.00688258  0.000965944    0.0459192 -0.000241645   0.00465051  0.000877133  -0.00152777   0.00263756  -0.00148833   0.00147834 -0.000462325  0.000226412  0.000349755   0.00237595  -0.00159909 -0.000339153   0.00565529     0.024987    0.0879565
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=5.0 total_T=26.892(init 25.409) max_drift=0.282 max_vel=0.5 segs=27
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 28 -> 15 waypoints, 14 time segs, max_turn=161.5 deg
+[trajectory_generator_node-6] [Manager] optimizer generate time: 0.008458
+[trajectory_generator_node-6] [Reference] path size : 15
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=14, path_size=15, trap_time_size=14
+[trajectory_generator_node-6] [Reference]   path[0]=(-2.9959,-2.5254) path[1]=(-3.3723,-2.0457) t[0]=2.156328 state_vel=(-0.0818,0.0742)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.144662 b[N]=0.378930 b2[0]=0.235282 b2[N]=0.658818
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.013590 -0.072331 -0.081770 -2.995922]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=14, path_size=15, trap_time_size=14
+[trajectory_generator_node-6] [Reference]   path[0]=(-2.9959,-2.5254) path[1]=(-3.3723,-2.0457) t[0]=2.156328 state_vel=(-0.0818,0.0742)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.144662 b[N]=0.312980 b2[0]=0.235282 b2[N]=0.544261
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.013590 -0.072331 -0.081770 -2.995922]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=14, path_size=15, trap_time_size=14
+[trajectory_generator_node-6] [Reference]   path[0]=(-2.9959,-2.5254) path[1]=(-3.3723,-2.0457) t[0]=2.156328 state_vel=(-0.0818,0.0742)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.144662 b[N]=0.258478 b2[0]=0.235282 b2[N]=0.449587
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.013590 -0.072331 -0.081770 -2.995922]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=14, path_size=15, trap_time_size=14
+[trajectory_generator_node-6] [Reference]   path[0]=(-2.9959,-2.5254) path[1]=(-3.3723,-2.0457) t[0]=2.156328 state_vel=(-0.0818,0.0742)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.144662 b[N]=0.208605 b2[0]=0.235282 b2[N]=0.373706
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.013590 -0.072331 -0.081770 -2.995922]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=14, path_size=15, trap_time_size=14
+[trajectory_generator_node-6] [Reference]   path[0]=(-2.9959,-2.5254) path[1]=(-3.3723,-2.0457) t[0]=2.156328 state_vel=(-0.0818,0.0742)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.144662 b[N]=0.167724 b2[0]=0.235282 b2[N]=0.310839
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.013590 -0.072331 -0.081770 -2.995922]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=14, path_size=15, trap_time_size=14
+[trajectory_generator_node-6] [Reference]   path[0]=(-2.9959,-2.5254) path[1]=(-3.3723,-2.0457) t[0]=2.156328 state_vel=(-0.0818,0.0742)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.144662 b[N]=0.134259 b2[0]=0.235282 b2[N]=0.258735
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.013590 -0.072331 -0.081770 -2.995922]
+[trajectory_generator_node-6] [INFO] [1790446232.293888081] [trajectory_generation]: FSM published 14 trajectory pieces
+[trajectory_tracking_node-8] [WARN] [1790446237.315559251] [trajectory_tracking]: RM_GridMap predicted-path replan requested: collision_samples=0 trajectory_age=5.01
+[trajectory_generator_node-6] [Manager REPLAN]  cur position point (X, Y) = (-3.583269, -2.063751), target point (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] target_temp (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] path safe & target unchanged, re-anchoring from cur pos
+[trajectory_generator_node-6] [LBFGS] search direction d: -0.000391941  0.000203321 -0.000133491  0.000115693  0.000139603 -0.000500778   -0.0207691 -0.000124173  -0.00255227   0.00627222   0.00579673 -0.000223682   0.00212625  0.000462511 -0.000241822  0.000257195  4.88826e-06  7.25802e-05 -0.000116728  0.000162812 -0.000222817  0.000518289  -0.00104893   0.00414615  0.000543393 -0.000226162  2.83803e-05  0.000222258  3.97764e-05  0.000424172   0.00668732   0.00209302   0.00760297 -0.000925692  -0.00372716   0.00025668  -0.00216168 -0.000444192  0.000194202 -0.000211425  -1.5519e-05 -5.73948e-05  2.69536e-05  0.000112866  -0.00048253   0.00210034  -0.00417211  -0.00664593   0.00133246 -0.000183177  6.49122e-05 -2.74656e-06 -2.30929e-05  9.38632e-05  0.000104129  0.000102086    0.0162652  3.56055e-05  0.000318313 -0.000104905  7.61002e-05 -2.96436e-05  1.60217e-05 -8.06922e-06  1.42415e-05 -3.12121e-05  0.000109245  0.000147595 -0.000160385  0.000496418  0.000349392   0.00129297   0.00923055
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=5.5 total_T=24.055(init 22.883) max_drift=0.265 max_vel=0.6 segs=25
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 26 -> 14 waypoints, 13 time segs, max_turn=161.5 deg
+[trajectory_generator_node-6] [Reference] path size : 14
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=13, path_size=14, trap_time_size=13
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.5833,-2.0638) path[1]=(-3.9212,-1.5547) t[0]=2.025913 state_vel=(0.0013,-0.0017)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.298024 b[N]=0.136022 b2[0]=0.440402 b2[N]=1.655177
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.032584 -0.149012 0.001336 -3.583269]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=13, path_size=14, trap_time_size=13
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.5833,-2.0638) path[1]=(-3.9212,-1.5547) t[0]=2.228505 state_vel=(0.0013,-0.0017)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.249394 b[N]=0.112196 b2[0]=0.367567 b2[N]=1.367596
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.025150 -0.124697 0.001336 -3.583269]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=13, path_size=14, trap_time_size=13
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.5833,-2.0638) path[1]=(-3.9212,-1.5547) t[0]=2.451355 state_vel=(0.0013,-0.0017)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.209076 b[N]=0.092509 b2[0]=0.307251 b2[N]=1.129937
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.019480 -0.104538 0.001336 -3.583269]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=13, path_size=14, trap_time_size=13
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.5833,-2.0638) path[1]=(-3.9212,-1.5547) t[0]=2.696491 state_vel=(0.0013,-0.0017)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.175618 b[N]=0.076245 b2[0]=0.257261 b2[N]=0.933536
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.015143 -0.087809 0.001336 -3.583269]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=13, path_size=14, trap_time_size=13
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.5833,-2.0638) path[1]=(-3.9212,-1.5547) t[0]=2.696491 state_vel=(0.0013,-0.0017)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.175618 b[N]=0.062811 b2[0]=0.257262 b2[N]=0.771234
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.015143 -0.087809 0.001336 -3.583269]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=13, path_size=14, trap_time_size=13
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.5833,-2.0638) path[1]=(-3.9212,-1.5547) t[0]=2.696491 state_vel=(0.0013,-0.0017)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.175618 b[N]=0.052126 b2[0]=0.257262 b2[N]=0.637583
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.015143 -0.087809 0.001336 -3.583269]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=13, path_size=14, trap_time_size=13
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.5833,-2.0638) path[1]=(-3.9212,-1.5547) t[0]=2.696491 state_vel=(0.0013,-0.0017)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.175618 b[N]=0.039100 b2[0]=0.257262 b2[N]=0.528414
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.015144 -0.087809 0.001336 -3.583269]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=13, path_size=14, trap_time_size=13
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.5833,-2.0638) path[1]=(-3.9212,-1.5547) t[0]=2.696491 state_vel=(0.0013,-0.0017)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.175618 b[N]=0.028680 b2[0]=0.257262 b2[N]=0.438056
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.015144 -0.087809 0.001336 -3.583269]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=13, path_size=14, trap_time_size=13
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.5833,-2.0638) path[1]=(-3.9212,-1.5547) t[0]=2.696491 state_vel=(0.0013,-0.0017)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.175618 b[N]=0.020384 b2[0]=0.257262 b2[N]=0.363256
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.015144 -0.087809 0.001336 -3.583269]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=13, path_size=14, trap_time_size=13
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.5833,-2.0638) path[1]=(-3.9212,-1.5547) t[0]=2.696491 state_vel=(0.0013,-0.0017)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.175618 b[N]=0.013817 b2[0]=0.257262 b2[N]=0.301326
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.015144 -0.087809 0.001336 -3.583269]
+[trajectory_generator_node-6] [INFO] [1790446237.343650137] [trajectory_generation]: FSM published 13 trajectory pieces
+[trajectory_tracking_node-8] [WARN] [1790446242.377876243] [trajectory_tracking]: RM_GridMap predicted-path replan requested: collision_samples=0 trajectory_age=5.01
+[trajectory_generator_node-6] [Manager REPLAN]  cur position point (X, Y) = (-3.829619, -1.955773), target point (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] target_temp (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] path safe & target unchanged, re-anchoring from cur pos
+[trajectory_generator_node-6] [LBFGS] search direction d:  0.000607433 -0.000258819  7.99443e-05  0.000118186   0.00202979 -0.000465305  -0.00755295  -0.00185326   0.00283061  -0.00181227  0.000831176  0.000345649 -6.81255e-05  0.000421059   0.00313622 -0.000486468 -0.000120639  0.000193097 -0.000206597   0.00013049  0.000194946 -0.000194689  -0.00121915  -0.00114513  0.000622894 -0.000571208  0.000868086   0.00102634   0.00315758    -0.021992   -0.0129221   -0.0120898   0.00169069    0.0015084 -0.000238292 -0.000151405 -0.000183422  -0.00297845  0.000465164  0.000170012 -0.000320046  0.000428268 -0.000559933   0.00154092 -0.000999617   0.00566685 -0.000281863  4.42245e-05  2.39034e-05 -6.06735e-05  7.79336e-05 -0.000286648 -0.000342315    0.0213576   -0.0102875 -5.01261e-06  7.68607e-07  1.07026e-06 -3.39721e-06  2.49717e-06  2.40209e-08 -3.97735e-07  3.01098e-06 -1.16363e-06 -1.95474e-05  5.55171e-05 -2.27842e-05  7.68981e-05 -0.000287327  -0.00176359
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=6.3 total_T=22.831(init 21.945) max_drift=0.296 max_vel=0.5 segs=24
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 25 -> 13 waypoints, 12 time segs, max_turn=135.7 deg
+[trajectory_generator_node-6] [Reference] path size : 13
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.8296,-1.9558) path[1]=(-4.1293,-1.4270) t[0]=2.034412 state_vel=(0.0066,-0.0102)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.267698 b[N]=0.694913 b2[0]=0.459220 b2[N]=0.330956
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.028602 -0.133849 0.006628 -3.829619]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.8296,-1.9558) path[1]=(-4.1293,-1.4270) t[0]=2.237853 state_vel=(0.0066,-0.0102)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.224479 b[N]=0.574688 b2[0]=0.383453 b2[N]=0.274539
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.022093 -0.112240 0.006628 -3.829619]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.8296,-1.9558) path[1]=(-4.1293,-1.4270) t[0]=2.461638 state_vel=(0.0066,-0.0102)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.188597 b[N]=0.475348 b2[0]=0.320665 b2[N]=0.227849
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.017124 -0.094299 0.006628 -3.829619]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.8296,-1.9558) path[1]=(-4.1293,-1.4270) t[0]=2.707802 state_vel=(0.0066,-0.0102)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.158775 b[N]=0.393257 b2[0]=0.268591 b2[N]=0.189199
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.013321 -0.079387 0.006628 -3.829619]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.8296,-1.9558) path[1]=(-4.1293,-1.4270) t[0]=2.707802 state_vel=(0.0066,-0.0102)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.158775 b[N]=0.325416 b2[0]=0.268591 b2[N]=0.157196
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.013321 -0.079387 0.006628 -3.829619]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.8296,-1.9558) path[1]=(-4.1293,-1.4270) t[0]=2.707802 state_vel=(0.0066,-0.0102)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.158775 b[N]=0.267494 b2[0]=0.268591 b2[N]=0.130888
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.013321 -0.079387 0.006628 -3.829619]
+[trajectory_generator_node-6] [INFO] [1790446242.399877945] [trajectory_generation]: FSM published 12 trajectory pieces
+[trajectory_tracking_node-8] [WARN] [1790446247.449777343] [trajectory_tracking]: RM_GridMap predicted-path replan requested: collision_samples=0 trajectory_age=5.01
+[trajectory_generator_node-6] [Manager REPLAN]  cur position point (X, Y) = (-3.853285, -1.932654), target point (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] target_temp (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] path safe & target unchanged, re-anchoring from cur pos
+[trajectory_generator_node-6] [LBFGS] search direction d: -0.000231076  5.67236e-05 -4.57863e-05  0.000113024  0.000751756 -0.000384598  -0.00127496 -0.000338051  0.000279777 -3.84615e-05 -0.000870088 -0.000257611  0.000222987  0.000230657 -0.000113221  7.72321e-05  3.42942e-05 -9.05061e-05  0.000168335 -0.000290738  0.000525233 -0.000148786   0.00029262  0.000258764  0.000180134 -0.000520839   0.00109313  -0.00139991  0.000374148  -0.00406104  0.000558863  -0.00728635 -0.000177137  0.000139212 -6.88134e-05 -0.000394919 -0.000204082  0.000201069 -7.66478e-05  -3.5755e-05  5.35164e-05 -5.50223e-05  8.82917e-05  0.000472867 -0.000797645  -0.00105426  0.000208295 -5.01112e-05  3.14064e-05 -5.20861e-05  4.66091e-05 -0.000220572  -0.00054471    0.0041631   -0.0141762 -4.67797e-05  2.76897e-05 -8.45297e-06  1.13469e-07 -2.08164e-06  9.69314e-07  4.01136e-07 -4.25572e-06  1.34728e-05  1.11428e-05 -4.18851e-05 -1.69975e-05 -7.42075e-05 -4.86995e-05  1.49573e-05
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=6.6 total_T=22.891(init 21.773) max_drift=0.342 max_vel=0.5 segs=24
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 25 -> 13 waypoints, 12 time segs, max_turn=133.1 deg
+[trajectory_generator_node-6] [Reference] path size : 13
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.8533,-1.9327) path[1]=(-4.1502,-1.4023) t[0]=2.039665 state_vel=(0.0001,-0.0001)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.251110 b[N]=0.678177 b2[0]=0.439977 b2[N]=0.352314
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.026544 -0.125555 0.000070 -3.853285]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.8533,-1.9327) path[1]=(-4.1502,-1.4023) t[0]=2.243631 state_vel=(0.0001,-0.0001)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.209622 b[N]=0.560834 b2[0]=0.366065 b2[N]=0.292254
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.020408 -0.104811 0.000070 -3.853285]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.8533,-1.9327) path[1]=(-4.1502,-1.4023) t[0]=2.467994 state_vel=(0.0001,-0.0001)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.175268 b[N]=0.463880 b2[0]=0.304942 b2[N]=0.242545
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.015742 -0.087634 0.000070 -3.853285]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.8533,-1.9327) path[1]=(-4.1502,-1.4023) t[0]=2.714794 state_vel=(0.0001,-0.0001)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.146798 b[N]=0.383767 b2[0]=0.254367 b2[N]=0.201394
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.012186 -0.073399 0.000070 -3.853285]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.8533,-1.9327) path[1]=(-4.1502,-1.4023) t[0]=2.714794 state_vel=(0.0001,-0.0001)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.146798 b[N]=0.317564 b2[0]=0.254367 b2[N]=0.167318
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.012186 -0.073399 0.000070 -3.853285]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.8533,-1.9327) path[1]=(-4.1502,-1.4023) t[0]=2.714794 state_vel=(0.0001,-0.0001)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.146798 b[N]=0.260780 b2[0]=0.254367 b2[N]=0.139459
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.012186 -0.073399 0.000070 -3.853285]
+[trajectory_generator_node-6] [INFO] [1790446247.468560367] [trajectory_generation]: FSM published 12 trajectory pieces
+[trajectory_tracking_node-8] [WARN] [1790446252.504864676] [trajectory_tracking]: RM_GridMap predicted-path replan requested: collision_samples=0 trajectory_age=5.02
+[trajectory_generator_node-6] [Manager REPLAN]  cur position point (X, Y) = (-3.866691, -1.921008), target point (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] target_temp (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] path safe & target unchanged, re-anchoring from cur pos
+[trajectory_generator_node-6] [LBFGS] search direction d: -0.000152767   0.00012591 -0.000111301  0.000114334 -0.000920915 -0.000155408  -0.00121896  -0.00140415    0.0130029  2.76356e-05 -0.000922538 -8.02656e-05 -0.000197173 -0.000466466  -6.2429e-05  -3.6298e-05  0.000101543 -0.000200829  0.000357398 -0.000686778   0.00293826  -0.00375646   0.00431896  0.000316177  -0.00031173  0.000399317 -0.000663412  0.000479134   0.00736951    0.0285965   0.00557094     0.025176  0.000471325 -3.54988e-05  0.000161887  0.000363546  0.000363159  0.000232896 -3.84817e-05  7.02595e-05 -0.000213828  0.000503523  -0.00116237   0.00453858  -0.00534225  0.000201564  0.000867158 -0.000120884  2.50153e-05   2.2928e-05 -6.94397e-05  0.000167363  0.000103986   -0.0135183    0.0439575  2.02911e-05 -2.45895e-05  4.62867e-05 -2.06924e-05  9.22794e-06 -3.38799e-06  8.05935e-06 -2.22871e-05  7.83404e-05  5.99634e-05 -8.56849e-05  0.000180091  -4.6177e-05  0.000729934   0.00416059
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=8.3 total_T=22.604(init 21.774) max_drift=0.353 max_vel=0.6 segs=24
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 25 -> 13 waypoints, 12 time segs, max_turn=132.4 deg
+[trajectory_generator_node-6] [Reference] path size : 13
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.8667,-1.9210) path[1]=(-4.1626,-1.3876) t[0]=2.018469 state_vel=(0.0026,-0.0047)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.258996 b[N]=0.631183 b2[0]=0.460989 b2[N]=0.370393
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.027532 -0.129498 0.002636 -3.866691]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.8667,-1.9210) path[1]=(-4.1626,-1.3876) t[0]=2.220316 state_vel=(0.0026,-0.0047)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.214410 b[N]=0.521995 b2[0]=0.381663 b2[N]=0.307234
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.020719 -0.107205 0.002636 -3.866691]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.8667,-1.9210) path[1]=(-4.1626,-1.3876) t[0]=2.442348 state_vel=(0.0026,-0.0047)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.179042 b[N]=0.431774 b2[0]=0.318157 b2[N]=0.254952
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.015903 -0.089521 0.002636 -3.866691]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.8667,-1.9210) path[1]=(-4.1626,-1.3876) t[0]=2.686582 state_vel=(0.0026,-0.0047)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.149740 b[N]=0.357227 b2[0]=0.265582 b2[N]=0.211670
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.012245 -0.074870 0.002636 -3.866691]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.8667,-1.9210) path[1]=(-4.1626,-1.3876) t[0]=2.686582 state_vel=(0.0026,-0.0047)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.149740 b[N]=0.293023 b2[0]=0.265582 b2[N]=0.176377
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.012245 -0.074870 0.002636 -3.866691]
+[trajectory_generator_node-6] [INFO] [1790446252.537357802] [trajectory_generation]: FSM published 12 trajectory pieces
+[trajectory_tracking_node-8] [WARN] [1790446257.551590971] [trajectory_tracking]: RM_GridMap predicted-path replan requested: collision_samples=0 trajectory_age=5.01
+[trajectory_generator_node-6] [Manager REPLAN]  cur position point (X, Y) = (-3.878428, -1.918202), target point (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] target_temp (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] path safe & target unchanged, re-anchoring from cur pos
+[trajectory_generator_node-6] [LBFGS] search direction d:  -0.00097113   0.00042778 -0.000296191  0.000304825  -0.00142824  -0.00073083   0.00215823   0.00588182    0.0164983   0.00329603  0.000920969   0.00397106   0.00404139  -0.00255226   0.00219841 -0.000101731  0.000275843 -0.000514891  0.000864645  -0.00152022   0.00439755  -0.00478673   0.00737704   0.00175417 -0.000755186   0.00051866 -0.000656194 -3.58627e-05     0.018747    0.0445601    0.0378346    0.0321047  -0.00456302  0.000869072  -0.00486602  -0.00357187   0.00204608  -0.00218989  6.90892e-05 -0.000196211  0.000165056  0.000148384 -0.000916136   0.00533571    -0.007405   -0.0023576 -0.000606701  6.49748e-05 -8.40652e-05  6.90871e-05 -0.000122953   0.00010976  0.000130717   -0.0341923    0.0238713 -3.97642e-05    4.732e-06  1.36204e-05 -9.50165e-06  9.95655e-06 -5.58257e-06  4.11089e-06  -4.9128e-06 -4.14273e-06 -9.50625e-05  7.65453e-05 -0.000388806 -0.000371908 -0.000330054  -0.00492369
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=15.6 total_T=22.345(init 21.797) max_drift=0.377 max_vel=0.6 segs=24
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 25 -> 13 waypoints, 12 time segs, max_turn=134.5 deg
+[trajectory_generator_node-6] [Reference] path size : 13
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.8784,-1.9182) path[1]=(-4.1713,-1.3842) t[0]=2.011040 state_vel=(0.0013,-0.0023)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.256964 b[N]=0.635034 b2[0]=0.449802 b2[N]=0.393395
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.027562 -0.128482 0.001262 -3.878428]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.8784,-1.9182) path[1]=(-4.1713,-1.3842) t[0]=2.212144 state_vel=(0.0013,-0.0023)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.214527 b[N]=0.525172 b2[0]=0.373355 b2[N]=0.326245
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.021172 -0.107264 0.001262 -3.878428]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.8784,-1.9182) path[1]=(-4.1713,-1.3842) t[0]=2.433359 state_vel=(0.0013,-0.0023)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.179379 b[N]=0.434403 b2[0]=0.310187 b2[N]=0.270670
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.016316 -0.089690 0.001262 -3.878428]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.8784,-1.9182) path[1]=(-4.1713,-1.3842) t[0]=2.676695 state_vel=(0.0013,-0.0023)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.150245 b[N]=0.359402 b2[0]=0.257969 b2[N]=0.224664
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.012615 -0.075122 0.001262 -3.878428]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.8784,-1.9182) path[1]=(-4.1713,-1.3842) t[0]=2.676695 state_vel=(0.0013,-0.0023)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.150245 b[N]=0.294824 b2[0]=0.257969 b2[N]=0.187175
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.012615 -0.075122 0.001262 -3.878428]
+[trajectory_generator_node-6] [INFO] [1790446257.584132496] [trajectory_generation]: FSM published 12 trajectory pieces
+[trajectory_tracking_node-8] [WARN] [1790446262.610758776] [trajectory_tracking]: RM_GridMap predicted-path replan requested: collision_samples=0 trajectory_age=5.02
+[trajectory_generator_node-6] [Manager REPLAN]  cur position point (X, Y) = (-3.891658, -1.908465), target point (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] target_temp (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] path safe & target unchanged, re-anchoring from cur pos
+[trajectory_generator_node-6] [LBFGS] search direction d: -0.000504055  0.000341788 -0.000253059  0.000164571 -0.000868902  3.02294e-05  0.000399914  8.19069e-05   0.00276784   0.00799568  0.000332306   0.00758679  0.000319782   0.00129258   0.00221364  -6.2474e-05  0.000247186 -0.000439107   0.00074002  -0.00130981   0.00401828  -0.00577396    0.0103194  0.000995922 -0.000769533  0.000794627  -0.00105195  0.000792322  -0.00998943   -0.0177399   0.00277097  0.000568727  -0.00646346 -0.000198742  -0.00773012 -0.000441691  -0.00133421  -0.00185493 -0.000112795  9.30096e-05  -0.00032869  0.000853221  -0.00197083   0.00617797   -0.0087425  0.000144986   0.00183252 -0.000212488  8.72763e-05 -6.60963e-06  7.51349e-05  0.000175583  0.000165818    0.0363713  1.50763e-05  0.000453449 -0.000141185  0.000133717 -3.85714e-05  2.93937e-05 -1.49609e-05   2.6298e-05  -5.2401e-05  0.000179985  0.000177088 -0.000114776  0.000753493  0.000727456   0.00276986    0.0132916
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=5.7 total_T=23.033(init 21.870) max_drift=0.254 max_vel=0.6 segs=24
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 25 -> 13 waypoints, 12 time segs, max_turn=141.9 deg
+[trajectory_generator_node-6] [Reference] path size : 13
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.8917,-1.9085) path[1]=(-4.1866,-1.3662) t[0]=2.025220 state_vel=(0.0001,-0.0001)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.251211 b[N]=0.628909 b2[0]=0.443214 b2[N]=0.496677
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.026495 -0.125606 0.000061 -3.891658]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.8917,-1.9085) path[1]=(-4.1866,-1.3662) t[0]=2.227742 state_vel=(0.0001,-0.0001)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.209191 b[N]=0.520110 b2[0]=0.366944 b2[N]=0.411641
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.020259 -0.104595 0.000061 -3.891658]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.8917,-1.9085) path[1]=(-4.1866,-1.3662) t[0]=2.450516 state_vel=(0.0001,-0.0001)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.174428 b[N]=0.430223 b2[0]=0.303991 b2[N]=0.341277
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.015535 -0.087214 0.000061 -3.891658]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.8917,-1.9085) path[1]=(-4.1866,-1.3662) t[0]=2.695568 state_vel=(0.0001,-0.0001)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.145652 b[N]=0.355953 b2[0]=0.252017 b2[N]=0.283044
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.011948 -0.072826 0.000061 -3.891658]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.8917,-1.9085) path[1]=(-4.1866,-1.3662) t[0]=2.695568 state_vel=(0.0001,-0.0001)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.145652 b[N]=0.291797 b2[0]=0.252017 b2[N]=0.235672
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.011948 -0.072826 0.000061 -3.891658]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.8917,-1.9085) path[1]=(-4.1866,-1.3662) t[0]=2.695568 state_vel=(0.0001,-0.0001)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.145652 b[N]=0.238824 b2[0]=0.252017 b2[N]=0.196392
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.011948 -0.072826 0.000061 -3.891658]
+[trajectory_generator_node-6] [INFO] [1790446262.659481915] [trajectory_generation]: FSM published 12 trajectory pieces
+[trajectory_tracking_node-8] [WARN] [1790446267.668805008] [trajectory_tracking]: RM_GridMap predicted-path replan requested: collision_samples=0 trajectory_age=5.01
+[trajectory_generator_node-6] [Manager REPLAN]  cur position point (X, Y) = (-3.903272, -1.903749), target point (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] target_temp (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] path safe & target unchanged, re-anchoring from cur pos
+[trajectory_generator_node-6] [LBFGS] search direction d:  -0.00124811  0.000652154 -0.000491036  0.000481506 -0.000596423   0.00584363  -0.00116877    0.0009038 -6.91558e-05  -0.00179437    0.0010908   -0.0012983  0.000531717  9.39044e-05  0.000160601  -0.00019016  0.000337289  -0.00056995  0.000878388  -0.00134123   0.00279011   0.00249726   0.00489524   0.00231537  -0.00121276  0.000936573  -0.00105883   0.00155716    0.0109865  -0.00869408   0.00571095  0.000168726   0.00346537 -0.000497152   0.00146799 -0.000574582 -0.000207681   -7.539e-05  0.000120442 -0.000205061  9.52888e-05  0.000413681  -0.00162453   0.00652035  -0.00994533 -0.000246741   0.00191364 -0.000240347   7.1808e-05 -1.02956e-05  6.51158e-05  0.000172415   0.00011261    0.0228561 -1.59167e-05  0.000349718  -0.00013773  9.42546e-05 -4.17182e-05   2.3903e-05 -1.13629e-05  2.55729e-05 -5.56974e-05  0.000188946  0.000209708 -0.000208282  0.000874531  0.000700987  0.000971736    0.0133468
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=5.2 total_T=23.220(init 21.938) max_drift=0.260 max_vel=0.5 segs=24
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 25 -> 13 waypoints, 12 time segs, max_turn=126.4 deg
+[trajectory_generator_node-6] [Reference] path size : 13
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9033,-1.9037) path[1]=(-4.1930,-1.3656) t[0]=2.028308 state_vel=(0.0001,-0.0002)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.244991 b[N]=0.590654 b2[0]=0.437043 b2[N]=0.436380
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.025642 -0.122496 0.000118 -3.903272]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9033,-1.9037) path[1]=(-4.1930,-1.3656) t[0]=2.231139 state_vel=(0.0001,-0.0002)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.204011 b[N]=0.488477 b2[0]=0.361859 b2[N]=0.361835
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.019608 -0.102005 0.000118 -3.903272]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9033,-1.9037) path[1]=(-4.1930,-1.3656) t[0]=2.454253 state_vel=(0.0001,-0.0002)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.170110 b[N]=0.404066 b2[0]=0.299804 b2[N]=0.300141
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.015037 -0.085055 0.000118 -3.903272]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9033,-1.9037) path[1]=(-4.1930,-1.3656) t[0]=2.454253 state_vel=(0.0001,-0.0002)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.170110 b[N]=0.330819 b2[0]=0.299804 b2[N]=0.250002
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.015037 -0.085055 0.000118 -3.903272]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9033,-1.9037) path[1]=(-4.1930,-1.3656) t[0]=2.454253 state_vel=(0.0001,-0.0002)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.170110 b[N]=0.270376 b2[0]=0.299804 b2[N]=0.208434
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.015037 -0.085055 0.000118 -3.903272]
+[trajectory_generator_node-6] [INFO] [1790446267.692468760] [trajectory_generation]: FSM published 12 trajectory pieces
+[trajectory_tracking_node-8] [WARN] [1790446272.707239449] [trajectory_tracking]: RM_GridMap predicted-path replan requested: collision_samples=0 trajectory_age=5.01
+[trajectory_generator_node-6] [Manager REPLAN]  cur position point (X, Y) = (-3.913264, -1.904125), target point (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] target_temp (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] path safe & target unchanged, re-anchoring from cur pos
+[trajectory_generator_node-6] [LBFGS] search direction d:   0.00039106 -0.000156609  0.000116482 -0.000146551   0.00148457  -0.00568241 -0.000431437   0.00329854  -0.00063713  0.000775085   0.00269943 -0.000684045   0.00139167  0.000652532  0.000580262  1.61095e-05  -7.4787e-05  0.000149457 -0.000263153   0.00046461 -0.000871679  0.000673398  -0.00167716 -0.000693022   0.00021101 -4.08771e-05 -4.42018e-05   0.00142677  -0.00527249  -0.00786245    0.0091965  0.000526192 -0.000826525  -0.00159627  0.000630122  -0.00159264 -0.000516259 -0.000557295 -4.04284e-05  0.000119251 -0.000156422  9.05927e-05  8.29686e-05 -0.000814793   0.00128544   0.00186276   0.00108099 -0.000138025  8.10204e-05 -4.19439e-05  9.30371e-05  8.43841e-05  9.26183e-05    0.0259568 -2.20507e-05  0.000161405  -5.6118e-05  3.67973e-05 -1.19268e-05  3.68795e-06  4.66024e-07  7.03449e-06 -1.76753e-05  7.36733e-05  0.000128226 -0.000114303  0.000428273  0.000448901   0.00122613    0.0093959
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=5.2 total_T=23.260(init 21.975) max_drift=0.264 max_vel=0.5 segs=24
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 25 -> 13 waypoints, 12 time segs, max_turn=125.0 deg
+[trajectory_generator_node-6] [Reference] path size : 13
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9133,-1.9041) path[1]=(-4.2002,-1.3654) t[0]=2.028962 state_vel=(0.0001,-0.0001)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.241161 b[N]=0.601610 b2[0]=0.437611 b2[N]=0.439179
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.025061 -0.120580 0.000065 -3.913264]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9133,-1.9041) path[1]=(-4.2002,-1.3654) t[0]=2.231858 state_vel=(0.0001,-0.0001)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.200706 b[N]=0.497534 b2[0]=0.362454 b2[N]=0.364162
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.019141 -0.100353 0.000065 -3.913264]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9133,-1.9041) path[1]=(-4.2002,-1.3654) t[0]=2.455044 state_vel=(0.0001,-0.0001)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.167248 b[N]=0.411552 b2[0]=0.300414 b2[N]=0.302076
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.014660 -0.083624 0.000065 -3.913264]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9133,-1.9041) path[1]=(-4.2002,-1.3654) t[0]=2.455044 state_vel=(0.0001,-0.0001)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.167248 b[N]=0.337007 b2[0]=0.300414 b2[N]=0.251638
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.014660 -0.083624 0.000065 -3.913264]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9133,-1.9041) path[1]=(-4.2002,-1.3654) t[0]=2.455044 state_vel=(0.0001,-0.0001)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.167248 b[N]=0.275493 b2[0]=0.300414 b2[N]=0.209821
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.014660 -0.083624 0.000065 -3.913264]
+[trajectory_generator_node-6] [INFO] [1790446272.734323082] [trajectory_generation]: FSM published 12 trajectory pieces
+[trajectory_tracking_node-8] [WARN] [1790446277.770576810] [trajectory_tracking]: RM_GridMap predicted-path replan requested: collision_samples=0 trajectory_age=5.03
+[trajectory_generator_node-6] [Manager REPLAN]  cur position point (X, Y) = (-3.920504, -1.907261), target point (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] target_temp (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] path safe & target unchanged, re-anchoring from cur pos
+[trajectory_generator_node-6] [LBFGS] search direction d:  -0.00158159    0.0007939 -0.000643158  0.000735183 -0.000659953 -0.000947972   0.00335991  0.000800332 -0.000847541   0.00194287  0.000140573  0.000219013  0.000280528 -1.81444e-05  0.000156808 -0.000192014  0.000370414 -0.000640135   0.00103031  -0.00168998   0.00350671    0.0014755   0.00943481   0.00290923  -0.00131923   0.00079803 -0.000632706   0.00101943    0.0221034   0.00673599  -0.00886655 -4.49674e-05  0.000139559  0.000137355 -0.000311308 -0.000124511  -0.00020855 -5.84396e-05  0.000170278 -0.000345612  0.000308889  0.000190531  -0.00144557   0.00650607   -0.0114389  -0.00171164   0.00101533 -0.000164953  2.01479e-05 -5.81145e-05  0.000227618  0.000309791   -0.0063012   -0.0114489  4.05841e-05  0.000224069 -0.000100046  6.86914e-05 -3.52519e-05  2.28297e-05 -1.34451e-05  1.95473e-05 -4.20737e-05   0.00012863  0.000104973 -0.000119241  0.000340743  0.000108777  -0.00179866   0.00459787
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=5.7 total_T=23.230(init 21.982) max_drift=0.272 max_vel=0.5 segs=24
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 25 -> 13 waypoints, 12 time segs, max_turn=126.1 deg
+[trajectory_generator_node-6] [Reference] path size : 13
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9205,-1.9073) path[1]=(-4.2048,-1.3669) t[0]=2.030833 state_vel=(0.0006,-0.0010)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.242739 b[N]=0.613769 b2[0]=0.429383 b2[N]=0.431632
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.025680 -0.121369 0.000576 -3.920504]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9205,-1.9073) path[1]=(-4.2048,-1.3669) t[0]=2.233916 state_vel=(0.0006,-0.0010)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.202506 b[N]=0.507587 b2[0]=0.354623 b2[N]=0.357921
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.019707 -0.101253 0.000576 -3.920504]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9205,-1.9073) path[1]=(-4.2048,-1.3669) t[0]=2.457308 state_vel=(0.0006,-0.0010)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.169198 b[N]=0.419865 b2[0]=0.292975 b2[N]=0.296915
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.015172 -0.084599 0.000576 -3.920504]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9205,-1.9073) path[1]=(-4.2048,-1.3669) t[0]=2.457308 state_vel=(0.0006,-0.0010)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.169198 b[N]=0.343914 b2[0]=0.292975 b2[N]=0.247376
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.015172 -0.084599 0.000576 -3.920504]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9205,-1.9073) path[1]=(-4.2048,-1.3669) t[0]=2.457308 state_vel=(0.0006,-0.0010)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.169198 b[N]=0.281233 b2[0]=0.292975 b2[N]=0.206303
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.015172 -0.084599 0.000576 -3.920504]
+[trajectory_generator_node-6] [INFO] [1790446277.805061538] [trajectory_generation]: FSM published 12 trajectory pieces
+[trajectory_tracking_node-8] [WARN] [1790446282.826371074] [trajectory_tracking]: RM_GridMap predicted-path replan requested: collision_samples=0 trajectory_age=5.02
+[trajectory_generator_node-6] [Manager REPLAN]  cur position point (X, Y) = (-3.931243, -1.894823), target point (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] target_temp (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] path safe & target unchanged, re-anchoring from cur pos
+[trajectory_generator_node-6] [LBFGS] search direction d:  -0.00103938  0.000179904  0.000460019  -0.00139147  -0.00538786 -0.000108771  -0.00172354  0.000263833   0.00231808  -0.00348917   0.00019434 -0.000516165 -0.000483324 -8.71456e-05  6.55838e-05 -0.000141396  0.000196441 -0.000319749  0.000439469 -0.000533203  0.000644054 -0.000342477   0.00307129  -0.00234099   0.00358252  -0.00699653   0.00593347  0.000100594 -0.000990972 -0.000446203   0.00420273  -0.00479603  0.000298068  0.000755588 -0.000728219  0.000297133  0.000131166  0.000164963 -0.000239076   0.00032479 -0.000455116  0.000648863 -0.000986752  0.000720093    0.0135477  -0.00189718  0.000689316 -0.000176808  0.000294468   0.00135092  0.000969086    0.0552493   2.7525e-05   0.00242295 -0.000804497  0.000312482 -5.66033e-05 -4.01667e-05  7.87092e-05  5.82759e-05  -0.00028234   0.00103424   0.00150243  -0.00164391   0.00399193   0.00249837    0.0105519
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=4.3 total_T=22.996(init 22.072) max_drift=0.267 max_vel=0.6 segs=23
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 24 -> 13 waypoints, 12 time segs, max_turn=110.8 deg
+[trajectory_generator_node-6] [Reference] path size : 13
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9312,-1.8948) path[1]=(-4.2143,-1.3561) t[0]=2.030937 state_vel=(0.0000,-0.0001)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.236843 b[N]=0.795365 b2[0]=0.435090 b2[N]=0.506857
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.024506 -0.118422 0.000042 -3.931243]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9312,-1.8948) path[1]=(-4.2143,-1.3561) t[0]=2.234031 state_vel=(0.0000,-0.0001)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.197093 b[N]=0.657718 b2[0]=0.360179 b2[N]=0.420179
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.018714 -0.098546 0.000042 -3.931243]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9312,-1.8948) path[1]=(-4.2143,-1.3561) t[0]=2.457434 state_vel=(0.0000,-0.0001)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.164220 b[N]=0.543992 b2[0]=0.298354 b2[N]=0.348448
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.014331 -0.082110 0.000042 -3.931243]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9312,-1.8948) path[1]=(-4.2143,-1.3561) t[0]=2.457434 state_vel=(0.0000,-0.0001)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.164220 b[N]=0.450023 b2[0]=0.298354 b2[N]=0.289076
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.014331 -0.082110 0.000042 -3.931243]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9312,-1.8948) path[1]=(-4.2143,-1.3561) t[0]=2.457434 state_vel=(0.0000,-0.0001)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.164220 b[N]=0.369250 b2[0]=0.298354 b2[N]=0.240820
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.014331 -0.082110 0.000042 -3.931243]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9312,-1.8948) path[1]=(-4.2143,-1.3561) t[0]=2.457434 state_vel=(0.0000,-0.0001)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.164220 b[N]=0.302574 b2[0]=0.298354 b2[N]=0.200817
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.014331 -0.082110 0.000042 -3.931243]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9312,-1.8948) path[1]=(-4.2143,-1.3561) t[0]=2.457434 state_vel=(0.0000,-0.0001)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.164220 b[N]=0.247561 b2[0]=0.298354 b2[N]=0.167640
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.014331 -0.082110 0.000042 -3.931243]
+[trajectory_generator_node-6] [INFO] [1790446282.837419177] [trajectory_generation]: FSM published 12 trajectory pieces
+[trajectory_tracking_node-8] [WARN] [1790446287.848583054] [trajectory_tracking]: RM_GridMap predicted-path replan requested: collision_samples=0 trajectory_age=5.01
+[trajectory_generator_node-6] [Manager REPLAN]  cur position point (X, Y) = (-3.937841, -1.900516), target point (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] target_temp (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] path safe & target unchanged, re-anchoring from cur pos
+[trajectory_generator_node-6] [LBFGS] search direction d:   -0.0035864   0.00174878  -0.00159087   0.00240839   -0.0055768    0.0590755 -0.000899959  -0.00288651 -0.000697796  -0.00233321  0.000227613   0.00134597 -0.000237286  -0.00394207 -0.000284179  -0.00038007  0.000697109  -0.00117446   0.00175341  -0.00244226    0.0029924  -0.00158287   0.00740253  -0.00373009   0.00295569   -0.0034619   0.00483059    0.0679024  -0.00998256  0.000330197   0.00175371  -0.00474434  7.90283e-05  -0.00246182 -0.000538851   0.00207699  0.000536693  0.000528951  -0.00104609   0.00146294  -0.00169463   0.00208404  -0.00351283    0.0032948    0.0147623  -0.00218009  0.000828359 -0.000644589   0.00156109   0.00272992   -0.0450586    0.0257976  5.15375e-05   0.00224165 -0.000840163  0.000386528 -0.000109151  3.96595e-06  4.74166e-05  8.53686e-05 -0.000323321   0.00114347   0.00161712  -0.00180994   0.00431391   0.00261097    0.0119166
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=4.3 total_T=22.944(init 22.060) max_drift=0.260 max_vel=0.6 segs=23
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 24 -> 13 waypoints, 12 time segs, max_turn=111.7 deg
+[trajectory_generator_node-6] [Reference] path size : 13
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9378,-1.9005) path[1]=(-4.2158,-1.3631) t[0]=2.037778 state_vel=(0.0001,-0.0002)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.232530 b[N]=0.783602 b2[0]=0.427159 b2[N]=0.503742
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.024185 -0.116265 0.000115 -3.937841]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9378,-1.9005) path[1]=(-4.2158,-1.3631) t[0]=2.241555 state_vel=(0.0001,-0.0002)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.193679 b[N]=0.647992 b2[0]=0.353443 b2[N]=0.417604
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.018504 -0.096840 0.000115 -3.937841]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9378,-1.9005) path[1]=(-4.2158,-1.3631) t[0]=2.465711 state_vel=(0.0001,-0.0002)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.161539 b[N]=0.535948 b2[0]=0.292620 b2[N]=0.346320
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.014199 -0.080769 0.000115 -3.937841]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9378,-1.9005) path[1]=(-4.2158,-1.3631) t[0]=2.465711 state_vel=(0.0001,-0.0002)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.161538 b[N]=0.443370 b2[0]=0.292620 b2[N]=0.287317
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.014199 -0.080769 0.000115 -3.937841]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9378,-1.9005) path[1]=(-4.2158,-1.3631) t[0]=2.465711 state_vel=(0.0001,-0.0002)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.161538 b[N]=0.363775 b2[0]=0.292620 b2[N]=0.239357
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.014199 -0.080769 0.000115 -3.937841]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9378,-1.9005) path[1]=(-4.2158,-1.3631) t[0]=2.465711 state_vel=(0.0001,-0.0002)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.161538 b[N]=0.298069 b2[0]=0.292620 b2[N]=0.199601
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.014199 -0.080769 0.000115 -3.937841]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9378,-1.9005) path[1]=(-4.2158,-1.3631) t[0]=2.465711 state_vel=(0.0001,-0.0002)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.161538 b[N]=0.243856 b2[0]=0.292620 b2[N]=0.166627
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.014199 -0.080769 0.000115 -3.937841]
+[trajectory_generator_node-6] [INFO] [1790446287.890902802] [trajectory_generation]: FSM published 12 trajectory pieces
+[trajectory_tracking_node-8] [WARN] [1790446292.914933959] [trajectory_tracking]: RM_GridMap predicted-path replan requested: collision_samples=0 trajectory_age=5.02
+[trajectory_generator_node-6] [Manager REPLAN]  cur position point (X, Y) = (-3.954513, -1.890933), target point (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] target_temp (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] path safe & target unchanged, re-anchoring from cur pos
+[trajectory_generator_node-6] [LBFGS] search direction d:  -0.00153895  0.000579579 -0.000331261  0.000169116  -0.00080497  4.51551e-05 -0.000401428 -0.000147438  0.000397944  0.000240628  0.000382668   0.00190962 -8.18298e-05 -0.000217996  0.000906858 -1.91316e-07    0.0001081    -0.000292  0.000479611 -0.000658157  0.000543056 -0.000713776    0.0029323   -0.0011435   0.00104723  -0.00201551  0.000344455  0.000629318 -0.000459002  0.000711704  0.000583983  -0.00399863 -0.000308378   0.00147281 -0.000377399  -0.00178093 -1.72081e-05  0.000143485  -0.00030559  0.000467666 -0.000569435  0.000802233  -0.00150354 -0.000272701    0.0137304  -0.00199977  0.000760865 -0.000264058  0.000371451   0.00120164  0.000818662    0.0265838 -0.000331197   0.00206459 -0.000601969  0.000147805  9.47108e-05 -0.000172818  0.000224798 -1.89173e-05 -0.000268811  0.000990961    0.0014446  -0.00164682   0.00392249   0.00298167    0.0115849
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=4.1 total_T=23.221(init 22.185) max_drift=0.256 max_vel=0.5 segs=23
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 24 -> 13 waypoints, 12 time segs, max_turn=103.5 deg
+[trajectory_generator_node-6] [Reference] path size : 13
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9545,-1.8909) path[1]=(-4.2308,-1.3525) t[0]=2.068026 state_vel=(0.0001,-0.0001)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.220564 b[N]=0.735492 b2[0]=0.419071 b2[N]=0.515043
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.022065 -0.110282 0.000078 -3.954513]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9545,-1.8909) path[1]=(-4.2308,-1.3525) t[0]=2.274828 state_vel=(0.0001,-0.0001)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.183500 b[N]=0.608244 b2[0]=0.347098 b2[N]=0.426912
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.016844 -0.091750 0.000078 -3.954513]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9545,-1.8909) path[1]=(-4.2308,-1.3525) t[0]=2.502311 state_vel=(0.0001,-0.0001)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.152857 b[N]=0.503112 b2[0]=0.287690 b2[N]=0.353981
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.012894 -0.076428 0.000078 -3.954513]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9545,-1.8909) path[1]=(-4.2308,-1.3525) t[0]=2.502311 state_vel=(0.0001,-0.0001)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.152857 b[N]=0.412438 b2[0]=0.287690 b2[N]=0.294682
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.012894 -0.076428 0.000078 -3.954513]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9545,-1.8909) path[1]=(-4.2308,-1.3525) t[0]=2.502311 state_vel=(0.0001,-0.0001)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.152857 b[N]=0.337623 b2[0]=0.287690 b2[N]=0.245531
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.012894 -0.076428 0.000078 -3.954513]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9545,-1.8909) path[1]=(-4.2308,-1.3525) t[0]=2.502311 state_vel=(0.0001,-0.0001)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.152857 b[N]=0.275927 b2[0]=0.287690 b2[N]=0.204772
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.012894 -0.076428 0.000078 -3.954513]
+[trajectory_generator_node-6] [INFO] [1790446292.951873339] [trajectory_generation]: FSM published 12 trajectory pieces
+[trajectory_tracking_node-8] [WARN] [1790446297.988317048] [trajectory_tracking]: RM_GridMap predicted-path replan requested: collision_samples=0 trajectory_age=5.02
+[trajectory_generator_node-6] [Manager REPLAN]  cur position point (X, Y) = (-3.968948, -1.880544), target point (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] target_temp (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] path safe & target unchanged, re-anchoring from cur pos
+[trajectory_generator_node-6] [LBFGS] search direction d:  0.000512618  0.000388345 -0.000388968   0.00023579 -0.000267086 -5.55851e-06 -0.000701475 -0.000236994  0.000656011  0.000726321  -0.00103055  0.000661687  0.000592843 -0.000432629  4.78029e-05  -9.3159e-05  0.000190323 -0.000270235  0.000342979 -0.000384843   0.00076218 -0.000370124  -0.00109454 -0.000767015  0.000769723 -0.000117985 -9.91719e-06 -0.000332466 -0.000498616  -2.1817e-05  0.000742284    0.0020932  -0.00117557  -0.00108035 -9.87895e-05  0.000171689 -4.00612e-05  0.000165134 -0.000242662  0.000311248 -0.000377342  0.000240323  0.000412727 -0.000259904    0.0348174  -0.00500481   0.00207737 -0.000746017   0.00132503    0.0029448   0.00190207    0.0427887  -0.00138849   0.00456266 -0.000929471 -0.000128715  0.000626844 -0.000696169    0.0006893 -9.79564e-05 -0.000802432   0.00248842    0.0035637  -0.00412082   0.00985268   0.00893167    0.0311249
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=3.7 total_T=26.099(init 22.331) max_drift=0.238 max_vel=0.4 segs=23
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 24 -> 13 waypoints, 12 time segs, max_turn=94.4 deg
+[trajectory_generator_node-6] [Reference] path size : 13
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9689,-1.8805) path[1]=(-4.2391,-1.3483) t[0]=2.858925 state_vel=(0.0001,-0.0001)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.098611 b[N]=0.339157 b2[0]=0.187446 b2[N]=0.267942
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.005678 -0.049305 0.000063 -3.968948]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9689,-1.8805) path[1]=(-4.2391,-1.3483) t[0]=2.858925 state_vel=(0.0001,-0.0001)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.098611 b[N]=0.275922 b2[0]=0.187446 b2[N]=0.223504
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.005678 -0.049305 0.000063 -3.968948]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9689,-1.8805) path[1]=(-4.2391,-1.3483) t[0]=2.858925 state_vel=(0.0001,-0.0001)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.098611 b[N]=0.223903 b2[0]=0.187446 b2[N]=0.186627
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.005678 -0.049305 0.000063 -3.968948]
+[trajectory_generator_node-6] [INFO] [1790446298.023665225] [trajectory_generation]: FSM published 12 trajectory pieces
+[trajectory_tracking_node-8] [WARN] [1790446303.048498463] [trajectory_tracking]: RM_GridMap predicted-path replan requested: collision_samples=0 trajectory_age=5.02
+[trajectory_generator_node-6] [Manager REPLAN]  cur position point (X, Y) = (-3.983844, -1.864902), target point (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] target_temp (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] path safe & target unchanged, re-anchoring from cur pos
+[trajectory_generator_node-6] [LBFGS] search direction d:  0.000328696 -5.02255e-05  3.69019e-05  3.13789e-05  0.000175339 -0.000172344   6.8385e-05  4.51893e-05  -4.1511e-05 -0.000106172 -0.000279743 -0.000203814  0.000527032  9.32574e-07  9.16268e-05 -1.44264e-05  3.46427e-05 -6.40738e-05  0.000102142 -0.000130966   0.00019998 -0.000218413 -0.000342215 -0.000275016  0.000277941 -9.79388e-05 -0.000159886  5.01993e-05 -0.000196362  -0.00031312   7.3984e-05 -0.000469434 -0.000186565 -0.000704909 -9.79539e-05 -0.000168036 -5.68934e-05  4.80949e-05 -7.90419e-05  9.39862e-05  -9.2196e-05   4.3235e-05  0.000114177  0.000314645    0.0188666  -0.00274737   0.00105428 -0.000267814  0.000627552   0.00163983   0.00101202    0.0235986 -0.000992085   0.00226578 -0.000314105  -0.00024077  0.000574342 -0.000458682  0.000394797 -4.33539e-05 -0.000462217   0.00120502   0.00168443  -0.00211183   0.00499083   0.00541541    0.0185546
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=3.7 total_T=26.367(init 22.548) max_drift=0.234 max_vel=0.4 segs=23
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 24 -> 13 waypoints, 12 time segs, max_turn=67.2 deg
+[trajectory_generator_node-6] [Reference] path size : 13
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9838,-1.8649) path[1]=(-4.2526,-1.3345) t[0]=2.850861 state_vel=(0.0009,-0.0017)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.100268 b[N]=0.295559 b2[0]=0.189686 b2[N]=0.268968
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.005877 -0.050134 0.000874 -3.983844]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9838,-1.8649) path[1]=(-4.2526,-1.3345) t[0]=2.850861 state_vel=(0.0009,-0.0017)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.100268 b[N]=0.239894 b2[0]=0.189686 b2[N]=0.224308
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.005877 -0.050134 0.000874 -3.983844]
+[trajectory_generator_node-6] [INFO] [1790446303.092309850] [trajectory_generation]: FSM published 12 trajectory pieces
+[trajectory_tracking_node-8] [WARN] [1790446308.106274341] [trajectory_tracking]: RM_GridMap predicted-path replan requested: collision_samples=0 trajectory_age=5.01
+[trajectory_generator_node-6] [Manager REPLAN]  cur position point (X, Y) = (-3.997521, -1.850342), target point (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] target_temp (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] path safe & target unchanged, re-anchoring from cur pos
+[trajectory_generator_node-6] [LBFGS] search direction d:  4.41864e-05  1.18624e-05 -8.78492e-06  6.55611e-06 -3.95532e-05 -0.000330244 -9.02836e-05  -1.8154e-05 -5.95382e-05 -6.30777e-05 -0.000773656  0.000374281 -0.000128341  0.000118892 -0.000435266  5.99228e-05 -7.88236e-05  6.46019e-05 -1.91792e-05   1.0073e-05 -2.16861e-05  -0.00028411 -9.24723e-05  6.82826e-06 -2.95812e-05 -7.96629e-06 -0.000102621 -3.56812e-05  0.000343008 -0.000224189  2.29463e-05  0.000224144 -0.000567332  8.21778e-05 -0.000307222  3.42946e-05  0.000454654 -0.000121105  0.000121386 -6.60644e-05  -2.0701e-05  6.76582e-05  6.44113e-06  3.34113e-05   0.00645734 -0.000873648  0.000331667 -4.76651e-05  0.000188767  0.000395634  9.92702e-05   0.00690343 -0.000390123  0.000709686 -0.000118361 -6.73204e-05  0.000187144 -0.000141398  0.000146133 -2.51745e-05 -0.000138465  0.000380456  0.000485946 -0.000719142   0.00183579   0.00232803   0.00774184
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=3.6 total_T=26.308(init 22.538) max_drift=0.250 max_vel=0.3 segs=23
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 24 -> 13 waypoints, 12 time segs, max_turn=101.5 deg
+[trajectory_generator_node-6] [Reference] path size : 13
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9975,-1.8503) path[1]=(-4.2647,-1.3160) t[0]=2.858375 state_vel=(0.0039,-0.0077)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.101620 b[N]=0.271873 b2[0]=0.199166 b2[N]=0.281791
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.005861 -0.050810 0.003869 -3.997521]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-3.9975,-1.8503) path[1]=(-4.2647,-1.3160) t[0]=2.858375 state_vel=(0.0039,-0.0077)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.101620 b[N]=0.220185 b2[0]=0.199166 b2[N]=0.234948
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.005861 -0.050810 0.003869 -3.997521]
+[trajectory_generator_node-6] [INFO] [1790446308.137437481] [trajectory_generation]: FSM published 12 trajectory pieces
+[trajectory_tracking_node-8] [WARN] [1790446313.171542219] [trajectory_tracking]: RM_GridMap predicted-path replan requested: collision_samples=0 trajectory_age=5.02
+[trajectory_generator_node-6] [Manager REPLAN]  cur position point (X, Y) = (-4.004401, -1.847970), target point (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] target_temp (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] path safe & target unchanged, re-anchoring from cur pos
+[trajectory_generator_node-6] [LBFGS] search direction d:  -0.00056083  0.000193819  -9.2091e-05  0.000630978   0.00133224 -0.000537691 -0.000468908  0.000239147 -0.000360137   0.00124566 -0.000479278 -0.000271127  0.000817482    0.0019753  0.000371095  3.24015e-06  1.26068e-05 -6.64744e-05  0.000145852 -0.000242381  0.000157418  0.000252226   0.00109653 -0.000318997  6.72006e-05     0.001112     0.002748   0.00176287 -0.000286579   -0.0013742  -0.00018358 -0.000599983 -0.000407079    0.0005253   -0.0016691  -0.00113518 -0.000370264 -1.03761e-05 -2.99142e-05  8.08778e-05 -0.000144596  0.000343825 -0.000640695   0.00205791    0.0141472  -0.00198354   0.00072091 -4.22365e-05  0.000249867  0.000913756  0.000124719    0.0163807  -0.00089896   0.00170395 -0.000420971  1.08666e-06  0.000287755 -0.000222677  0.000278033 -3.26038e-05  -0.00028226  0.000714006   0.00096527   -0.0015713   0.00395933   0.00523728    0.0177581
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=3.5 total_T=25.970(init 22.536) max_drift=0.252 max_vel=0.3 segs=23
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 24 -> 13 waypoints, 12 time segs, max_turn=117.7 deg
+[trajectory_generator_node-6] [Reference] path size : 13
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0044,-1.8480) path[1]=(-4.2717,-1.3093) t[0]=2.899787 state_vel=(-0.0000,0.0001)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.091850 b[N]=0.261583 b2[0]=0.186109 b2[N]=0.283037
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.004880 -0.045925 -0.000041 -4.004401]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0044,-1.8480) path[1]=(-4.2717,-1.3093) t[0]=2.899787 state_vel=(-0.0000,0.0001)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.091850 b[N]=0.211446 b2[0]=0.186108 b2[N]=0.236009
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.004880 -0.045925 -0.000041 -4.004401]
+[trajectory_generator_node-6] [INFO] [1790446313.196197340] [trajectory_generation]: FSM published 12 trajectory pieces
+[trajectory_tracking_node-8] [WARN] [1790446318.209521404] [trajectory_tracking]: RM_GridMap predicted-path replan requested: collision_samples=0 trajectory_age=5.01
+[trajectory_generator_node-6] [Manager REPLAN]  cur position point (X, Y) = (-4.007496, -1.842037), target point (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] target_temp (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] path safe & target unchanged, re-anchoring from cur pos
+[trajectory_generator_node-6] [LBFGS] search direction d: -0.000285196 -0.000257723  0.000266263  1.10064e-05   0.00012451 -0.000500237  4.56453e-05 -0.000103719  0.000271483  0.000269013  -0.00125835 -0.000244594 -0.000418343 -2.12157e-05 -0.000291115  0.000100228 -0.000206456  0.000226751  1.48144e-05 -0.000851399   0.00127181   0.00155358  0.000840051  0.000239704 -0.000452887  0.000415682  -0.00011844  0.000192988 -8.66209e-05  0.000231698  0.000399766  0.000252297   -0.0019605 -0.000197372 -0.000148721  9.90286e-05   0.00011001  2.17124e-05  1.82138e-05 -0.000142554  0.000488335 -0.000384331  -0.00077585 -7.09944e-05    0.0586512  -0.00799567   0.00286697  0.000213953  0.000743767    0.0039208  0.000456459      0.10616  -0.00384126   0.00772585   -0.0022716   0.00078399  0.000772695 -0.000557099  0.000961536 -7.83122e-05  -0.00113037   0.00286887    0.0037203  -0.00654065    0.0167637    0.0233666    0.0776329
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=3.6 total_T=25.761(init 22.535) max_drift=0.255 max_vel=0.3 segs=23
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 24 -> 13 waypoints, 12 time segs, max_turn=132.3 deg
+[trajectory_generator_node-6] [Reference] path size : 13
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0075,-1.8420) path[1]=(-4.2708,-1.3100) t[0]=2.771467 state_vel=(-0.0009,0.0018)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.100022 b[N]=0.234992 b2[0]=0.200479 b2[N]=0.288265
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.005797 -0.050011 -0.000915 -4.007496]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0075,-1.8420) path[1]=(-4.2708,-1.3100) t[0]=2.771467 state_vel=(-0.0009,0.0018)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.100022 b[N]=0.189286 b2[0]=0.200479 b2[N]=0.240317
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.005797 -0.050011 -0.000915 -4.007496]
+[trajectory_generator_node-6] [INFO] [1790446318.248603276] [trajectory_generation]: FSM published 12 trajectory pieces
+[trajectory_tracking_node-8] [WARN] [1790446323.265614281] [trajectory_tracking]: RM_GridMap predicted-path replan requested: collision_samples=0 trajectory_age=5.01
+[trajectory_generator_node-6] [Manager REPLAN]  cur position point (X, Y) = (-4.007783, -1.841554), target point (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] target_temp (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] path safe & target unchanged, re-anchoring from cur pos
+[trajectory_generator_node-6] [LBFGS] search direction d:  0.000766548 -0.000744322  0.000462396  0.000260678 -8.81289e-05 -0.000156511 -0.000177093  6.10413e-06   -0.0014131 -0.000102588   -0.0010682 -0.000457999 -0.000872621 -0.000382528 -0.000493382  0.000406624  -0.00046474  0.000446677  5.06381e-05  -0.00180095   0.00297169   0.00520733  -0.00102678  0.000942229 -0.000753328  0.000382775 -0.000175917 -0.000385034 -3.15596e-05 -0.000208477  -0.00367262 -0.000414616  -0.00115299 -0.000154693 -0.000564968  0.000243262 -1.08543e-05 -5.87743e-05 -0.000194618  0.000168476  0.000608682  -0.00109736 -0.000128537 -0.000402688    0.0669545  -0.00916309   0.00323954  0.000303642   0.00087885   0.00453991  0.000530425     0.112647  -0.00425259   0.00906458  -0.00262643  0.000997423  0.000902148  -0.00062866   0.00113316 -0.000111285  -0.00129809   0.00337429   0.00427595  -0.00758273    0.0193814     0.027082    0.0893189
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=3.5 total_T=25.923(init 22.535) max_drift=0.255 max_vel=0.3 segs=23
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 24 -> 13 waypoints, 12 time segs, max_turn=132.7 deg
+[trajectory_generator_node-6] [Reference] path size : 13
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0078,-1.8416) path[1]=(-4.2729,-1.3065) t[0]=2.866683 state_vel=(0.0009,-0.0017)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.095275 b[N]=0.237222 b2[0]=0.189614 b2[N]=0.288198
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.005259 -0.047638 0.000853 -4.007783]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0078,-1.8416) path[1]=(-4.2729,-1.3065) t[0]=2.866683 state_vel=(0.0009,-0.0017)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.095275 b[N]=0.191193 b2[0]=0.189614 b2[N]=0.240269
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.005259 -0.047638 0.000853 -4.007783]
+[trajectory_generator_node-6] [INFO] [1790446323.287764643] [trajectory_generation]: FSM published 12 trajectory pieces
+[trajectory_tracking_node-8] [WARN] [1790446328.305777757] [trajectory_tracking]: RM_GridMap predicted-path replan requested: collision_samples=0 trajectory_age=5.02
+[trajectory_generator_node-6] [Manager REPLAN]  cur position point (X, Y) = (-4.013922, -1.837616), target point (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] target_temp (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] path safe & target unchanged, re-anchoring from cur pos
+[trajectory_generator_node-6] [LBFGS] search direction d: -0.000116228 -0.000523948  0.000455647  1.12122e-06  2.23033e-05  0.000170584 -2.58964e-05  3.31155e-05  0.000155293 -0.000275396   0.00429343 -0.000327203 -0.000740612 -0.000212728  7.17801e-05   0.00024393 -0.000499201   0.00056973  -0.00020261   -0.0011002   0.00187409   0.00287073  0.000596109  0.000754061 -0.000993053  0.000865851  8.18082e-06 -0.000105068  0.000534382 -0.000121466  0.000243599 -0.000224235   0.00377088 -0.000377869 -0.000241475 -7.10878e-05  -0.00018709 -0.000316278  0.000400346 -0.000545443   0.00101828  -0.00102601 -0.000515682 -0.000163464    0.0420293  -0.00570009    0.0019897  0.000440146  0.000159573   0.00355236     0.001064    0.0817102  -0.00255825   0.00649499  -0.00199635   0.00119571  0.000323873 -0.000177502   0.00064014    -3.53e-05 -0.000776404   0.00201373    0.0024757  -0.00476849    0.0122482    0.0175798    0.0566117
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=3.6 total_T=25.595(init 22.494) max_drift=0.249 max_vel=0.3 segs=23
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 24 -> 13 waypoints, 12 time segs, max_turn=137.7 deg
+[trajectory_generator_node-6] [Reference] path size : 13
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0139,-1.8376) path[1]=(-4.2767,-1.3040) t[0]=2.668892 state_vel=(-0.0004,0.0008)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.110588 b[N]=0.218403 b2[0]=0.224503 b2[N]=0.283177
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.006954 -0.055294 -0.000407 -4.013922]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0139,-1.8376) path[1]=(-4.2767,-1.3040) t[0]=2.668892 state_vel=(-0.0004,0.0008)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.110588 b[N]=0.175428 b2[0]=0.224503 b2[N]=0.236114
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.006954 -0.055294 -0.000407 -4.013922]
+[trajectory_generator_node-6] [INFO] [1790446328.319236758] [trajectory_generation]: FSM published 12 trajectory pieces
+[trajectory_tracking_node-8] [WARN] [1790446333.370016262] [trajectory_tracking]: RM_GridMap predicted-path replan requested: collision_samples=0 trajectory_age=5.02
+[trajectory_generator_node-6] [Manager REPLAN]  cur position point (X, Y) = (-4.014174, -1.837159), target point (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] target_temp (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] path safe & target unchanged, re-anchoring from cur pos
+[trajectory_generator_node-6] [LBFGS] search direction d: -0.000796084 -0.000190002  0.000258815  6.69277e-05 -0.000445205  8.67974e-06   0.00013029  9.05477e-05 -0.000345372 -0.000160579  5.69829e-05  -0.00078997 -0.000488702  0.000126565  0.000493034  0.000150968 -0.000365708  0.000379227  1.82042e-05  -0.00122643   0.00169209   0.00252448   0.00189685  0.000198324 -0.000715129  0.000789362  0.000186404  0.000385582 -0.000622134   0.00046504 -4.54622e-05  0.000356072 -0.000167131  -0.00127012 -0.000446407 -0.000190645 -0.000756439 -0.000152726  0.000197716 -0.000286732  0.000618582 -0.000328964  -0.00138551   0.00066429    0.0451631  -0.00613339   0.00211788  0.000503166  0.000135449   0.00388597   0.00119758    0.0836779    -0.002743   0.00702662  -0.00215028   0.00129757  0.000341055 -0.000170716  0.000678132 -2.92425e-05 -0.000824194   0.00212855   0.00261406  -0.00510934    0.0130891    0.0189217    0.0612649
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=3.6 total_T=25.603(init 22.489) max_drift=0.251 max_vel=0.3 segs=23
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 24 -> 13 waypoints, 12 time segs, max_turn=137.9 deg
+[trajectory_generator_node-6] [Reference] path size : 13
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0142,-1.8372) path[1]=(-4.2776,-1.3025) t[0]=2.673123 state_vel=(0.0006,-0.0013)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.112115 b[N]=0.219692 b2[0]=0.226976 b2[N]=0.283531
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.007091 -0.056058 0.000633 -4.014174]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0142,-1.8372) path[1]=(-4.2776,-1.3025) t[0]=2.673123 state_vel=(0.0006,-0.0013)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.112115 b[N]=0.176512 b2[0]=0.226976 b2[N]=0.236417
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.007091 -0.056058 0.000633 -4.014174]
+[trajectory_generator_node-6] [INFO] [1790446333.385913432] [trajectory_generation]: FSM published 12 trajectory pieces
+[trajectory_tracking_node-8] [WARN] [1790446338.423989934] [trajectory_tracking]: RM_GridMap predicted-path replan requested: collision_samples=0 trajectory_age=5.02
+[trajectory_generator_node-6] [Manager REPLAN]  cur position point (X, Y) = (-4.019115, -1.838886), target point (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] target_temp (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] path safe & target unchanged, re-anchoring from cur pos
+[trajectory_generator_node-6] [LBFGS] search direction d:  -0.00338722   0.00105552 -0.000594687  0.000793618  0.000888072  -0.00156541  0.000400125 -5.57354e-05  3.00262e-05  -0.00060177  0.000585877   -0.0026242  -0.00036663   -0.0011486   0.00113057 -0.000100367 -0.000182549  -0.00011657    0.0012101  -0.00327153   0.00303031   0.00387102   0.00701819  -0.00178184 -8.30945e-06  0.000720568  -0.00147594   -0.0040579 -0.000293446   0.00120576   0.00141915 -0.000829731 -0.000215859  -0.00381362  0.000860752  0.000149394  -0.00137704  0.000219167 -0.000606822   0.00102907   -0.0011935   0.00258868  -0.00523977  0.000831187  -0.00282717  0.000392531 -0.000218656  2.66828e-05 -1.13523e-05 -0.000179991 -7.95117e-05  -0.00907145   0.00011276 -0.000308546  5.69473e-05  9.32513e-07  -6.2733e-05  2.69533e-05  -4.1831e-05 -5.43975e-06  5.27556e-05 -9.90977e-05 -0.000202639  0.000288389 -0.000753762  -0.00100944  -0.00378164
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=3.6 total_T=26.016(init 22.483) max_drift=0.247 max_vel=0.4 segs=23
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 24 -> 13 waypoints, 12 time segs, max_turn=143.2 deg
+[trajectory_generator_node-6] [Reference] path size : 13
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0191,-1.8389) path[1]=(-4.2833,-1.3001) t[0]=2.903277 state_vel=(-0.0007,0.0013)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.089990 b[N]=0.210441 b2[0]=0.184098 b2[N]=0.283242
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.004783 -0.044995 -0.000666 -4.019115]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0191,-1.8389) path[1]=(-4.2833,-1.3001) t[0]=2.903277 state_vel=(-0.0007,0.0013)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.089990 b[N]=0.168865 b2[0]=0.184098 b2[N]=0.236192
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.004783 -0.044995 -0.000666 -4.019115]
+[trajectory_generator_node-6] [INFO] [1790446338.459091878] [trajectory_generation]: FSM published 12 trajectory pieces
+[trajectory_tracking_node-8] [WARN] [1790446343.468744327] [trajectory_tracking]: RM_GridMap predicted-path replan requested: collision_samples=0 trajectory_age=5.01
+[trajectory_generator_node-6] [Manager REPLAN]  cur position point (X, Y) = (-4.022193, -1.832968), target point (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] target_temp (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] path safe & target unchanged, re-anchoring from cur pos
+[trajectory_generator_node-6] [LBFGS] search direction d:  -0.00682195   0.00162212 -0.000633043   0.00102086  0.000334026   0.00298686 -0.000140037  0.000307586   0.00224054  -0.00024554 -0.000159228  -0.00113636  -0.00117303 -0.000807259 -0.000331502  0.000537912  -0.00107957  0.000534802   0.00149457  -0.00577679   0.00565473    0.0107405    0.0142823  -0.00293567 -0.000586187   0.00206235  -0.00186334   0.00207729  -0.00153334  0.000898446   0.00178312   0.00025533 -0.000516245  -0.00239322  4.13111e-05 -0.000283767  0.000103738 -0.000478214  0.000276844  4.96908e-05 -3.93307e-05   0.00317256   -0.0101273  -0.00018862    0.0803564   -0.0109043   0.00366312  0.000995734 -0.000210131   0.00729287   0.00310207     0.157515  -0.00461309    0.0138676  -0.00447186   0.00319891   0.00029096  0.000325106    0.0012147  4.93396e-05  -0.00135278   0.00358452   0.00407245  -0.00910881    0.0232299    0.0363326        0.116
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=3.7 total_T=24.715(init 22.420) max_drift=0.249 max_vel=0.4 segs=23
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 24 -> 13 waypoints, 12 time segs, max_turn=147.7 deg
+[trajectory_generator_node-6] [Reference] path size : 13
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0222,-1.8330) path[1]=(-4.2851,-1.2952) t[0]=2.343527 state_vel=(0.0005,-0.0010)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.153764 b[N]=0.262450 b2[0]=0.315896 b2[N]=0.378860
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.012294 -0.076882 0.000470 -4.022193]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0222,-1.8330) path[1]=(-4.2851,-1.2952) t[0]=2.577879 state_vel=(0.0005,-0.0010)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.127733 b[N]=0.211149 b2[0]=0.262207 b2[N]=0.315475
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.009357 -0.063867 0.000470 -4.022193]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0222,-1.8330) path[1]=(-4.2851,-1.2952) t[0]=2.577879 state_vel=(0.0005,-0.0010)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.127733 b[N]=0.169126 b2[0]=0.262207 b2[N]=0.262921
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.009357 -0.063867 0.000470 -4.022193]
+[trajectory_generator_node-6] [INFO] [1790446343.508735295] [trajectory_generation]: FSM published 12 trajectory pieces
+[trajectory_tracking_node-8] [WARN] [1790446348.521540486] [trajectory_tracking]: RM_GridMap predicted-path replan requested: collision_samples=0 trajectory_age=5.01
+[trajectory_generator_node-6] [Manager REPLAN]  cur position point (X, Y) = (-4.027127, -1.841199), target point (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] target_temp (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] path safe & target unchanged, re-anchoring from cur pos
+[trajectory_generator_node-6] [LBFGS] search direction d:  0.000517721  -0.00106741  0.000864117 -0.000203029 -7.51529e-05 -0.000299055  0.000134704  0.000153453  0.000192707 -0.000405467   -0.0017076 -9.04761e-05  -0.00104189  4.86633e-05 -7.01573e-05  0.000235811 -0.000642236   0.00087098  -0.00052205  -0.00119771   0.00247513   0.00476671  -0.00057893   0.00169538   -0.0015959   0.00103624  0.000185588   0.00249505    0.0010188 -0.000219278 -0.000265484 -0.000434257  -0.00171974 -1.14523e-05 -0.000586191  -3.3868e-05 -0.000272459 -0.000300686  0.000563327 -0.000935516   0.00181394  -0.00231494  0.000541871  0.000464155    0.0464532   -0.0063298   0.00225184  0.000374981   0.00011661   0.00379024   0.00132339     0.108522  -0.00280625   0.00734391  -0.00231438   0.00152805  0.000338754 -8.34526e-06  0.000688274 -8.33572e-07 -0.000858858   0.00221855   0.00267451  -0.00529657    0.0136203    0.0199039    0.0638051
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=3.6 total_T=25.657(init 22.470) max_drift=0.250 max_vel=0.3 segs=23
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 24 -> 13 waypoints, 12 time segs, max_turn=139.3 deg
+[trajectory_generator_node-6] [Reference] path size : 13
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0271,-1.8412) path[1]=(-4.2850,-1.3074) t[0]=2.711633 state_vel=(0.0001,-0.0003)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.104473 b[N]=0.209257 b2[0]=0.216037 b2[N]=0.282175
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.006312 -0.052236 0.000131 -4.027127]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0271,-1.8412) path[1]=(-4.2850,-1.3074) t[0]=2.711633 state_vel=(0.0001,-0.0003)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.104473 b[N]=0.167842 b2[0]=0.216037 b2[N]=0.235258
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.006312 -0.052236 0.000131 -4.027127]
+[trajectory_generator_node-6] [INFO] [1790446348.543839795] [trajectory_generation]: FSM published 12 trajectory pieces
+[trajectory_tracking_node-8] [WARN] [1790446353.572828244] [trajectory_tracking]: RM_GridMap predicted-path replan requested: collision_samples=0 trajectory_age=5.01
+[trajectory_generator_node-6] [Manager REPLAN]  cur position point (X, Y) = (-4.035285, -1.836947), target point (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] target_temp (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] path safe & target unchanged, re-anchoring from cur pos
+[trajectory_generator_node-6] [LBFGS] search direction d:  0.000381075  -6.0779e-05  1.06404e-05 -4.77284e-05  3.30853e-05 -0.000214502  5.44807e-05 -0.000523951   0.00080729 -0.000337229  0.000780191  0.000600182 -3.92026e-05 -0.000159023 -0.000133509 -3.64793e-05  7.46503e-05 -4.98525e-05 -6.73646e-05  0.000341034 -0.000355682 -0.000646604 -0.000824742  0.000121129  6.92469e-05 -0.000129333 -0.000440044   0.00127359 -0.000316556  0.000122723 -0.000286359  0.000327651 -0.000168574  -0.00023013  0.000350546  0.000142158  0.000215593  2.64876e-05 -3.10991e-05  3.17319e-05 -6.09353e-05 -0.000109277  0.000565312 -0.000244796  -0.00214482  0.000299813 -9.79977e-05 -3.09795e-05  1.99012e-05 -0.000214669 -0.000105124  -0.00220153  0.000123819 -0.000391408  0.000127425 -9.92532e-05 -2.42371e-06 -1.31927e-05 -3.03892e-05 -1.91279e-06  3.45674e-05 -9.10018e-05  -0.00010502  0.000245346 -0.000614346 -0.000989338  -0.00313414
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=3.7 total_T=26.078(init 22.401) max_drift=0.250 max_vel=0.3 segs=23
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 24 -> 13 waypoints, 12 time segs, max_turn=141.4 deg
+[trajectory_generator_node-6] [Reference] path size : 13
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0353,-1.8369) path[1]=(-4.2940,-1.2985) t[0]=2.897537 state_vel=(-0.0002,0.0004)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.088984 b[N]=0.217541 b2[0]=0.184613 b2[N]=0.284087
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.004744 -0.044492 -0.000205 -4.035285]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0353,-1.8369) path[1]=(-4.2940,-1.2985) t[0]=2.897537 state_vel=(-0.0002,0.0004)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.088984 b[N]=0.174835 b2[0]=0.184613 b2[N]=0.236871
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.004744 -0.044492 -0.000205 -4.035285]
+[trajectory_generator_node-6] [INFO] [1790446353.612355514] [trajectory_generation]: FSM published 12 trajectory pieces
+[trajectory_tracking_node-8] [WARN] [1790446358.635885821] [trajectory_tracking]: RM_GridMap predicted-path replan requested: collision_samples=0 trajectory_age=5.01
+[trajectory_generator_node-6] [Manager REPLAN]  cur position point (X, Y) = (-4.040298, -1.827086), target point (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] target_temp (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] path safe & target unchanged, re-anchoring from cur pos
+[trajectory_generator_node-6] [LBFGS] search direction d: -0.000212858   -0.0014708    0.0013619 -0.000417257 -0.000446857  0.000255834 -0.000214973  0.000380661   0.00109873  -0.00394144 -0.000965513  -0.00106815    0.0104195  -0.00150316   0.00093567 -7.80722e-05 -0.000980058   0.00172263  -0.00152998  -0.00183778   0.00482937   0.00372034    0.0011351   0.00240019  -0.00281403    0.0023736  0.000227024 -0.000382575   0.00119191 -0.000941316   0.00105946  -0.00444467  -0.00189608  -0.00115422   0.00435955  -0.00195955   0.00107105  -0.00063368   0.00117308  -0.00219361   0.00435358  -0.00597222   0.00160152  0.000203287     0.104554     -0.01397   0.00459778   0.00239558   -0.0011032    0.0110718   0.00515107     0.200217  -0.00754548    0.0185506  -0.00661578   0.00603216 -0.000608744  0.000990865  0.000900096  0.000291304  -0.00154098   0.00465996   0.00405232   -0.0117113    0.0296684    0.0533063     0.167936
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=3.8 total_T=25.198(init 22.288) max_drift=0.254 max_vel=0.3 segs=23
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 24 -> 13 waypoints, 12 time segs, max_turn=149.5 deg
+[trajectory_generator_node-6] [Reference] path size : 13
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0403,-1.8271) path[1]=(-4.2977,-1.2901) t[0]=2.495687 state_vel=(0.0000,-0.0001)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.127884 b[N]=0.181728 b2[0]=0.269435 b2[N]=0.290175
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.009053 -0.063942 0.000044 -4.040298]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0403,-1.8271) path[1]=(-4.2977,-1.2901) t[0]=2.495687 state_vel=(0.0000,-0.0001)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.127885 b[N]=0.150032 b2[0]=0.269434 b2[N]=0.239653
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.009053 -0.063942 0.000044 -4.040298]
+[trajectory_generator_node-6] [INFO] [1790446358.655040822] [trajectory_generation]: FSM published 12 trajectory pieces
+[trajectory_tracking_node-8] [WARN] [1790446363.673513050] [trajectory_tracking]: RM_GridMap predicted-path replan requested: collision_samples=0 trajectory_age=5.01
+[trajectory_generator_node-6] [Manager REPLAN]  cur position point (X, Y) = (-4.049794, -1.830744), target point (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] target_temp (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] path safe & target unchanged, re-anchoring from cur pos
+[trajectory_generator_node-6] [LBFGS] search direction d:  -0.00421248  0.000694592 -5.71716e-05  0.000345826 -0.000126722   -0.0040217 -0.000243539 -0.000331764  9.89716e-05   -0.0029076     0.000295  0.000170428 -0.000959566  -0.00046236  0.000821383  0.000319213 -0.000934819  0.000846508  0.000368841  -0.00402122   0.00469902   0.00873141   0.00928717  -0.00153097 -0.000634541   0.00146791   0.00124444   0.00298432 -0.000813894  7.54355e-06  -0.00245695  -0.00265749 -2.70581e-05  0.000944447 -0.000249826   -0.0011147  0.000420381 -0.000631584  0.000803612  -0.00102028    0.0016011  0.000332293  -0.00628503 -4.10267e-05    0.0735396  -0.00982882   0.00311564   0.00178796 -0.000934489   0.00760851   0.00333678     0.142083  -0.00537899    0.0131645  -0.00466144   0.00429622 -0.000372573  0.000680394  0.000688497  0.000182942  -0.00103863   0.00322006   0.00270684  -0.00819526    0.0205488    0.0376435      0.11902
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=3.9 total_T=24.582(init 22.273) max_drift=0.256 max_vel=0.4 segs=23
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 24 -> 13 waypoints, 12 time segs, max_turn=151.2 deg
+[trajectory_generator_node-6] [Reference] path size : 13
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0498,-1.8307) path[1]=(-4.3050,-1.2904) t[0]=2.325669 state_vel=(-0.0003,0.0007)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.149626 b[N]=0.248414 b2[0]=0.320435 b2[N]=0.385767
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.011938 -0.074813 -0.000322 -4.049794]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0498,-1.8307) path[1]=(-4.3050,-1.2904) t[0]=2.558236 state_vel=(-0.0003,0.0007)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.124054 b[N]=0.205133 b2[0]=0.265791 b2[N]=0.318642
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.009051 -0.062027 -0.000322 -4.049794]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0498,-1.8307) path[1]=(-4.3050,-1.2904) t[0]=2.558236 state_vel=(-0.0003,0.0007)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.124054 b[N]=0.164634 b2[0]=0.265791 b2[N]=0.265260
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.009051 -0.062027 -0.000322 -4.049794]
+[trajectory_generator_node-6] [INFO] [1790446363.690168190] [trajectory_generation]: FSM published 12 trajectory pieces
+[trajectory_tracking_node-8] [WARN] [1790446368.714524384] [trajectory_tracking]: RM_GridMap predicted-path replan requested: collision_samples=0 trajectory_age=5.01
+[trajectory_generator_node-6] [Manager REPLAN]  cur position point (X, Y) = (-4.049448, -1.831489), target point (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] target_temp (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] path safe & target unchanged, re-anchoring from cur pos
+[trajectory_generator_node-6] [LBFGS] search direction d: -0.000252418  0.000136258 -8.02754e-05  4.74672e-05 -0.000194342  0.000177719 -6.78422e-06 -0.000425037 -0.000982639  0.000331595  0.000122689 -0.000208316 -0.000161014 -3.91045e-05 -4.54577e-05  7.15843e-06  2.16118e-05 -6.52133e-05  0.000132996 -0.000286701   0.00028026 -0.000241026  0.000513531 -0.000261146  0.000129353 -4.18583e-05  2.24069e-07 -0.000458877  0.000813269  0.000429442  0.000206017  0.000113115   0.00128033  0.000268382  0.000472645  7.70657e-05 -2.04723e-05  5.90947e-05 -0.000108931  0.000163645 -0.000234382  0.000469395 -0.000577228    0.0001086    0.0145128  -0.00192048  0.000610021  0.000363411 -0.000188929   0.00156161  0.000732575    0.0280243   -0.0010502   0.00253538 -0.000896214  0.000802143 -5.09572e-05   0.00011124  0.000148103  2.54012e-05 -0.000197992  0.000632155  0.000532838  -0.00161123    0.0040543   0.00734725    0.0235202
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=3.8 total_T=25.936(init 22.289) max_drift=0.255 max_vel=0.3 segs=23
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 24 -> 13 waypoints, 12 time segs, max_turn=149.8 deg
+[trajectory_generator_node-6] [Reference] path size : 13
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0494,-1.8315) path[1]=(-4.3052,-1.2912) t[0]=2.904676 state_vel=(0.0000,-0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.087206 b[N]=0.191708 b2[0]=0.185084 b2[N]=0.287897
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.004574 -0.043603 0.000011 -4.049448]
+[trajectory_generator_node-6] [INFO] [1790446368.736172580] [trajectory_generation]: FSM published 12 trajectory pieces
+[trajectory_tracking_node-8] [WARN] [1790446373.752785786] [trajectory_tracking]: RM_GridMap predicted-path replan requested: collision_samples=0 trajectory_age=5.02
+[trajectory_generator_node-6] [Manager REPLAN]  cur position point (X, Y) = (-4.056068, -1.827286), target point (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] target_temp (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] path safe & target unchanged, re-anchoring from cur pos
+[trajectory_generator_node-6] [LBFGS] search direction d:  -0.00233518   0.00059084 -0.000203655  0.000228164  0.000498256  -0.00118402  -0.00040846  -0.00178037 -0.000618015   0.00101683   0.00194733  0.000623936 -0.000902378  -0.00104311 -4.94734e-05   0.00025622 -0.000556023  0.000496905  9.20513e-05  -0.00169724   0.00180294   0.00367322   0.00500304  -0.00109192 -0.000135691  0.000692096 -0.000943449  0.000620642  0.000196855  0.000678117   -0.0011582  -0.00458824   0.00584528   0.00228042  -0.00142033  0.000432453  0.000377605 -0.000348349   0.00049596 -0.000602705  0.000769342  0.000427686  -0.00343202  0.000750446    0.0312941     -0.00421    0.0013213  0.000695504 -0.000372966   0.00294307   0.00105842    0.0641566  -0.00224879   0.00547782  -0.00206002   0.00192366 -0.000264125  0.000282202  0.000257539  6.50216e-05 -0.000373791   0.00136018   0.00094454  -0.00340596    0.0083869    0.0164793    0.0526255
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=4.0 total_T=24.565(init 22.164) max_drift=0.261 max_vel=0.4 segs=23
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 24 -> 13 waypoints, 12 time segs, max_turn=152.1 deg
+[trajectory_generator_node-6] [Reference] path size : 13
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0561,-1.8273) path[1]=(-4.3104,-1.2858) t[0]=2.345394 state_vel=(0.0004,-0.0009)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.147115 b[N]=0.219509 b2[0]=0.316924 b2[N]=0.363039
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.011575 -0.073558 0.000416 -4.056068]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0561,-1.8273) path[1]=(-4.3104,-1.2858) t[0]=2.345394 state_vel=(0.0004,-0.0009)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.147116 b[N]=0.181251 b2[0]=0.316923 b2[N]=0.299862
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.011575 -0.073558 0.000416 -4.056068]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0561,-1.8273) path[1]=(-4.3104,-1.2858) t[0]=2.345394 state_vel=(0.0004,-0.0009)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.147116 b[N]=0.144862 b2[0]=0.316923 b2[N]=0.249683
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.011575 -0.073558 0.000416 -4.056068]
+[trajectory_generator_node-6] [INFO] [1790446373.776899197] [trajectory_generation]: FSM published 12 trajectory pieces
+[trajectory_tracking_node-8] [WARN] [1790446378.795070163] [trajectory_tracking]: RM_GridMap predicted-path replan requested: collision_samples=0 trajectory_age=5.01
+[trajectory_generator_node-6] [Manager REPLAN]  cur position point (X, Y) = (-4.061056, -1.849851), target point (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] target_temp (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] path safe & target unchanged, re-anchoring from cur pos
+[trajectory_generator_node-6] [LBFGS] search direction d:  -0.00594007   0.00194361 -0.000827137  0.000393691 -2.82681e-05  -0.00173809 -0.000494431 -0.000399012 -0.000763942    0.0012438   0.00261332    0.0025334  0.000391975  -0.00030568  0.000247889  0.000398419  -0.00035117 -0.000344925   0.00164908     -0.00353   0.00225527   0.00259317    0.0129232  -0.00386743  0.000810665  0.000918841 -0.000507777   0.00119315  0.000690224 -5.24105e-06   0.00342692   0.00216529   0.00253827  -0.00516507  0.000199014  0.000127736 -0.000250078 -0.000212727  9.30604e-05   0.00018395 -0.000800381   0.00419149  -0.00919405   0.00142783     0.121984   -0.0163682   0.00535165   0.00232468  -0.00154985    0.0120682   0.00508366     0.249084  -0.00712255    0.0207711  -0.00700155   0.00497546  0.000309565  0.000573333    0.0017849  9.54985e-05  -0.00198098   0.00530317   0.00597812   -0.0136859    0.0349447    0.0552783     0.177533
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=3.8 total_T=24.407(init 22.408) max_drift=0.249 max_vel=0.4 segs=23
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 24 -> 13 waypoints, 12 time segs, max_turn=149.4 deg
+[trajectory_generator_node-6] [Reference] path size : 13
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0611,-1.8499) path[1]=(-4.3125,-1.3036) t[0]=2.272735 state_vel=(0.0005,-0.0010)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.158000 b[N]=0.310606 b2[0]=0.346187 b2[N]=0.442543
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.013254 -0.079000 0.000457 -4.061056]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0611,-1.8499) path[1]=(-4.3125,-1.3036) t[0]=2.500008 state_vel=(0.0005,-0.0010)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.131141 b[N]=0.256519 b2[0]=0.287339 b2[N]=0.365558
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.010064 -0.065570 0.000457 -4.061056]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0611,-1.8499) path[1]=(-4.3125,-1.3036) t[0]=2.500008 state_vel=(0.0005,-0.0010)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.131141 b[N]=0.207026 b2[0]=0.287339 b2[N]=0.304189
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.010064 -0.065570 0.000457 -4.061056]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0611,-1.8499) path[1]=(-4.3125,-1.3036) t[0]=2.500008 state_vel=(0.0005,-0.0010)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.131140 b[N]=0.166443 b2[0]=0.287339 b2[N]=0.253318
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.010064 -0.065570 0.000457 -4.061056]
+[trajectory_generator_node-6] [INFO] [1790446378.811530528] [trajectory_generation]: FSM published 12 trajectory pieces
+[trajectory_tracking_node-8] [WARN] [1790446383.830545182] [trajectory_tracking]: RM_GridMap predicted-path replan requested: collision_samples=0 trajectory_age=5.02
+[trajectory_generator_node-6] [Manager REPLAN]  cur position point (X, Y) = (-4.069779, -1.843152), target point (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] target_temp (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] path safe & target unchanged, re-anchoring from cur pos
+[trajectory_generator_node-6] [LBFGS] search direction d:   0.00150256 -0.000181822 -3.45645e-05 -0.000139396 -9.36683e-06 -0.000622752 -0.000424242  0.000802461  0.000399932   0.00126038 -8.22642e-05 -0.000362416   0.00175409  0.000119356  0.000168042 -0.000332842  0.000652077 -0.000641107  0.000111325   0.00129316  -0.00152133  -0.00531313   -0.0035331  0.000475489  0.000378556 -0.000659731 -0.000861558 -0.000298095    0.0026083 -3.55359e-05 -0.000698984   0.00183437   0.00488307 -0.000823944  0.000600975  0.000230877 -0.000478171  0.000315403 -0.000475174  0.000595086 -0.000907914  0.000499523    0.0017634 -0.000971752  -0.00358558  0.000494636 -0.000132326 -0.000106395   6.2485e-05 -0.000405548 -0.000166369   -0.0104988  0.000281638 -0.000691186  0.000236469 -0.000175706 -3.24363e-05 -1.77863e-05 -6.16724e-05 -9.31417e-06  6.81165e-05 -0.000180454 -0.000178961  0.000448913  -0.00111761  -0.00196454  -0.00539058
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=3.9 total_T=25.241(init 22.319) max_drift=0.255 max_vel=0.3 segs=23
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 24 -> 13 waypoints, 12 time segs, max_turn=146.6 deg
+[trajectory_generator_node-6] [Reference] path size : 13
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0698,-1.8432) path[1]=(-4.3165,-1.3030) t[0]=2.503929 state_vel=(0.0001,-0.0002)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.121354 b[N]=0.199910 b2[0]=0.267551 b2[N]=0.288020
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.008501 -0.060677 0.000097 -4.069779]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0698,-1.8432) path[1]=(-4.3165,-1.3030) t[0]=2.503929 state_vel=(0.0001,-0.0002)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.121354 b[N]=0.159932 b2[0]=0.267551 b2[N]=0.240111
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.008501 -0.060677 0.000097 -4.069779]
+[trajectory_generator_node-6] [INFO] [1790446383.861281958] [trajectory_generation]: FSM published 12 trajectory pieces
+[trajectory_tracking_node-8] [WARN] [1790446388.891424612] [trajectory_tracking]: RM_GridMap predicted-path replan requested: collision_samples=0 trajectory_age=5.02
+[trajectory_generator_node-6] [Manager REPLAN]  cur position point (X, Y) = (-4.078715, -1.840154), target point (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] target_temp (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] path safe & target unchanged, re-anchoring from cur pos
+[trajectory_generator_node-6] [LBFGS] search direction d:  0.000381128 -0.000481618  0.000390467 -0.000115075  6.32455e-06   0.00047389 -0.000135577  0.000364746 -0.000522714 -0.000398722  -0.00210858  -0.00109568   0.00452406  5.48559e-05  1.14528e-06 -0.000535514  0.000612684 -0.000573189  0.000655445  -0.00228196   0.00345016  -0.00148767 -0.000669408  0.000765388 -0.000594825  0.000337305 -0.000966887   0.00101252  0.000599571  0.000137337  -0.00156856  0.000476715  -0.00670932 -0.000336506   0.00170731 -0.000869652  0.000183742   0.00075621   -0.0012098   0.00132212 -0.000876778  0.000767834 -0.000930685  0.000162857    0.0666979  -0.00895754   0.00287594   0.00144868 -0.000952458   0.00586875   0.00203539      0.14698   -0.0047238    0.0113716  -0.00422114    0.0037983 -0.000377074  0.000510483  0.000615716  0.000114787 -0.000796364   0.00294724   0.00212936  -0.00722573     0.018233    0.0346145      0.11111
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=3.9 total_T=25.284(init 22.206) max_drift=0.262 max_vel=0.3 segs=23
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 24 -> 13 waypoints, 12 time segs, max_turn=150.3 deg
+[trajectory_generator_node-6] [Reference] path size : 13
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0787,-1.8402) path[1]=(-4.3237,-1.2981) t[0]=2.593867 state_vel=(0.0001,-0.0002)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.110256 b[N]=0.186179 b2[0]=0.245651 b2[N]=0.287761
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.007202 -0.055128 0.000100 -4.078715]
+[trajectory_generator_node-6] [INFO] [1790446388.923516605] [trajectory_generation]: FSM published 12 trajectory pieces
+[trajectory_tracking_node-8] [WARN] [1790446393.954984329] [trajectory_tracking]: RM_GridMap predicted-path replan requested: collision_samples=0 trajectory_age=5.02
+[trajectory_generator_node-6] [Manager REPLAN]  cur position point (X, Y) = (-4.087183, -1.826820), target point (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] target_temp (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] path safe & target unchanged, re-anchoring from cur pos
+[trajectory_generator_node-6] [LBFGS] search direction d: -0.000725457  4.49108e-05  6.37929e-05 -8.80946e-06  0.000411798  0.000886727  0.000402906   0.00149139 -0.000401397 -0.000719283  -0.00171093   0.00289008  0.000923041  0.000398677 -0.000416753  0.000147923 -0.000348144  0.000501447 -0.000538941  0.000434677  -0.00030502   0.00195002   0.00160836  -6.6951e-06 -0.000427805  0.000644952  0.000772682   0.00148082  0.000390458  -0.00105282 -0.000601131  -0.00117862    0.0032947  -0.00077902 -0.000455661  -0.00031029  0.000367727 -0.000183971  0.000472373 -0.000851274   0.00142549  -0.00207778  0.000510701 -0.000480803    0.0199213  -0.00272274  0.000844387  0.000479016 -0.000329023   0.00168961   0.00061294    0.0362649  -0.00141912   0.00323514  -0.00136254   0.00135986 -0.000429007  0.000403372  -1.8563e-05  9.03567e-05 -0.000160947  0.000892251   0.00033183  -0.00188661   0.00486438    0.0111722    0.0362441
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=4.4 total_T=24.365(init 21.921) max_drift=0.270 max_vel=0.4 segs=23
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 24 -> 13 waypoints, 12 time segs, max_turn=154.6 deg
+[trajectory_generator_node-6] [Reference] path size : 13
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0872,-1.8268) path[1]=(-4.3325,-1.2825) t[0]=2.344949 state_vel=(0.0013,-0.0030)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.142968 b[N]=0.220031 b2[0]=0.319506 b2[N]=0.355879
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.011223 -0.071484 0.001312 -4.087183]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0872,-1.8268) path[1]=(-4.3325,-1.2825) t[0]=2.579444 state_vel=(0.0013,-0.0030)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.118713 b[N]=0.181688 b2[0]=0.265189 b2[N]=0.293939
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.008522 -0.059356 0.001312 -4.087183]
+[trajectory_generator_node-6] [INFO] [1790446393.989231518] [trajectory_generation]: FSM published 12 trajectory pieces
+[trajectory_tracking_node-8] [WARN] [1790446399.011023577] [trajectory_tracking]: RM_GridMap predicted-path replan requested: collision_samples=0 trajectory_age=5.01
+[trajectory_generator_node-6] [Manager REPLAN]  cur position point (X, Y) = (-4.097432, -1.822461), target point (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] target_temp (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] path safe & target unchanged, re-anchoring from cur pos
+[trajectory_generator_node-6] [LBFGS] search direction d:  -0.00118063  0.000418646 -0.000242579  0.000149308  0.000635198   0.00052768  0.000411102 -0.000350124 -0.000456082  4.24665e-05  -0.00128784 -0.000480047  0.000587039 -0.000443659 -0.000984939  0.000177836  -0.00022963  0.000185856  -8.2053e-05  0.000480399  -0.00103947   0.00237363   0.00258342 -0.000798127  0.000306543 -0.000125041  -0.00046525  0.000432892  -0.00250492  0.000104304  0.000687825  0.000732167  -0.00279121  -0.00174559  0.000622089  0.000593489   0.00103525 -0.000235182  0.000569536 -0.000978738   0.00125841  -0.00106033 -0.000845528  0.000462379    0.0358402  -0.00484979   0.00148982  0.000851311 -0.000598588   0.00282288  0.000881535    0.0588122  -0.00264972   0.00529351  -0.00244564   0.00251593  -0.00108618   0.00105008 -0.000273738  0.000211562 -0.000165835   0.00161959  8.12682e-05  -0.00280396   0.00751632    0.0202683     0.069133
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=4.6 total_T=23.209(init 21.779) max_drift=0.274 max_vel=0.4 segs=23
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 24 -> 13 waypoints, 12 time segs, max_turn=153.6 deg
+[trajectory_generator_node-6] [Reference] path size : 13
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0974,-1.8225) path[1]=(-4.3407,-1.2751) t[0]=2.182246 state_vel=(0.0002,-0.0005)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.166327 b[N]=0.362080 b2[0]=0.374275 b2[N]=0.555426
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.014656 -0.083163 0.000226 -4.097432]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0974,-1.8225) path[1]=(-4.3407,-1.2751) t[0]=2.400471 state_vel=(0.0002,-0.0005)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.137879 b[N]=0.299064 b2[0]=0.309993 b2[N]=0.458827
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.011095 -0.068939 0.000226 -4.097432]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0974,-1.8225) path[1]=(-4.3407,-1.2751) t[0]=2.400471 state_vel=(0.0002,-0.0005)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.137879 b[N]=0.241532 b2[0]=0.309993 b2[N]=0.381346
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.011095 -0.068939 0.000226 -4.097432]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0974,-1.8225) path[1]=(-4.3407,-1.2751) t[0]=2.400471 state_vel=(0.0002,-0.0005)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.137879 b[N]=0.194354 b2[0]=0.309993 b2[N]=0.317161
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.011095 -0.068939 0.000226 -4.097432]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=12, path_size=13, trap_time_size=12
+[trajectory_generator_node-6] [Reference]   path[0]=(-4.0974,-1.8225) path[1]=(-4.3407,-1.2751) t[0]=2.400471 state_vel=(0.0002,-0.0005)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.137879 b[N]=0.155718 b2[0]=0.309993 b2[N]=0.263975
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.011095 -0.068939 0.000226 -4.097432]
+[trajectory_generator_node-6] [INFO] [1790446399.034165920] [trajectory_generation]: FSM published 12 trajectory pieces
+[trajectory_tracking_node-8] [WARN] [1790446401.667120246] [trajectory_tracking]: trajectory tracking stopped: invalid coefficient array length
+[trajectory_tracking_node-8] [WARN] [1790446403.673230255] [trajectory_tracking]: trajectory tracking stopped: no valid trajectory
+[trajectory_tracking_node-8] [WARN] [1790446405.672222506] [trajectory_tracking]: trajectory tracking stopped: no valid trajectory
+[trajectory_tracking_node-8] [WARN] [1790446407.670116244] [trajectory_tracking]: trajectory tracking stopped: no valid trajectory
+[trajectory_tracking_node-8] [WARN] [1790446409.672529384] [trajectory_tracking]: trajectory tracking stopped: no valid trajectory
+[trajectory_tracking_node-8] [WARN] [1790446411.672128371] [trajectory_tracking]: trajectory tracking stopped: no valid trajectory
+[trajectory_tracking_node-8] [WARN] [1790446413.668351604] [trajectory_tracking]: trajectory tracking stopped: no valid trajectory
+[trajectory_tracking_node-8] [WARN] [1790446415.681745347] [trajectory_tracking]: trajectory tracking stopped: no valid trajectory
+[trajectory_tracking_node-8] [WARN] [1790446417.705006114] [trajectory_tracking]: trajectory tracking stopped: no valid trajectory
+[trajectory_tracking_node-8] [WARN] [1790446419.704426775] [trajectory_tracking]: trajectory tracking stopped: no valid trajectory
+[trajectory_tracking_node-8] [WARN] [1790446421.698805970] [trajectory_tracking]: trajectory tracking stopped: no valid trajectory
+[trajectory_tracking_node-8] [WARN] [1790446423.702697011] [trajectory_tracking]: trajectory tracking stopped: no valid trajectory
+[trajectory_tracking_node-8] [WARN] [1790446425.703561547] [trajectory_tracking]: trajectory tracking stopped: no valid trajectory
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[INFO] [autonomy_guard.py-10]: sending signal 'SIGINT' to process[autonomy_guard.py-10]
+[INFO] [hit_bridge-9]: sending signal 'SIGINT' to process[hit_bridge-9]
+[INFO] [trajectory_tracking_node-8]: sending signal 'SIGINT' to process[trajectory_tracking_node-8]
+[INFO] [rviz_safe-7]: sending signal 'SIGINT' to process[rviz_safe-7]
+[INFO] [trajectory_generator_node-6]: sending signal 'SIGINT' to process[trajectory_generator_node-6]
+[ERROR] [hit_bridge-9]: process has died [pid 44444, exit code -2, cmd '/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/trajectory_tracking/lib/trajectory_tracking/hit_bridge --ros-args --params-file /tmp/launch_params_u_dalvm0'].
+[ERROR] [autonomy_guard.py-10]: process has died [pid 44446, exit code -2, cmd '/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/sentry_gazebo/lib/sentry_gazebo/autonomy_guard.py --ros-args --params-file /tmp/launch_params_cthil_6o'].
+[INFO] [map_display.py-5]: sending signal 'SIGINT' to process[map_display.py-5]
+[INFO] [cloud_adapter.py-4]: sending signal 'SIGINT' to process[cloud_adapter.py-4]
+[INFO] [sim_adapter.py-3]: sending signal 'SIGINT' to process[sim_adapter.py-3]
+[INFO] [parameter_bridge-2]: sending signal 'SIGINT' to process[parameter_bridge-2]
+[INFO] [ign-1]: sending signal 'SIGINT' to process[ign-1]
+[hit_bridge-9] [INFO] [1790446427.164777918] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[parameter_bridge-2] [INFO] [1790446427.165699615] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[trajectory_generator_node-6] [INFO] [1790446427.168307268] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[ERROR] [cloud_adapter.py-4]: process has died [pid 44434, exit code -2, cmd '/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/sentry_gazebo/lib/sentry_gazebo/cloud_adapter.py --ros-args --params-file /tmp/launch_params__gplhvne'].
+[ERROR] [map_display.py-5]: process has died [pid 44436, exit code -2, cmd '/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/sentry_gazebo/lib/sentry_gazebo/map_display.py --ros-args --params-file /tmp/launch_params_w4pg5kfl'].
+[trajectory_tracking_node-8] [INFO] [1790446427.168313605] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[ERROR] [trajectory_generator_node-6]: process has died [pid 44438, exit code -2, cmd '/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/trajectory_generation/lib/trajectory_generation/trajectory_generator_node --ros-args -r __node:=trajectory_generation --params-file /home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/trajectory_generation/share/trajectory_generation/config/global_planning.yaml --params-file /home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/trajectory_generation/share/trajectory_generation/config/map_metadata.yaml --params-file /home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/sentry_gazebo/share/sentry_gazebo/config/autonomy.yaml --params-file /tmp/launch_params_jwk2cszk'].
+[trajectory_tracking_node-8] [INFO] [1790446427.222251004] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[sim_adapter.py-3] Traceback (most recent call last):
+[sim_adapter.py-3]   File "/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/sentry_gazebo/lib/sentry_gazebo/sim_adapter.py", line 134, in <module>
+[sim_adapter.py-3]     main()
+[sim_adapter.py-3]   File "/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/sentry_gazebo/lib/sentry_gazebo/sim_adapter.py", line 127, in main
+[sim_adapter.py-3]     node.command_pub.publish(Twist())
+[sim_adapter.py-3]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/publisher.py", line 70, in publish
+[sim_adapter.py-3]     self.__publisher.publish(msg)
+[sim_adapter.py-3] rclpy._rclpy_pybind11.RCLError: Failed to publish: publisher's context is invalid, at ./src/rcl/publisher.c:389
+[sim_adapter.py-3] Error in sys.excepthook:
+[sim_adapter.py-3] Traceback (most recent call last):
+[sim_adapter.py-3]   File "<frozen importlib._bootstrap>", line 188, in _get_module_lock
+[sim_adapter.py-3] KeyError: 'email.iterators'
+[sim_adapter.py-3] 
+[sim_adapter.py-3] During handling of the above exception, another exception occurred:
+[sim_adapter.py-3] 
+[sim_adapter.py-3] Traceback (most recent call last):
+[sim_adapter.py-3]   File "/usr/lib/python3/dist-packages/apport_python_hook.py", line 72, in apport_excepthook
+[sim_adapter.py-3]     from apport.fileutils import likely_packaged, get_recent_crashes
+[sim_adapter.py-3]   File "/usr/lib/python3/dist-packages/apport/__init__.py", line 5, in <module>
+[sim_adapter.py-3]     from apport.report import Report
+[sim_adapter.py-3]   File "/usr/lib/python3/dist-packages/apport/report.py", line 21, in <module>
+[sim_adapter.py-3]     from urllib.request import urlopen
+[sim_adapter.py-3]   File "/usr/lib/python3.10/urllib/request.py", line 88, in <module>
+[sim_adapter.py-3]     import http.client
+[sim_adapter.py-3]   File "/usr/lib/python3.10/http/client.py", line 72, in <module>
+[parameter_bridge-2] [INFO] [1790446427.257244110] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[sim_adapter.py-3]     import email.message
+[sim_adapter.py-3]   File "/usr/lib/python3.10/email/message.py", line 105, in <module>
+[sim_adapter.py-3]     class Message:
+[sim_adapter.py-3]   File "/usr/lib/python3.10/email/message.py", line 942, in Message
+[sim_adapter.py-3]     from email.iterators import walk
+[sim_adapter.py-3]   File "<frozen importlib._bootstrap>", line 1024, in _find_and_load
+[sim_adapter.py-3]   File "<frozen importlib._bootstrap>", line 170, in __enter__
+[sim_adapter.py-3]   File "<frozen importlib._bootstrap>", line 188, in _get_module_lock
+[sim_adapter.py-3] KeyboardInterrupt
+[sim_adapter.py-3] 
+[sim_adapter.py-3] Original exception was:
+[sim_adapter.py-3] Traceback (most recent call last):
+[sim_adapter.py-3]   File "/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/sentry_gazebo/lib/sentry_gazebo/sim_adapter.py", line 134, in <module>
+[sim_adapter.py-3]     main()
+[sim_adapter.py-3]   File "/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/sentry_gazebo/lib/sentry_gazebo/sim_adapter.py", line 127, in main
+[sim_adapter.py-3]     node.command_pub.publish(Twist())
+[sim_adapter.py-3]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/publisher.py", line 70, in publish
+[sim_adapter.py-3]     self.__publisher.publish(msg)
+[sim_adapter.py-3] rclpy._rclpy_pybind11.RCLError: Failed to publish: publisher's context is invalid, at ./src/rcl/publisher.c:389
+[INFO] [parameter_bridge-2]: process has finished cleanly [pid 44430]
+[INFO] [trajectory_tracking_node-8]: process has finished cleanly [pid 44442]
+[INFO] [rviz_safe-7]: process has finished cleanly [pid 44440]
+[ERROR] [sim_adapter.py-3]: process has died [pid 44432, exit code 1, cmd '/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/sentry_gazebo/lib/sentry_gazebo/sim_adapter.py --ros-args --params-file /tmp/launch_params_tvcy9mw3'].
+[ign-1] [1;32m[Msg] [0m[1;32mFo[1;32m[Msg] [0m[1;32mIgnition Gazebo GUI    v[0m[1;32m6.18.0[0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoading config [[0m[1;32m/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/sentry_gazebo/share/sentry_gazebo/config/autonomy-gui.config[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mAdded plugin [[0m[1;32mRM Sentry - Basic Navigation[0m[1;32m] to main window[0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoaded plugin [[0m[1;32mMinimalScene[0m[1;32m] from path [[0m[1;32m/usr/lib/x86_64-linux-gnu/ign-gui-6/plugins/libMinimalScene.so[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mAdded plugin [[0m[1;32mScene Manager[0m[1;32m] to main window[0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoaded plugin [[0m[1;32mGzSceneManager[0m[1;32m] from path [[0m[1;32m/usr/lib/x86_64-linux-gnu/ign-gazebo-6/plugins/gui/libGzSceneManager.so[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mCamera view controller topic advertised on [[0m[1;32m/gui/camera/view_control[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mCamera reference visual topic advertised on [[0m[1;32m/gui/camera/view_control/reference_visual[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mCamera view control sensitivity advertised on [[0m[1;32m/gui/camera/view_control/sensitivity[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mAdded plugin [[0m[1;32mInteractive view control[0m[1;32m] to main window[0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoaded plugin [[0m[1;32mInteractiveViewControl[0m[1;32m] from path [[0m[1;32m/usr/lib/x86_64-linux-gnu/ign-gui-6/plugins/libInteractiveViewControl.so[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mUsing world control service [[0m[1;32m/world/sentry_planning/control[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mListening to stats on [[0m[1;32m/world/sentry_planning/stats[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mAdded plugin [[0m[1;32mWorld control[0m[1;32m] to main window[0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoaded plugin [[0m[1;32mWorldControl[0m[1;32m] from path [[0m[1;32m/usr/lib/x86_64-linux-gnu/ign-gui-6/plugins/libWorldControl.so[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mListening to stats on [[0m[1;32m/world/sentry_planning/stats[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mAdded plugin [[0m[1;32mWorld stats[0m[1;32m] to main window[0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoaded plugin [[0m[1;32mWorldStats[0m[1;32m] from path [[0m[1;32m/usr/lib/x86_64-linux-gnu/ign-gui-6/plugins/libWorldStats.so[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mUsing server control service [[0m[1;32m/server_control[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoading plugin [[0m[1;32mignition-rendering-ogre2[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoading plugin [[0m[1;32mignition-rendering-ogre2[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoading plugin [[0m[1;32mignition-rendering-ogre2[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoading plugin [[0m[1;32mignition-rendering-ogre2[0m[1;32m][0m[1;32m[0m
+[ign-1] und no publishers on /clock, adding root clock topic[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing scene information on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mscene/info[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mLoading plugin [[0m[1;32mignition-rendering-ogre2[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing graph information on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mscene/graph[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing full state on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mstate[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing full state (async) on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mstate_async[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPublishing scene information on [[0m[1;32m/world/sentry_planning/scene/info[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPublishing entity deletions on [[0m[1;32m/world/sentry_planning/scene/deletion[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPublishing state changes on [[0m[1;32m/world/sentry_planning/state[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPublishing pose messages on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mpose/info[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPublishing dynamic pose messages on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mdynamic_pose/info[0m[1;32m][0m[1;32m[0m
+[ign-1] /usr/lib/ruby/ignition/cmdgazebo6.rb:183:in `kill': No such process (Errno::ESRCH)
+[ign-1] 	from /usr/lib/ruby/ignition/cmdgazebo6.rb:183:in `killProcess'
+[ign-1] 	from /usr/lib/ruby/ignition/cmdgazebo6.rb:509:in `handle_signal'
+[ign-1] 	from /usr/lib/ruby/ignition/cmdgazebo6.rb:514:in `block in execute'
+[ign-1] 	from /usr/lib/ruby/ignition/cmdgazebo6.rb:524:in `wait2'
+[ign-1] 	from /usr/lib/ruby/ignition/cmdgazebo6.rb:524:in `execute'
+[ign-1] 	from /usr/bin/ign:301:in `<main>'
+[ERROR] [ign-1]: process has died [pid 44428, exit code 1, cmd 'ign gazebo -r -v 3 /home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/sentry_gazebo/share/sentry_gazebo/worlds/planning.sdf --gui-config /home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/sentry_gazebo/share/sentry_gazebo/config/autonomy-gui.config'].

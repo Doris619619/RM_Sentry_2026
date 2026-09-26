@@ -1,0 +1,9 @@
+{"name": "time_reset", "passed": false, "error": "No fresh valid-endpoint trajectory for [-0.919, -4.454] -> [-3.219, 2.146]", "wall_seconds": 32.881811986000685}
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/live_safety_check.py", line 213, in <module>
+    if __name__=='__main__':main()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/live_safety_check.py", line 208, in main
+    if not args.only or args.only==name:qa.run(name,action,out)
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/live_safety_check.py", line 189, in run
+    if not record['passed']:raise RuntimeError(name+' failed')
+RuntimeError: time_reset failed

@@ -1,0 +1,75 @@
+[
+  {
+    "source": "physics-final.json",
+    "name": "gravity",
+    "fitted_gravity": 9.809999999999963,
+    "height_start": 0.9992152031707704,
+    "height_min": -0.006505857315332262,
+    "height_end": -0.005166204624773516,
+    "passed": true
+  },
+  {
+    "source": "physics-final.json",
+    "name": "acceleration",
+    "max_speed": 0.39993224149743045,
+    "max_acceleration": 0.5123217398435338,
+    "brake_distance": 0.04712703984843469,
+    "steady_force_N": 2.9434578747890554,
+    "stop_speed": 0.0,
+    "passed": true
+  },
+  {
+    "source": "physics-final.json",
+    "name": "lateral_rotation",
+    "world_x_displacement": 1.0736133144750284e-16,
+    "world_y_displacement": 0.4937975130966912,
+    "rotation": 0.34603652547808994,
+    "passed": true
+  },
+  {
+    "source": "physics-final.json",
+    "name": "timeout",
+    "stop_wall_seconds": 0.7488580819990602,
+    "travel_after_loss": 0.23018022686376538,
+    "stop_speed": 0.0,
+    "passed": true
+  },
+  {
+    "source": "physics-final.json",
+    "name": "native_watchdog",
+    "stop_wall_seconds": 0.7663560670007428,
+    "travel_after_adapter_hang": 0.23160344144509834,
+    "passed": true
+  },
+  {
+    "source": "physics-pause-corrected.json",
+    "name": "pause_resume",
+    "clock_frozen": true,
+    "motion_while_pause_service_pending": 0.07277503260670178,
+    "resume_braking_distance": 0.02630748582561957,
+    "stop_speed": 0.0005655795619297351,
+    "passed": true
+  },
+  {
+    "source": "physics-brake-collision.json",
+    "name": "collision",
+    "wall_front_x": 2.4,
+    "body_half_x": 0.35,
+    "max_center_x": 2.0503100923039086,
+    "final_center_x": 2.050000666228924,
+    "final_speed_under_command": 0.0,
+    "max_force_N": 30.000000000000004,
+    "passed": true
+  },
+  {
+    "source": "physics-brake-ramp.json",
+    "name": "ramp",
+    "top_x": 3.5469434267609907,
+    "top_z": 0.22254405313949385,
+    "top_pitch_degrees": -4.999999097057828,
+    "parked_speed": 0.0,
+    "parked_z": 0.2244252372566941,
+    "max_force_N": 30.000000000000004,
+    "passed": true
+  }
+]

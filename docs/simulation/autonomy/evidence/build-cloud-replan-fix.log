@@ -1,0 +1,23 @@
+[0.458s] WARNING:colcon.colcon_core.package_selection:Some selected packages are already built in one or more underlay workspaces:
+	'trajectory_generation' is in: /home/liangys/RM_Sentry_2026/ros2_ws/install_closure_fix/trajectory_generation
+If a package in a merged underlay workspace is overridden and it installs headers, then all packages in the overlay must sort their include directories by workspace order. Failure to do so may result in build failures or undefined behavior at run time.
+If the overridden package is used by another package in any underlay, then the overriding package in the overlay must be API and ABI compatible or undefined behavior at run time may occur.
+
+If you understand the risks and want to override a package anyways, add the following to the command line:
+	--allow-overriding trajectory_generation
+
+This may be promoted to an error in a future release of colcon-override-check.
+Starting >>> trajectory_generation
+--- stderr: trajectory_generation
+In file included from /home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/include/trajectory_generation/path_smooth.h:9,
+                 from /home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/include/trajectory_generation/plan_manager.h:16,
+                 from /home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/replan_fsm_node.cpp:29:
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/include/trajectory_generation/root_solver/minco_trajectory.hpp: In member function ‘void MincoTrajectory::getGradTimes(Eigen::VectorXd&) const’:
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/include/trajectory_generation/root_solver/minco_trajectory.hpp:258:26: warning: unused variable ‘Ti4’ [-Wunused-variable]
+  258 |             const double Ti4 = Ti3 * Ti;
+      |                          ^~~
+---
+Finished <<< trajectory_generation [37.2s]
+
+Summary: 1 package finished [37.5s]
+  1 package had stderr output: trajectory_generation

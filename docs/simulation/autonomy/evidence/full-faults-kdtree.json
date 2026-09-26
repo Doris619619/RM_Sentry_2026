@@ -1,0 +1,117 @@
+[
+  {
+    "stop_wall": 0.26531200200042804,
+    "travel": 0.03385102668044208,
+    "pose": {
+      "sim": 132.58,
+      "x": -1.062804620043161,
+      "y": -4.340873351597435,
+      "z": -3.876001070946567e-08,
+      "yaw": -3.574377766050819e-05,
+      "speed": 0.016971237540751208,
+      "wz": -0.0020154090407231706
+    },
+    "case": "game_end",
+    "status": {
+      "mode": "auto",
+      "state": "stopped",
+      "reason": "referee game is not active"
+    },
+    "mcu_status": {
+      "endpoint": "/dev/pts/3",
+      "mcu_pid": 81575,
+      "nav_frames": 8047,
+      "motion_frames": 3902,
+      "invalid_frames": 0,
+      "referee_frames_sent": 1521,
+      "scenario": "stop",
+      "motion_mode": 0,
+      "last_nav_hex": "484b150002006e00fe00000000000000004b964b48",
+      "last_nav_age": 0.0
+    },
+    "unrequested_restart_displacement": 0.00016169490469550331,
+    "passed": true
+  },
+  {
+    "stop_wall": 1.1080874250001216,
+    "travel": 0.18109547680472704,
+    "pose": {
+      "sim": 138.18,
+      "x": -1.267378915624338,
+      "y": -4.1951013530983445,
+      "z": -3.8760010714087004e-08,
+      "yaw": -0.00012438988821656486,
+      "speed": 0.002460003722429575,
+      "wz": -0.0011951207909532968
+    },
+    "case": "bad_referee_crc",
+    "status": {
+      "mode": "auto",
+      "state": "stopped",
+      "reason": "referee serial timeout"
+    },
+    "mcu_status": {
+      "endpoint": "/dev/pts/3",
+      "mcu_pid": 81575,
+      "nav_frames": 8398,
+      "motion_frames": 4103,
+      "invalid_frames": 0,
+      "referee_frames_sent": 1587,
+      "scenario": "corrupt_referee",
+      "motion_mode": 3,
+      "last_nav_hex": "484b15000200cd00450000000000000000de7d4b48",
+      "last_nav_age": 0.0
+    },
+    "unrequested_restart_displacement": 5.969018906564612e-06,
+    "passed": true
+  },
+  {
+    "stop_wall": 0.559895685997617,
+    "travel": 0.08136843358392236,
+    "pose": {
+      "sim": 144.02,
+      "x": -1.3915609660481467,
+      "y": -4.091646058966602,
+      "z": -3.8760010711597985e-08,
+      "yaw": 0.00021961774922416849,
+      "speed": 0.008470243020725337,
+      "wz": -0.0016015310393413529
+    },
+    "case": "mcu_process_stall",
+    "status": {
+      "mode": "auto",
+      "state": "stopped",
+      "reason": "referee serial timeout"
+    },
+    "mcu_status": {
+      "endpoint": "/dev/pts/3",
+      "mcu_pid": 81575,
+      "nav_frames": 8739,
+      "motion_frames": 4264,
+      "invalid_frames": 0,
+      "referee_frames_sent": 1658,
+      "scenario": "patrol",
+      "motion_mode": 3,
+      "last_nav_hex": "484b15000200220028000045ff8800000034eb4b48",
+      "last_nav_age": 0.7512905830008094
+    },
+    "unrequested_restart_displacement": 0.00014621488347457904,
+    "passed": true
+  },
+  {
+    "stop_wall": 0.12720503599848598,
+    "travel": 0.010980246917558684,
+    "pose": {
+      "sim": 150.82,
+      "x": -1.4296941247720623,
+      "y": -4.030874962615299,
+      "z": -3.8760010711141315e-08,
+      "yaw": 3.3021868904806715e-05,
+      "speed": 0.01939359073879046,
+      "wz": 0.0002896776564398351
+    },
+    "case": "manual_takeover",
+    "manual_distance": 0.03712929240989936,
+    "passed": true
+  }
+]

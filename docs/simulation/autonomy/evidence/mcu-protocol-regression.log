@@ -1,0 +1,13 @@
+Internal ctest changing into directory: /home/liangys/RM_Sentry_2026/ros2_ws/build_sentry_autonomy/decision_node
+Test project /home/liangys/RM_Sentry_2026/ros2_ws/build_sentry_autonomy/decision_node
+    Start 1: test_mcu_protocol
+1/2 Test #1: test_mcu_protocol ................   Passed    0.07 sec
+    Start 2: test_serial_config
+2/2 Test #2: test_serial_config ...............   Passed    0.06 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Label Time Summary:
+gtest    =   0.13 sec*proc (2 tests)
+
+Total Test time (real) =   0.13 sec

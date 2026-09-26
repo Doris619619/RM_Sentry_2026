@@ -1,0 +1,11 @@
+[INFO] [1790456356.266430555] [sentry_sim_adapter]: 0.5 s command watchdog; truth localization enabled
+.[INFO] [1790456356.291456201] [sentry_sim_adapter]: 0.5 s command watchdog; truth localization enabled
+[INFO] [1790456356.292179373] [sentry_sim_adapter]: Waiting 0.2 simulated seconds for native odometry startup window
+[INFO] [1790456356.299599910] [sentry_sim_adapter]: Waiting 0.2 simulated seconds for native odometry startup window
+.[INFO] [1790456356.321405878] [sentry_sim_adapter]: 0.5 s command watchdog; truth localization enabled
+[INFO] [1790456356.325119288] [sentry_sim_adapter]: Waiting 0.2 simulated seconds for native odometry startup window
+.
+----------------------------------------------------------------------
+Ran 3 tests in 0.271s
+
+OK

@@ -1,0 +1,1 @@
+{"frozen_sim_delta": 0.0, "pending_service_motion": 0.05959669880266732, "resume_braking_displacement": 0.027125026947353588, "final_speed": 0.00025795711425527967, "status": {"mode": "auto", "state": "stopped", "reason": "localization timeout"}, "passed": true}

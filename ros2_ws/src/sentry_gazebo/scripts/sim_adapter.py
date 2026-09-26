@@ -18,6 +18,8 @@ from tf2_ros import TransformBroadcaster, StaticTransformBroadcaster
 class SimAdapter(Node):
     def __init__(self):
         super().__init__('sentry_sim_adapter')
+        self.declare_parameter('publish_truth', True)
+        self.publish_truth=bool(self.get_parameter('publish_truth').value)
         self.declare_parameter('command_timeout', 0.5)
         self.declare_parameter('max_linear', 0.5)
         self.declare_parameter('max_angular', 0.5)
@@ -31,23 +33,25 @@ class SimAdapter(Node):
         self.last_command = -math.inf
         self.last_progress = -math.inf
         self.sim_ns = None
+        self.last_raw_stamp = None
+        self.odom_ready_ns = 0
         self.command_pub = self.create_publisher(Twist, '/sim/guarded_cmd_vel', 1)
-        self.odom_pub = self.create_publisher(Odometry, '/localization/odometry', 10)
-        self.tf = TransformBroadcaster(self)
-        self.static_tf = StaticTransformBroadcaster(self)
+        self.odom_pub = self.create_publisher(Odometry, '/localization/odometry', 10) if self.publish_truth else None
+        self.tf = TransformBroadcaster(self) if self.publish_truth else None
+        self.static_tf = StaticTransformBroadcaster(self) if self.publish_truth else None
         identity = TransformStamped()
         identity.header.frame_id = 'map'
         identity.child_frame_id = 'odom'
         identity.transform.rotation.w = 1.0
-        self.static_tf.sendTransform(identity)
+        if self.publish_truth:self.static_tf.sendTransform(identity)
         self.create_subscription(Twist, '/cmd_vel', self.on_command, 1)
-        self.create_subscription(Odometry, '/sim/ground_truth/odometry', self.on_odom, 10)
+        if self.publish_truth:self.create_subscription(Odometry, '/sim/ground_truth/odometry', self.on_odom, 10)
         clock_qos = QoSProfile(depth=1, reliability=ReliabilityPolicy.BEST_EFFORT,
                                durability=DurabilityPolicy.VOLATILE)
         self.create_subscription(ClockMsg, '/clock', self.on_clock, clock_qos)
         # Safety MUST keep ticking while simulated time is paused.
         self.create_timer(0.02, self.tick, clock=Clock(clock_type=ClockType.STEADY_TIME))
-        self.get_logger().info('Ideal planar simulator: 0.5 s wall-time watchdog, 50 Hz feedback')
+        self.get_logger().info('0.5 s command watchdog; truth localization '+('enabled' if self.publish_truth else 'disabled'))
 
     def clear(self):
         self.command = Twist()
@@ -97,6 +101,22 @@ class SimAdapter(Node):
         norm = math.sqrt(q.x*q.x + q.y*q.y + q.z*q.z + q.w*q.w)
         if abs(norm - 1.0) > 0.01:
             self.clear()
+            return
+        stamp_ns = msg.header.stamp.sec*1000000000 + msg.header.stamp.nanosec
+        if self.sim_ns is None or not -.5e9 <= stamp_ns-self.sim_ns <= .05e9:
+            self.clear()
+            return
+        first_or_reset = self.last_raw_stamp is None or stamp_ns <= self.last_raw_stamp
+        self.last_raw_stamp = stamp_ns
+        if first_or_reset:
+            # Fortress averages ten physics samples; wait 0.2 simulated seconds
+            # so its initial origin-to-spawn derivative has left the native window.
+            self.odom_ready_ns = stamp_ns + 200000000
+        if stamp_ns < self.odom_ready_ns:
+            self.clear()
+            self.command_pub.publish(Twist())
+            if first_or_reset:
+                self.get_logger().info('Waiting 0.2 simulated seconds for native odometry startup window')
             return
         odom = copy.deepcopy(msg)
         odom.header.frame_id = 'map'

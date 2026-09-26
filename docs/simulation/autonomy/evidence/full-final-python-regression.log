@@ -1,0 +1,330 @@
+test_clock_rewind_requires_restart (test_autonomy_guard.GuardTests) ... ERROR
+test_discontinuous_reference (test_autonomy_guard.GuardTests) ... ERROR
+test_dynamic_reference_cannot_reach_controller (test_autonomy_guard.GuardTests) ... ERROR
+test_expired_reference (test_autonomy_guard.GuardTests) ... ERROR
+test_fast_reference (test_autonomy_guard.GuardTests) ... ERROR
+test_fault_while_planning (test_autonomy_guard.GuardTests) ... ERROR
+test_manual_takeover (test_autonomy_guard.GuardTests) ... ERROR
+test_missing_cloud (test_autonomy_guard.GuardTests) ... ERROR
+test_occupied_reference (test_autonomy_guard.GuardTests) ... ERROR
+test_old_reference (test_autonomy_guard.GuardTests) ... ERROR
+test_pause_latches (test_autonomy_guard.GuardTests) ... ERROR
+test_referee_gate_and_game_stop (test_autonomy_guard.GuardTests) ... ERROR
+test_referee_timeout (test_autonomy_guard.GuardTests) ... ERROR
+test_stale_odom (test_autonomy_guard.GuardTests) ... ERROR
+test_supervisor_stall (test_autonomy_guard.GuardTests) ... ERROR
+test_valid_reference (test_autonomy_guard.GuardTests) ... ERROR
+test_wrong_frame_cancels (test_autonomy_guard.GuardTests) ... ERROR
+test_body_velocity_from_estimates (test_estimated_odometry.EstimateTests) ... ERROR
+test_quality_rejected (test_estimated_odometry.EstimateTests) ... ERROR
+test_replay_and_jump (test_estimated_odometry.EstimateTests) ... ERROR
+test_truth_disabled (test_estimated_odometry.EstimateTests) ... ERROR
+test_wrong_vertical_solution (test_estimated_odometry.EstimateTests) ... ERROR
+test_delayed_old_epoch_rejected (test_sim_adapter_epoch.EpochTests) ... ERROR
+test_reset_window_then_recovers (test_sim_adapter_epoch.EpochTests) ... ERROR
+test_startup_window_preserves_later_payload (test_sim_adapter_epoch.EpochTests) ... ERROR
+
+======================================================================
+ERROR: test_clock_rewind_requires_restart (test_autonomy_guard.GuardTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/test_autonomy_guard.py", line 19, in setUp
+    self.node=AutonomyGuard()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/autonomy_guard.py", line 56, in __init__
+    super().__init__('sentry_autonomy_guard')
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 172, in __init__
+    raise NotInitializedException('cannot create node')
+rclpy.exceptions.NotInitializedException: ('rclpy.init() has not been called', 'cannot create node')
+
+======================================================================
+ERROR: test_discontinuous_reference (test_autonomy_guard.GuardTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/test_autonomy_guard.py", line 19, in setUp
+    self.node=AutonomyGuard()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/autonomy_guard.py", line 56, in __init__
+    super().__init__('sentry_autonomy_guard')
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 172, in __init__
+    raise NotInitializedException('cannot create node')
+rclpy.exceptions.NotInitializedException: ('rclpy.init() has not been called', 'cannot create node')
+
+======================================================================
+ERROR: test_dynamic_reference_cannot_reach_controller (test_autonomy_guard.GuardTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/test_autonomy_guard.py", line 19, in setUp
+    self.node=AutonomyGuard()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/autonomy_guard.py", line 56, in __init__
+    super().__init__('sentry_autonomy_guard')
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 172, in __init__
+    raise NotInitializedException('cannot create node')
+rclpy.exceptions.NotInitializedException: ('rclpy.init() has not been called', 'cannot create node')
+
+======================================================================
+ERROR: test_expired_reference (test_autonomy_guard.GuardTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/test_autonomy_guard.py", line 19, in setUp
+    self.node=AutonomyGuard()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/autonomy_guard.py", line 56, in __init__
+    super().__init__('sentry_autonomy_guard')
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 172, in __init__
+    raise NotInitializedException('cannot create node')
+rclpy.exceptions.NotInitializedException: ('rclpy.init() has not been called', 'cannot create node')
+
+======================================================================
+ERROR: test_fast_reference (test_autonomy_guard.GuardTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/test_autonomy_guard.py", line 19, in setUp
+    self.node=AutonomyGuard()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/autonomy_guard.py", line 56, in __init__
+    super().__init__('sentry_autonomy_guard')
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 172, in __init__
+    raise NotInitializedException('cannot create node')
+rclpy.exceptions.NotInitializedException: ('rclpy.init() has not been called', 'cannot create node')
+
+======================================================================
+ERROR: test_fault_while_planning (test_autonomy_guard.GuardTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/test_autonomy_guard.py", line 19, in setUp
+    self.node=AutonomyGuard()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/autonomy_guard.py", line 56, in __init__
+    super().__init__('sentry_autonomy_guard')
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 172, in __init__
+    raise NotInitializedException('cannot create node')
+rclpy.exceptions.NotInitializedException: ('rclpy.init() has not been called', 'cannot create node')
+
+======================================================================
+ERROR: test_manual_takeover (test_autonomy_guard.GuardTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/test_autonomy_guard.py", line 19, in setUp
+    self.node=AutonomyGuard()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/autonomy_guard.py", line 56, in __init__
+    super().__init__('sentry_autonomy_guard')
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 172, in __init__
+    raise NotInitializedException('cannot create node')
+rclpy.exceptions.NotInitializedException: ('rclpy.init() has not been called', 'cannot create node')
+
+======================================================================
+ERROR: test_missing_cloud (test_autonomy_guard.GuardTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/test_autonomy_guard.py", line 19, in setUp
+    self.node=AutonomyGuard()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/autonomy_guard.py", line 56, in __init__
+    super().__init__('sentry_autonomy_guard')
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 172, in __init__
+    raise NotInitializedException('cannot create node')
+rclpy.exceptions.NotInitializedException: ('rclpy.init() has not been called', 'cannot create node')
+
+======================================================================
+ERROR: test_occupied_reference (test_autonomy_guard.GuardTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/test_autonomy_guard.py", line 19, in setUp
+    self.node=AutonomyGuard()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/autonomy_guard.py", line 56, in __init__
+    super().__init__('sentry_autonomy_guard')
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 172, in __init__
+    raise NotInitializedException('cannot create node')
+rclpy.exceptions.NotInitializedException: ('rclpy.init() has not been called', 'cannot create node')
+
+======================================================================
+ERROR: test_old_reference (test_autonomy_guard.GuardTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/test_autonomy_guard.py", line 19, in setUp
+    self.node=AutonomyGuard()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/autonomy_guard.py", line 56, in __init__
+    super().__init__('sentry_autonomy_guard')
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 172, in __init__
+    raise NotInitializedException('cannot create node')
+rclpy.exceptions.NotInitializedException: ('rclpy.init() has not been called', 'cannot create node')
+
+======================================================================
+ERROR: test_pause_latches (test_autonomy_guard.GuardTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/test_autonomy_guard.py", line 19, in setUp
+    self.node=AutonomyGuard()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/autonomy_guard.py", line 56, in __init__
+    super().__init__('sentry_autonomy_guard')
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 172, in __init__
+    raise NotInitializedException('cannot create node')
+rclpy.exceptions.NotInitializedException: ('rclpy.init() has not been called', 'cannot create node')
+
+======================================================================
+ERROR: test_referee_gate_and_game_stop (test_autonomy_guard.GuardTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/test_autonomy_guard.py", line 19, in setUp
+    self.node=AutonomyGuard()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/autonomy_guard.py", line 56, in __init__
+    super().__init__('sentry_autonomy_guard')
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 172, in __init__
+    raise NotInitializedException('cannot create node')
+rclpy.exceptions.NotInitializedException: ('rclpy.init() has not been called', 'cannot create node')
+
+======================================================================
+ERROR: test_referee_timeout (test_autonomy_guard.GuardTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/test_autonomy_guard.py", line 19, in setUp
+    self.node=AutonomyGuard()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/autonomy_guard.py", line 56, in __init__
+    super().__init__('sentry_autonomy_guard')
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 172, in __init__
+    raise NotInitializedException('cannot create node')
+rclpy.exceptions.NotInitializedException: ('rclpy.init() has not been called', 'cannot create node')
+
+======================================================================
+ERROR: test_stale_odom (test_autonomy_guard.GuardTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/test_autonomy_guard.py", line 19, in setUp
+    self.node=AutonomyGuard()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/autonomy_guard.py", line 56, in __init__
+    super().__init__('sentry_autonomy_guard')
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 172, in __init__
+    raise NotInitializedException('cannot create node')
+rclpy.exceptions.NotInitializedException: ('rclpy.init() has not been called', 'cannot create node')
+
+======================================================================
+ERROR: test_supervisor_stall (test_autonomy_guard.GuardTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/test_autonomy_guard.py", line 19, in setUp
+    self.node=AutonomyGuard()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/autonomy_guard.py", line 56, in __init__
+    super().__init__('sentry_autonomy_guard')
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 172, in __init__
+    raise NotInitializedException('cannot create node')
+rclpy.exceptions.NotInitializedException: ('rclpy.init() has not been called', 'cannot create node')
+
+======================================================================
+ERROR: test_valid_reference (test_autonomy_guard.GuardTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/test_autonomy_guard.py", line 19, in setUp
+    self.node=AutonomyGuard()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/autonomy_guard.py", line 56, in __init__
+    super().__init__('sentry_autonomy_guard')
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 172, in __init__
+    raise NotInitializedException('cannot create node')
+rclpy.exceptions.NotInitializedException: ('rclpy.init() has not been called', 'cannot create node')
+
+======================================================================
+ERROR: test_wrong_frame_cancels (test_autonomy_guard.GuardTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/test_autonomy_guard.py", line 19, in setUp
+    self.node=AutonomyGuard()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/autonomy_guard.py", line 56, in __init__
+    super().__init__('sentry_autonomy_guard')
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 172, in __init__
+    raise NotInitializedException('cannot create node')
+rclpy.exceptions.NotInitializedException: ('rclpy.init() has not been called', 'cannot create node')
+
+======================================================================
+ERROR: test_body_velocity_from_estimates (test_estimated_odometry.EstimateTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/test_estimated_odometry.py", line 15, in setUp
+    self.node=EstimatedOdometry();self.node.pub.publish=Mock();self.node.tf.sendTransform=Mock()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/estimated_odometry.py", line 20, in __init__
+    super().__init__('sentry_estimated_odometry')
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 172, in __init__
+    raise NotInitializedException('cannot create node')
+rclpy.exceptions.NotInitializedException: ('rclpy.init() has not been called', 'cannot create node')
+
+======================================================================
+ERROR: test_quality_rejected (test_estimated_odometry.EstimateTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/test_estimated_odometry.py", line 15, in setUp
+    self.node=EstimatedOdometry();self.node.pub.publish=Mock();self.node.tf.sendTransform=Mock()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/estimated_odometry.py", line 20, in __init__
+    super().__init__('sentry_estimated_odometry')
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 172, in __init__
+    raise NotInitializedException('cannot create node')
+rclpy.exceptions.NotInitializedException: ('rclpy.init() has not been called', 'cannot create node')
+
+======================================================================
+ERROR: test_replay_and_jump (test_estimated_odometry.EstimateTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/test_estimated_odometry.py", line 15, in setUp
+    self.node=EstimatedOdometry();self.node.pub.publish=Mock();self.node.tf.sendTransform=Mock()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/estimated_odometry.py", line 20, in __init__
+    super().__init__('sentry_estimated_odometry')
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 172, in __init__
+    raise NotInitializedException('cannot create node')
+rclpy.exceptions.NotInitializedException: ('rclpy.init() has not been called', 'cannot create node')
+
+======================================================================
+ERROR: test_truth_disabled (test_estimated_odometry.EstimateTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/test_estimated_odometry.py", line 15, in setUp
+    self.node=EstimatedOdometry();self.node.pub.publish=Mock();self.node.tf.sendTransform=Mock()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/estimated_odometry.py", line 20, in __init__
+    super().__init__('sentry_estimated_odometry')
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 172, in __init__
+    raise NotInitializedException('cannot create node')
+rclpy.exceptions.NotInitializedException: ('rclpy.init() has not been called', 'cannot create node')
+
+======================================================================
+ERROR: test_wrong_vertical_solution (test_estimated_odometry.EstimateTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/test_estimated_odometry.py", line 15, in setUp
+    self.node=EstimatedOdometry();self.node.pub.publish=Mock();self.node.tf.sendTransform=Mock()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/estimated_odometry.py", line 20, in __init__
+    super().__init__('sentry_estimated_odometry')
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 172, in __init__
+    raise NotInitializedException('cannot create node')
+rclpy.exceptions.NotInitializedException: ('rclpy.init() has not been called', 'cannot create node')
+
+======================================================================
+ERROR: test_delayed_old_epoch_rejected (test_sim_adapter_epoch.EpochTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/test_sim_adapter_epoch.py", line 12, in setUp
+    self.node=SimAdapter()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/sim_adapter.py", line 20, in __init__
+    super().__init__('sentry_sim_adapter')
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 172, in __init__
+    raise NotInitializedException('cannot create node')
+rclpy.exceptions.NotInitializedException: ('rclpy.init() has not been called', 'cannot create node')
+
+======================================================================
+ERROR: test_reset_window_then_recovers (test_sim_adapter_epoch.EpochTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/test_sim_adapter_epoch.py", line 12, in setUp
+    self.node=SimAdapter()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/sim_adapter.py", line 20, in __init__
+    super().__init__('sentry_sim_adapter')
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 172, in __init__
+    raise NotInitializedException('cannot create node')
+rclpy.exceptions.NotInitializedException: ('rclpy.init() has not been called', 'cannot create node')
+
+======================================================================
+ERROR: test_startup_window_preserves_later_payload (test_sim_adapter_epoch.EpochTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/test_sim_adapter_epoch.py", line 12, in setUp
+    self.node=SimAdapter()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/sim_adapter.py", line 20, in __init__
+    super().__init__('sentry_sim_adapter')
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 172, in __init__
+    raise NotInitializedException('cannot create node')
+rclpy.exceptions.NotInitializedException: ('rclpy.init() has not been called', 'cannot create node')
+
+----------------------------------------------------------------------
+Ran 25 tests in 0.017s
+
+FAILED (errors=25)

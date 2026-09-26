@@ -1,0 +1,168 @@
+[INFO] [launch]: All log files can be found below /home/liangys/.ros/log/2026-09-26-16-31-56-435232-ubuntu64-oc-71538
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [ign-1]: process started with pid [71580]
+[INFO] [parameter_bridge-2]: process started with pid [71582]
+[INFO] [sim_adapter.py-3]: process started with pid [71584]
+[INFO] [cloud_adapter.py-4]: process started with pid [71586]
+[INFO] [rviz_safe-5]: process started with pid [71588]
+[INFO] [python3-6]: process started with pid [71590]
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_common/images/splash_overlay.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Available Renderers(1): OpenGL Rendering Subsystem, at ./src/rviz_rendering/render_system.cpp:301
+[rviz_safe-5] [rviz_common:info] Stereo is NOT SUPPORTED, at ./src/rviz_rendering/render_system.cpp:543
+[rviz_safe-5] [rviz_common:info] OpenGl version: 4.5 (GLSL 4.5), at ./src/rviz_rendering/render_system.cpp:284
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_common/icons/plus.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_common/icons/minus.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:info] Stereo is NOT SUPPORTED, at ./src/rviz_rendering/render_system.cpp:543
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/TF.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/TF.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/TF.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/TF.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_common/icons/classes/Identity.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_common/icons/classes/Identity.svg]: Couldn't open file /opt/ros/humble/share/rviz_common/icons/classes/Identity.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_common/icons/classes/Identity.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_common/icons/classes/Identity.png]: Couldn't open file /opt/ros/humble/share/rviz_common/icons/classes/Identity.png, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_common/icons/default_class_icon.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_common/icons/options.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_common/icons/ok.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_common/icons/warning.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_common/icons/error.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Orbit.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/Orbit.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/Orbit.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Orbit.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/Orbit.png]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/Orbit.png, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_common/icons/rotate.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_common/icons/cursor.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_common/icons/rotate_cam.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_common/icons/move2d.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_common/icons/move_z.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_common/icons/zoom.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_common/icons/crosshair.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/FocusCamera.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Interact.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/Interact.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/Interact.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Interact.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Measure.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/MoveCamera.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/MoveCamera.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/MoveCamera.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/MoveCamera.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/PublishPoint.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Select.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/Select.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/Select.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Select.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/SetGoal.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/SetGoal.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/SetGoal.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/SetGoal.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/SetInitialPose.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/SetInitialPose.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/SetInitialPose.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/SetInitialPose.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Grid.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/Grid.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/Grid.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Grid.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/PointCloud2.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/PointCloud2.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/PointCloud2.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/PointCloud2.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/XYZ.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/XYZ.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/XYZ.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/XYZ.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/XYZ.png]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/XYZ.png, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/AxisColor.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/AxisColor.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/AxisColor.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/AxisColor.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/AxisColor.png]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/AxisColor.png, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Intensity.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/Intensity.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/Intensity.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/Intensity.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/Intensity.png]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/Intensity.png, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/RGBF32.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/RGBF32.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/RGBF32.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/RGBF32.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/RGBF32.png]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/RGBF32.png, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/RGB8.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/RGB8.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/RGB8.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/RGB8.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/RGB8.png]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/RGB8.png, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/FlatColor.svg, at ./src/rviz_common/load_resource.cpp:71
+[sim_adapter.py-3] [INFO] [1790454717.019088776] [sentry_sim_adapter]: 0.5 s command watchdog; truth localization enabled
+[ign-1] [1;33m[GUI] [Wrn] [Application.cc:802] [0m[1;33m[QT] file::/Gazebo/GazeboDrawer.qml:242:3: QML Connections: Implicitly defined onFoo properties in Connections are deprecated. Use this syntax instead: function onFoo(<arguments>) { ... }[0m[1;33m[0m
+[python3-6] Visible simulation windows arranged: gazebo,rviz
+[ign-1] [1;33m[GUI] [Wrn] [Application.cc:802] [0m[1;33m[QT] file::/WorldStats/WorldStats.qml:53:3: QML RowLayout: Binding loop detected for property "x"[0m[1;33m[0m
+[INFO] [python3-6]: process has finished cleanly [pid 71590]
+[ign-1] libEGL warning: Not allowed to force software rendering when API explicitly selects a hardware device.
+[parameter_bridge-2] [INFO] [1790454717.604533253] [sentry_gazebo_bridge]: Creating GZ->ROS Bridge: [/clock (ignition.msgs.Clock) -> /clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+[parameter_bridge-2] [INFO] [1790454717.606801340] [sentry_gazebo_bridge]: Creating ROS->GZ Bridge: [/sim/guarded_cmd_vel (geometry_msgs/msg/Twist) -> /model/sentry/cmd_vel (ignition.msgs.Twist)] (Lazy 0)
+[parameter_bridge-2] [INFO] [1790454717.609002234] [sentry_gazebo_bridge]: Creating GZ->ROS Bridge: [/model/sentry/odometry (ignition.msgs.Odometry) -> /sim/ground_truth/odometry (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-2] [INFO] [1790454717.610771185] [sentry_gazebo_bridge]: Creating GZ->ROS Bridge: [/sentry/lidar/points (ignition.msgs.PointCloudPacked) -> /sim/lidar/native (sensor_msgs/msg/PointCloud2)] (Lazy 0)
+[parameter_bridge-2] [INFO] [1790454717.612412186] [sentry_gazebo_bridge]: Creating GZ->ROS Bridge: [/sim/drive_force (ignition.msgs.Double) -> /sim/drive_force (std_msgs/msg/Float64)] (Lazy 0)
+[parameter_bridge-2] [INFO] [1790454717.614924368] [sentry_gazebo_bridge]: Passing message from ROS geometry_msgs/msg/Twist to Gazebo gz.msgs.Twist (showing msg only once per type)
+[ign-1] [1;33m[GUI] [Wrn] [Ogre2RenderTarget.cc:574] [0m[1;33mAnti-aliasing level of '[0m[1;33m8[0m[1;33m' [0m[1;33mis not supported; valid FSAA levels are: [0m[1;33m[ 0 4 ][0m[1;33m. Setting to 0[0m[1;33m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mReceived world [[0m[1;32m/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/sentry_gazebo/share/sentry_gazebo/worlds/physics.sdf[0m[1;32m] from the GUI.[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mIgnition Gazebo Server v[0m[1;32m6.18.0[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mLoading SDF world file[[0m[1;32m/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/sentry_gazebo/share/sentry_gazebo/worlds/physics.sdf[0m[1;32m].[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing entity system service on [[0m[1;32m/[0m[1;32mentity/system/add[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mCreate service on [[0m[1;32m/world/sentry_physics/create[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mRemove service on [[0m[1;32m/world/sentry_physics/remove[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPose service on [[0m[1;32m/world/sentry_physics/set_pose[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPose service on [[0m[1;32m/world/sentry_physics/set_pose_vector[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mLight configuration service on [[0m[1;32m/world/sentry_physics/light_config[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPhysics service on [[0m[1;32m/world/sentry_physics/set_physics[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mSphericalCoordinates service on [[0m[1;32m/world/sentry_physics/set_spherical_coordinates[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mEnable collision service on [[0m[1;32m/world/sentry_physics/enable_collision[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mDisable collision service on [[0m[1;32m/world/sentry_physics/disable_collision[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mMaterial service on [[0m[1;32m/world/sentry_physics/visual_config[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mMaterial service on [[0m[1;32m/world/sentry_physics/wheel_slip[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mOdometryPublisher publishing odometry on [[0m[1;32m/model/sentry/odometry[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mOdometryPublisher publishing odometry with covariance on [[0m[1;32m/model/sentry/odometry_with_covariance[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mOdometryPublisher publishing Pose_V (TF) on [[0m[1;32m/model/sentry/pose[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mLoaded level [[0m[1;32m3[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing world controls on [[0m[1;32m/world/sentry_physics[0m[1;32m/control], [[0m[1;32m/world/sentry_physics[0m[1;32m/control/state] and [[0m[1;32m/world/sentry_physics[0m[1;32m/playback/control][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing GUI information on [[0m[1;32m/world/sentry_physics[0m[1;32m/[0m[1;32mgui/info[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mWorld [[0m[1;32msentry_physics[0m[1;32m] initialized with [[0m[1;32mfixed_step[0m[1;32m] physics profile.[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing world SDF generation service on [[0m[1;32m/world/sentry_physics[0m[1;32m/[0m[1;32mgenerate_world_sdf[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing world names on [[0m[1;32m/gazebo/worlds[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mResource path add service on [[0m[1;32m/gazebo/resource_paths/add[0m[1;32m].[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mResource path get service on [[0m[1;32m/gazebo/resource_paths/get[0m[1;32m].[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mResource path resolve service on [[0m[1;32m/gazebo/resource_paths/resolve[0m[1;32m].[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mResource paths published on [[0m[1;32m/gazebo/resource_paths[0m[1;32m].[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServer control service on [[0m[1;32m/server_control[0m[1;32m].[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mFound no publishers on /stats, adding root stats topic[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mFound no publishers on /clock, adding root clock topic[0m[1;32m[0m
+[ign-1] libEGL warning: Not allowed to force software rendering when API explicitly selects a hardware device.
+[sim_adapter.py-3] [INFO] [1790454719.174761403] [sentry_sim_adapter]: Waiting 0.2 simulated seconds for native odometry startup window
+[cloud_adapter.py-4] [WARN] [1790454719.696213745] [sentry_cloud_adapter]: Dropped lidar frame: no TF at measurement time
+[rviz_safe-5] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/FlatColor.svg]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/FlatColor.svg, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_default_plugins/icons/classes/FlatColor.png, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Error retrieving file [file:///opt/ros/humble/share/rviz_default_plugins/icons/classes/FlatColor.png]: Couldn't open file /opt/ros/humble/share/rviz_default_plugins/icons/classes/FlatColor.png, at ./src/rviz_common/load_resource.cpp:55
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_common/icons/classes/Displays.svg, at ./src/rviz_common/load_resource.cpp:71
+[rviz_safe-5] [rviz_common:debug] Load pixmap at package://rviz_common/icons/close.png, at ./src/rviz_common/load_resource.cpp:71
+[cloud_adapter.py-4] [WARN] [1790454753.223004915] [sentry_cloud_adapter]: Dropped lidar frame: no TF at measurement time
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[INFO] [rviz_safe-5]: sending signal 'SIGINT' to process[rviz_safe-5]
+[INFO] [cloud_adapter.py-4]: sending signal 'SIGINT' to process[cloud_adapter.py-4]
+[INFO] [sim_adapter.py-3]: sending signal 'SIGINT' to process[sim_adapter.py-3]
+[INFO] [parameter_bridge-2]: sending signal 'SIGINT' to process[parameter_bridge-2]
+[INFO] [ign-1]: sending signal 'SIGINT' to process[ign-1]
+[parameter_bridge-2] [INFO] [1790455307.203873811] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [parameter_bridge-2]: process has finished cleanly [pid 71582]
+[INFO] [rviz_safe-5]: process has finished cleanly [pid 71588]
+[INFO] [cloud_adapter.py-4]: process has finished cleanly [pid 71586]
+[INFO] [sim_adapter.py-3]: process has finished cleanly [pid 71584]
+[ERROR] [ign-1]: process[ign-1] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+[INFO] [ign-1]: sending signal 'SIGTERM' to process[ign-1]
+[ign-1] [1;32m[Msg] [0m[1;32mLoading plugin [[0m[1;32mignition-rendering-ogre2[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing scene information on [[0m[1;32m/world/sentry_physics[0m[1;32m/[0m[1;32mscene/info[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing graph information on [[0m[1;32m/world/sentry_physics[0m[1;32m/[0m[1;32mscene/graph[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing full state on [[0m[1;32m/world/sentry_physics[0m[1;32m/[0m[1;32mstate[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing full state (async) on [[0m[1;32m/world/sentry_physics[0m[1;32m/[0m[1;32mstate_async[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPublishing scene information on [[0m[1;32m/world/sentry_physics/scene/info[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPublishing entity deletions on [[0m[1;32m/world/sentry_physics/scene/deletion[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPublishing state changes on [[0m[1;32m/world/sentry_physics/state[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPublishing pose messages on [[0m[1;32m/world/sentry_physics[0m[1;32m/[0m[1;32mpose/info[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPublishing dynamic pose messages on [[0m[1;32m/world/sentry_physics[0m[1;32m/[0m[1;32mdynamic_pose/info[0m[1;32m][0m[1;32m[0m
+[ign-1] /usr/lib/ruby/ignition/cmdgazebo6.rb:183:in `kill': No such process (Errno::ESRCH)
+[ign-1] 	from /usr/lib/ruby/ignition/cmdgazebo6.rb:183:in `killProcess'
+[ign-1] 	from /usr/lib/ruby/ignition/cmdgazebo6.rb:509:in `handle_signal'
+[ign-1] 	from /usr/lib/ruby/ignition/cmdgazebo6.rb:519:in `block in execute'
+[ign-1] 	from /usr/lib/ruby/ignition/cmdgazebo6.rb:524:in `wait2'
+[ign-1] 	from /usr/lib/ruby/ignition/cmdgazebo6.rb:524:in `execute'
+[ign-1] 	from /usr/bin/ign:301:in `<main>'
+[ign-1] Escalating to SIGKILL on [Ignition Gazebo GUI]
+[ERROR] [ign-1]: process has died [pid 71580, exit code 1, cmd 'ign gazebo -r -v 3 /home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/sentry_gazebo/share/sentry_gazebo/worlds/physics.sdf --gui-config /home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_autonomy/sentry_gazebo/share/sentry_gazebo/config/physics-gui.config'].

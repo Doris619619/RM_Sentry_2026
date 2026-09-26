@@ -1,0 +1,8 @@
+{"case": 1, "repeat": 1, "start": [-0.919, -4.454], "goal": [-2.719, 1.946], "wall_duration": 36.16292328899726, "status": {"mode": "auto", "state": "arrived", "reason": "position and measured speed settled for 0.5 s"}, "endpoint_error": 0.11164415304012804, "max_speed": 0.3303434879070502, "occupied_samples": 0, "max_cross_track": 0.031187831207812655, "p95_cross_track": 0.028163865147998228, "passed": true}
+{"case": 1, "repeat": 2, "start": [-0.919, -4.454], "goal": [-2.719, 1.946], "wall_duration": 28.844382233000943, "status": {"mode": "auto", "state": "stopped", "reason": "controller timeout"}, "endpoint_error": 1.4232492558434737, "max_speed": 0.316791710815553, "occupied_samples": 0, "max_cross_track": 0.027111883788771565, "p95_cross_track": 0.024824214236950467, "passed": false}
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/closed_loop_check.py", line 112, in <module>
+    if __name__=='__main__':main()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/closed_loop_check.py", line 106, in main
+    if not result['passed']:raise RuntimeError('closed-loop acceptance failed')
+RuntimeError: closed-loop acceptance failed

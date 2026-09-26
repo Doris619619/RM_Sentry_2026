@@ -1,0 +1,9 @@
+{"passed": false, "error": "['_NODE_NAME_UNKNOWN_']"}
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/full_pause_check.py", line 36, in <module>
+    if __name__=='__main__':main()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/full_pause_check.py", line 21, in main
+    q.wiring();moving(q);before=dict(q.samples[-1])
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/full_system_check.py", line 90, in wiring
+    assert public==['sentry_estimated_odometry'],public
+AssertionError: ['_NODE_NAME_UNKNOWN_']

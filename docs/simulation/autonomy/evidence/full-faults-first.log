@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/full_fault_check.py", line 73, in <module>
+    if __name__=='__main__':main()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/full_fault_check.py", line 38, in main
+    moving(q);q.errors=[];initial=dict(q.samples[-1]);start=(time.monotonic(),initial)
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/full_fault_check.py", line 17, in moving
+    q.wait(lambda:q.status.get('state')=='tracking' and q.samples[-1]['speed']>.12,35)
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/full_system_check.py", line 67, in wait
+    raise RuntimeError('condition timed out: '+str(self.status))
+RuntimeError: condition timed out: {'mode': 'auto', 'state': 'planning', 'reason': 'planning'}

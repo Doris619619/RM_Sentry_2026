@@ -1,0 +1,10 @@
+{"case": 1, "repeat": 1, "start": [-0.919, -4.454], "goal": [-3.219, 2.146], "wall_duration": 38.21809605599992, "status": {"mode": "auto", "state": "arrived", "reason": "position and measured speed settled for 0.5 s"}, "endpoint_error": 0.11405626954537071, "max_speed": 0.37653769199856096, "max_yaw_error": 0.0, "occupied_samples": 0, "max_cross_track": 0.03246503603198808, "p95_cross_track": 0.026606306806775778, "passed": true}
+{"case": 1, "repeat": 2, "start": [-0.919, -4.454], "goal": [-3.219, 2.146], "wall_duration": 40.91581957699964, "status": {"mode": "auto", "state": "arrived", "reason": "position and measured speed settled for 0.5 s"}, "endpoint_error": 0.1116038856322188, "max_speed": 0.41240026196337853, "max_yaw_error": 0.0, "occupied_samples": 0, "max_cross_track": 0.027196906777835407, "p95_cross_track": 0.025112846369094874, "passed": true}
+{"case": 1, "repeat": 3, "start": [-0.919, -4.454], "goal": [-3.219, 2.146], "wall_duration": 39.686844863997976, "status": {"mode": "auto", "state": "arrived", "reason": "position and measured speed settled for 0.5 s"}, "endpoint_error": 0.11297286492349484, "max_speed": 0.3663333864022259, "max_yaw_error": 0.0, "occupied_samples": 0, "max_cross_track": 0.031384829513370946, "p95_cross_track": 0.026039736025025916, "passed": true}
+{"case": 2, "repeat": 1, "passed": false, "error": "No fresh valid-endpoint trajectory for [-3.219, 2.146] -> [-0.919, -4.454]", "status": {"mode": "auto", "state": "stopped", "reason": "planner returned no valid path"}}
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/closed_loop_check.py", line 134, in <module>
+    if __name__=='__main__':main()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/closed_loop_check.py", line 128, in main
+    if not result['passed']:raise RuntimeError('closed-loop acceptance failed')
+RuntimeError: closed-loop acceptance failed

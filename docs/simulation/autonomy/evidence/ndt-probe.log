@@ -1,0 +1,1 @@
+{"initial_prior_offset_m": 0.18027756377319945, "max_xy_error_after_5s": 0.07855905543651304, "rms_xy_error_after_5s": 0.07515766332523731, "max_yaw_error_after_5s": 0.00849545365446735, "max_abs_z_error": 0.0066285645589232445, "estimated_hz": 4.999999999999997, "passed": true}

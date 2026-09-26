@@ -1,0 +1,11 @@
+{"name": "cloud_loss", "passed": true, "detail": {"reason": "cloud or measurement TF timeout", "stop_status_latency_wall": 0.8435538029989402, "post_stop_displacement": 0.0}, "wall_seconds": 8.288130674998683}
+{"name": "controller_hang", "passed": true, "detail": {"reason": "controller timeout", "stop_status_latency_wall": 0.6682501109971781, "post_stop_displacement": 0.0}, "wall_seconds": 8.285802693997539}
+{"name": "localization_loss", "passed": false, "error": "condition timeout; status={'mode': 'auto', 'state': 'stopped', 'reason': 'localization timeout'}", "wall_seconds": 6.646034708002844}
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/live_safety_check.py", line 168, in <module>
+    if __name__=='__main__':main()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/live_safety_check.py", line 163, in main
+    if not args.only or args.only==name:qa.run(name,action,out)
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/live_safety_check.py", line 144, in run
+    if not record['passed']:raise RuntimeError(name+' failed')
+RuntimeError: localization_loss failed

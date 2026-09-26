@@ -27,6 +27,7 @@ void AstarPathFinder::getCurPositionIndex(std::vector<Eigen::Vector3d> optimized
  * @brief	获取当前位置在路径中的位置
  */
     cur_start_id = 0;
+    if (optimized_path.size() < 2) return;
     double min_dis = 1000000;
     for (int i = 0; i < optimized_path.size() - 1; i++) {
 
@@ -35,8 +36,8 @@ void AstarPathFinder::getCurPositionIndex(std::vector<Eigen::Vector3d> optimized
         double deta_x = (optimized_path[i+1].x() - optimized_path[i].x()) / n;
         double deta_y = (optimized_path[i+1].y() - optimized_path[i].y()) / n;
         for (int j = 1; j < n; j++){
-            double temp_x = optimized_path[i].x() + deta_x * i;
-            double temp_y = optimized_path[i].y() + deta_y * i;
+            double temp_x = optimized_path[i].x() + deta_x * j;
+            double temp_y = optimized_path[i].y() + deta_y * j;
             double temp_z = 0;
             Vector3d tempPos = {temp_x, temp_y, temp_z};
             double dis = sqrt(pow((cur_pos.x() - tempPos.x()), 2) + pow((cur_pos.y() - tempPos.y()), 2));
@@ -54,6 +55,9 @@ bool AstarPathFinder::checkPathCollision(std::vector<Eigen::Vector3d> optimized_
     /**
      * @brief	检查路径是否与障碍物碰撞，并返回碰撞点坐标  0对应起点
      */
+    if (optimized_path.size() < 2) return false;
+    collision_target_point = optimized_path.back();
+    path_end_id = static_cast<int>(optimized_path.size()) - 1;
     int cur_start_id = 0;
     getCurPositionIndex(optimized_path, cur_pos, cur_start_id);
     int path_start_count = cur_start_id;
@@ -173,9 +177,9 @@ std::vector<Eigen::Vector3d> AstarPathFinder::smoothTopoPath(std::vector<Eigen::
                     }
                 }
 
-                // (Fix 54c) Use isStaticOccupied — consistent with topo search (Fix 53a).
+                // Keep shortcut pruning consistent with static and measured occupancy.
                 // Live lidar obstacles caused detour loops in smoothing.
-                if(global_map->isStaticOccupied(temp_id.x(), temp_id.y(), second_height)){
+                if(global_map->isOccupied(temp_id.x(), temp_id.y(), 0, second_height)){
                     // (Fix 16) Occupied waypoint on topo path — treat as collision to
                     // prevent visibility shortcutting from creating paths that graze obstacles
                     if(!collision){
@@ -339,8 +343,8 @@ bool AstarPathFinder::lineVisib(const Eigen::Vector3d& p1, const Eigen::Vector3d
         }
 
 
-        // (Fix 54c) Use isStaticOccupied — consistent with topo search (Fix 53a).
-        if (global_map->isStaticOccupied(pt_idx, pt_idy, second_height)){
+        // Keep shortcut pruning consistent with static and measured occupancy.
+        if (global_map->isOccupied(pt_idx, pt_idy, 0, second_height)){
             Eigen::Vector3i temp_idx = {pt_idx, pt_idy, pt_idz};
             colli_pt = global_map->gridIndex2coord(temp_idx);
             return false;
@@ -348,19 +352,19 @@ bool AstarPathFinder::lineVisib(const Eigen::Vector3d& p1, const Eigen::Vector3d
         // (Fix 47a) Safety margin: check cells at ±cell_margin offsets in cardinal
         // directions.  This ensures the shortcut maintains clearance from obstacles
         // beyond the base inflation radius, preventing near-miss pruning.
-        // (Fix 54c) All margin checks also use isStaticOccupied.
+        // Margin checks include measured dynamic obstacles.
         if (cell_margin > 0) {
             bool margin_hit = false;
             for (int m = 1; m <= cell_margin && !margin_hit; m++) {
                 int mx, my;
                 mx = pt_idx + m; my = pt_idy;
-                if (mx < global_map->GLX_SIZE && global_map->isStaticOccupied(mx, my, second_height)) { margin_hit = true; break; }
+                if (mx < global_map->GLX_SIZE && global_map->isOccupied(mx, my, 0, second_height)) { margin_hit = true; break; }
                 mx = pt_idx - m;
-                if (mx >= 0 && global_map->isStaticOccupied(mx, my, second_height)) { margin_hit = true; break; }
+                if (mx >= 0 && global_map->isOccupied(mx, my, 0, second_height)) { margin_hit = true; break; }
                 mx = pt_idx; my = pt_idy + m;
-                if (my < global_map->GLY_SIZE && global_map->isStaticOccupied(mx, my, second_height)) { margin_hit = true; break; }
+                if (my < global_map->GLY_SIZE && global_map->isOccupied(mx, my, 0, second_height)) { margin_hit = true; break; }
                 my = pt_idy - m;
-                if (my >= 0 && global_map->isStaticOccupied(mx, my, second_height)) { margin_hit = true; break; }
+                if (my >= 0 && global_map->isOccupied(mx, my, 0, second_height)) { margin_hit = true; break; }
             }
             if (margin_hit) {
                 Eigen::Vector3i temp_idx = {pt_idx, pt_idy, pt_idz};
@@ -444,8 +448,8 @@ bool AstarPathFinder::checkPointCollision(Eigen::Vector3i path_point, int check_
             path_succ.x() = path_point.x() + idx;
             path_succ.y() = path_point.y() + jdx;
             path_succ.z() = path_point.z();
-            // (Fix 54c) Use isStaticOccupied for collision swell check
-            if (global_map->isStaticOccupied(path_succ, false))
+            // Inflate collision queries around measured and static occupancy.
+            if (global_map->isOccupied(path_succ, false))
             {
                 return true;
             }

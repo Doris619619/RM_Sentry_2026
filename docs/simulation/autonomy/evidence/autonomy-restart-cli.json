@@ -1,0 +1,33 @@
+{
+  "before": {
+    "/clock": 1,
+    "/localization/odometry": 1,
+    "/sim/lidar/native": 1,
+    "/cmd_vel": 1,
+    "/global_trajectory": 1
+  },
+  "robots_before": 1,
+  "restart_method": "gazebo_autonomy.sh restart",
+  "after_stop": {
+    "/clock": 0,
+    "/localization/odometry": 0,
+    "/sim/lidar/native": 0,
+    "/cmd_vel": 0,
+    "/global_trajectory": 0
+  },
+  "after_restart": {
+    "/clock": 1,
+    "/localization/odometry": 1,
+    "/sim/lidar/native": 1,
+    "/cmd_vel": 1,
+    "/global_trajectory": 1
+  },
+  "robots_after": 1,
+  "restart_pid": 62160,
+  "native_pose_displacement": 0.0,
+  "native_initial_twist_peak": 454.78211266495515,
+  "max_unrequested_speed": 151.59403755498505,
+  "max_unrequested_command": 0.0,
+  "passed": false,
+  "error": "restart was not single and idle"
+}

@@ -11,7 +11,7 @@ from rclpy.clock import Clock, ClockType
 from rclpy.time import Time
 from rclpy.duration import Duration
 from rclpy.qos import qos_profile_sensor_data
-from sensor_msgs.msg import PointCloud2
+from sensor_msgs.msg import PointCloud2, PointField
 from sensor_msgs_py import point_cloud2
 from std_msgs.msg import Header
 from geometry_msgs.msg import TransformStamped
@@ -34,6 +34,7 @@ class CloudAdapter(Node):
         extrinsic=TransformStamped();extrinsic.header.frame_id='base_link';extrinsic.child_frame_id='lidar_link'
         extrinsic.transform.translation.z=0.7;extrinsic.transform.rotation.w=1.0
         self.static.sendTransform(extrinsic)
+        self.extrinsic=extrinsic
         self.pending=deque(maxlen=8);self.last_warning=0.
         self.create_subscription(PointCloud2,'/sim/lidar/native',self.receive,qos_profile_sensor_data)
         self.create_timer(.02,self.flush,clock=Clock(clock_type=ClockType.STEADY_TIME))
@@ -44,13 +45,20 @@ class CloudAdapter(Node):
             self.warn('Rejected unexpected sensor frame: '+message.header.frame_id)
             return
         raw=copy.deepcopy(message);raw.header.frame_id='lidar_link';self.raw.publish(raw)
-        points=point_cloud2.read_points(raw,field_names=('x','y','z'),skip_nans=False)
+        names=('x','y','z','intensity') if any(f.name=='intensity' for f in raw.fields) else ('x','y','z')
+        points=point_cloud2.read_points(raw,field_names=names,skip_nans=False)
         # Gazebo also carries integer ring metadata; structured extraction keeps mixed fields valid.
         xyz=np.column_stack([points[name].reshape(-1) for name in ('x','y','z')])
         valid=np.isfinite(xyz).all(axis=1)
-        xyz=xyz[valid];ranges=np.linalg.norm(xyz,axis=1)
-        xyz=xyz[(ranges>=.2)&(ranges<9.999)]
-        clean=point_cloud2.create_cloud_xyz32(raw.header,xyz)
+        intensity=points['intensity'].reshape(-1) if 'intensity' in names else np.zeros(len(xyz))
+        ranges=np.linalg.norm(xyz,axis=1)
+        valid&=(ranges>=.2)&(ranges<9.999)&np.isfinite(intensity)
+        fields=[PointField(name=n,offset=i*4,datatype=PointField.FLOAT32,count=1)
+                for i,n in enumerate(('x','y','z','intensity'))]
+        clean=point_cloud2.create_cloud(raw.header,fields,np.column_stack((xyz[valid],intensity[valid])))
+        # The calibrated rigid extrinsic does not depend on a map pose; publish once for localization bootstrap.
+        body_tf=copy.deepcopy(self.extrinsic);body_tf.header.stamp=raw.header.stamp
+        self.body.publish(do_transform_cloud(clean,body_tf))
         self.pending.append((time.monotonic(),clean))
         self.flush()
 
@@ -60,9 +68,7 @@ class CloudAdapter(Node):
         for received,cloud in self.pending:
             try:
                 stamp=Time.from_msg(cloud.header.stamp)
-                body_tf=self.tf.lookup_transform('base_link','lidar_link',stamp)
                 map_tf=self.tf.lookup_transform('map','lidar_link',stamp)
-                self.body.publish(do_transform_cloud(cloud,body_tf))
                 self.aligned.publish(do_transform_cloud(cloud,map_tf))
             except TransformException:
                 if time.monotonic()-received<.5:keep.append((received,cloud))

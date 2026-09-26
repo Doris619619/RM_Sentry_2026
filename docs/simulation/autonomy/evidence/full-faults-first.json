@@ -1,0 +1,23 @@
+[
+  {
+    "passed": false,
+    "error": "condition timed out: {'mode': 'auto', 'state': 'planning', 'reason': 'planning'}",
+    "status": {
+      "mode": "auto",
+      "state": "planning",
+      "reason": "planning"
+    },
+    "mcu": {
+      "endpoint": "/dev/pts/3",
+      "mcu_pid": 76535,
+      "nav_frames": 13764,
+      "motion_frames": 7674,
+      "invalid_frames": 0,
+      "referee_frames_sent": 2607,
+      "scenario": "patrol",
+      "motion_mode": 1,
+      "last_nav_hex": "484b15000200c3009900000000000000000ca94b48",
+      "last_nav_age": -9.173599755740725e-05
+    }
+  }
+]
