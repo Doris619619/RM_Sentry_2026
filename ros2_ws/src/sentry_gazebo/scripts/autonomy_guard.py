@@ -54,6 +54,8 @@ class AutonomyGuard(Node):
     # Wire a single protected output; all fail states require a fresh goal or manual takeover.
     def __init__(self):
         super().__init__('sentry_autonomy_guard')
+        self.declare_parameter('arrival_distance',.15)
+        self.arrival_distance=float(self.get_parameter('arrival_distance').value)
         self.static_grid = StaticSafetyGrid.load()
         self.dynamic_grid = DynamicSafetyGrid()
         self.last_dynamic_request = -math.inf
@@ -279,7 +281,7 @@ class AutonomyGuard(Node):
             elif self.endpoint is not None:
                 p, v = self.odom.pose.pose.position, self.odom.twist.twist
                 distance = math.hypot(p.x-self.endpoint[0], p.y-self.endpoint[1])
-                if distance <= .15 and math.hypot(v.linear.x,v.linear.y) <= .03 and abs(v.angular.z) <= .05:
+                if distance <= self.arrival_distance and math.hypot(v.linear.x,v.linear.y) <= .03 and abs(v.angular.z) <= .05:
                     if self.dwell is None: self.dwell = wall
                     if wall-self.dwell >= .5:
                         self.invalidate('position and measured speed settled for 0.5 s', 'arrived')

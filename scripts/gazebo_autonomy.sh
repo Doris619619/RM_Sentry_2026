@@ -45,4 +45,4 @@ flock -n 9 || { echo '已有仿真运行，请先在原终端 Ctrl+C 停止。';
 python3 "$ROOT/ros2_ws/src/sentry_gazebo/scripts/preflight.py"
 export LIBGL_ALWAYS_SOFTWARE=1
 python3 "$ROOT/ros2_ws/src/sentry_gazebo/scripts/owned_launch.py" register
-exec ros2 launch sentry_gazebo autonomy.launch.py
+exec ros2 launch sentry_gazebo autonomy.launch.py localization:="${SENTRY_LOCALIZATION:-truth}"

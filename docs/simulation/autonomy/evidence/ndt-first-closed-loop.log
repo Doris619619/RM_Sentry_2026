@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/closed_loop_check.py", line 135, in <module>
+    if __name__=='__main__':main()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/closed_loop_check.py", line 100, in main
+    live.prepare(start)
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/closed_loop_check.py", line 68, in prepare
+    self.teleport(start)
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/planning_check.py", line 103, in teleport
+    assert math.hypot(p.x-point[0],p.y-point[1])<1e-5
+AssertionError

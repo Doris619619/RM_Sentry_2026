@@ -1,0 +1,13 @@
+{
+  "purpose": "reference geometry only; lidar observations remain Gazebo sensor data",
+  "occupancy_sha256": "1f745183dc0820407d297ae0f6b764fe6c4447b2395c25948c59f92808183d34",
+  "pcd_sha256": "515cffe3bb72caf278817698dbc3e0a16b5b8acb557620f0539dae88fc377bbb",
+  "points": 424654,
+  "height_m": 1.0,
+  "resolution_m": 0.05,
+  "lower": [
+    -13.394,
+    -12.079
+  ],
+  "intensity": "zero placeholder, not a modeled sensor intensity"
+}

@@ -31,15 +31,15 @@ def main():
         header=Header();header.frame_id=frame;header.stamp.sec=stamp
         pub.publish(point_cloud2.create_cloud_xyz32(header,[(1.,2.,3.),(float('inf'),0.,0.)]))
     spin(2);send(1);spin(.8)
-    assert received['raw'] and not received['body'] and not received['map']
-    records.append({'name':'missing_tf_drops_processed_cloud','passed':True})
+    assert received['raw'] and len(received['body'])==1 and not received['map']
+    records.append({'name':'missing_map_tf_keeps_body_but_rejects_map_cloud','passed':True})
     before=len(received['raw']);send(1,'wrong_sensor');spin(.3);assert len(received['raw'])==before
     records.append({'name':'unexpected_native_frame_rejected','passed':True})
     for stamp in [1,2]:
         tf=TransformStamped();tf.header.frame_id='map';tf.child_frame_id='base_link';tf.header.stamp.sec=stamp
         tf.transform.translation.x=2.;tf.transform.rotation.w=1.;broadcaster.sendTransform(tf);spin(.2)
     send(1);spin(.4)
-    assert len(received['body'])==1 and len(received['map'])==1
+    assert len(received['body'])==2 and len(received['map'])==1
     body=received['body'][-1];world=received['map'][-1]
     assert body.header.stamp.sec==world.header.stamp.sec==1
     b=list(point_cloud2.read_points(body,field_names=('x','y','z')))[0]
@@ -48,7 +48,7 @@ def main():
     records.append({'name':'measurement_stamp_filter_and_extrinsics','passed':True})
     send(100);spin(.8);assert len(received['map'])==1
     records.append({'name':'no_latest_tf_fallback','passed':True})
-    out=Path(__file__).resolve().parents[4]/'docs/simulation/part2/evidence/cloud-negative.json'
+    out=Path(os.environ.get('SENTRY_CLOUD_EVIDENCE',str(Path(__file__).resolve().parents[4]/'docs/simulation/part2/evidence/cloud-negative.json')))
     out.write_text(json.dumps(records,indent=2));print(json.dumps(records,indent=2))
     executor.shutdown();test.destroy_node();adapter.destroy_node();rclpy.shutdown()
 if __name__=='__main__':main()

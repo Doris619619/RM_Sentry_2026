@@ -117,3 +117,12 @@ ROS2 适配器已将当前位姿传入旧拓扑采样器的 odom_position；最�
 
 第三项移动中重规划已通过：换目标、真实箱体绕行、箱体位移和封路停车。
 实际定位、底盘动力学和完整 MCU 链路仍待第四至六项验收。
+
+
+## 使用实际 NDT 定位
+
+`SENTRY_LOCALIZATION=ndt bash scripts/gazebo_autonomy.sh` 使用估计定位控制；
+`SENTRY_LOCALIZATION=ndt bash scripts/gazebo_autonomy.sh restart` 可切换已有仿真。
+真值仍在 /sim/ground_truth/odometry，仅供评估；运行节点不消费它。
+本配置验证有初始位置先验的平面导航，不代表 Point-LIO 或未知位置全局重定位已经通过。
+第四项往返和故障恢复已通过；第五、六项仍待验收。

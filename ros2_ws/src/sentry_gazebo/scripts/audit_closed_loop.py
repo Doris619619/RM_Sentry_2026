@@ -20,7 +20,7 @@ def audit(records):
         references=record.get('trajectories',[])
         paths_free=bool(references) and all(grid.trajectory_free(SimpleNamespace(
             duration=p['duration'],coef_x=p['x'],coef_y=p['y'])) for p in references)
-        output.append({'case':record['case'],'repeat':record['repeat'],'actual_sample_max_gap_m':largest_gap,
+        output.append({'case':record.get('case',record.get('goal')),'repeat':record.get('repeat',1),'actual_sample_max_gap_m':largest_gap,
                        'interpolated_motion_free':bool(motion_free),'all_reference_polynomials_free':bool(paths_free),
                        'passed':bool(record['passed'] and motion_free and paths_free)})
     return output

@@ -1,0 +1,7 @@
+{"goal": [-3.219, 2.146], "status": {"mode": "auto", "state": "arrived", "reason": "position and measured speed settled for 0.5 s"}, "wall_duration": 41.33282984900143, "endpoint_error": 0.06484582642456978, "occupied_samples": 0, "max_localization_error": 0.1511672027968866, "rms_localization_error": 0.08691204953227814, "max_localization_yaw_error": 0.01556979100738146, "localization_publisher": "sentry_estimated_odometry", "truth_input_consumers": [], "passed": false}
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/ndt_route_check.py", line 66, in <module>
+    if __name__=='__main__':main()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/ndt_route_check.py", line 62, in main
+    if not result['passed']:raise RuntimeError('NDT closed-loop acceptance failed')
+RuntimeError: NDT closed-loop acceptance failed

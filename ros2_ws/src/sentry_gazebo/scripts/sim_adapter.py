@@ -18,6 +18,8 @@ from tf2_ros import TransformBroadcaster, StaticTransformBroadcaster
 class SimAdapter(Node):
     def __init__(self):
         super().__init__('sentry_sim_adapter')
+        self.declare_parameter('publish_truth', True)
+        self.publish_truth=bool(self.get_parameter('publish_truth').value)
         self.declare_parameter('command_timeout', 0.5)
         self.declare_parameter('max_linear', 0.5)
         self.declare_parameter('max_angular', 0.5)
@@ -34,22 +36,22 @@ class SimAdapter(Node):
         self.last_raw_stamp = None
         self.odom_ready_ns = 0
         self.command_pub = self.create_publisher(Twist, '/sim/guarded_cmd_vel', 1)
-        self.odom_pub = self.create_publisher(Odometry, '/localization/odometry', 10)
-        self.tf = TransformBroadcaster(self)
-        self.static_tf = StaticTransformBroadcaster(self)
+        self.odom_pub = self.create_publisher(Odometry, '/localization/odometry', 10) if self.publish_truth else None
+        self.tf = TransformBroadcaster(self) if self.publish_truth else None
+        self.static_tf = StaticTransformBroadcaster(self) if self.publish_truth else None
         identity = TransformStamped()
         identity.header.frame_id = 'map'
         identity.child_frame_id = 'odom'
         identity.transform.rotation.w = 1.0
-        self.static_tf.sendTransform(identity)
+        if self.publish_truth:self.static_tf.sendTransform(identity)
         self.create_subscription(Twist, '/cmd_vel', self.on_command, 1)
-        self.create_subscription(Odometry, '/sim/ground_truth/odometry', self.on_odom, 10)
+        if self.publish_truth:self.create_subscription(Odometry, '/sim/ground_truth/odometry', self.on_odom, 10)
         clock_qos = QoSProfile(depth=1, reliability=ReliabilityPolicy.BEST_EFFORT,
                                durability=DurabilityPolicy.VOLATILE)
         self.create_subscription(ClockMsg, '/clock', self.on_clock, clock_qos)
         # Safety MUST keep ticking while simulated time is paused.
         self.create_timer(0.02, self.tick, clock=Clock(clock_type=ClockType.STEADY_TIME))
-        self.get_logger().info('Ideal planar simulator: 0.5 s wall-time watchdog, 50 Hz feedback')
+        self.get_logger().info('0.5 s command watchdog; truth localization '+('enabled' if self.publish_truth else 'disabled'))
 
     def clear(self):
         self.command = Twist()

@@ -1,0 +1,1 @@
+{"stop_latency_wall": 0.4657586280009127, "reason": "localization timestamp", "post_stop_drift": 0.0, "old_goal_resumed": false, "initialpose_hint_offset": [0.15, -0.1], "recovered_xy_error": 0.021650845087688168, "passed": true}

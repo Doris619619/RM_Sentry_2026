@@ -2,22 +2,26 @@
 from pathlib import Path
 from ament_index_python.packages import get_package_share_directory,get_package_prefix
 from launch import LaunchDescription
-from launch.actions import ExecuteProcess,SetEnvironmentVariable,RegisterEventHandler,EmitEvent,DeclareLaunchArgument
+from launch.actions import ExecuteProcess,SetEnvironmentVariable,RegisterEventHandler,EmitEvent,DeclareLaunchArgument,IncludeLaunchDescription
 from launch.event_handlers import OnProcessExit
 from launch.events import Shutdown
-from launch.substitutions import LaunchConfiguration
+from launch.substitutions import LaunchConfiguration,PythonExpression
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch_ros.parameter_descriptions import ParameterValue
 from launch.conditions import IfCondition
 from launch_ros.actions import Node
 
 def generate_launch_description():
     """Keep production defaults isolated; use simulation clock and deterministic QA seed."""
     share=Path(get_package_share_directory('sentry_gazebo'))
+    ndt_condition=IfCondition(PythonExpression(["'",LaunchConfiguration('localization'),"' == 'ndt'"]))
+    truth_enabled=ParameterValue(PythonExpression(["'",LaunchConfiguration('localization'),"' == 'truth'"]),value_type=bool)
     planner_share=Path(get_package_share_directory('trajectory_generation'))
     tracking_share=Path(get_package_share_directory('trajectory_tracking'))
     gazebo=ExecuteProcess(cmd=['ign','gazebo','-r','-v','3',str(share/'worlds/planning.sdf'),'--gui-config',str(share/'config/autonomy-gui.config')],output='screen')
     bridge=Node(package='ros_gz_bridge',executable='parameter_bridge',name='sentry_gazebo_bridge',
         parameters=[{'config_file':str(share/'config/lidar_bridge.yaml'),'use_sim_time':True}],output='screen')
-    adapter=Node(package='sentry_gazebo',executable='sim_adapter.py',parameters=[{'use_sim_time':True}],output='screen')
+    adapter=Node(package='sentry_gazebo',executable='sim_adapter.py',parameters=[{'use_sim_time':True,'publish_truth':truth_enabled}],output='screen')
     cloud=Node(package='sentry_gazebo',executable='cloud_adapter.py',parameters=[{'use_sim_time':True}],output='screen')
     display=Node(package='sentry_gazebo',executable='map_display.py',parameters=[{'use_sim_time':True}],output='screen')
     planner=Node(package='trajectory_generation',executable='trajectory_generator_node',name='trajectory_generation',
@@ -27,15 +31,17 @@ def generate_launch_description():
     rviz=Node(package='sentry_gazebo',executable='rviz_safe',arguments=['-d',str(share/'config/autonomy.rviz')],parameters=[{'use_sim_time':True}],output='screen')
     tracking=Node(package='trajectory_tracking',executable='trajectory_tracking_node',name='trajectory_tracking',
         parameters=[str(tracking_share/'config/tracking.yaml'),str(planner_share/'config/map_metadata.yaml'),
-                    str(share/'config/autonomy.yaml'),{'use_sim_time':True}],output='screen')
+                    str(share/'config/autonomy.yaml'),{'use_sim_time':True,'arrival.distance':ParameterValue(PythonExpression(["0.06 if '",LaunchConfiguration('localization'),"' == 'ndt' else 0.12"]),value_type=float)}],output='screen')
     hit=Node(package='trajectory_tracking',executable='hit_bridge',parameters=[
         {'use_sim_time':True,'cmd_vel_topic':'/sim/auto_cmd_vel','tracking_arrived_topic':'/sim/arrived'}],output='screen')
-    guard=Node(package='sentry_gazebo',executable='autonomy_guard.py',parameters=[{'use_sim_time':True}],output='screen')
-    processes=[gazebo,bridge,adapter,cloud,display,planner,rviz,tracking,hit,guard]
-    actions=[DeclareLaunchArgument('enable_planner',default_value='true'),
+    guard=Node(package='sentry_gazebo',executable='autonomy_guard.py',parameters=[{'use_sim_time':True,'arrival_distance':ParameterValue(PythonExpression(["0.08 if '",LaunchConfiguration('localization'),"' == 'ndt' else 0.15"]),value_type=float)}],output='screen')
+    estimated=Node(package='sentry_gazebo',executable='estimated_odometry.py',parameters=[{'use_sim_time':True}],condition=ndt_condition,output='screen')
+    ndt=IncludeLaunchDescription(PythonLaunchDescriptionSource(str(share/'launch/ndt_probe.launch.py')),condition=ndt_condition)
+    processes=[estimated,gazebo,bridge,adapter,cloud,display,planner,rviz,tracking,hit,guard]
+    actions=[DeclareLaunchArgument('localization',default_value='truth',choices=['truth','ndt']),DeclareLaunchArgument('enable_planner',default_value='true'),
         SetEnvironmentVariable('IGN_GAZEBO_SYSTEM_PLUGIN_PATH',str(Path(get_package_prefix('sentry_gazebo'))/'lib')),
         SetEnvironmentVariable('IGN_GAZEBO_RESOURCE_PATH',str(share/'models')),SetEnvironmentVariable('QT_QPA_PLATFORM','xcb')]
     for process in processes:
         actions.append(RegisterEventHandler(OnProcessExit(target_action=process,on_exit=[EmitEvent(event=Shutdown(reason='Planning simulation component exited'))])))
     layout=ExecuteProcess(cmd=['python3',str(Path(get_package_prefix('sentry_gazebo'))/'lib/sentry_gazebo/gui_layout.py')],output='screen')
-    return LaunchDescription(actions+processes+[layout])
+    return LaunchDescription(actions+processes+[ndt,layout])
