@@ -119,6 +119,23 @@ class GuardTests(unittest.TestCase):
         self.node.tick()
         self.assertEqual(self.node.reason,'trajectory expired')
 
+    # A suspended supervisor must require a fresh goal after its own scheduling gap.
+    def test_supervisor_stall(self):
+        self.node.on_goal(self.goal);self.node.on_trajectory(self.path())
+        self.node.last_tick_wall-=2
+        self.node.tick()
+        self.assertEqual(self.node.state,'stopped')
+        self.assertIn('supervisor',self.node.reason)
+
+    # Unsupported Fortress rewind must require a complete restart, even after explicit auto selection.
+    def test_clock_rewind_requires_restart(self):
+        self.node.on_goal(self.goal);self.node.on_trajectory(self.path())
+        self.node.sim_previous=self.node.get_clock().now().nanoseconds*1e-9+1
+        self.node.tick();self.node.on_mode(String(data='auto'));self.node.on_goal(self.goal)
+        self.assertTrue(self.node.epoch_fault)
+        self.assertEqual(self.node.state,'stopped')
+        self.assertIn('restart',self.node.reason)
+
     # A stopped simulation latches the autonomous trajectory off rather than resuming on clock progress.
     def test_pause_latches(self):
         self.node.on_goal(self.goal);self.node.on_trajectory(self.path())

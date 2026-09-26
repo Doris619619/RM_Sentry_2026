@@ -34,10 +34,15 @@ fi
 if [[ "$MODE" == auto || "$MODE" == stop ]]; then
   exec ros2 topic pub --once /sim/control_mode std_msgs/msg/String "{data: $MODE}"
 fi
-[[ "$MODE" == start ]] || { echo "Usage: $0 [start|keyboard|auto|stop|build]"; exit 2; }
+if [[ "$MODE" == restart ]]; then
+  python3 "$ROOT/ros2_ws/src/sentry_gazebo/scripts/owned_launch.py" stop
+  MODE=start
+fi
+[[ "$MODE" == start ]] || { echo "Usage: $0 [start|keyboard|auto|stop|restart|build]"; exit 2; }
 [[ -n "${DISPLAY:-}" ]] || { echo '请在 Ubuntu 桌面终端启动。'; exit 1; }
 exec 9>"${XDG_RUNTIME_DIR:-/tmp}/sentry-gazebo-${UID}-${ROS_DOMAIN_ID}.lock"
 flock -n 9 || { echo '已有仿真运行，请先在原终端 Ctrl+C 停止。'; exit 1; }
 python3 "$ROOT/ros2_ws/src/sentry_gazebo/scripts/preflight.py"
 export LIBGL_ALWAYS_SOFTWARE=1
+python3 "$ROOT/ros2_ws/src/sentry_gazebo/scripts/owned_launch.py" register
 exec ros2 launch sentry_gazebo autonomy.launch.py

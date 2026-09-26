@@ -1,11 +1,12 @@
-# Build the pause safety plugin, orderly RViz entry point and standalone simulation resources.
+# Build native command/pause protection, orderly RViz and standalone simulation resources.
 cmake_minimum_required(VERSION 3.16)
 project(sentry_gazebo)
 find_package(ament_cmake REQUIRED)
 find_package(ignition-gazebo6 REQUIRED)
+find_package(ignition-transport11 REQUIRED)
 add_library(sentry_resume_guard SHARED src/resume_guard.cpp)
 target_compile_features(sentry_resume_guard PRIVATE cxx_std_17)
-target_link_libraries(sentry_resume_guard ignition-gazebo6::ignition-gazebo6)
+target_link_libraries(sentry_resume_guard ignition-gazebo6::ignition-gazebo6 ignition-transport11::ignition-transport11)
 install(TARGETS sentry_resume_guard LIBRARY DESTINATION lib)
 install(DIRECTORY launch worlds models config DESTINATION share/${PROJECT_NAME})
 install(PROGRAMS scripts/sim_adapter.py scripts/keyboard.py scripts/cloud_adapter.py scripts/map_display.py scripts/autonomy_guard.py scripts/autonomy_geometry.py scripts/gui_layout.py DESTINATION lib/${PROJECT_NAME})

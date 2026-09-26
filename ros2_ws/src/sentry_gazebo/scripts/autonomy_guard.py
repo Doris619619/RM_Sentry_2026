@@ -65,6 +65,7 @@ class AutonomyGuard(Node):
         self.cloud_stamp = -math.inf
         self.command = Twist()
         self.sim_previous = None
+        self.epoch_fault = False
         self.clock_progress = time.monotonic()
         self.accepted_at = -math.inf
         self.valid_until = -math.inf
@@ -86,6 +87,7 @@ class AutonomyGuard(Node):
         self.create_subscription(String, '/sim/control_mode', self.on_mode, 10)
         self.create_timer(.02, self.tick, clock=Clock(clock_type=ClockType.STEADY_TIME))
         self.last_status = 0.
+        self.last_tick_wall = time.monotonic()
 
     # Clear the active controller reference as well as the output; never silently resume old work.
     def invalidate(self, reason, state='stopped'):
@@ -117,6 +119,8 @@ class AutonomyGuard(Node):
 
     # Reject a stale localization/cloud even when a publisher keeps replaying its payload.
     def healthy(self, wall, sim):
+        if self.epoch_fault:
+            return 'simulation clock rewound; restart required'
         if self.odom is None or wall-self.odom_received > .5:
             return 'localization timeout'
         age = sim-seconds(self.odom.header.stamp)
@@ -128,6 +132,10 @@ class AutonomyGuard(Node):
 
     # New requests stop the previous trajectory before asking the planner; failure cannot drive old paths.
     def on_goal(self, message):
+        if self.epoch_fault:
+            self.goal = None
+            self.invalidate('simulation clock rewound; restart required')
+            return
         self.invalidate('planning', 'planning')
         self.goal = None
         sim = self.get_clock().now().nanoseconds * 1e-9
@@ -201,6 +209,10 @@ class AutonomyGuard(Node):
 
     # Explicit mode selection always clears old motion; returning to auto requires a new goal.
     def on_mode(self, message):
+        if self.epoch_fault:
+            self.mode='stop'
+            self.invalidate('simulation clock rewound; restart required')
+            return
         if message.data in ('auto','manual','stop'):
             self.mode = message.data
             self.goal = None
@@ -209,11 +221,17 @@ class AutonomyGuard(Node):
     # Use wall time for fail-safe operation during pause; successful arrival also requires low measured speed.
     def tick(self):
         wall = time.monotonic()
+        # A resumed supervisor must not re-arm a trajectory after missing its own deadlines.
+        if wall-self.last_tick_wall > .5 and self.state in ('planning','tracking'):
+            self.invalidate('supervisor scheduling stall')
+        self.last_tick_wall = wall
         sim = self.get_clock().now().nanoseconds * 1e-9
         if self.sim_previous is None or sim != self.sim_previous:
             if self.sim_previous is not None and sim < self.sim_previous:
                 self.goal = None
-                self.invalidate('simulation time reset')
+                self.epoch_fault = True
+                self.mode = 'stop'
+                self.invalidate('simulation clock rewound; restart required')
             self.clock_progress = wall
         self.sim_previous = sim
         fault = self.healthy(wall, sim)

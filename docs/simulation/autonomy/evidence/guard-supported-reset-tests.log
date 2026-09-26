@@ -1,0 +1,13 @@
+F.............
+======================================================================
+FAIL: test_clock_rewind_requires_restart (__main__.GuardTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/test_autonomy_guard.py", line 137, in test_clock_rewind_requires_restart
+    self.assertIn('restart',self.node.reason)
+AssertionError: 'restart' not found in 'select auto before sending a new goal'
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.279s
+
+FAILED (failures=1)

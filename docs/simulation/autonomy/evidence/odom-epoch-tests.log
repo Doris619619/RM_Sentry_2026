@@ -1,0 +1,11 @@
+[INFO] [1790451167.485648726] [sentry_sim_adapter]: Ideal planar simulator: 0.5 s wall-time watchdog, 50 Hz feedback
+.[INFO] [1790451167.497065132] [sentry_sim_adapter]: Ideal planar simulator: 0.5 s wall-time watchdog, 50 Hz feedback
+[INFO] [1790451167.497759059] [sentry_sim_adapter]: Waiting for a second native odometry sample after startup/time reset
+[INFO] [1790451167.498618226] [sentry_sim_adapter]: Waiting for a second native odometry sample after startup/time reset
+.[INFO] [1790451167.506197255] [sentry_sim_adapter]: Ideal planar simulator: 0.5 s wall-time watchdog, 50 Hz feedback
+[INFO] [1790451167.506826873] [sentry_sim_adapter]: Waiting for a second native odometry sample after startup/time reset
+.
+----------------------------------------------------------------------
+Ran 3 tests in 0.105s
+
+OK

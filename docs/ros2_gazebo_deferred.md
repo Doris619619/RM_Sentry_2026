@@ -53,3 +53,7 @@ not attempted.
 独立自主入口已通过五组各三次实际 MPC 到点及 90° 初始航向复核；最大到点误差 0.1172 m。
 报告与原始证据见 [六项后续仿真验收报告](simulation/autonomy/验收报告.md)。
 安全故障注入、动态场景、实际定位、物理底盘与完整通信联调仍分别验收；不宣称六项全部完成。
+
+Autonomy step 2 now passes nine actual fault-injection cases and the verified full-restart CLI.
+Native clock rewind is fail-stop and requires a complete restart; it is not supported in place.
+See [autonomy acceptance](simulation/autonomy/验收报告.md).

@@ -6,6 +6,7 @@
   <maintainer email="maintainers@example.invalid">RM Sentry maintainers</maintainer><license>BSD-3-Clause</license>
   <buildtool_depend>ament_cmake</buildtool_depend>
   <depend>ignition-gazebo6</depend>
+  <depend>ignition-transport11</depend>
   <exec_depend>ament_index_python</exec_depend><exec_depend>rclpy</exec_depend>
   <exec_depend>geometry_msgs</exec_depend><exec_depend>nav_msgs</exec_depend>
   <exec_depend>rosgraph_msgs</exec_depend><exec_depend>tf2_ros</exec_depend>

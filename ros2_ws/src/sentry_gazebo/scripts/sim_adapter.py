@@ -31,6 +31,8 @@ class SimAdapter(Node):
         self.last_command = -math.inf
         self.last_progress = -math.inf
         self.sim_ns = None
+        self.last_raw_stamp = None
+        self.odom_ready_ns = 0
         self.command_pub = self.create_publisher(Twist, '/sim/guarded_cmd_vel', 1)
         self.odom_pub = self.create_publisher(Odometry, '/localization/odometry', 10)
         self.tf = TransformBroadcaster(self)
@@ -97,6 +99,22 @@ class SimAdapter(Node):
         norm = math.sqrt(q.x*q.x + q.y*q.y + q.z*q.z + q.w*q.w)
         if abs(norm - 1.0) > 0.01:
             self.clear()
+            return
+        stamp_ns = msg.header.stamp.sec*1000000000 + msg.header.stamp.nanosec
+        if self.sim_ns is None or not -.5e9 <= stamp_ns-self.sim_ns <= .05e9:
+            self.clear()
+            return
+        first_or_reset = self.last_raw_stamp is None or stamp_ns <= self.last_raw_stamp
+        self.last_raw_stamp = stamp_ns
+        if first_or_reset:
+            # Fortress averages ten physics samples; wait 0.2 simulated seconds
+            # so its initial origin-to-spawn derivative has left the native window.
+            self.odom_ready_ns = stamp_ns + 200000000
+        if stamp_ns < self.odom_ready_ns:
+            self.clear()
+            self.command_pub.publish(Twist())
+            if first_or_reset:
+                self.get_logger().info('Waiting 0.2 simulated seconds for native odometry startup window')
             return
         odom = copy.deepcopy(msg)
         odom.header.frame_id = 'map'

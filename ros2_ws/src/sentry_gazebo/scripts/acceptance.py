@@ -18,6 +18,9 @@ from rclpy.node import Node
 from rclpy.time import Time
 from tf2_ros import Buffer, TransformListener
 
+# Optional evidence root preserves previous accepted baselines during later regressions.
+EVIDENCE_DIR=Path(os.environ.get('SENTRY_EVIDENCE_DIR',str(Path(__file__).resolve().parents[4]/'docs/simulation/evidence')))
+
 def yaw(m):
     q = m.pose.pose.orientation
     return math.atan2(2*(q.w*q.z+q.x*q.y), 1-2*(q.y*q.y+q.z*q.z))
@@ -263,7 +266,8 @@ class Acceptance(Node):
                     transcript += os.read(master, 65536)
                 if proc.poll() is not None or time.monotonic() > deadline:
                     raise RuntimeError('Keyboard not ready: ' + transcript.decode(errors='replace'))
-            (Path(__file__).resolve().parents[4]/'docs/simulation/evidence/keyboard-transcript.txt').write_bytes(transcript)
+            EVIDENCE_DIR.mkdir(parents=True,exist_ok=True)
+            (EVIDENCE_DIR/'keyboard-transcript.txt').write_bytes(transcript)
             for key, expected in [(b'w',(0.2,0.,0.)), (b's',(-0.2,0.,0.)),
                                   (b'a',(0.,0.2,0.)), (b'd',(0.,-0.2,0.)),
                                   (b'q',(0.,0.,0.3)), (b'e',(0.,0.,-0.3))]:
@@ -298,7 +302,7 @@ class Acceptance(Node):
 def main():
     rclpy.init()
     node=Acceptance()
-    out=Path(__file__).resolve().parents[4]/'docs/simulation/evidence/motion.json'
+    out=EVIDENCE_DIR/'motion.json'
     try:
         node.run()
     finally:
