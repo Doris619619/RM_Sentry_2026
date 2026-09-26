@@ -1,6 +1,8 @@
+<!-- 文件用途：汇总第一阶段 Gazebo 仿真的实测结果、兼容限制和原始证据。 -->
+
 # 第一阶段仿真验收报告
 
-日期：2026-09-26。开发目标为 **/home/liangys/RM_Sentry_2026**，分支 **codex/sentry-sim-part1**，基于 459c0a6。
+日期：2026-09-26。开发目标为 **/home/liangys/RM_Sentry_2026**，分支 **feat/20260926-sentry-sim-part1**，基于 459c0a6。
 交付的是本仓库的基础导航仿真，不是同学 rm_sentry_nav 的复现。
 生产启动、fixture 行为、规划/跟踪算法未修改。
 
