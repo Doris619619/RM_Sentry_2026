@@ -1,0 +1,14 @@
+{
+  "publishers": {
+    "/clock": 1,
+    "/localization/odometry": 1,
+    "/sim/lidar/points": 1,
+    "/aligned_points": 1,
+    "/tf": 1,
+    "/tf_static": 2,
+    "/cmd_vel": 0
+  },
+  "launch_pid": 30668,
+  "process_count": 10,
+  "passed": true
+}

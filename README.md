@@ -18,6 +18,8 @@
 运行环境为 VMware Ubuntu 22.04、ROS 2 Humble 和 Gazebo Fortress。
 [中文使用说明](docs/simulation/README.md) 包含启动、键盘控制和停止命令；
 [验收报告](docs/simulation/ACCEPTANCE.md) 包含实际截图、运动反馈和性能数据。
-当前阶段提供理想平面手动运动与位置反馈，后续地图、点云和导航接入见使用说明中的第二阶段交接。
+第一阶段提供理想平面手动运动与位置反馈，原入口保持可回退。
 
-第二阶段的场地、雷达点云和规划展示进度见 [第二阶段说明](docs/simulation/part2/README.md)。
+第二阶段已接通地图对应场地、真实雷达点云和 RViz 目标/路径展示，运行方法见 [第二阶段说明](docs/simulation/part2/README.md)。
+**整体验收尚未通过：15 次规划检查中 9 次存在段间跳变，不能接入自动跟踪。**
+[验收报告](docs/simulation/part2/ACCEPTANCE.md)、[五页队会提纲](docs/simulation/part2/TEAM_REPORT.md) 和 [演示视频](docs/simulation/part2/demo.mp4) 已归档。

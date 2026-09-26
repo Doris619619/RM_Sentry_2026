@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """Publish a map-coordinate occupancy display and a ground-truth robot marker for RViz."""
 from pathlib import Path
+import copy,hashlib,json
 import numpy as np,yaml
 from PIL import Image
 import rclpy
+from rclpy.executors import ExternalShutdownException
 from rclpy.node import Node
 from rclpy.qos import QoSProfile,DurabilityPolicy
 from ament_index_python.packages import get_package_share_directory
@@ -16,6 +18,11 @@ class MapDisplay(Node):
         """Publish the latched map once and subscribe to actual odometry for robot visualization."""
         super().__init__('sentry_map_display')
         root=Path(get_package_share_directory('trajectory_generation'))
+        manifest=Path(get_package_share_directory('sentry_gazebo'))/'config/map_manifest.json'
+        expected=json.loads(manifest.read_text())['source_sha256']
+        for name,digest in expected.items():
+            if hashlib.sha256((root/name).read_bytes()).hexdigest()!=digest:
+                raise RuntimeError('Planner map changed: regenerate scene before launch: '+name)
         params=yaml.safe_load((root/'config/map_metadata.yaml').read_text())['trajectory_generation']['ros__parameters']
         img=np.array(Image.open(root/'map/occfinal.png').convert('L'))
         grid=OccupancyGrid();grid.header.frame_id='map';grid.info.resolution=params['planner.map_resolution']
@@ -30,7 +37,7 @@ class MapDisplay(Node):
         self.count+=1
         if self.count%5:return
         m=Marker();m.header=odom.header;m.ns='sentry';m.id=0;m.type=Marker.CUBE;m.action=Marker.ADD
-        m.pose=odom.pose.pose;m.pose.position.z+=.25
+        m.pose=copy.deepcopy(odom.pose.pose);m.pose.position.z+=.25
         m.scale.x=.7;m.scale.y=.5;m.scale.z=.3
         m.color.r=.05;m.color.g=.4;m.color.b=.9;m.color.a=1.
         self.marker.publish(m)
@@ -39,7 +46,7 @@ def main():
     """Keep transient-local map available for RViz restarts until launch shuts down."""
     rclpy.init();node=MapDisplay()
     try:rclpy.spin(node)
-    except KeyboardInterrupt:pass
+    except (KeyboardInterrupt, ExternalShutdownException):pass
     finally:
         node.destroy_node()
         if rclpy.ok():rclpy.shutdown()

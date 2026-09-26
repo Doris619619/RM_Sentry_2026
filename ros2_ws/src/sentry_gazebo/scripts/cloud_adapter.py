@@ -5,6 +5,7 @@ import time
 from collections import deque
 import numpy as np
 import rclpy
+from rclpy.executors import ExternalShutdownException
 from rclpy.node import Node
 from rclpy.clock import Clock, ClockType
 from rclpy.time import Time
@@ -77,7 +78,7 @@ def main():
     """Run until launch shutdown; no command or localization publisher is created."""
     rclpy.init();node=CloudAdapter()
     try:rclpy.spin(node)
-    except KeyboardInterrupt:pass
+    except (KeyboardInterrupt, ExternalShutdownException):pass
     finally:
         node.destroy_node()
         if rclpy.ok():rclpy.shutdown()

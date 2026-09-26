@@ -31,7 +31,7 @@ def write_mesh(path,rects,resolution,lower_x,lower_y,rows):
         vertices.extend([(x0,y0,0),(x1,y0,0),(x1,y1,0),(x0,y1,0),(x0,y0,1),(x1,y0,1),(x1,y1,1),(x0,y1,1)])
         triangles.extend(tuple(start+i for i in face) for face in faces)
     coords=' '.join(str(v) for xyz in vertices for v in xyz)
-    indices=' '.join(str(v) for face in triangles for v in face)
+    indices=' '.join(str(value) for i,face in enumerate(triangles) for v in face for value in (v,(i%12)//2))
     path.write_text(f'''<?xml version="1.0"?>
 <!-- Generated raw-map obstacles; geometry is planar occupancy extruded to 1 m, not real terrain. -->
 <COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
@@ -41,8 +41,9 @@ def write_mesh(path,rects,resolution,lower_x,lower_y,rows):
 <library_geometries><geometry id="obstacles"><mesh>
 <source id="positions"><float_array id="coords" count="{len(vertices)*3}">{coords}</float_array>
 <technique_common><accessor source="#coords" count="{len(vertices)}" stride="3"><param name="X" type="float"/><param name="Y" type="float"/><param name="Z" type="float"/></accessor></technique_common></source>
+<source id="normals"><float_array id="normal-values" count="18">0 0 -1 0 0 1 0 -1 0 1 0 0 0 1 0 -1 0 0</float_array><technique_common><accessor source="#normal-values" count="6" stride="3"><param name="X" type="float"/><param name="Y" type="float"/><param name="Z" type="float"/></accessor></technique_common></source>
 <vertices id="verts"><input semantic="POSITION" source="#positions"/></vertices>
-<triangles material="wall" count="{len(triangles)}"><input semantic="VERTEX" source="#verts" offset="0"/><p>{indices}</p></triangles>
+<triangles material="wall" count="{len(triangles)}"><input semantic="VERTEX" source="#verts" offset="0"/><input semantic="NORMAL" source="#normals" offset="1"/><p>{indices}</p></triangles>
 </mesh></geometry></library_geometries>
 <library_visual_scenes><visual_scene id="scene"><node id="map"><instance_geometry url="#obstacles"><bind_material><technique_common><instance_material symbol="wall" target="#wall-material"/></technique_common></bind_material></instance_geometry></node></visual_scene></library_visual_scenes>
 <scene><instance_visual_scene url="#scene"/></scene></COLLADA>''')

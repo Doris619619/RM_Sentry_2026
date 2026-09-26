@@ -1,0 +1,13 @@
+{
+  "subscriptions": [
+    {
+      "node": "trajectory_generation",
+      "type": "geometry_msgs/msg/PoseStamped"
+    },
+    {
+      "node": "rviz",
+      "type": "geometry_msgs/msg/PoseStamped"
+    }
+  ],
+  "passed": true
+}

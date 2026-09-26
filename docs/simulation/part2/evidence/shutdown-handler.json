@@ -1,0 +1,16 @@
+[
+  {
+    "node": "cloud_adapter.py",
+    "signal": "SIGTERM",
+    "exit_code": 0,
+    "output": "",
+    "passed": true
+  },
+  {
+    "node": "map_display.py",
+    "signal": "SIGTERM",
+    "exit_code": 0,
+    "output": "",
+    "passed": true
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "description": "Actual occupied-cell goal corrected using existing farthest-free neighbor in radius-two square; static map calculation compared to actual endpoint.",
+  "requested_goal": [
+    -2.719,
+    1.896
+  ],
+  "expected_corrected_goal": [
+    -2.819,
+    1.996
+  ],
+  "actual_endpoint": [
+    -2.818999938588286,
+    1.9959998965598627
+  ],
+  "correction_error_m": 1.2029655282865858e-07,
+  "passed": true
+}

@@ -1,0 +1,1435 @@
+[INFO] [launch]: All log files can be found below /home/liangys/.ros/log/2026-09-26-12-11-11-770618-ubuntu64-oc-24201
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [ign-1]: process started with pid [24227]
+[INFO] [parameter_bridge-2]: process started with pid [24229]
+[INFO] [sim_adapter.py-3]: process started with pid [24231]
+[INFO] [cloud_adapter.py-4]: process started with pid [24233]
+[INFO] [map_display.py-5]: process started with pid [24235]
+[INFO] [trajectory_generator_node-6]: process started with pid [24237]
+[INFO] [rviz2-7]: process started with pid [24239]
+[rviz2-7] [INFO] [1790439072.108351142] [rviz2]: Stereo is NOT SUPPORTED
+[rviz2-7] [INFO] [1790439072.108984763] [rviz2]: OpenGl version: 4.5 (GLSL 4.5)
+[rviz2-7] [INFO] [1790439072.195726167] [rviz2]: Stereo is NOT SUPPORTED
+[sim_adapter.py-3] [INFO] [1790439072.398823491] [sentry_sim_adapter]: Ideal planar simulator: 0.5 s wall-time watchdog, 50 Hz feedback
+[trajectory_generator_node-6] [Manager Init] map/file_path: 
+[trajectory_generator_node-6] [Manager Init] map/occ_file_path: /home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/trajectory_generation/share/trajectory_generation/map/occfinal.png
+[trajectory_generator_node-6] [Manager Init] map/bev_file_path: /home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/trajectory_generation/share/trajectory_generation/map/bevfinal.png
+[trajectory_generator_node-6] [Manager Init] map/distance_map_file_path: /home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/trajectory_generation/share/trajectory_generation/map/occtopo.png
+[trajectory_generator_node-6] m_height_bias: 0.0152941 m_height_interval: 1.5 m_height_threshold: 0.08 height_sencond_high_threshold: 0.2
+[ign-1] [1;33m[GUI] [Wrn] [Application.cc:802] [0m[1;33m[QT] file::/Gazebo/GazeboDrawer.qml:242:3: QML Connections: Implicitly defined onFoo properties in Connections are deprecated. Use this syntax instead: function onFoo(<arguments>) { ... }[0m[1;33m[0m
+[rviz2-7] [INFO] [1790439072.590295311] [rviz2]: Trying to create a map of size 400 x 400 using 1 swatches
+[rviz2-7] [ERROR] [1790439072.600456636] [rviz2]: Vertex Program:rviz/glsl120/indexed_8bit_image.vert Fragment Program:rviz/glsl120/indexed_8bit_image.frag GLSL link result : 
+[rviz2-7] active samplers with a different type refer to the same texture image unit
+[trajectory_generator_node-6] map swell done
+[trajectory_generator_node-6] second_heights_points: 10
+[trajectory_generator_node-6] xmax: 0.781 xmin: -0.719 ymax: -3.154 ymin: -5.354
+[trajectory_generator_node-6] [Map Build] bev build done
+[trajectory_generator_node-6] R.rows 400 R.cols 400
+[trajectory_generator_node-6] start topo sample map
+[trajectory_generator_node-6] [GridMap] topo_sample_map size: 185
+[trajectory_generator_node-6] [GridMap] topo_keypoint size: 1603
+[ign-1] [1;33m[GUI] [Wrn] [Application.cc:802] [0m[1;33m[QT] file::/WorldStats/WorldStats.qml:53:3: QML RowLayout: Binding loop detected for property "x"[0m[1;33m[0m
+[parameter_bridge-2] [INFO] [1790439072.932550311] [sentry_gazebo_bridge]: Creating GZ->ROS Bridge: [/clock (ignition.msgs.Clock) -> /clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+[parameter_bridge-2] [INFO] [1790439072.933648399] [sentry_gazebo_bridge]: Creating ROS->GZ Bridge: [/sim/guarded_cmd_vel (geometry_msgs/msg/Twist) -> /model/sentry/cmd_vel (ignition.msgs.Twist)] (Lazy 0)
+[parameter_bridge-2] [INFO] [1790439072.938422122] [sentry_gazebo_bridge]: Creating GZ->ROS Bridge: [/model/sentry/odometry (ignition.msgs.Odometry) -> /sim/ground_truth/odometry (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-2] [INFO] [1790439072.940740207] [sentry_gazebo_bridge]: Creating GZ->ROS Bridge: [/sentry/lidar/points (ignition.msgs.PointCloudPacked) -> /sim/lidar/native (sensor_msgs/msg/PointCloud2)] (Lazy 0)
+[parameter_bridge-2] [INFO] [1790439072.953666208] [sentry_gazebo_bridge]: Passing message from ROS geometry_msgs/msg/Twist to Gazebo gz.msgs.Twist (showing msg only once per type)
+[ign-1] libEGL warning: Not allowed to force software rendering when API explicitly selects a hardware device.
+[ign-1] [1;33m[GUI] [Wrn] [Ogre2RenderTarget.cc:574] [0m[1;33mAnti-aliasing level of '[0m[1;33m8[0m[1;33m' [0m[1;33mis not supported; valid FSAA levels are: [0m[1;33m[ 0 4 ][0m[1;33m. Setting to 0[0m[1;33m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mReceived world [[0m[1;32m/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/sentry_gazebo/share/sentry_gazebo/worlds/planning.sdf[0m[1;32m] from the GUI.[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mIgnition Gazebo Server v[0m[1;32m6.18.0[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mLoading SDF world file[[0m[1;32m/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/sentry_gazebo/share/sentry_gazebo/worlds/planning.sdf[0m[1;32m].[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing entity system service on [[0m[1;32m/[0m[1;32mentity/system/add[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mCreate service on [[0m[1;32m/world/sentry_planning/create[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mRemove service on [[0m[1;32m/world/sentry_planning/remove[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPose service on [[0m[1;32m/world/sentry_planning/set_pose[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPose service on [[0m[1;32m/world/sentry_planning/set_pose_vector[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mLight configuration service on [[0m[1;32m/world/sentry_planning/light_config[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPhysics service on [[0m[1;32m/world/sentry_planning/set_physics[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mSphericalCoordinates service on [[0m[1;32m/world/sentry_planning/set_spherical_coordinates[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mEnable collision service on [[0m[1;32m/world/sentry_planning/enable_collision[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mDisable collision service on [[0m[1;32m/world/sentry_planning/disable_collision[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mMaterial service on [[0m[1;32m/world/sentry_planning/visual_config[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mMaterial service on [[0m[1;32m/world/sentry_planning/wheel_slip[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mVelocityControl subscribing to twist messages on [[0m[1;32m/model/sentry/cmd_vel[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mOdometryPublisher publishing odometry on [[0m[1;32m/model/sentry/odometry[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mOdometryPublisher publishing odometry with covariance on [[0m[1;32m/model/sentry/odometry_with_covariance[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mOdometryPublisher publishing Pose_V (TF) on [[0m[1;32m/model/sentry/pose[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mLoaded level [[0m[1;32m3[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing world controls on [[0m[1;32m/world/sentry_planning[0m[1;32m/control], [[0m[1;32m/world/sentry_planning[0m[1;32m/control/state] and [[0m[1;32m/world/sentry_planning[0m[1;32m/playback/control][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing GUI information on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mgui/info[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mWorld [[0m[1;32msentry_planning[0m[1;32m] initialized with [[0m[1;32mfixed_step[0m[1;32m] physics profile.[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing world SDF generation service on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mgenerate_world_sdf[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing world names on [[0m[1;32m/gazebo/worlds[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mResource path add service on [[0m[1;32m/gazebo/resource_paths/add[0m[1;32m].[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mResource path get service on [[0m[1;32m/gazebo/resource_paths/get[0m[1;32m].[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mResource path resolve service on [[0m[1;32m/gazebo/resource_paths/resolve[0m[1;32m].[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mResource paths published on [[0m[1;32m/gazebo/resource_paths[0m[1;32m].[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServer control service on [[0m[1;32m/server_control[0m[1;32m].[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mFound no publishers on /stats, adding root stats topic[0m[1;32m[0m
+[ign-1] libEGL warning: Not allowed to force software rendering when API explicitly selects a hardware device.
+[trajectory_generator_node-6] [INFO] [1790439126.582782311] [trajectory_generation]: FSM accepted manual goal goal=(-2.72, 1.95, 0.02)
+[trajectory_generator_node-6] [Manager] start point, (x, y): (-0.92, -4.45)
+[trajectory_generator_node-6] [Manager] receive target, (x, y): (-2.72, 1.95)
+[trajectory_generator_node-6] [Topo]: m_graph before num: 1605
+[trajectory_generator_node-6] [Topo]: dijkstra time: 0.199322
+[trajectory_generator_node-6] [Topo]: topo search time: 0.814580
+[trajectory_generator_node-6] [Topo]: m_graph num: 2575
+[trajectory_generator_node-6] [DIAG] origin_path (Dijkstra) size: 5
+[trajectory_generator_node-6] [DIAG]   origin[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[1]: (-5.019, -1.604, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[2]: (-3.769, 2.396, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[3]: (-1.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[4]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG] lineVisib(start→end DIRECT): false  colli=(-1.42,-2.65)
+[trajectory_generator_node-6] [DIAG] direct line: 132 steps, 92 wall cells
+[trajectory_generator_node-6] [smoothTopoPath] INPUT size=5
+[trajectory_generator_node-6] [smoothTopoPath]   in[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[1]: (-5.019, -1.604, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[2]: (-3.769, 2.396, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[3]: (-1.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[4]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath] lineVisib(start→end): false  colli=(-1.42,-2.65)
+[trajectory_generator_node-6] [smoothTopoPath] stuck detected, skipping to topo[4]
+[trajectory_generator_node-6] [smoothTopoPath] OUTPUT size=8, iter_count=7
+[trajectory_generator_node-6] [smoothTopoPath]   out[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[1]: (-4.840, -0.515, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[2]: (-3.299, 2.232, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[3]: (-2.168, 2.139, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[4]: (-2.555, 2.131, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[5]: (-2.134, 2.182, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[6]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[7]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG] optimized_path (smoothTopoPath) size: 8
+[trajectory_generator_node-6] [DIAG]   opt[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[1]: (-4.840, -0.515, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[2]: (-3.299, 2.232, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[3]: (-2.168, 2.139, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[4]: (-2.555, 2.131, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[5]: (-2.134, 2.182, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[6]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[7]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [Manager] reference_speed: (2.00)
+[trajectory_generator_node-6] optimized_path size: 8
+[trajectory_generator_node-6] [LBFGS] search direction d: -0.000259367  0.000988196   0.00215131  -0.00201763  0.000242986   0.00109051 -0.000529618 -0.000161126 -0.000327121  0.000667277  0.000319451  -0.00148139   0.00107518  0.000608288  -0.00155368   0.00100551 -9.78296e-05 -0.000467992  0.000843615  0.000675183  -0.00218564  -0.00152314  0.000635287 -0.000220229  -0.00247022  0.000570139   0.00303293  -0.00283143  -0.00229534   0.00555053   0.00114754  -0.00408768  -0.00141078   0.00416169 -0.000275842  -0.00138834 -0.000367446 -0.000233017  -0.00122332  -0.00176163   0.00179196 -0.000275418 -0.000832343  0.000238745  0.000594034 -0.000191323 -0.000480594  0.000116229  0.000865987  -0.00112364  0.000236784  0.000872174  -0.00108553  5.87767e-05  0.000990929  -0.00167189  0.000817145   0.00101441  -0.00107782   0.00200682  0.000834691  -0.00172207   0.00227418 -0.000958588 -0.000503853   0.00157964  -0.00206838   0.00161716   0.00154396 -0.000595892  0.000118687  0.000267423   0.00254601 -0.000441059  0.000436742  0.000422439  0.000165288 -0.000200116  0.000154897  0.000139578 -9.84461e-05 -1.62294e-05  5.79407e-05  6.51369e-05 -6.52767e-05 -8.38455e-05  0.000164635 -6.56182e-05 -0.000110664  0.000185992 -3.52418e-05 -1.33423e-05  8.59989e-05 -4.93319e-05  4.98373e-05  7.60081e-05 -0.000218245  0.000124167   0.00017924 -0.000267848  0.000118346  0.000209274 -9.04139e-05 -0.000165707  0.000561472  0.000595896  0.000282397  0.000337866  0.000279251  6.25572e-05  0.000111763  0.000189129
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=371.1 total_T=5.461(init 5.423) max_drift=0.328 max_vel=3.0 segs=38
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 39 -> 20 waypoints, 19 time segs, max_turn=164.4 deg
+[trajectory_generator_node-6] [Manager] optimizer generate time: 0.567957
+[trajectory_generator_node-6] [Reference] path size : 20
+[trajectory_generator_node-6] [Reference] Using MINCO-optimized durations (19 segments, total=5.461 s)
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.308806 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-6.596713 b[N]=12.235433 b2[0]=6.641367 b2[N]=9.406608
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.157506 -3.298356 -0.000000 -0.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.339687 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-6.069086 b[N]=10.538164 b2[0]=6.108763 b2[N]=7.994046
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.778219 -3.034543 -0.000000 -0.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.373656 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-5.081693 b[N]=9.028730 b2[0]=5.114814 b2[N]=6.745871
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.424212 -2.540847 0.000000 -0.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.411021 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-4.266774 b[N]=7.659223 b2[0]=4.294479 b2[N]=5.673622
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.151569 -2.133387 0.000000 -0.919000]
+[trajectory_generator_node-6] [INFO] [1790439127.995846794] [trajectory_generation]: FSM published 19 trajectory pieces
+[trajectory_generator_node-6] [Manager REPLAN]  cur position point (X, Y) = (-0.919000, -4.454000), target point (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] target_temp (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] path safe & target unchanged, re-anchoring from cur pos
+[trajectory_generator_node-6] [LBFGS] search direction d: -0.000259367  0.000988196   0.00215131  -0.00201763  0.000242986   0.00109051 -0.000529618 -0.000161126 -0.000327121  0.000667277  0.000319451  -0.00148139   0.00107518  0.000608288  -0.00155368   0.00100551 -9.78296e-05 -0.000467992  0.000843615  0.000675183  -0.00218564  -0.00152314  0.000635287 -0.000220229  -0.00247022  0.000570139   0.00303293  -0.00283143  -0.00229534   0.00555053   0.00114754  -0.00408768  -0.00141078   0.00416169 -0.000275842  -0.00138834 -0.000367446 -0.000233017  -0.00122332  -0.00176163   0.00179196 -0.000275418 -0.000832343  0.000238745  0.000594034 -0.000191323 -0.000480594  0.000116229  0.000865987  -0.00112364  0.000236784  0.000872174  -0.00108553  5.87767e-05  0.000990929  -0.00167189  0.000817145   0.00101441  -0.00107782   0.00200682  0.000834691  -0.00172207   0.00227418 -0.000958588 -0.000503853   0.00157964  -0.00206838   0.00161716   0.00154396 -0.000595892  0.000118687  0.000267423   0.00254601 -0.000441059  0.000436742  0.000422439  0.000165288 -0.000200116  0.000154897  0.000139578 -9.84461e-05 -1.62294e-05  5.79407e-05  6.51369e-05 -6.52767e-05 -8.38455e-05  0.000164635 -6.56182e-05 -0.000110664  0.000185992 -3.52418e-05 -1.33423e-05  8.59989e-05 -4.93319e-05  4.98373e-05  7.60081e-05 -0.000218245  0.000124167   0.00017924 -0.000267848  0.000118346  0.000209274 -9.04139e-05 -0.000165707  0.000561472  0.000595896  0.000282397  0.000337866  0.000279251  6.25572e-05  0.000111763  0.000189129
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=371.1 total_T=5.461(init 5.423) max_drift=0.328 max_vel=3.0 segs=38
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 39 -> 20 waypoints, 19 time segs, max_turn=164.4 deg
+[trajectory_generator_node-6] [Reference] path size : 20
+[trajectory_generator_node-6] [Reference] Using MINCO-optimized durations (19 segments, total=5.461 s)
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.308806 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-6.596713 b[N]=12.235433 b2[0]=6.641367 b2[N]=9.406608
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.157506 -3.298356 0.000000 -0.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.339687 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-6.069086 b[N]=10.538164 b2[0]=6.108763 b2[N]=7.994046
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.778219 -3.034543 0.000000 -0.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.373656 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-5.081693 b[N]=9.028730 b2[0]=5.114814 b2[N]=6.745871
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.424212 -2.540847 0.000000 -0.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.411021 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-4.266774 b[N]=7.659223 b2[0]=4.294479 b2[N]=5.673622
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.151569 -2.133387 0.000000 -0.919000]
+[trajectory_generator_node-6] [INFO] [1790439128.844774825] [trajectory_generation]: FSM published 19 trajectory pieces
+[trajectory_generator_node-6] [INFO] [1790439218.594741810] [trajectory_generation]: FSM accepted manual goal goal=(-2.72, 1.95, 0.02)
+[trajectory_generator_node-6] [Manager] start point, (x, y): (-0.92, -4.45)
+[trajectory_generator_node-6] [Manager] receive target, (x, y): (-2.72, 1.95)
+[trajectory_generator_node-6] [Topo]: m_graph before num: 1605
+[trajectory_generator_node-6] [Topo]: dijkstra time: 0.242029
+[trajectory_generator_node-6] [Topo]: topo search time: 1.281979
+[trajectory_generator_node-6] [Topo]: m_graph num: 2579
+[trajectory_generator_node-6] [DIAG] origin_path (Dijkstra) size: 5
+[trajectory_generator_node-6] [DIAG]   origin[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[1]: (-5.019, -1.604, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[2]: (-3.769, 2.396, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[3]: (-1.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[4]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG] lineVisib(start→end DIRECT): false  colli=(-1.42,-2.65)
+[trajectory_generator_node-6] [DIAG] direct line: 132 steps, 92 wall cells
+[trajectory_generator_node-6] [smoothTopoPath] INPUT size=5
+[trajectory_generator_node-6] [smoothTopoPath]   in[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[1]: (-5.019, -1.604, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[2]: (-3.769, 2.396, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[3]: (-1.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[4]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath] lineVisib(start→end): false  colli=(-1.42,-2.65)
+[trajectory_generator_node-6] [smoothTopoPath] stuck detected, skipping to topo[4]
+[trajectory_generator_node-6] [smoothTopoPath] OUTPUT size=8, iter_count=7
+[trajectory_generator_node-6] [smoothTopoPath]   out[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[1]: (-4.840, -0.515, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[2]: (-3.299, 2.232, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[3]: (-2.168, 2.139, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[4]: (-2.555, 2.131, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[5]: (-2.134, 2.182, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[6]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[7]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG] optimized_path (smoothTopoPath) size: 8
+[trajectory_generator_node-6] [DIAG]   opt[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[1]: (-4.840, -0.515, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[2]: (-3.299, 2.232, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[3]: (-2.168, 2.139, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[4]: (-2.555, 2.131, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[5]: (-2.134, 2.182, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[6]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[7]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] optimized_path size: 8
+[trajectory_generator_node-6] [Manager] reference_speed: (2.00)
+[trajectory_generator_node-6] [LBFGS] search direction d: -0.000259367  0.000988196   0.00215131  -0.00201763  0.000242986   0.00109051 -0.000529618 -0.000161126 -0.000327121  0.000667277  0.000319451  -0.00148139   0.00107518  0.000608288  -0.00155368   0.00100551 -9.78296e-05 -0.000467992  0.000843615  0.000675183  -0.00218564  -0.00152314  0.000635287 -0.000220229  -0.00247022  0.000570139   0.00303293  -0.00283143  -0.00229534   0.00555053   0.00114754  -0.00408768  -0.00141078   0.00416169 -0.000275842  -0.00138834 -0.000367446 -0.000233017  -0.00122332  -0.00176163   0.00179196 -0.000275418 -0.000832343  0.000238745  0.000594034 -0.000191323 -0.000480594  0.000116229  0.000865987  -0.00112364  0.000236784  0.000872174  -0.00108553  5.87767e-05  0.000990929  -0.00167189  0.000817145   0.00101441  -0.00107782   0.00200682  0.000834691  -0.00172207   0.00227418 -0.000958588 -0.000503853   0.00157964  -0.00206838   0.00161716   0.00154396 -0.000595892  0.000118687  0.000267423   0.00254601 -0.000441059  0.000436742  0.000422439  0.000165288 -0.000200116  0.000154897  0.000139578 -9.84461e-05 -1.62294e-05  5.79407e-05  6.51369e-05 -6.52767e-05 -8.38455e-05  0.000164635 -6.56182e-05 -0.000110664  0.000185992 -3.52418e-05 -1.33423e-05  8.59989e-05 -4.93319e-05  4.98373e-05  7.60081e-05 -0.000218245  0.000124167   0.00017924 -0.000267848  0.000118346  0.000209274 -9.04139e-05 -0.000165707  0.000561472  0.000595896  0.000282397  0.000337866  0.000279251  6.25572e-05  0.000111763  0.000189129
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=371.1 total_T=5.461(init 5.423) max_drift=0.328 max_vel=3.0 segs=38
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 39 -> 20 waypoints, 19 time segs, max_turn=164.4 deg
+[trajectory_generator_node-6] [Manager] optimizer generate time: 0.555610
+[trajectory_generator_node-6] [Reference] path size : 20
+[trajectory_generator_node-6] [Reference] Using MINCO-optimized durations (19 segments, total=5.461 s)
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.308806 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-6.596713 b[N]=12.235433 b2[0]=6.641367 b2[N]=9.406608
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.157506 -3.298356 -0.000000 -0.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.339687 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-6.069086 b[N]=10.538164 b2[0]=6.108763 b2[N]=7.994046
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.778219 -3.034543 -0.000000 -0.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.373656 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-5.081693 b[N]=9.028730 b2[0]=5.114814 b2[N]=6.745871
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.424212 -2.540847 0.000000 -0.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.411021 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-4.266774 b[N]=7.659223 b2[0]=4.294479 b2[N]=5.673622
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.151569 -2.133387 0.000000 -0.919000]
+[trajectory_generator_node-6] [INFO] [1790439220.467110919] [trajectory_generation]: FSM published 19 trajectory pieces
+[trajectory_generator_node-6] [INFO] [1790439222.448328917] [trajectory_generation]: FSM accepted manual goal goal=(-2.72, 1.95, 0.02)
+[trajectory_generator_node-6] [Manager] start point, (x, y): (-0.92, -4.45)
+[trajectory_generator_node-6] [Manager] receive target, (x, y): (-2.72, 1.95)
+[trajectory_generator_node-6] [Topo]: m_graph before num: 1605
+[trajectory_generator_node-6] [Topo]: dijkstra time: 0.252697
+[trajectory_generator_node-6] [Topo]: topo search time: 0.989876
+[trajectory_generator_node-6] [Topo]: m_graph num: 2592
+[trajectory_generator_node-6] [DIAG] origin_path (Dijkstra) size: 5
+[trajectory_generator_node-6] [DIAG]   origin[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[1]: (-5.019, -1.604, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[2]: (-3.769, 2.396, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[3]: (-1.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[4]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG] lineVisib(start→end DIRECT): false  colli=(-1.42,-2.65)
+[trajectory_generator_node-6] [DIAG] direct line: 132 steps, 92 wall cells
+[trajectory_generator_node-6] [smoothTopoPath] INPUT size=5
+[trajectory_generator_node-6] [smoothTopoPath]   in[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[1]: (-5.019, -1.604, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[2]: (-3.769, 2.396, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[3]: (-1.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[4]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath] lineVisib(start→end): false  colli=(-1.42,-2.65)
+[trajectory_generator_node-6] [smoothTopoPath] stuck detected, skipping to topo[4]
+[trajectory_generator_node-6] [smoothTopoPath] OUTPUT size=8, iter_count=7
+[trajectory_generator_node-6] [smoothTopoPath]   out[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[1]: (-4.840, -0.515, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[2]: (-3.299, 2.232, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[3]: (-2.168, 2.139, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[4]: (-2.555, 2.131, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[5]: (-2.134, 2.182, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[6]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[7]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG] optimized_path (smoothTopoPath) size: 8
+[trajectory_generator_node-6] [DIAG]   opt[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[1]: (-4.840, -0.515, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[2]: (-3.299, 2.232, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[3]: (-2.168, 2.139, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[4]: (-2.555, 2.131, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[5]: (-2.134, 2.182, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[6]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[7]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] optimized_path size: 8
+[trajectory_generator_node-6] [Manager] reference_speed: (2.00)
+[trajectory_generator_node-6] [LBFGS] search direction d: -0.000259367  0.000988196   0.00215131  -0.00201763  0.000242986   0.00109051 -0.000529618 -0.000161126 -0.000327121  0.000667277  0.000319451  -0.00148139   0.00107518  0.000608288  -0.00155368   0.00100551 -9.78296e-05 -0.000467992  0.000843615  0.000675183  -0.00218564  -0.00152314  0.000635287 -0.000220229  -0.00247022  0.000570139   0.00303293  -0.00283143  -0.00229534   0.00555053   0.00114754  -0.00408768  -0.00141078   0.00416169 -0.000275842  -0.00138834 -0.000367446 -0.000233017  -0.00122332  -0.00176163   0.00179196 -0.000275418 -0.000832343  0.000238745  0.000594034 -0.000191323 -0.000480594  0.000116229  0.000865987  -0.00112364  0.000236784  0.000872174  -0.00108553  5.87767e-05  0.000990929  -0.00167189  0.000817145   0.00101441  -0.00107782   0.00200682  0.000834691  -0.00172207   0.00227418 -0.000958588 -0.000503853   0.00157964  -0.00206838   0.00161716   0.00154396 -0.000595892  0.000118687  0.000267423   0.00254601 -0.000441059  0.000436742  0.000422439  0.000165288 -0.000200116  0.000154897  0.000139578 -9.84461e-05 -1.62294e-05  5.79407e-05  6.51369e-05 -6.52767e-05 -8.38455e-05  0.000164635 -6.56182e-05 -0.000110664  0.000185992 -3.52418e-05 -1.33423e-05  8.59989e-05 -4.93319e-05  4.98373e-05  7.60081e-05 -0.000218245  0.000124167   0.00017924 -0.000267848  0.000118346  0.000209274 -9.04139e-05 -0.000165707  0.000561472  0.000595896  0.000282397  0.000337866  0.000279251  6.25572e-05  0.000111763  0.000189129
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=371.1 total_T=5.461(init 5.423) max_drift=0.328 max_vel=3.0 segs=38
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 39 -> 20 waypoints, 19 time segs, max_turn=164.4 deg
+[trajectory_generator_node-6] [Manager] optimizer generate time: 0.616411
+[trajectory_generator_node-6] [Reference] path size : 20
+[trajectory_generator_node-6] [Reference] Using MINCO-optimized durations (19 segments, total=5.461 s)
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.308806 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-6.596713 b[N]=12.235433 b2[0]=6.641367 b2[N]=9.406608
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.157506 -3.298356 -0.000000 -0.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.339687 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-6.069086 b[N]=10.538164 b2[0]=6.108763 b2[N]=7.994046
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.778219 -3.034543 -0.000000 -0.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.373656 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-5.081693 b[N]=9.028730 b2[0]=5.114814 b2[N]=6.745871
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.424212 -2.540847 0.000000 -0.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.411021 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-4.266774 b[N]=7.659223 b2[0]=4.294479 b2[N]=5.673622
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.151569 -2.133387 0.000000 -0.919000]
+[trajectory_generator_node-6] [INFO] [1790439224.080174818] [trajectory_generation]: FSM published 19 trajectory pieces
+[trajectory_generator_node-6] [INFO] [1790439306.443488441] [trajectory_generation]: FSM accepted manual goal goal=(-2.72, 1.95, 0.02)
+[trajectory_generator_node-6] [Manager] start point, (x, y): (-0.92, -4.45)
+[trajectory_generator_node-6] [Manager] receive target, (x, y): (-2.72, 1.95)
+[trajectory_generator_node-6] [Topo]: m_graph before num: 1605
+[trajectory_generator_node-6] [Topo]: dijkstra time: 0.192598
+[trajectory_generator_node-6] [Topo]: topo search time: 0.944495
+[trajectory_generator_node-6] [Topo]: m_graph num: 2574
+[trajectory_generator_node-6] [DIAG] origin_path (Dijkstra) size: 5
+[trajectory_generator_node-6] [DIAG]   origin[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[1]: (-5.019, -1.604, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[2]: (-3.769, 2.396, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[3]: (-1.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[4]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG] lineVisib(start→end DIRECT): false  colli=(-1.42,-2.65)
+[trajectory_generator_node-6] [DIAG] direct line: 132 steps, 92 wall cells
+[trajectory_generator_node-6] [smoothTopoPath] INPUT size=5
+[trajectory_generator_node-6] [smoothTopoPath]   in[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[1]: (-5.019, -1.604, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[2]: (-3.769, 2.396, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[3]: (-1.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[4]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath] lineVisib(start→end): false  colli=(-1.42,-2.65)
+[trajectory_generator_node-6] [smoothTopoPath] stuck detected, skipping to topo[4]
+[trajectory_generator_node-6] [smoothTopoPath] OUTPUT size=8, iter_count=7
+[trajectory_generator_node-6] [smoothTopoPath]   out[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[1]: (-4.840, -0.515, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[2]: (-3.299, 2.232, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[3]: (-2.168, 2.139, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[4]: (-2.555, 2.131, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[5]: (-2.134, 2.182, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[6]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[7]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG] optimized_path (smoothTopoPath) size: 8
+[trajectory_generator_node-6] [DIAG]   opt[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[1]: (-4.840, -0.515, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[2]: (-3.299, 2.232, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[3]: (-2.168, 2.139, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[4]: (-2.555, 2.131, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[5]: (-2.134, 2.182, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[6]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[7]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [Manager] reference_speed: (2.00)
+[trajectory_generator_node-6] optimized_path size: 8
+[trajectory_generator_node-6] [LBFGS] search direction d: -0.000259367  0.000988196   0.00215131  -0.00201763  0.000242986   0.00109051 -0.000529618 -0.000161126 -0.000327121  0.000667277  0.000319451  -0.00148139   0.00107518  0.000608288  -0.00155368   0.00100551 -9.78296e-05 -0.000467992  0.000843615  0.000675183  -0.00218564  -0.00152314  0.000635287 -0.000220229  -0.00247022  0.000570139   0.00303293  -0.00283143  -0.00229534   0.00555053   0.00114754  -0.00408768  -0.00141078   0.00416169 -0.000275842  -0.00138834 -0.000367446 -0.000233017  -0.00122332  -0.00176163   0.00179196 -0.000275418 -0.000832343  0.000238745  0.000594034 -0.000191323 -0.000480594  0.000116229  0.000865987  -0.00112364  0.000236784  0.000872174  -0.00108553  5.87767e-05  0.000990929  -0.00167189  0.000817145   0.00101441  -0.00107782   0.00200682  0.000834691  -0.00172207   0.00227418 -0.000958588 -0.000503853   0.00157964  -0.00206838   0.00161716   0.00154396 -0.000595892  0.000118687  0.000267423   0.00254601 -0.000441059  0.000436742  0.000422439  0.000165288 -0.000200116  0.000154897  0.000139578 -9.84461e-05 -1.62294e-05  5.79407e-05  6.51369e-05 -6.52767e-05 -8.38455e-05  0.000164635 -6.56182e-05 -0.000110664  0.000185992 -3.52418e-05 -1.33423e-05  8.59989e-05 -4.93319e-05  4.98373e-05  7.60081e-05 -0.000218245  0.000124167   0.00017924 -0.000267848  0.000118346  0.000209274 -9.04139e-05 -0.000165707  0.000561472  0.000595896  0.000282397  0.000337866  0.000279251  6.25572e-05  0.000111763  0.000189129
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=371.1 total_T=5.461(init 5.423) max_drift=0.328 max_vel=3.0 segs=38
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 39 -> 20 waypoints, 19 time segs, max_turn=164.4 deg
+[trajectory_generator_node-6] [Manager] optimizer generate time: 0.536114
+[trajectory_generator_node-6] [Reference] path size : 20
+[trajectory_generator_node-6] [Reference] Using MINCO-optimized durations (19 segments, total=5.461 s)
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.308806 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-6.596713 b[N]=12.235433 b2[0]=6.641367 b2[N]=9.406608
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.157506 -3.298356 -0.000000 -0.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.339687 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-6.069086 b[N]=10.538164 b2[0]=6.108763 b2[N]=7.994046
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.778219 -3.034543 -0.000000 -0.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.373656 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-5.081693 b[N]=9.028730 b2[0]=5.114814 b2[N]=6.745871
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.424212 -2.540847 0.000000 -0.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.411021 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-4.266774 b[N]=7.659223 b2[0]=4.294479 b2[N]=5.673622
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.151569 -2.133387 0.000000 -0.919000]
+[trajectory_generator_node-6] [INFO] [1790439307.949510965] [trajectory_generation]: FSM published 19 trajectory pieces
+[trajectory_generator_node-6] [INFO] [1790439310.025855544] [trajectory_generation]: FSM accepted manual goal goal=(-2.72, 1.95, 0.02)
+[trajectory_generator_node-6] [Manager] start point, (x, y): (-0.92, -4.45)
+[trajectory_generator_node-6] [Manager] receive target, (x, y): (-2.72, 1.95)
+[trajectory_generator_node-6] [Topo]: m_graph before num: 1605
+[trajectory_generator_node-6] [Topo]: dijkstra time: 0.398531
+[trajectory_generator_node-6] [Topo]: topo search time: 1.300339
+[trajectory_generator_node-6] [Topo]: m_graph num: 2571
+[trajectory_generator_node-6] [DIAG] origin_path (Dijkstra) size: 5
+[trajectory_generator_node-6] [DIAG]   origin[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[1]: (-5.019, -1.604, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[2]: (-3.769, 2.396, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[3]: (-1.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[4]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG] lineVisib(start→end DIRECT): false  colli=(-1.42,-2.65)
+[trajectory_generator_node-6] [DIAG] direct line: 132 steps, 92 wall cells
+[trajectory_generator_node-6] [smoothTopoPath] INPUT size=5
+[trajectory_generator_node-6] [smoothTopoPath]   in[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[1]: (-5.019, -1.604, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[2]: (-3.769, 2.396, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[3]: (-1.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[4]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath] lineVisib(start→end): false  colli=(-1.42,-2.65)
+[trajectory_generator_node-6] [smoothTopoPath] stuck detected, skipping to topo[4]
+[trajectory_generator_node-6] [smoothTopoPath] OUTPUT size=8, iter_count=7
+[trajectory_generator_node-6] [smoothTopoPath]   out[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[1]: (-4.840, -0.515, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[2]: (-3.299, 2.232, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[3]: (-2.168, 2.139, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[4]: (-2.555, 2.131, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[5]: (-2.134, 2.182, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[6]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[7]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG] optimized_path (smoothTopoPath) size: 8
+[trajectory_generator_node-6] [DIAG]   opt[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[1]: (-4.840, -0.515, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[2]: (-3.299, 2.232, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[3]: (-2.168, 2.139, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[4]: (-2.555, 2.131, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[5]: (-2.134, 2.182, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[6]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[7]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] optimized_path size: 8
+[trajectory_generator_node-6] [Manager] reference_speed: (2.00)
+[trajectory_generator_node-6] [LBFGS] search direction d: -0.000259367  0.000988196   0.00215131  -0.00201763  0.000242986   0.00109051 -0.000529618 -0.000161126 -0.000327121  0.000667277  0.000319451  -0.00148139   0.00107518  0.000608288  -0.00155368   0.00100551 -9.78296e-05 -0.000467992  0.000843615  0.000675183  -0.00218564  -0.00152314  0.000635287 -0.000220229  -0.00247022  0.000570139   0.00303293  -0.00283143  -0.00229534   0.00555053   0.00114754  -0.00408768  -0.00141078   0.00416169 -0.000275842  -0.00138834 -0.000367446 -0.000233017  -0.00122332  -0.00176163   0.00179196 -0.000275418 -0.000832343  0.000238745  0.000594034 -0.000191323 -0.000480594  0.000116229  0.000865987  -0.00112364  0.000236784  0.000872174  -0.00108553  5.87767e-05  0.000990929  -0.00167189  0.000817145   0.00101441  -0.00107782   0.00200682  0.000834691  -0.00172207   0.00227418 -0.000958588 -0.000503853   0.00157964  -0.00206838   0.00161716   0.00154396 -0.000595892  0.000118687  0.000267423   0.00254601 -0.000441059  0.000436742  0.000422439  0.000165288 -0.000200116  0.000154897  0.000139578 -9.84461e-05 -1.62294e-05  5.79407e-05  6.51369e-05 -6.52767e-05 -8.38455e-05  0.000164635 -6.56182e-05 -0.000110664  0.000185992 -3.52418e-05 -1.33423e-05  8.59989e-05 -4.93319e-05  4.98373e-05  7.60081e-05 -0.000218245  0.000124167   0.00017924 -0.000267848  0.000118346  0.000209274 -9.04139e-05 -0.000165707  0.000561472  0.000595896  0.000282397  0.000337866  0.000279251  6.25572e-05  0.000111763  0.000189129
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=371.1 total_T=5.461(init 5.423) max_drift=0.328 max_vel=3.0 segs=38
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 39 -> 20 waypoints, 19 time segs, max_turn=164.4 deg
+[trajectory_generator_node-6] [Manager] optimizer generate time: 0.805659
+[trajectory_generator_node-6] [Reference] path size : 20
+[trajectory_generator_node-6] [Reference] Using MINCO-optimized durations (19 segments, total=5.461 s)
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.308806 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-6.596713 b[N]=12.235433 b2[0]=6.641367 b2[N]=9.406608
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.157506 -3.298356 -0.000000 -0.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.339687 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-6.069086 b[N]=10.538164 b2[0]=6.108763 b2[N]=7.994046
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.778219 -3.034543 -0.000000 -0.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.373656 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-5.081693 b[N]=9.028730 b2[0]=5.114814 b2[N]=6.745871
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.424212 -2.540847 0.000000 -0.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.411021 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-4.266774 b[N]=7.659223 b2[0]=4.294479 b2[N]=5.673622
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.151569 -2.133387 0.000000 -0.919000]
+[trajectory_generator_node-6] [INFO] [1790439312.186067706] [trajectory_generation]: FSM published 19 trajectory pieces
+[trajectory_generator_node-6] [INFO] [1790439314.220482883] [trajectory_generation]: FSM accepted manual goal goal=(-2.72, 1.95, 0.02)
+[trajectory_generator_node-6] [Manager] start point, (x, y): (-0.92, -4.45)
+[trajectory_generator_node-6] [Manager] receive target, (x, y): (-2.72, 1.95)
+[trajectory_generator_node-6] [Topo]: m_graph before num: 1605
+[trajectory_generator_node-6] [Topo]: dijkstra time: 0.222650
+[trajectory_generator_node-6] [Topo]: topo search time: 0.981745
+[trajectory_generator_node-6] [Topo]: m_graph num: 2583
+[trajectory_generator_node-6] [DIAG] origin_path (Dijkstra) size: 5
+[trajectory_generator_node-6] [DIAG]   origin[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[1]: (-5.019, -1.604, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[2]: (-3.769, 2.396, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[3]: (-1.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[4]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG] lineVisib(start→end DIRECT): false  colli=(-1.42,-2.65)
+[trajectory_generator_node-6] [DIAG] direct line: 132 steps, 92 wall cells
+[trajectory_generator_node-6] [smoothTopoPath] INPUT size=5
+[trajectory_generator_node-6] [smoothTopoPath]   in[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[1]: (-5.019, -1.604, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[2]: (-3.769, 2.396, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[3]: (-1.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[4]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath] lineVisib(start→end): false  colli=(-1.42,-2.65)
+[trajectory_generator_node-6] [smoothTopoPath] stuck detected, skipping to topo[4]
+[trajectory_generator_node-6] [smoothTopoPath] OUTPUT size=8, iter_count=7
+[trajectory_generator_node-6] [smoothTopoPath]   out[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[1]: (-4.840, -0.515, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[2]: (-3.299, 2.232, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[3]: (-2.168, 2.139, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[4]: (-2.555, 2.131, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[5]: (-2.134, 2.182, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[6]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[7]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG] optimized_path (smoothTopoPath) size: 8
+[trajectory_generator_node-6] [DIAG]   opt[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[1]: (-4.840, -0.515, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[2]: (-3.299, 2.232, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[3]: (-2.168, 2.139, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[4]: (-2.555, 2.131, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[5]: (-2.134, 2.182, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[6]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[7]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] optimized_path size: 8
+[trajectory_generator_node-6] [Manager] reference_speed: (2.00)
+[trajectory_generator_node-6] [LBFGS] search direction d: -0.000259367  0.000988196   0.00215131  -0.00201763  0.000242986   0.00109051 -0.000529618 -0.000161126 -0.000327121  0.000667277  0.000319451  -0.00148139   0.00107518  0.000608288  -0.00155368   0.00100551 -9.78296e-05 -0.000467992  0.000843615  0.000675183  -0.00218564  -0.00152314  0.000635287 -0.000220229  -0.00247022  0.000570139   0.00303293  -0.00283143  -0.00229534   0.00555053   0.00114754  -0.00408768  -0.00141078   0.00416169 -0.000275842  -0.00138834 -0.000367446 -0.000233017  -0.00122332  -0.00176163   0.00179196 -0.000275418 -0.000832343  0.000238745  0.000594034 -0.000191323 -0.000480594  0.000116229  0.000865987  -0.00112364  0.000236784  0.000872174  -0.00108553  5.87767e-05  0.000990929  -0.00167189  0.000817145   0.00101441  -0.00107782   0.00200682  0.000834691  -0.00172207   0.00227418 -0.000958588 -0.000503853   0.00157964  -0.00206838   0.00161716   0.00154396 -0.000595892  0.000118687  0.000267423   0.00254601 -0.000441059  0.000436742  0.000422439  0.000165288 -0.000200116  0.000154897  0.000139578 -9.84461e-05 -1.62294e-05  5.79407e-05  6.51369e-05 -6.52767e-05 -8.38455e-05  0.000164635 -6.56182e-05 -0.000110664  0.000185992 -3.52418e-05 -1.33423e-05  8.59989e-05 -4.93319e-05  4.98373e-05  7.60081e-05 -0.000218245  0.000124167   0.00017924 -0.000267848  0.000118346  0.000209274 -9.04139e-05 -0.000165707  0.000561472  0.000595896  0.000282397  0.000337866  0.000279251  6.25572e-05  0.000111763  0.000189129
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=371.1 total_T=5.461(init 5.423) max_drift=0.328 max_vel=3.0 segs=38
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 39 -> 20 waypoints, 19 time segs, max_turn=164.4 deg
+[trajectory_generator_node-6] [Manager] optimizer generate time: 0.677389
+[trajectory_generator_node-6] [Reference] path size : 20
+[trajectory_generator_node-6] [Reference] Using MINCO-optimized durations (19 segments, total=5.461 s)
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.308806 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-6.596713 b[N]=12.235433 b2[0]=6.641367 b2[N]=9.406608
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.157506 -3.298356 -0.000000 -0.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.339687 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-6.069086 b[N]=10.538164 b2[0]=6.108763 b2[N]=7.994046
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.778219 -3.034543 -0.000000 -0.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.373656 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-5.081693 b[N]=9.028730 b2[0]=5.114814 b2[N]=6.745871
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.424212 -2.540847 0.000000 -0.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.411021 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-4.266774 b[N]=7.659223 b2[0]=4.294479 b2[N]=5.673622
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.151569 -2.133387 0.000000 -0.919000]
+[trajectory_generator_node-6] [INFO] [1790439315.897652454] [trajectory_generation]: FSM published 19 trajectory pieces
+[trajectory_generator_node-6] [INFO] [1790439317.940095518] [trajectory_generation]: FSM accepted manual goal goal=(-0.92, -4.45, 0.02)
+[trajectory_generator_node-6] [Manager] start point, (x, y): (-2.72, 1.95)
+[trajectory_generator_node-6] [Manager] receive target, (x, y): (-0.92, -4.45)
+[trajectory_generator_node-6] [Topo]: m_graph before num: 1605
+[trajectory_generator_node-6] [Topo]: dijkstra time: 0.264634
+[trajectory_generator_node-6] [Topo]: topo search time: 1.003678
+[trajectory_generator_node-6] [Topo]: m_graph num: 2568
+[trajectory_generator_node-6] [DIAG] origin_path (Dijkstra) size: 5
+[trajectory_generator_node-6] [DIAG]   origin[0]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[1]: (-1.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[2]: (-3.769, 2.396, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[3]: (-5.019, -1.604, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[4]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [DIAG] lineVisib(start→end DIRECT): false  colli=(-2.72,1.95)
+[trajectory_generator_node-6] [DIAG] direct line: 132 steps, 91 wall cells
+[trajectory_generator_node-6] [smoothTopoPath] INPUT size=5
+[trajectory_generator_node-6] [smoothTopoPath]   in[0]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[1]: (-1.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[2]: (-3.769, 2.396, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[3]: (-5.019, -1.604, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[4]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath] lineVisib(start→end): false  colli=(-2.72,1.95)
+[trajectory_generator_node-6] [smoothTopoPath] OUTPUT size=5, iter_count=4
+[trajectory_generator_node-6] [smoothTopoPath]   out[0]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[1]: (-2.669, 2.246, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[2]: (-4.461, 1.045, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[3]: (-5.152, -1.676, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[4]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [DIAG] optimized_path (smoothTopoPath) size: 5
+[trajectory_generator_node-6] [DIAG]   opt[0]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[1]: (-2.669, 2.246, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[2]: (-4.461, 1.045, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[3]: (-5.152, -1.676, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[4]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] optimized_path size: 5
+[trajectory_generator_node-6] [Manager] reference_speed: (2.00)
+[trajectory_generator_node-6] [LBFGS] search direction d: -0.000312827   0.00216449  -0.00109702   0.00028364   0.00217958  0.000627447  0.000935236  0.000558276    -0.000167  -0.00229687  -0.00325297  0.000111263   0.00195401 -0.000726508  -0.00264167  0.000604381    0.0020801   0.00141132   0.00136338   0.00244503    0.0020613  -0.00248626  -0.00446162  -0.00283564 -0.000724674    0.0012473   0.00423627   0.00468163 -0.000770419  -0.00344209    -0.002786  -0.00197078  -0.00112507   0.00635193  -0.00421041   -0.0124243   -0.0124379  -0.00513962  0.000457908   0.00479479   0.00732948   0.00500258   0.00181132 -8.61985e-05  -0.00016812  -0.00190288  -0.00194325  0.000458463  0.000621427   0.00109065  -0.00373052  -0.00349432  -0.00230294   0.00252126   0.00261988    0.0025191 -0.000591822 -0.000984465  -0.00190463  -0.00118567 -0.000198995   0.00132826  0.000468484  6.84717e-05  0.000878586   0.00274597    0.0272433   0.00241978   0.00237795   0.00263317   0.00311913   0.00251662    0.0020224   0.00124057  0.000566864  0.000189793 -0.000366668 -0.000384597    0.0147021 -0.000542868   0.00019915  0.000686675   0.00081177  0.000667222   0.00114367    0.0013402   0.00164407   0.00154385  0.000903825  0.000229649  0.000127297 -6.02927e-06  0.000145804  0.000709454   0.00129346   0.00111004   0.00138979    0.0017805   0.00298203   0.00792107
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=43.8 total_T=6.094(init 5.129) max_drift=0.311 max_vel=2.6 segs=34
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 35 -> 18 waypoints, 17 time segs, max_turn=67.9 deg
+[trajectory_generator_node-6] [Manager] optimizer generate time: 0.900642
+[trajectory_generator_node-6] [Reference] path size : 18
+[trajectory_generator_node-6] [Reference] Using MINCO-optimized durations (17 segments, total=6.094 s)
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=17, path_size=18, trap_time_size=17
+[trajectory_generator_node-6] [Reference]   path[0]=(-2.7190,1.9460) path[1]=(-2.9876,2.2256) t[0]=0.879472 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.009759 b[N]=-1.755375 b2[0]=2.252000 b2[N]=1.299827
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[-0.389285 -0.004880 0.000000 -2.719000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=17, path_size=18, trap_time_size=17
+[trajectory_generator_node-6] [Reference]   path[0]=(-2.7190,1.9460) path[1]=(-2.9876,2.2256) t[0]=0.879472 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.009689 b[N]=-1.428005 b2[0]=2.250601 b2[N]=1.057350
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[-0.389326 -0.004844 0.000000 -2.719000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=17, path_size=18, trap_time_size=17
+[trajectory_generator_node-6] [Reference]   path[0]=(-2.7190,1.9460) path[1]=(-2.9876,2.2256) t[0]=0.879472 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.009722 b[N]=-1.428066 b2[0]=2.250541 b2[N]=1.057413
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[-0.389307 -0.004861 0.000000 -2.719000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=17, path_size=18, trap_time_size=17
+[trajectory_generator_node-6] [Reference]   path[0]=(-2.7190,1.9460) path[1]=(-2.9876,2.2256) t[0]=0.879472 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.009578 b[N]=-1.428064 b2[0]=2.249474 b2[N]=1.057418
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[-0.389388 -0.004789 0.000000 -2.719000]
+[trajectory_generator_node-6] [INFO] [1790439319.867169565] [trajectory_generation]: FSM published 17 trajectory pieces
+[trajectory_generator_node-6] [INFO] [1790439321.880295237] [trajectory_generation]: FSM accepted manual goal goal=(-0.92, -4.45, 0.02)
+[trajectory_generator_node-6] [Manager] start point, (x, y): (-2.72, 1.95)
+[trajectory_generator_node-6] [Manager] receive target, (x, y): (-0.92, -4.45)
+[trajectory_generator_node-6] [Topo]: m_graph before num: 1605
+[trajectory_generator_node-6] [Topo]: dijkstra time: 0.231846
+[trajectory_generator_node-6] [Topo]: topo search time: 0.950387
+[trajectory_generator_node-6] [Topo]: m_graph num: 2558
+[trajectory_generator_node-6] [DIAG] origin_path (Dijkstra) size: 5
+[trajectory_generator_node-6] [DIAG]   origin[0]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[1]: (-1.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[2]: (-3.769, 2.396, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[3]: (-5.019, -1.604, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[4]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [DIAG] lineVisib(start→end DIRECT): false  colli=(-2.72,1.95)
+[trajectory_generator_node-6] [DIAG] direct line: 132 steps, 91 wall cells
+[trajectory_generator_node-6] [smoothTopoPath] INPUT size=5
+[trajectory_generator_node-6] [smoothTopoPath]   in[0]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[1]: (-1.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[2]: (-3.769, 2.396, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[3]: (-5.019, -1.604, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[4]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath] lineVisib(start→end): false  colli=(-2.72,1.95)
+[trajectory_generator_node-6] [smoothTopoPath] OUTPUT size=5, iter_count=4
+[trajectory_generator_node-6] [smoothTopoPath]   out[0]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[1]: (-2.669, 2.246, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[2]: (-4.461, 1.045, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[3]: (-5.152, -1.676, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[4]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [DIAG] optimized_path (smoothTopoPath) size: 5
+[trajectory_generator_node-6] [DIAG]   opt[0]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[1]: (-2.669, 2.246, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[2]: (-4.461, 1.045, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[3]: (-5.152, -1.676, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[4]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] optimized_path size: 5
+[trajectory_generator_node-6] [Manager] reference_speed: (2.00)
+[trajectory_generator_node-6] [LBFGS] search direction d: -0.000312827   0.00216449  -0.00109702   0.00028364   0.00217958  0.000627447  0.000935236  0.000558276    -0.000167  -0.00229687  -0.00325297  0.000111263   0.00195401 -0.000726508  -0.00264167  0.000604381    0.0020801   0.00141132   0.00136338   0.00244503    0.0020613  -0.00248626  -0.00446162  -0.00283564 -0.000724674    0.0012473   0.00423627   0.00468163 -0.000770419  -0.00344209    -0.002786  -0.00197078  -0.00112507   0.00635193  -0.00421041   -0.0124243   -0.0124379  -0.00513962  0.000457908   0.00479479   0.00732948   0.00500258   0.00181132 -8.61985e-05  -0.00016812  -0.00190288  -0.00194325  0.000458463  0.000621427   0.00109065  -0.00373052  -0.00349432  -0.00230294   0.00252126   0.00261988    0.0025191 -0.000591822 -0.000984465  -0.00190463  -0.00118567 -0.000198995   0.00132826  0.000468484  6.84717e-05  0.000878586   0.00274597    0.0272433   0.00241978   0.00237795   0.00263317   0.00311913   0.00251662    0.0020224   0.00124057  0.000566864  0.000189793 -0.000366668 -0.000384597    0.0147021 -0.000542868   0.00019915  0.000686675   0.00081177  0.000667222   0.00114367    0.0013402   0.00164407   0.00154385  0.000903825  0.000229649  0.000127297 -6.02927e-06  0.000145804  0.000709454   0.00129346   0.00111004   0.00138979    0.0017805   0.00298203   0.00792107
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=43.8 total_T=6.094(init 5.129) max_drift=0.311 max_vel=2.6 segs=34
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 35 -> 18 waypoints, 17 time segs, max_turn=67.9 deg
+[trajectory_generator_node-6] [Manager] optimizer generate time: 0.740906
+[trajectory_generator_node-6] [Reference] path size : 18
+[trajectory_generator_node-6] [Reference] Using MINCO-optimized durations (17 segments, total=6.094 s)
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=17, path_size=18, trap_time_size=17
+[trajectory_generator_node-6] [Reference]   path[0]=(-2.7190,1.9460) path[1]=(-2.9876,2.2256) t[0]=0.879472 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.009759 b[N]=-1.755375 b2[0]=2.252000 b2[N]=1.299827
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[-0.389285 -0.004880 0.000000 -2.719000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=17, path_size=18, trap_time_size=17
+[trajectory_generator_node-6] [Reference]   path[0]=(-2.7190,1.9460) path[1]=(-2.9876,2.2256) t[0]=0.879472 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.009689 b[N]=-1.428005 b2[0]=2.250601 b2[N]=1.057350
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[-0.389326 -0.004844 0.000000 -2.719000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=17, path_size=18, trap_time_size=17
+[trajectory_generator_node-6] [Reference]   path[0]=(-2.7190,1.9460) path[1]=(-2.9876,2.2256) t[0]=0.879472 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.009722 b[N]=-1.428066 b2[0]=2.250541 b2[N]=1.057413
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[-0.389307 -0.004861 0.000000 -2.719000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=17, path_size=18, trap_time_size=17
+[trajectory_generator_node-6] [Reference]   path[0]=(-2.7190,1.9460) path[1]=(-2.9876,2.2256) t[0]=0.879472 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.009578 b[N]=-1.428064 b2[0]=2.249474 b2[N]=1.057418
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[-0.389388 -0.004789 0.000000 -2.719000]
+[trajectory_generator_node-6] [INFO] [1790439323.609935344] [trajectory_generation]: FSM published 17 trajectory pieces
+[trajectory_generator_node-6] [INFO] [1790439325.622605942] [trajectory_generation]: FSM accepted manual goal goal=(-0.92, -4.45, 0.02)
+[trajectory_generator_node-6] [Manager] start point, (x, y): (-2.72, 1.95)
+[trajectory_generator_node-6] [Manager] receive target, (x, y): (-0.92, -4.45)
+[trajectory_generator_node-6] [Topo]: m_graph before num: 1605
+[trajectory_generator_node-6] [Topo]: dijkstra time: 0.486883
+[trajectory_generator_node-6] [Topo]: topo search time: 1.345868
+[trajectory_generator_node-6] [Topo]: m_graph num: 2565
+[trajectory_generator_node-6] [DIAG] origin_path (Dijkstra) size: 5
+[trajectory_generator_node-6] [DIAG]   origin[0]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[1]: (-1.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[2]: (-3.769, 2.396, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[3]: (-5.019, -1.604, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[4]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [DIAG] lineVisib(start→end DIRECT): false  colli=(-2.72,1.95)
+[trajectory_generator_node-6] [DIAG] direct line: 132 steps, 91 wall cells
+[trajectory_generator_node-6] [smoothTopoPath] INPUT size=5
+[trajectory_generator_node-6] [smoothTopoPath]   in[0]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[1]: (-1.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[2]: (-3.769, 2.396, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[3]: (-5.019, -1.604, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[4]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath] lineVisib(start→end): false  colli=(-2.72,1.95)
+[trajectory_generator_node-6] [smoothTopoPath] OUTPUT size=5, iter_count=4
+[trajectory_generator_node-6] [smoothTopoPath]   out[0]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[1]: (-2.669, 2.246, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[2]: (-4.461, 1.045, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[3]: (-5.152, -1.676, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[4]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [DIAG] optimized_path (smoothTopoPath) size: 5
+[trajectory_generator_node-6] [DIAG]   opt[0]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[1]: (-2.669, 2.246, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[2]: (-4.461, 1.045, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[3]: (-5.152, -1.676, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[4]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] optimized_path size: 5
+[trajectory_generator_node-6] [Manager] reference_speed: (2.00)
+[trajectory_generator_node-6] [LBFGS] search direction d: -0.000312827   0.00216449  -0.00109702   0.00028364   0.00217958  0.000627447  0.000935236  0.000558276    -0.000167  -0.00229687  -0.00325297  0.000111263   0.00195401 -0.000726508  -0.00264167  0.000604381    0.0020801   0.00141132   0.00136338   0.00244503    0.0020613  -0.00248626  -0.00446162  -0.00283564 -0.000724674    0.0012473   0.00423627   0.00468163 -0.000770419  -0.00344209    -0.002786  -0.00197078  -0.00112507   0.00635193  -0.00421041   -0.0124243   -0.0124379  -0.00513962  0.000457908   0.00479479   0.00732948   0.00500258   0.00181132 -8.61985e-05  -0.00016812  -0.00190288  -0.00194325  0.000458463  0.000621427   0.00109065  -0.00373052  -0.00349432  -0.00230294   0.00252126   0.00261988    0.0025191 -0.000591822 -0.000984465  -0.00190463  -0.00118567 -0.000198995   0.00132826  0.000468484  6.84717e-05  0.000878586   0.00274597    0.0272433   0.00241978   0.00237795   0.00263317   0.00311913   0.00251662    0.0020224   0.00124057  0.000566864  0.000189793 -0.000366668 -0.000384597    0.0147021 -0.000542868   0.00019915  0.000686675   0.00081177  0.000667222   0.00114367    0.0013402   0.00164407   0.00154385  0.000903825  0.000229649  0.000127297 -6.02927e-06  0.000145804  0.000709454   0.00129346   0.00111004   0.00138979    0.0017805   0.00298203   0.00792107
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=43.8 total_T=6.094(init 5.129) max_drift=0.311 max_vel=2.6 segs=34
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 35 -> 18 waypoints, 17 time segs, max_turn=67.9 deg
+[trajectory_generator_node-6] [Manager] optimizer generate time: 1.131894
+[trajectory_generator_node-6] [Reference] path size : 18
+[trajectory_generator_node-6] [Reference] Using MINCO-optimized durations (17 segments, total=6.094 s)
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=17, path_size=18, trap_time_size=17
+[trajectory_generator_node-6] [Reference]   path[0]=(-2.7190,1.9460) path[1]=(-2.9876,2.2256) t[0]=0.879472 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.009759 b[N]=-1.755375 b2[0]=2.252000 b2[N]=1.299827
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[-0.389285 -0.004880 0.000000 -2.719000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=17, path_size=18, trap_time_size=17
+[trajectory_generator_node-6] [Reference]   path[0]=(-2.7190,1.9460) path[1]=(-2.9876,2.2256) t[0]=0.879472 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.009689 b[N]=-1.428005 b2[0]=2.250601 b2[N]=1.057350
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[-0.389326 -0.004844 0.000000 -2.719000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=17, path_size=18, trap_time_size=17
+[trajectory_generator_node-6] [Reference]   path[0]=(-2.7190,1.9460) path[1]=(-2.9876,2.2256) t[0]=0.879472 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.009722 b[N]=-1.428066 b2[0]=2.250541 b2[N]=1.057413
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[-0.389307 -0.004861 0.000000 -2.719000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=17, path_size=18, trap_time_size=17
+[trajectory_generator_node-6] [Reference]   path[0]=(-2.7190,1.9460) path[1]=(-2.9876,2.2256) t[0]=0.879472 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-0.009578 b[N]=-1.428064 b2[0]=2.249474 b2[N]=1.057418
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[-0.389388 -0.004789 0.000000 -2.719000]
+[trajectory_generator_node-6] [INFO] [1790439328.114111178] [trajectory_generation]: FSM published 17 trajectory pieces
+[trajectory_generator_node-6] [INFO] [1790439330.312566929] [trajectory_generation]: FSM accepted manual goal goal=(-3.22, 2.15, 0.02)
+[trajectory_generator_node-6] [Manager] start point, (x, y): (-1.42, -4.15)
+[trajectory_generator_node-6] [Manager] receive target, (x, y): (-3.22, 2.15)
+[trajectory_generator_node-6] [Topo]: m_graph before num: 1605
+[trajectory_generator_node-6] [Topo]: dijkstra time: 0.193941
+[trajectory_generator_node-6] [Topo]: topo search time: 0.964721
+[trajectory_generator_node-6] [Topo]: m_graph num: 2556
+[trajectory_generator_node-6] [DIAG] origin_path (Dijkstra) size: 3
+[trajectory_generator_node-6] [DIAG]   origin[0]: (-1.419, -4.154, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[1]: (-5.619, -1.504, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[2]: (-3.219, 2.146, 0.015)
+[trajectory_generator_node-6] [DIAG] lineVisib(start→end DIRECT): false  colli=(-2.12,-1.70)
+[trajectory_generator_node-6] [DIAG] direct line: 131 steps, 70 wall cells
+[trajectory_generator_node-6] [smoothTopoPath] INPUT size=3
+[trajectory_generator_node-6] [smoothTopoPath]   in[0]: (-1.419, -4.154, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[1]: (-5.619, -1.504, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[2]: (-3.219, 2.146, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath] lineVisib(start→end): false  colli=(-2.12,-1.70)
+[trajectory_generator_node-6] [smoothTopoPath] OUTPUT size=6, iter_count=5
+[trajectory_generator_node-6] [smoothTopoPath]   out[0]: (-1.419, -4.154, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[1]: (-4.892, -0.491, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[2]: (-5.835, -1.287, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[3]: (-4.944, -0.992, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[4]: (-4.830, 0.226, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[5]: (-3.219, 2.146, 0.015)
+[trajectory_generator_node-6] [DIAG] optimized_path (smoothTopoPath) size: 6
+[trajectory_generator_node-6] [DIAG]   opt[0]: (-1.419, -4.154, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[1]: (-4.892, -0.491, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[2]: (-5.835, -1.287, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[3]: (-4.944, -0.992, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[4]: (-4.830, 0.226, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[5]: (-3.219, 2.146, 0.015)
+[trajectory_generator_node-6] optimized_path size: 6
+[trajectory_generator_node-6] [Manager] reference_speed: (2.00)
+[trajectory_generator_node-6] [LBFGS] search direction d:  0.000866274   0.00252664   0.00242273   0.00232455   0.00127367  -0.00186993  -0.00224444 -6.56197e-05   0.00250635  0.000130909 -0.000829053  -0.00170077 -0.000314923   0.00254359   0.00189885  -0.00172591  -0.00101383   0.00200774  0.000193778  -0.00145051   0.00284732   0.00479384  -0.00106684  -0.00395573  -0.00172322   0.00159329 -7.19885e-05  -0.00106723  -0.00135096 -0.000986909 -0.000127598 -0.000250538   0.00111843   0.00210177   0.00222342  -0.00152157  -0.00229667   -0.0023169   -0.0027467  -0.00129759   0.00165175    0.0022203  0.000964386  -0.00154534  -0.00205791 -0.000342468   0.00123304   0.00258415   0.00068156  -0.00156866  -0.00222388  -0.00155638  -0.00198897  -0.00249468  0.000585123  5.27638e-05 -0.000167304 -5.47646e-05  -0.00091962 -0.000757819   0.00279251   0.00232069  -0.00128166 -0.000632945   0.00030846  0.000450661  0.000997666   0.00204096    0.0032677   0.00208521   0.00290567   0.00239757   0.00162362  0.000701699 -8.83717e-05 -0.000401972 -6.41068e-05  0.000379762  0.000502823  2.31562e-05 -0.000194324 -0.000164714   0.00018165  0.000596173  0.000482837  0.000219226  0.000289366  0.000640835  0.000637576  0.000538433  0.000589352  0.000674912   0.00102353  0.000901577  0.000283158 -3.03788e-05   0.00070164  0.000431291  0.000161662  6.75363e-05 -7.26829e-07   1.3346e-05  0.000120346  0.000676285   0.00168268   0.00444454
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=83.6 total_T=5.524(init 5.426) max_drift=0.293 max_vel=3.0 segs=36
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 37 -> 19 waypoints, 18 time segs, max_turn=103.4 deg
+[trajectory_generator_node-6] [Manager] optimizer generate time: 0.459853
+[trajectory_generator_node-6] [Reference] path size : 19
+[trajectory_generator_node-6] [Reference] Using MINCO-optimized durations (18 segments, total=5.524 s)
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=18, path_size=19, trap_time_size=18
+[trajectory_generator_node-6] [Reference]   path[0]=(-1.4190,-4.1540) path[1]=(-1.6303,-3.9312) t[0]=0.320334 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-3.113671 b[N]=-3.433875 b2[0]=3.224336 b2[N]=-5.210941
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[-1.568776 -1.556836 0.000000 -1.419000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=18, path_size=19, trap_time_size=18
+[trajectory_generator_node-6] [Reference]   path[0]=(-1.4190,-4.1540) path[1]=(-1.6303,-3.9312) t[0]=0.352368 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-3.219554 b[N]=-3.386029 b2[0]=3.350099 b2[N]=-4.884384
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[-0.261602 -1.609777 0.000000 -1.419000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=18, path_size=19, trap_time_size=18
+[trajectory_generator_node-6] [Reference]   path[0]=(-1.4190,-4.1540) path[1]=(-1.6303,-3.9312) t[0]=0.387604 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-2.747461 b[N]=-2.798315 b2[0]=2.857109 b2[N]=-4.036636
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[-0.084741 -1.373730 0.000000 -1.419000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=18, path_size=19, trap_time_size=18
+[trajectory_generator_node-6] [Reference]   path[0]=(-1.4190,-4.1540) path[1]=(-1.6303,-3.9312) t[0]=0.426365 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-2.357466 b[N]=-2.371821 b2[0]=2.450235 b2[N]=-3.401046
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.038167 -1.178733 -0.000000 -1.419000]
+[trajectory_generator_node-6] [INFO] [1790439331.778943014] [trajectory_generation]: FSM published 18 trajectory pieces
+[trajectory_generator_node-6] [INFO] [1790439333.843408666] [trajectory_generation]: FSM accepted manual goal goal=(-3.22, 2.15, 0.02)
+[trajectory_generator_node-6] [Manager] start point, (x, y): (-1.42, -4.15)
+[trajectory_generator_node-6] [Manager] receive target, (x, y): (-3.22, 2.15)
+[trajectory_generator_node-6] [Topo]: m_graph before num: 1605
+[trajectory_generator_node-6] [Topo]: dijkstra time: 0.216374
+[trajectory_generator_node-6] [Topo]: topo search time: 1.082840
+[trajectory_generator_node-6] [Topo]: m_graph num: 2563
+[trajectory_generator_node-6] [DIAG] origin_path (Dijkstra) size: 3
+[trajectory_generator_node-6] [DIAG]   origin[0]: (-1.419, -4.154, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[1]: (-5.619, -1.504, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[2]: (-3.219, 2.146, 0.015)
+[trajectory_generator_node-6] [DIAG] lineVisib(start→end DIRECT): false  colli=(-2.12,-1.70)
+[trajectory_generator_node-6] [DIAG] direct line: 131 steps, 70 wall cells
+[trajectory_generator_node-6] [smoothTopoPath] INPUT size=3
+[trajectory_generator_node-6] [smoothTopoPath]   in[0]: (-1.419, -4.154, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[1]: (-5.619, -1.504, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[2]: (-3.219, 2.146, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath] lineVisib(start→end): false  colli=(-2.12,-1.70)
+[trajectory_generator_node-6] [smoothTopoPath] OUTPUT size=6, iter_count=5
+[trajectory_generator_node-6] [smoothTopoPath]   out[0]: (-1.419, -4.154, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[1]: (-4.892, -0.491, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[2]: (-5.835, -1.287, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[3]: (-4.944, -0.992, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[4]: (-4.830, 0.226, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[5]: (-3.219, 2.146, 0.015)
+[trajectory_generator_node-6] [DIAG] optimized_path (smoothTopoPath) size: 6
+[trajectory_generator_node-6] [DIAG]   opt[0]: (-1.419, -4.154, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[1]: (-4.892, -0.491, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[2]: (-5.835, -1.287, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[3]: (-4.944, -0.992, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[4]: (-4.830, 0.226, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[5]: (-3.219, 2.146, 0.015)
+[trajectory_generator_node-6] optimized_path size: 6
+[trajectory_generator_node-6] [Manager] reference_speed: (2.00)
+[trajectory_generator_node-6] [LBFGS] search direction d:  0.000866274   0.00252664   0.00242273   0.00232455   0.00127367  -0.00186993  -0.00224444 -6.56197e-05   0.00250635  0.000130909 -0.000829053  -0.00170077 -0.000314923   0.00254359   0.00189885  -0.00172591  -0.00101383   0.00200774  0.000193778  -0.00145051   0.00284732   0.00479384  -0.00106684  -0.00395573  -0.00172322   0.00159329 -7.19885e-05  -0.00106723  -0.00135096 -0.000986909 -0.000127598 -0.000250538   0.00111843   0.00210177   0.00222342  -0.00152157  -0.00229667   -0.0023169   -0.0027467  -0.00129759   0.00165175    0.0022203  0.000964386  -0.00154534  -0.00205791 -0.000342468   0.00123304   0.00258415   0.00068156  -0.00156866  -0.00222388  -0.00155638  -0.00198897  -0.00249468  0.000585123  5.27638e-05 -0.000167304 -5.47646e-05  -0.00091962 -0.000757819   0.00279251   0.00232069  -0.00128166 -0.000632945   0.00030846  0.000450661  0.000997666   0.00204096    0.0032677   0.00208521   0.00290567   0.00239757   0.00162362  0.000701699 -8.83717e-05 -0.000401972 -6.41068e-05  0.000379762  0.000502823  2.31562e-05 -0.000194324 -0.000164714   0.00018165  0.000596173  0.000482837  0.000219226  0.000289366  0.000640835  0.000637576  0.000538433  0.000589352  0.000674912   0.00102353  0.000901577  0.000283158 -3.03788e-05   0.00070164  0.000431291  0.000161662  6.75363e-05 -7.26829e-07   1.3346e-05  0.000120346  0.000676285   0.00168268   0.00444454
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=83.6 total_T=5.524(init 5.426) max_drift=0.293 max_vel=3.0 segs=36
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 37 -> 19 waypoints, 18 time segs, max_turn=103.4 deg
+[trajectory_generator_node-6] [Manager] optimizer generate time: 0.508099
+[trajectory_generator_node-6] [Reference] path size : 19
+[trajectory_generator_node-6] [Reference] Using MINCO-optimized durations (18 segments, total=5.524 s)
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=18, path_size=19, trap_time_size=18
+[trajectory_generator_node-6] [Reference]   path[0]=(-1.4190,-4.1540) path[1]=(-1.6303,-3.9312) t[0]=0.320334 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-3.113671 b[N]=-3.433875 b2[0]=3.224336 b2[N]=-5.210941
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[-1.568776 -1.556836 0.000000 -1.419000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=18, path_size=19, trap_time_size=18
+[trajectory_generator_node-6] [Reference]   path[0]=(-1.4190,-4.1540) path[1]=(-1.6303,-3.9312) t[0]=0.352368 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-3.219554 b[N]=-3.386029 b2[0]=3.350099 b2[N]=-4.884384
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[-0.261602 -1.609777 0.000000 -1.419000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=18, path_size=19, trap_time_size=18
+[trajectory_generator_node-6] [Reference]   path[0]=(-1.4190,-4.1540) path[1]=(-1.6303,-3.9312) t[0]=0.387604 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-2.747461 b[N]=-2.798315 b2[0]=2.857109 b2[N]=-4.036636
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[-0.084741 -1.373730 0.000000 -1.419000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=18, path_size=19, trap_time_size=18
+[trajectory_generator_node-6] [Reference]   path[0]=(-1.4190,-4.1540) path[1]=(-1.6303,-3.9312) t[0]=0.426365 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-2.357466 b[N]=-2.371821 b2[0]=2.450235 b2[N]=-3.401046
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.038167 -1.178733 -0.000000 -1.419000]
+[trajectory_generator_node-6] [INFO] [1790439335.452053092] [trajectory_generation]: FSM published 18 trajectory pieces
+[trajectory_generator_node-6] [INFO] [1790439337.526959109] [trajectory_generation]: FSM accepted manual goal goal=(-3.22, 2.15, 0.02)
+[trajectory_generator_node-6] [Manager] start point, (x, y): (-1.42, -4.15)
+[trajectory_generator_node-6] [Manager] receive target, (x, y): (-3.22, 2.15)
+[trajectory_generator_node-6] [Topo]: m_graph before num: 1605
+[trajectory_generator_node-6] [Topo]: dijkstra time: 0.208136
+[trajectory_generator_node-6] [Topo]: topo search time: 0.939391
+[trajectory_generator_node-6] [Topo]: m_graph num: 2576
+[trajectory_generator_node-6] [DIAG] origin_path (Dijkstra) size: 3
+[trajectory_generator_node-6] [DIAG]   origin[0]: (-1.419, -4.154, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[1]: (-5.619, -1.504, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[2]: (-3.219, 2.146, 0.015)
+[trajectory_generator_node-6] [DIAG] lineVisib(start→end DIRECT): false  colli=(-2.12,-1.70)
+[trajectory_generator_node-6] [DIAG] direct line: 131 steps, 70 wall cells
+[trajectory_generator_node-6] [smoothTopoPath] INPUT size=3
+[trajectory_generator_node-6] [smoothTopoPath]   in[0]: (-1.419, -4.154, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[1]: (-5.619, -1.504, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[2]: (-3.219, 2.146, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath] lineVisib(start→end): false  colli=(-2.12,-1.70)
+[trajectory_generator_node-6] [smoothTopoPath] OUTPUT size=6, iter_count=5
+[trajectory_generator_node-6] [smoothTopoPath]   out[0]: (-1.419, -4.154, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[1]: (-4.892, -0.491, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[2]: (-5.835, -1.287, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[3]: (-4.944, -0.992, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[4]: (-4.830, 0.226, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[5]: (-3.219, 2.146, 0.015)
+[trajectory_generator_node-6] [DIAG] optimized_path (smoothTopoPath) size: 6
+[trajectory_generator_node-6] [DIAG]   opt[0]: (-1.419, -4.154, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[1]: (-4.892, -0.491, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[2]: (-5.835, -1.287, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[3]: (-4.944, -0.992, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[4]: (-4.830, 0.226, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[5]: (-3.219, 2.146, 0.015)
+[trajectory_generator_node-6] optimized_path size: 6
+[trajectory_generator_node-6] [Manager] reference_speed: (2.00)
+[trajectory_generator_node-6] [LBFGS] search direction d:  0.000866274   0.00252664   0.00242273   0.00232455   0.00127367  -0.00186993  -0.00224444 -6.56197e-05   0.00250635  0.000130909 -0.000829053  -0.00170077 -0.000314923   0.00254359   0.00189885  -0.00172591  -0.00101383   0.00200774  0.000193778  -0.00145051   0.00284732   0.00479384  -0.00106684  -0.00395573  -0.00172322   0.00159329 -7.19885e-05  -0.00106723  -0.00135096 -0.000986909 -0.000127598 -0.000250538   0.00111843   0.00210177   0.00222342  -0.00152157  -0.00229667   -0.0023169   -0.0027467  -0.00129759   0.00165175    0.0022203  0.000964386  -0.00154534  -0.00205791 -0.000342468   0.00123304   0.00258415   0.00068156  -0.00156866  -0.00222388  -0.00155638  -0.00198897  -0.00249468  0.000585123  5.27638e-05 -0.000167304 -5.47646e-05  -0.00091962 -0.000757819   0.00279251   0.00232069  -0.00128166 -0.000632945   0.00030846  0.000450661  0.000997666   0.00204096    0.0032677   0.00208521   0.00290567   0.00239757   0.00162362  0.000701699 -8.83717e-05 -0.000401972 -6.41068e-05  0.000379762  0.000502823  2.31562e-05 -0.000194324 -0.000164714   0.00018165  0.000596173  0.000482837  0.000219226  0.000289366  0.000640835  0.000637576  0.000538433  0.000589352  0.000674912   0.00102353  0.000901577  0.000283158 -3.03788e-05   0.00070164  0.000431291  0.000161662  6.75363e-05 -7.26829e-07   1.3346e-05  0.000120346  0.000676285   0.00168268   0.00444454
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=83.6 total_T=5.524(init 5.426) max_drift=0.293 max_vel=3.0 segs=36
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 37 -> 19 waypoints, 18 time segs, max_turn=103.4 deg
+[trajectory_generator_node-6] [Manager] optimizer generate time: 0.723143
+[trajectory_generator_node-6] [Reference] path size : 19
+[trajectory_generator_node-6] [Reference] Using MINCO-optimized durations (18 segments, total=5.524 s)
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=18, path_size=19, trap_time_size=18
+[trajectory_generator_node-6] [Reference]   path[0]=(-1.4190,-4.1540) path[1]=(-1.6303,-3.9312) t[0]=0.320334 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-3.113671 b[N]=-3.433875 b2[0]=3.224336 b2[N]=-5.210941
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[-1.568776 -1.556836 0.000000 -1.419000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=18, path_size=19, trap_time_size=18
+[trajectory_generator_node-6] [Reference]   path[0]=(-1.4190,-4.1540) path[1]=(-1.6303,-3.9312) t[0]=0.352368 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-3.219554 b[N]=-3.386029 b2[0]=3.350099 b2[N]=-4.884384
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[-0.261602 -1.609777 0.000000 -1.419000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=18, path_size=19, trap_time_size=18
+[trajectory_generator_node-6] [Reference]   path[0]=(-1.4190,-4.1540) path[1]=(-1.6303,-3.9312) t[0]=0.387604 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-2.747461 b[N]=-2.798315 b2[0]=2.857109 b2[N]=-4.036636
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[-0.084741 -1.373730 0.000000 -1.419000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=18, path_size=19, trap_time_size=18
+[trajectory_generator_node-6] [Reference]   path[0]=(-1.4190,-4.1540) path[1]=(-1.6303,-3.9312) t[0]=0.426365 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-2.357466 b[N]=-2.371821 b2[0]=2.450235 b2[N]=-3.401046
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.038167 -1.178733 -0.000000 -1.419000]
+[trajectory_generator_node-6] [INFO] [1790439339.220430281] [trajectory_generation]: FSM published 18 trajectory pieces
+[trajectory_generator_node-6] [INFO] [1790439341.276030918] [trajectory_generation]: FSM accepted manual goal goal=(-3.72, 2.10, 0.02)
+[trajectory_generator_node-6] [Manager] start point, (x, y): (-1.92, -3.80)
+[trajectory_generator_node-6] [Manager] receive target, (x, y): (-3.72, 2.10)
+[trajectory_generator_node-6] [Topo]: m_graph before num: 1605
+[trajectory_generator_node-6] [Topo]: dijkstra time: 0.207629
+[trajectory_generator_node-6] [Topo]: topo search time: 0.905025
+[trajectory_generator_node-6] [Topo]: m_graph num: 2577
+[trajectory_generator_node-6] [DIAG] origin_path (Dijkstra) size: 3
+[trajectory_generator_node-6] [DIAG]   origin[0]: (-1.919, -3.804, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[1]: (-5.319, -1.704, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[2]: (-3.719, 2.096, 0.015)
+[trajectory_generator_node-6] [DIAG] lineVisib(start→end DIRECT): false  colli=(-2.62,-1.45)
+[trajectory_generator_node-6] [DIAG] direct line: 123 steps, 56 wall cells
+[trajectory_generator_node-6] [smoothTopoPath] INPUT size=3
+[trajectory_generator_node-6] [smoothTopoPath]   in[0]: (-1.919, -3.804, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[1]: (-5.319, -1.704, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[2]: (-3.719, 2.096, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath] lineVisib(start→end): false  colli=(-2.62,-1.45)
+[trajectory_generator_node-6] [smoothTopoPath] OUTPUT size=8, iter_count=7
+[trajectory_generator_node-6] [smoothTopoPath]   out[0]: (-1.919, -3.804, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[1]: (-4.935, -0.414, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[2]: (-5.587, -1.574, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[3]: (-4.511, -0.293, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[4]: (-5.559, -1.508, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[5]: (-4.659, -0.137, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[6]: (-4.819, 0.256, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[7]: (-3.719, 2.096, 0.015)
+[trajectory_generator_node-6] [DIAG] optimized_path (smoothTopoPath) size: 8
+[trajectory_generator_node-6] [DIAG]   opt[0]: (-1.919, -3.804, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[1]: (-4.935, -0.414, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[2]: (-5.587, -1.574, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[3]: (-4.511, -0.293, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[4]: (-5.559, -1.508, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[5]: (-4.659, -0.137, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[6]: (-4.819, 0.256, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[7]: (-3.719, 2.096, 0.015)
+[trajectory_generator_node-6] optimized_path size: 8
+[trajectory_generator_node-6] [Manager] reference_speed: (2.00)
+[trajectory_generator_node-6] [LBFGS] search direction d:   -0.0007545   0.00207064   0.00823821   0.00213836  -0.00344187  -0.00293224 -0.000447606   0.00345642   0.00219923  -0.00412639  -0.00155696   0.00257434  0.000252253  0.000793049   0.00317644  0.000638705  -0.00099688   0.00207342   0.00117938  0.000842335   0.00170032   0.00042557  -0.00118144 -0.000969735   0.00201473   0.00295611   -0.0020418   -0.0014501   0.00486999  0.000342769  -0.00163134   0.00150088   0.00461769   -0.0020267 -0.000543586    0.0021799   0.00361805   0.00329287  -0.00515894  -0.00469855   0.00813959   0.00335278  -0.00084193  0.000268606  -0.00263096  -0.00367638  -0.00553863  -0.00500278   0.00334068   0.00558312  -0.00139708  -0.00322042  -0.00129067   0.00310316 -0.000936477  7.98299e-05    0.0023655   0.00134453  -0.00660812  -0.00417269 -0.000978851  -0.00181913  -0.00015745   0.00232039   0.00535447  -0.00193674  -0.00520379  -0.00445985 -0.000228861  0.000311393  -0.00774979  -0.00516504   0.00632267   0.00277902  0.000196095  -0.00312273   0.00105604  -0.00141127  -0.00680089   0.00237841    0.0136389  -0.00233827   -0.0110386  -0.00147886    0.0141666   0.00499541  -0.00148269 -0.000391908   0.00384796   0.00354409     0.002213  6.25776e-06 -0.000779189 -0.000129078  0.000788486  0.000652651  -0.00013529 -0.000488908  0.000245824  0.000321243  4.98429e-05   0.00030183  0.000390375  0.000241547  0.000757907  0.000826638  0.000883234   0.00016031  0.000665545   0.00134778   0.00108004  0.000195884  8.49108e-05  3.27075e-05 -0.000439091  0.000843812   0.00170888   0.00064594  0.000168478  0.000773963  0.000492537   0.00130049  0.000812609  8.81436e-05 -0.000383408   0.00128624   0.00126999 -0.000502112  -0.00104453   0.00196345   0.00381658   0.00381662   0.00147297
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=220.3 total_T=6.437(init 6.394) max_drift=0.250 max_vel=3.1 segs=45
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 46 -> 24 waypoints, 23 time segs, max_turn=173.8 deg
+[trajectory_generator_node-6] [Manager] optimizer generate time: 0.645838
+[trajectory_generator_node-6] [Reference] path size : 24
+[trajectory_generator_node-6] [Reference] Using MINCO-optimized durations (23 segments, total=6.437 s)
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=23, path_size=24, trap_time_size=23
+[trajectory_generator_node-6] [Reference]   path[0]=(-1.9190,-3.8040) path[1]=(-2.1819,-3.5109) t[0]=0.309786 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-5.753242 b[N]=1.110941 b2[0]=6.273209 b2[N]=1.230880
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.443264 -2.876621 0.000000 -1.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=23, path_size=24, trap_time_size=23
+[trajectory_generator_node-6] [Reference]   path[0]=(-1.9190,-3.8040) path[1]=(-2.1819,-3.5109) t[0]=0.340765 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-5.362450 b[N]=1.087212 b2[0]=5.874970 b2[N]=1.267793
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.224709 -2.681225 0.000000 -1.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=23, path_size=24, trap_time_size=23
+[trajectory_generator_node-6] [Reference]   path[0]=(-1.9190,-3.8040) path[1]=(-2.1819,-3.5109) t[0]=0.374841 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-4.483162 b[N]=0.915251 b2[0]=4.909855 b2[N]=1.070855
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.988685 -2.241581 0.000000 -1.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=23, path_size=24, trap_time_size=23
+[trajectory_generator_node-6] [Reference]   path[0]=(-1.9190,-3.8040) path[1]=(-2.1819,-3.5109) t[0]=0.412325 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-3.758352 b[N]=0.773538 b2[0]=4.114659 b2[N]=0.909015
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.807398 -1.879176 0.000000 -1.919000]
+[trajectory_generator_node-6] [INFO] [1790439342.850854171] [trajectory_generation]: FSM published 23 trajectory pieces
+[trajectory_generator_node-6] [INFO] [1790439344.849462584] [trajectory_generation]: FSM accepted manual goal goal=(-3.72, 2.10, 0.02)
+[trajectory_generator_node-6] [Manager] start point, (x, y): (-1.92, -3.80)
+[trajectory_generator_node-6] [Manager] receive target, (x, y): (-3.72, 2.10)
+[trajectory_generator_node-6] [Topo]: m_graph before num: 1605
+[trajectory_generator_node-6] [Topo]: dijkstra time: 0.212679
+[trajectory_generator_node-6] [Topo]: topo search time: 1.004196
+[trajectory_generator_node-6] [Topo]: m_graph num: 2581
+[trajectory_generator_node-6] [DIAG] origin_path (Dijkstra) size: 3
+[trajectory_generator_node-6] [DIAG]   origin[0]: (-1.919, -3.804, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[1]: (-5.319, -1.704, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[2]: (-3.719, 2.096, 0.015)
+[trajectory_generator_node-6] [DIAG] lineVisib(start→end DIRECT): false  colli=(-2.62,-1.45)
+[trajectory_generator_node-6] [DIAG] direct line: 123 steps, 56 wall cells
+[trajectory_generator_node-6] [smoothTopoPath] INPUT size=3
+[trajectory_generator_node-6] [smoothTopoPath]   in[0]: (-1.919, -3.804, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[1]: (-5.319, -1.704, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[2]: (-3.719, 2.096, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath] lineVisib(start→end): false  colli=(-2.62,-1.45)
+[trajectory_generator_node-6] [smoothTopoPath] OUTPUT size=8, iter_count=7
+[trajectory_generator_node-6] [smoothTopoPath]   out[0]: (-1.919, -3.804, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[1]: (-4.935, -0.414, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[2]: (-5.587, -1.574, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[3]: (-4.511, -0.293, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[4]: (-5.559, -1.508, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[5]: (-4.659, -0.137, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[6]: (-4.819, 0.256, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[7]: (-3.719, 2.096, 0.015)
+[trajectory_generator_node-6] [DIAG] optimized_path (smoothTopoPath) size: 8
+[trajectory_generator_node-6] [DIAG]   opt[0]: (-1.919, -3.804, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[1]: (-4.935, -0.414, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[2]: (-5.587, -1.574, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[3]: (-4.511, -0.293, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[4]: (-5.559, -1.508, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[5]: (-4.659, -0.137, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[6]: (-4.819, 0.256, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[7]: (-3.719, 2.096, 0.015)
+[trajectory_generator_node-6] optimized_path size: 8
+[trajectory_generator_node-6] [Manager] reference_speed: (2.00)
+[trajectory_generator_node-6] [LBFGS] search direction d:   -0.0007545   0.00207064   0.00823821   0.00213836  -0.00344187  -0.00293224 -0.000447606   0.00345642   0.00219923  -0.00412639  -0.00155696   0.00257434  0.000252253  0.000793049   0.00317644  0.000638705  -0.00099688   0.00207342   0.00117938  0.000842335   0.00170032   0.00042557  -0.00118144 -0.000969735   0.00201473   0.00295611   -0.0020418   -0.0014501   0.00486999  0.000342769  -0.00163134   0.00150088   0.00461769   -0.0020267 -0.000543586    0.0021799   0.00361805   0.00329287  -0.00515894  -0.00469855   0.00813959   0.00335278  -0.00084193  0.000268606  -0.00263096  -0.00367638  -0.00553863  -0.00500278   0.00334068   0.00558312  -0.00139708  -0.00322042  -0.00129067   0.00310316 -0.000936477  7.98299e-05    0.0023655   0.00134453  -0.00660812  -0.00417269 -0.000978851  -0.00181913  -0.00015745   0.00232039   0.00535447  -0.00193674  -0.00520379  -0.00445985 -0.000228861  0.000311393  -0.00774979  -0.00516504   0.00632267   0.00277902  0.000196095  -0.00312273   0.00105604  -0.00141127  -0.00680089   0.00237841    0.0136389  -0.00233827   -0.0110386  -0.00147886    0.0141666   0.00499541  -0.00148269 -0.000391908   0.00384796   0.00354409     0.002213  6.25776e-06 -0.000779189 -0.000129078  0.000788486  0.000652651  -0.00013529 -0.000488908  0.000245824  0.000321243  4.98429e-05   0.00030183  0.000390375  0.000241547  0.000757907  0.000826638  0.000883234   0.00016031  0.000665545   0.00134778   0.00108004  0.000195884  8.49108e-05  3.27075e-05 -0.000439091  0.000843812   0.00170888   0.00064594  0.000168478  0.000773963  0.000492537   0.00130049  0.000812609  8.81436e-05 -0.000383408   0.00128624   0.00126999 -0.000502112  -0.00104453   0.00196345   0.00381658   0.00381662   0.00147297
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=220.3 total_T=6.437(init 6.394) max_drift=0.250 max_vel=3.1 segs=45
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 46 -> 24 waypoints, 23 time segs, max_turn=173.8 deg
+[trajectory_generator_node-6] [Manager] optimizer generate time: 0.645429
+[trajectory_generator_node-6] [Reference] path size : 24
+[trajectory_generator_node-6] [Reference] Using MINCO-optimized durations (23 segments, total=6.437 s)
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=23, path_size=24, trap_time_size=23
+[trajectory_generator_node-6] [Reference]   path[0]=(-1.9190,-3.8040) path[1]=(-2.1819,-3.5109) t[0]=0.309786 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-5.753242 b[N]=1.110941 b2[0]=6.273209 b2[N]=1.230880
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.443264 -2.876621 0.000000 -1.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=23, path_size=24, trap_time_size=23
+[trajectory_generator_node-6] [Reference]   path[0]=(-1.9190,-3.8040) path[1]=(-2.1819,-3.5109) t[0]=0.340765 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-5.362450 b[N]=1.087212 b2[0]=5.874970 b2[N]=1.267793
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.224709 -2.681225 0.000000 -1.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=23, path_size=24, trap_time_size=23
+[trajectory_generator_node-6] [Reference]   path[0]=(-1.9190,-3.8040) path[1]=(-2.1819,-3.5109) t[0]=0.374841 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-4.483162 b[N]=0.915251 b2[0]=4.909855 b2[N]=1.070855
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.988685 -2.241581 0.000000 -1.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=23, path_size=24, trap_time_size=23
+[trajectory_generator_node-6] [Reference]   path[0]=(-1.9190,-3.8040) path[1]=(-2.1819,-3.5109) t[0]=0.412325 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-3.758352 b[N]=0.773538 b2[0]=4.114659 b2[N]=0.909015
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.807398 -1.879176 0.000000 -1.919000]
+[trajectory_generator_node-6] [INFO] [1790439346.520709823] [trajectory_generation]: FSM published 23 trajectory pieces
+[trajectory_generator_node-6] [INFO] [1790439348.571715002] [trajectory_generation]: FSM accepted manual goal goal=(-3.72, 2.10, 0.02)
+[trajectory_generator_node-6] [Manager] start point, (x, y): (-1.92, -3.80)
+[trajectory_generator_node-6] [Manager] receive target, (x, y): (-3.72, 2.10)
+[trajectory_generator_node-6] [Topo]: m_graph before num: 1605
+[trajectory_generator_node-6] [Topo]: dijkstra time: 0.222952
+[trajectory_generator_node-6] [Topo]: topo search time: 1.237618
+[trajectory_generator_node-6] [Topo]: m_graph num: 2586
+[trajectory_generator_node-6] [DIAG] origin_path (Dijkstra) size: 3
+[trajectory_generator_node-6] [DIAG]   origin[0]: (-1.919, -3.804, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[1]: (-5.219, -1.454, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[2]: (-3.719, 2.096, 0.015)
+[trajectory_generator_node-6] [DIAG] lineVisib(start→end DIRECT): false  colli=(-2.62,-1.45)
+[trajectory_generator_node-6] [DIAG] direct line: 123 steps, 56 wall cells
+[trajectory_generator_node-6] [smoothTopoPath] INPUT size=3
+[trajectory_generator_node-6] [smoothTopoPath]   in[0]: (-1.919, -3.804, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[1]: (-5.219, -1.454, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[2]: (-3.719, 2.096, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath] lineVisib(start→end): false  colli=(-2.62,-1.45)
+[trajectory_generator_node-6] [smoothTopoPath] stuck detected, skipping to topo[2]
+[trajectory_generator_node-6] [smoothTopoPath] OUTPUT size=7, iter_count=6
+[trajectory_generator_node-6] [smoothTopoPath]   out[0]: (-1.919, -3.804, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[1]: (-4.931, -0.394, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[2]: (-5.490, -1.331, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[3]: (-4.449, -0.384, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[4]: (-5.441, -1.231, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[5]: (-3.719, 2.096, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[6]: (-3.719, 2.096, 0.015)
+[trajectory_generator_node-6] [DIAG] optimized_path (smoothTopoPath) size: 7
+[trajectory_generator_node-6] [DIAG]   opt[0]: (-1.919, -3.804, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[1]: (-4.931, -0.394, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[2]: (-5.490, -1.331, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[3]: (-4.449, -0.384, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[4]: (-5.441, -1.231, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[5]: (-3.719, 2.096, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[6]: (-3.719, 2.096, 0.015)
+[trajectory_generator_node-6] optimized_path size: 7
+[trajectory_generator_node-6] [Manager] reference_speed: (2.00)
+[trajectory_generator_node-6] [LBFGS] search direction d:  0.000703029 -0.000941519  0.000359644  0.000613474   0.00149231   -0.0016353  -0.00141235   0.00156833   0.00131463  -0.00191552 -0.000416484  0.000799058   0.00115058 -0.000535902  -0.00152309 -0.000747472  0.000341989  0.000698953 -0.000519242 -8.06552e-05   0.00101555  0.000907816 -0.000558722  6.68272e-05  0.000538701 -0.000621887   0.00122103  0.000183045  0.000960442 -0.000922796  -0.00227108  -0.00171384  -0.00216195 -0.000898903   0.00108579  7.24422e-05 -0.000419086 -0.000163256  0.000760257  -0.00108975   0.00136866 -0.000711348 -0.000520883  -0.00154225   0.00136132   0.00194996  -0.00125879  -0.00184513   0.00106544  0.000653306  0.000941054  -0.00168499   0.00142756  -0.00219346   0.00208798 -1.67312e-06  0.000998158  -0.00154017    0.0010786  0.000933859 -0.000959982 -0.000948983  7.35522e-05  0.000691768 -2.39904e-05  -0.00121683  0.000671236  0.000167998  0.000899527 -3.45934e-05    0.0019248 -0.000753037  -0.00121266  0.000859813   0.00139107  0.000749384  -0.00128035 -0.000399148  0.000249149  0.000119126  0.000320705  0.000122667 -1.30814e-06 -0.000309947  -1.8384e-06  0.000397631   6.8098e-05 -0.000270587  4.57891e-05  0.000164295  0.000205338 -8.20726e-05  3.37115e-05  0.000161791   0.00011929   0.00010922 -1.13881e-05 -4.23056e-06  1.40118e-05  0.000281746  0.000224568 -3.57113e-06  0.000107662   3.3164e-05  0.000170603  6.47944e-05  8.01127e-05  0.000205629  0.000173392 -1.36262e-05  0.000281532  6.17692e-06 -0.000185014   5.0446e-06   0.00019718  0.000299529  0.000102128  0.000258172
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=165.4 total_T=5.903(init 5.816) max_drift=0.272 max_vel=3.1 segs=40
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 41 -> 21 waypoints, 20 time segs, max_turn=175.5 deg
+[trajectory_generator_node-6] [Manager] optimizer generate time: 0.593942
+[trajectory_generator_node-6] [Reference] path size : 21
+[trajectory_generator_node-6] [Reference] Using MINCO-optimized durations (20 segments, total=5.903 s)
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=20, path_size=21, trap_time_size=20
+[trajectory_generator_node-6] [Reference]   path[0]=(-1.9190,-3.8040) path[1]=(-2.1376,-3.5584) t[0]=0.315379 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-3.667737 b[N]=-1.887591 b2[0]=3.981906 b2[N]=-5.826054
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[-1.154970 -1.833869 -0.000000 -1.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=20, path_size=21, trap_time_size=20
+[trajectory_generator_node-6] [Reference]   path[0]=(-1.9190,-3.8040) path[1]=(-2.1376,-3.5584) t[0]=0.346917 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-3.667091 b[N]=-1.514105 b2[0]=4.014103 b2[N]=-4.730420
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.048760 -1.833546 -0.000000 -1.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=20, path_size=21, trap_time_size=20
+[trajectory_generator_node-6] [Reference]   path[0]=(-1.9190,-3.8040) path[1]=(-2.1376,-3.5584) t[0]=0.381609 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-3.108448 b[N]=-1.620367 b2[0]=3.399888 b2[N]=-4.511777
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.138563 -1.554224 0.000000 -1.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=20, path_size=21, trap_time_size=20
+[trajectory_generator_node-6] [Reference]   path[0]=(-1.9190,-3.8040) path[1]=(-2.1376,-3.5584) t[0]=0.419770 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-2.647044 b[N]=-1.603927 b2[0]=2.893061 b2[N]=-4.158444
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.197106 -1.323522 0.000000 -1.919000]
+[trajectory_generator_node-6] [INFO] [1790439350.419477194] [trajectory_generation]: FSM published 20 trajectory pieces
+[trajectory_generator_node-6] [INFO] [1790439352.422977453] [trajectory_generation]: FSM accepted manual goal goal=(-4.72, 1.10, 0.02)
+[trajectory_generator_node-6] [Manager] start point, (x, y): (-2.92, -3.10)
+[trajectory_generator_node-6] [Manager] receive target, (x, y): (-4.72, 1.10)
+[trajectory_generator_node-6] [Topo]: m_graph before num: 1600
+[trajectory_generator_node-6] [Topo]: dijkstra time: 0.241762
+[trajectory_generator_node-6] [Topo]: topo search time: 0.969044
+[trajectory_generator_node-6] [Topo]: m_graph num: 2548
+[trajectory_generator_node-6] [DIAG] origin_path (Dijkstra) size: 3
+[trajectory_generator_node-6] [DIAG]   origin[0]: (-2.919, -3.104, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[1]: (-4.333, -1.690, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[2]: (-4.719, 1.096, 0.015)
+[trajectory_generator_node-6] [DIAG] lineVisib(start→end DIRECT): false  colli=(-3.92,-0.75)
+[trajectory_generator_node-6] [DIAG] direct line: 91 steps, 21 wall cells
+[trajectory_generator_node-6] [smoothTopoPath] INPUT size=3
+[trajectory_generator_node-6] [smoothTopoPath]   in[0]: (-2.919, -3.104, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[1]: (-4.333, -1.690, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[2]: (-4.719, 1.096, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath] lineVisib(start→end): false  colli=(-3.92,-0.75)
+[trajectory_generator_node-6] [smoothTopoPath] OUTPUT size=4, iter_count=3
+[trajectory_generator_node-6] [smoothTopoPath]   out[0]: (-2.919, -3.104, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[1]: (-4.770, -0.554, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[2]: (-4.377, 0.766, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[3]: (-4.719, 1.096, 0.015)
+[trajectory_generator_node-6] [DIAG] optimized_path (smoothTopoPath) size: 4
+[trajectory_generator_node-6] [DIAG]   opt[0]: (-2.919, -3.104, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[1]: (-4.770, -0.554, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[2]: (-4.377, 0.766, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[3]: (-4.719, 1.096, 0.015)
+[trajectory_generator_node-6] optimized_path size: 4
+[trajectory_generator_node-6] [Manager] reference_speed: (2.00)
+[trajectory_generator_node-6] [LBFGS] search direction d: -1.51172e-05 -0.000400508 -0.000427962  0.000680546   0.00143772  0.000908078 -0.000450826  -0.00133106  -0.00107705  -0.00038805  4.06845e-05  0.000131905 -0.000452348 -0.000962372  -0.00060513 -0.000108167  -0.00033712 -0.000281061  0.000903646  0.000875113 -0.000978879  -0.00252348   -0.0020341  -0.00014646  0.000901722  0.000456516 -3.39189e-05   0.00145925   0.00158413   0.00060833 -0.000364846 -6.30781e-05   0.00154056   0.00138029  0.000961671  0.000778832  0.000644275  0.000289762 -6.68845e-05 -0.000164459 -3.83631e-05  5.32376e-05  2.57389e-05   0.00300234 -0.000304983  0.000294529  0.000721634  0.000820561  0.000546295
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=47.7 total_T=2.582(init 2.479) max_drift=0.416 max_vel=3.0 segs=17
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 18 -> 10 waypoints, 9 time segs, max_turn=27.3 deg
+[trajectory_generator_node-6] [Manager] optimizer generate time: 0.462081
+[trajectory_generator_node-6] [Reference] path size : 10
+[trajectory_generator_node-6] [Reference] Using MINCO-optimized durations (9 segments, total=2.582 s)
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=9, path_size=10, trap_time_size=9
+[trajectory_generator_node-6] [Reference]   path[0]=(-2.9190,-3.1040) path[1]=(-3.0630,-2.8938) t[0]=0.341187 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-1.439380 b[N]=0.146367 b2[0]=2.329820 b2[N]=0.048480
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[-1.515650 -0.719690 0.000000 -2.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=9, path_size=10, trap_time_size=9
+[trajectory_generator_node-6] [Reference]   path[0]=(-2.9190,-3.1040) path[1]=(-3.0630,-2.8938) t[0]=0.375305 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-1.317758 b[N]=0.223960 b2[0]=2.098721 b2[N]=-0.385060
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[-0.967952 -0.658879 0.000000 -2.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=9, path_size=10, trap_time_size=9
+[trajectory_generator_node-6] [Reference]   path[0]=(-2.9190,-3.1040) path[1]=(-3.0630,-2.8938) t[0]=0.412836 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-1.484281 b[N]=0.193921 b2[0]=2.287930 b2[N]=-0.046758
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[-0.248566 -0.742141 0.000000 -2.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=9, path_size=10, trap_time_size=9
+[trajectory_generator_node-6] [Reference]   path[0]=(-2.9190,-3.1040) path[1]=(-3.0630,-2.8938) t[0]=0.412836 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-1.732987 b[N]=0.195672 b2[0]=2.634061 b2[N]=-0.048009
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.052651 -0.866494 0.000000 -2.919000]
+[trajectory_generator_node-6] [INFO] [1790439353.887959541] [trajectory_generation]: FSM published 9 trajectory pieces
+[trajectory_generator_node-6] [INFO] [1790439355.884612649] [trajectory_generation]: FSM accepted manual goal goal=(-4.72, 1.10, 0.02)
+[trajectory_generator_node-6] [Manager] start point, (x, y): (-2.92, -3.10)
+[trajectory_generator_node-6] [Manager] receive target, (x, y): (-4.72, 1.10)
+[trajectory_generator_node-6] [Topo]: m_graph before num: 1600
+[trajectory_generator_node-6] [Topo]: dijkstra time: 0.259085
+[trajectory_generator_node-6] [Topo]: topo search time: 1.030915
+[trajectory_generator_node-6] [Topo]: m_graph num: 2561
+[trajectory_generator_node-6] [DIAG] origin_path (Dijkstra) size: 3
+[trajectory_generator_node-6] [DIAG]   origin[0]: (-2.919, -3.104, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[1]: (-4.333, -1.690, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[2]: (-4.719, 1.096, 0.015)
+[trajectory_generator_node-6] [DIAG] lineVisib(start→end DIRECT): false  colli=(-3.92,-0.75)
+[trajectory_generator_node-6] [DIAG] direct line: 91 steps, 21 wall cells
+[trajectory_generator_node-6] [smoothTopoPath] INPUT size=3
+[trajectory_generator_node-6] [smoothTopoPath]   in[0]: (-2.919, -3.104, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[1]: (-4.333, -1.690, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[2]: (-4.719, 1.096, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath] lineVisib(start→end): false  colli=(-3.92,-0.75)
+[trajectory_generator_node-6] [smoothTopoPath] OUTPUT size=4, iter_count=3
+[trajectory_generator_node-6] [smoothTopoPath]   out[0]: (-2.919, -3.104, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[1]: (-4.770, -0.554, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[2]: (-4.377, 0.766, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[3]: (-4.719, 1.096, 0.015)
+[trajectory_generator_node-6] [DIAG] optimized_path (smoothTopoPath) size: 4
+[trajectory_generator_node-6] [DIAG]   opt[0]: (-2.919, -3.104, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[1]: (-4.770, -0.554, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[2]: (-4.377, 0.766, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[3]: (-4.719, 1.096, 0.015)
+[trajectory_generator_node-6] [Manager] reference_speed: (2.00)
+[trajectory_generator_node-6] optimized_path size: 4
+[trajectory_generator_node-6] [LBFGS] search direction d: -1.51172e-05 -0.000400508 -0.000427962  0.000680546   0.00143772  0.000908078 -0.000450826  -0.00133106  -0.00107705  -0.00038805  4.06845e-05  0.000131905 -0.000452348 -0.000962372  -0.00060513 -0.000108167  -0.00033712 -0.000281061  0.000903646  0.000875113 -0.000978879  -0.00252348   -0.0020341  -0.00014646  0.000901722  0.000456516 -3.39189e-05   0.00145925   0.00158413   0.00060833 -0.000364846 -6.30781e-05   0.00154056   0.00138029  0.000961671  0.000778832  0.000644275  0.000289762 -6.68845e-05 -0.000164459 -3.83631e-05  5.32376e-05  2.57389e-05   0.00300234 -0.000304983  0.000294529  0.000721634  0.000820561  0.000546295
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=47.7 total_T=2.582(init 2.479) max_drift=0.416 max_vel=3.0 segs=17
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 18 -> 10 waypoints, 9 time segs, max_turn=27.3 deg
+[trajectory_generator_node-6] [Manager] optimizer generate time: 0.443517
+[trajectory_generator_node-6] [Reference] path size : 10
+[trajectory_generator_node-6] [Reference] Using MINCO-optimized durations (9 segments, total=2.582 s)
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=9, path_size=10, trap_time_size=9
+[trajectory_generator_node-6] [Reference]   path[0]=(-2.9190,-3.1040) path[1]=(-3.0630,-2.8938) t[0]=0.341187 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-1.439380 b[N]=0.146367 b2[0]=2.329820 b2[N]=0.048480
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[-1.515650 -0.719690 0.000000 -2.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=9, path_size=10, trap_time_size=9
+[trajectory_generator_node-6] [Reference]   path[0]=(-2.9190,-3.1040) path[1]=(-3.0630,-2.8938) t[0]=0.375305 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-1.317758 b[N]=0.223960 b2[0]=2.098721 b2[N]=-0.385060
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[-0.967952 -0.658879 0.000000 -2.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=9, path_size=10, trap_time_size=9
+[trajectory_generator_node-6] [Reference]   path[0]=(-2.9190,-3.1040) path[1]=(-3.0630,-2.8938) t[0]=0.412836 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-1.484281 b[N]=0.193921 b2[0]=2.287930 b2[N]=-0.046758
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[-0.248566 -0.742141 0.000000 -2.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=9, path_size=10, trap_time_size=9
+[trajectory_generator_node-6] [Reference]   path[0]=(-2.9190,-3.1040) path[1]=(-3.0630,-2.8938) t[0]=0.412836 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-1.732987 b[N]=0.195672 b2[0]=2.634061 b2[N]=-0.048009
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.052651 -0.866494 0.000000 -2.919000]
+[trajectory_generator_node-6] [INFO] [1790439357.376241531] [trajectory_generation]: FSM published 9 trajectory pieces
+[trajectory_generator_node-6] [INFO] [1790439359.371327996] [trajectory_generation]: FSM accepted manual goal goal=(-4.72, 1.10, 0.02)
+[trajectory_generator_node-6] [Manager] start point, (x, y): (-2.92, -3.10)
+[trajectory_generator_node-6] [Manager] receive target, (x, y): (-4.72, 1.10)
+[trajectory_generator_node-6] [Topo]: m_graph before num: 1600
+[trajectory_generator_node-6] [Topo]: dijkstra time: 0.238113
+[trajectory_generator_node-6] [Topo]: topo search time: 0.945872
+[trajectory_generator_node-6] [Topo]: m_graph num: 2593
+[trajectory_generator_node-6] [DIAG] origin_path (Dijkstra) size: 3
+[trajectory_generator_node-6] [DIAG]   origin[0]: (-2.919, -3.104, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[1]: (-4.333, -1.690, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[2]: (-4.719, 1.096, 0.015)
+[trajectory_generator_node-6] [DIAG] lineVisib(start→end DIRECT): false  colli=(-3.92,-0.75)
+[trajectory_generator_node-6] [DIAG] direct line: 91 steps, 21 wall cells
+[trajectory_generator_node-6] [smoothTopoPath] INPUT size=3
+[trajectory_generator_node-6] [smoothTopoPath]   in[0]: (-2.919, -3.104, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[1]: (-4.333, -1.690, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[2]: (-4.719, 1.096, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath] lineVisib(start→end): false  colli=(-3.92,-0.75)
+[trajectory_generator_node-6] [smoothTopoPath] OUTPUT size=4, iter_count=3
+[trajectory_generator_node-6] [smoothTopoPath]   out[0]: (-2.919, -3.104, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[1]: (-4.770, -0.554, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[2]: (-4.377, 0.766, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[3]: (-4.719, 1.096, 0.015)
+[trajectory_generator_node-6] [DIAG] optimized_path (smoothTopoPath) size: 4
+[trajectory_generator_node-6] [DIAG]   opt[0]: (-2.919, -3.104, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[1]: (-4.770, -0.554, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[2]: (-4.377, 0.766, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[3]: (-4.719, 1.096, 0.015)
+[trajectory_generator_node-6] optimized_path size: 4
+[trajectory_generator_node-6] [Manager] reference_speed: (2.00)
+[trajectory_generator_node-6] [LBFGS] search direction d: -1.51172e-05 -0.000400508 -0.000427962  0.000680546   0.00143772  0.000908078 -0.000450826  -0.00133106  -0.00107705  -0.00038805  4.06845e-05  0.000131905 -0.000452348 -0.000962372  -0.00060513 -0.000108167  -0.00033712 -0.000281061  0.000903646  0.000875113 -0.000978879  -0.00252348   -0.0020341  -0.00014646  0.000901722  0.000456516 -3.39189e-05   0.00145925   0.00158413   0.00060833 -0.000364846 -6.30781e-05   0.00154056   0.00138029  0.000961671  0.000778832  0.000644275  0.000289762 -6.68845e-05 -0.000164459 -3.83631e-05  5.32376e-05  2.57389e-05   0.00300234 -0.000304983  0.000294529  0.000721634  0.000820561  0.000546295
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=47.7 total_T=2.582(init 2.479) max_drift=0.416 max_vel=3.0 segs=17
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 18 -> 10 waypoints, 9 time segs, max_turn=27.3 deg
+[trajectory_generator_node-6] [Manager] optimizer generate time: 0.527567
+[trajectory_generator_node-6] [Reference] path size : 10
+[trajectory_generator_node-6] [Reference] Using MINCO-optimized durations (9 segments, total=2.582 s)
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=9, path_size=10, trap_time_size=9
+[trajectory_generator_node-6] [Reference]   path[0]=(-2.9190,-3.1040) path[1]=(-3.0630,-2.8938) t[0]=0.341187 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-1.439380 b[N]=0.146367 b2[0]=2.329820 b2[N]=0.048480
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[-1.515650 -0.719690 0.000000 -2.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=9, path_size=10, trap_time_size=9
+[trajectory_generator_node-6] [Reference]   path[0]=(-2.9190,-3.1040) path[1]=(-3.0630,-2.8938) t[0]=0.375305 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-1.317758 b[N]=0.223960 b2[0]=2.098721 b2[N]=-0.385060
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[-0.967952 -0.658879 0.000000 -2.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=9, path_size=10, trap_time_size=9
+[trajectory_generator_node-6] [Reference]   path[0]=(-2.9190,-3.1040) path[1]=(-3.0630,-2.8938) t[0]=0.412836 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-1.484281 b[N]=0.193921 b2[0]=2.287930 b2[N]=-0.046758
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[-0.248566 -0.742141 0.000000 -2.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=9, path_size=10, trap_time_size=9
+[trajectory_generator_node-6] [Reference]   path[0]=(-2.9190,-3.1040) path[1]=(-3.0630,-2.8938) t[0]=0.412836 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-1.732987 b[N]=0.195672 b2[0]=2.634061 b2[N]=-0.048009
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[0.052651 -0.866494 0.000000 -2.919000]
+[trajectory_generator_node-6] [INFO] [1790439360.858387932] [trajectory_generation]: FSM published 9 trajectory pieces
+[trajectory_generator_node-6] [INFO] [1790439362.872377168] [trajectory_generation]: FSM accepted manual goal goal=(-2.72, 1.95, 0.02)
+[trajectory_generator_node-6] [Manager] start point, (x, y): (-0.92, -4.45)
+[trajectory_generator_node-6] [Manager] receive target, (x, y): (-2.72, 1.95)
+[trajectory_generator_node-6] [Topo]: m_graph before num: 1605
+[trajectory_generator_node-6] [Topo]: dijkstra time: 0.230221
+[trajectory_generator_node-6] [Topo]: topo search time: 1.021331
+[trajectory_generator_node-6] [Topo]: m_graph num: 2566
+[trajectory_generator_node-6] [DIAG] origin_path (Dijkstra) size: 5
+[trajectory_generator_node-6] [DIAG]   origin[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[1]: (-5.019, -1.604, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[2]: (-3.769, 2.396, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[3]: (-1.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[4]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG] lineVisib(start→end DIRECT): false  colli=(-1.42,-2.65)
+[trajectory_generator_node-6] [DIAG] direct line: 132 steps, 92 wall cells
+[trajectory_generator_node-6] [smoothTopoPath] INPUT size=5
+[trajectory_generator_node-6] [smoothTopoPath]   in[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[1]: (-5.019, -1.604, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[2]: (-3.769, 2.396, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[3]: (-1.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[4]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath] lineVisib(start→end): false  colli=(-1.42,-2.65)
+[trajectory_generator_node-6] [smoothTopoPath] stuck detected, skipping to topo[4]
+[trajectory_generator_node-6] [smoothTopoPath] OUTPUT size=8, iter_count=7
+[trajectory_generator_node-6] [smoothTopoPath]   out[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[1]: (-4.840, -0.515, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[2]: (-3.299, 2.232, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[3]: (-2.168, 2.139, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[4]: (-2.555, 2.131, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[5]: (-2.134, 2.182, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[6]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[7]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG] optimized_path (smoothTopoPath) size: 8
+[trajectory_generator_node-6] [DIAG]   opt[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[1]: (-4.840, -0.515, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[2]: (-3.299, 2.232, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[3]: (-2.168, 2.139, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[4]: (-2.555, 2.131, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[5]: (-2.134, 2.182, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[6]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[7]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] optimized_path size: 8
+[trajectory_generator_node-6] [Manager] reference_speed: (2.00)
+[trajectory_generator_node-6] [LBFGS] search direction d: -0.000259367  0.000988196   0.00215131  -0.00201763  0.000242986   0.00109051 -0.000529618 -0.000161126 -0.000327121  0.000667277  0.000319451  -0.00148139   0.00107518  0.000608288  -0.00155368   0.00100551 -9.78296e-05 -0.000467992  0.000843615  0.000675183  -0.00218564  -0.00152314  0.000635287 -0.000220229  -0.00247022  0.000570139   0.00303293  -0.00283143  -0.00229534   0.00555053   0.00114754  -0.00408768  -0.00141078   0.00416169 -0.000275842  -0.00138834 -0.000367446 -0.000233017  -0.00122332  -0.00176163   0.00179196 -0.000275418 -0.000832343  0.000238745  0.000594034 -0.000191323 -0.000480594  0.000116229  0.000865987  -0.00112364  0.000236784  0.000872174  -0.00108553  5.87767e-05  0.000990929  -0.00167189  0.000817145   0.00101441  -0.00107782   0.00200682  0.000834691  -0.00172207   0.00227418 -0.000958588 -0.000503853   0.00157964  -0.00206838   0.00161716   0.00154396 -0.000595892  0.000118687  0.000267423   0.00254601 -0.000441059  0.000436742  0.000422439  0.000165288 -0.000200116  0.000154897  0.000139578 -9.84461e-05 -1.62294e-05  5.79407e-05  6.51369e-05 -6.52767e-05 -8.38455e-05  0.000164635 -6.56182e-05 -0.000110664  0.000185992 -3.52418e-05 -1.33423e-05  8.59989e-05 -4.93319e-05  4.98373e-05  7.60081e-05 -0.000218245  0.000124167   0.00017924 -0.000267848  0.000118346  0.000209274 -9.04139e-05 -0.000165707  0.000561472  0.000595896  0.000282397  0.000337866  0.000279251  6.25572e-05  0.000111763  0.000189129
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=371.1 total_T=5.461(init 5.423) max_drift=0.328 max_vel=3.0 segs=38
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 39 -> 20 waypoints, 19 time segs, max_turn=164.4 deg
+[trajectory_generator_node-6] [Manager] optimizer generate time: 0.594793
+[trajectory_generator_node-6] [Reference] path size : 20
+[trajectory_generator_node-6] [Reference] Using MINCO-optimized durations (19 segments, total=5.461 s)
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.308806 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-6.596713 b[N]=12.235433 b2[0]=6.641367 b2[N]=9.406608
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.157506 -3.298356 -0.000000 -0.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.339687 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-6.069086 b[N]=10.538164 b2[0]=6.108763 b2[N]=7.994046
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.778219 -3.034543 -0.000000 -0.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.373656 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-5.081693 b[N]=9.028730 b2[0]=5.114814 b2[N]=6.745871
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.424212 -2.540847 0.000000 -0.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.411021 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-4.266774 b[N]=7.659223 b2[0]=4.294479 b2[N]=5.673622
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.151569 -2.133387 0.000000 -0.919000]
+[trajectory_generator_node-6] [INFO] [1790439364.519749162] [trajectory_generation]: FSM published 19 trajectory pieces
+[trajectory_generator_node-6] [INFO] [1790439693.900099828] [trajectory_generation]: FSM accepted manual goal goal=(-4.27, 4.85, 0.02)
+[trajectory_generator_node-6] [Manager] start point, (x, y): (-0.92, -4.45)
+[trajectory_generator_node-6] [Manager] receive target, (x, y): (-4.27, 4.85)
+[trajectory_generator_node-6] [Topo]: m_graph before num: 1457
+[trajectory_generator_node-6] [Topo Search] No Path, No point connect to end point
+[trajectory_generator_node-6] [Topo] End node is unreachable and no visible reachable guard found
+[trajectory_generator_node-6] [Topo]: dijkstra time: 0.214805
+[trajectory_generator_node-6] [Topo]: topo search time: 1.295792
+[trajectory_generator_node-6] [Topo]: m_graph num: 2357
+[trajectory_generator_node-6] [Manager PLANNING] Invalid target point，global planning failed
+[trajectory_generator_node-6] [ERROR] [1790439695.214126988] [trajectory_generation]: FSM global planning failed
+[trajectory_generator_node-6] [Manager] start point, (x, y): (-0.92, -4.45)
+[trajectory_generator_node-6] [Manager] receive target, (x, y): (-4.27, 4.85)
+[trajectory_generator_node-6] [Topo]: m_graph before num: 1457
+[trajectory_generator_node-6] [Topo Search] No Path, No point connect to end point
+[trajectory_generator_node-6] [Topo] End node is unreachable and no visible reachable guard found
+[trajectory_generator_node-6] [Topo]: dijkstra time: 0.240439
+[trajectory_generator_node-6] [Topo]: topo search time: 1.377401
+[trajectory_generator_node-6] [Topo]: m_graph num: 2359
+[trajectory_generator_node-6] [Manager PLANNING] Invalid target point，global planning failed
+[trajectory_generator_node-6] [ERROR] [1790439696.596158941] [trajectory_generation]: FSM global planning failed
+[trajectory_generator_node-6] [Manager] start point, (x, y): (-0.92, -4.45)
+[trajectory_generator_node-6] [Manager] receive target, (x, y): (-4.27, 4.85)
+[trajectory_generator_node-6] [Topo]: m_graph before num: 1457
+[trajectory_generator_node-6] [Topo Search] No Path, No point connect to end point
+[trajectory_generator_node-6] [Topo] End node is unreachable and no visible reachable guard found
+[trajectory_generator_node-6] [Topo]: dijkstra time: 0.238774
+[trajectory_generator_node-6] [Topo]: topo search time: 1.188195
+[trajectory_generator_node-6] [Topo]: m_graph num: 2355
+[trajectory_generator_node-6] [Manager PLANNING] Invalid target point，global planning failed
+[trajectory_generator_node-6] [ERROR] [1790439697.801575293] [trajectory_generation]: FSM global planning failed
+[trajectory_generator_node-6] [INFO] [1790439697.808558316] [trajectory_generation]: FSM accepted manual goal goal=(-2.72, 1.95, 0.02)
+[trajectory_generator_node-6] [Manager] start point, (x, y): (-0.92, -4.45)
+[trajectory_generator_node-6] [Manager] receive target, (x, y): (-2.72, 1.95)
+[trajectory_generator_node-6] [Topo]: m_graph before num: 1605
+[trajectory_generator_node-6] [Topo]: dijkstra time: 0.193128
+[trajectory_generator_node-6] [Topo]: topo search time: 0.985986
+[trajectory_generator_node-6] [Topo]: m_graph num: 2563
+[trajectory_generator_node-6] [DIAG] origin_path (Dijkstra) size: 5
+[trajectory_generator_node-6] [DIAG]   origin[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[1]: (-5.019, -1.604, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[2]: (-3.769, 2.396, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[3]: (-1.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[4]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG] lineVisib(start→end DIRECT): false  colli=(-1.42,-2.65)
+[trajectory_generator_node-6] [DIAG] direct line: 132 steps, 92 wall cells
+[trajectory_generator_node-6] [smoothTopoPath] INPUT size=5
+[trajectory_generator_node-6] [smoothTopoPath]   in[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[1]: (-5.019, -1.604, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[2]: (-3.769, 2.396, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[3]: (-1.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[4]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath] lineVisib(start→end): false  colli=(-1.42,-2.65)
+[trajectory_generator_node-6] [smoothTopoPath] stuck detected, skipping to topo[4]
+[trajectory_generator_node-6] [smoothTopoPath] OUTPUT size=8, iter_count=7
+[trajectory_generator_node-6] [smoothTopoPath]   out[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[1]: (-4.840, -0.515, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[2]: (-3.299, 2.232, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[3]: (-2.168, 2.139, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[4]: (-2.555, 2.131, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[5]: (-2.134, 2.182, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[6]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[7]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG] optimized_path (smoothTopoPath) size: 8
+[trajectory_generator_node-6] [DIAG]   opt[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[1]: (-4.840, -0.515, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[2]: (-3.299, 2.232, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[3]: (-2.168, 2.139, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[4]: (-2.555, 2.131, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[5]: (-2.134, 2.182, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[6]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[7]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] optimized_path size: 8
+[trajectory_generator_node-6] [Manager] reference_speed: (2.00)
+[trajectory_generator_node-6] [LBFGS] search direction d: -0.000259367  0.000988196   0.00215131  -0.00201763  0.000242986   0.00109051 -0.000529618 -0.000161126 -0.000327121  0.000667277  0.000319451  -0.00148139   0.00107518  0.000608288  -0.00155368   0.00100551 -9.78296e-05 -0.000467992  0.000843615  0.000675183  -0.00218564  -0.00152314  0.000635287 -0.000220229  -0.00247022  0.000570139   0.00303293  -0.00283143  -0.00229534   0.00555053   0.00114754  -0.00408768  -0.00141078   0.00416169 -0.000275842  -0.00138834 -0.000367446 -0.000233017  -0.00122332  -0.00176163   0.00179196 -0.000275418 -0.000832343  0.000238745  0.000594034 -0.000191323 -0.000480594  0.000116229  0.000865987  -0.00112364  0.000236784  0.000872174  -0.00108553  5.87767e-05  0.000990929  -0.00167189  0.000817145   0.00101441  -0.00107782   0.00200682  0.000834691  -0.00172207   0.00227418 -0.000958588 -0.000503853   0.00157964  -0.00206838   0.00161716   0.00154396 -0.000595892  0.000118687  0.000267423   0.00254601 -0.000441059  0.000436742  0.000422439  0.000165288 -0.000200116  0.000154897  0.000139578 -9.84461e-05 -1.62294e-05  5.79407e-05  6.51369e-05 -6.52767e-05 -8.38455e-05  0.000164635 -6.56182e-05 -0.000110664  0.000185992 -3.52418e-05 -1.33423e-05  8.59989e-05 -4.93319e-05  4.98373e-05  7.60081e-05 -0.000218245  0.000124167   0.00017924 -0.000267848  0.000118346  0.000209274 -9.04139e-05 -0.000165707  0.000561472  0.000595896  0.000282397  0.000337866  0.000279251  6.25572e-05  0.000111763  0.000189129
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=371.1 total_T=5.461(init 5.423) max_drift=0.328 max_vel=3.0 segs=38
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 39 -> 20 waypoints, 19 time segs, max_turn=164.4 deg
+[trajectory_generator_node-6] [Manager] optimizer generate time: 0.877123
+[trajectory_generator_node-6] [Reference] path size : 20
+[trajectory_generator_node-6] [Reference] Using MINCO-optimized durations (19 segments, total=5.461 s)
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.308806 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-6.596713 b[N]=12.235433 b2[0]=6.641367 b2[N]=9.406608
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.157506 -3.298356 -0.000000 -0.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.339687 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-6.069086 b[N]=10.538164 b2[0]=6.108763 b2[N]=7.994046
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.778219 -3.034543 -0.000000 -0.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.373656 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-5.081693 b[N]=9.028730 b2[0]=5.114814 b2[N]=6.745871
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.424212 -2.540847 0.000000 -0.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.411021 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-4.266774 b[N]=7.659223 b2[0]=4.294479 b2[N]=5.673622
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.151569 -2.133387 0.000000 -0.919000]
+[trajectory_generator_node-6] [INFO] [1790439699.689607136] [trajectory_generation]: FSM published 19 trajectory pieces
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[INFO] [rviz2-7]: sending signal 'SIGINT' to process[rviz2-7]
+[INFO] [trajectory_generator_node-6]: sending signal 'SIGINT' to process[trajectory_generator_node-6]
+[INFO] [map_display.py-5]: sending signal 'SIGINT' to process[map_display.py-5]
+[INFO] [cloud_adapter.py-4]: sending signal 'SIGINT' to process[cloud_adapter.py-4]
+[INFO] [sim_adapter.py-3]: sending signal 'SIGINT' to process[sim_adapter.py-3]
+[INFO] [parameter_bridge-2]: sending signal 'SIGINT' to process[parameter_bridge-2]
+[INFO] [ign-1]: sending signal 'SIGINT' to process[ign-1]
+[rviz2-7] [INFO] [1790439796.296902574] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[trajectory_generator_node-6] [INFO] [1790439796.308913707] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[parameter_bridge-2] [INFO] [1790439796.344526209] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [parameter_bridge-2]: process has finished cleanly [pid 24229]
+[INFO] [trajectory_generator_node-6]: process has finished cleanly [pid 24237]
+[INFO] [map_display.py-5]: process has finished cleanly [pid 24235]
+[INFO] [sim_adapter.py-3]: process has finished cleanly [pid 24231]
+[INFO] [rviz2-7]: process has finished cleanly [pid 24239]
+[ign-1] [1;32m[Msg] [0m[1;32mFound no p[1;32m[Msg] [0m[1;32mIgnition Gazebo GUI    v[0m[1;32m6.18.0[0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mAdded plugin [[0m[1;32mRM Sentry - Basic Navigation[0m[1;32m] to main window[0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoaded plugin [[0m[1;32mMinimalScene[0m[1;32m] from path [[0m[1;32m/usr/lib/x86_64-linux-gnu/ign-gui-6/plugins/libMinimalScene.so[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mAdded plugin [[0m[1;32mScene Manager[0m[1;32m] to main window[0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoaded plugin [[0m[1;32mGzSceneManager[0m[1;32m] from path [[0m[1;32m/usr/lib/x86_64-linux-gnu/ign-gazebo-6/plugins/gui/libGzSceneManager.so[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mCamera view controller topic advertised on [[0m[1;32m/gui/camera/view_control[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mCamera reference visual topic advertised on [[0m[1;32m/gui/camera/view_control/reference_visual[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mCamera view control sensitivity advertised on [[0m[1;32m/gui/camera/view_control/sensitivity[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mAdded plugin [[0m[1;32mInteractive view control[0m[1;32m] to main window[0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoaded plugin [[0m[1;32mInteractiveViewControl[0m[1;32m] from path [[0m[1;32m/usr/lib/x86_64-linux-gnu/ign-gui-6/plugins/libInteractiveViewControl.so[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mUsing world control service [[0m[1;32m/world/sentry_planning/control[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mListening to stats on [[0m[1;32m/world/sentry_planning/stats[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mAdded plugin [[0m[1;32mWorld control[0m[1;32m] to main window[0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoaded plugin [[0m[1;32mWorldControl[0m[1;32m] from path [[0m[1;32m/usr/lib/x86_64-linux-gnu/ign-gui-6/plugins/libWorldControl.so[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mListening to stats on [[0m[1;32m/world/sentry_planning/stats[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mAdded plugin [[0m[1;32mWorld stats[0m[1;32m] to main window[0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoaded plugin [[0m[1;32mWorldStats[0m[1;32m] from path [[0m[1;32m/usr/lib/x86_64-linux-gnu/ign-gui-6/plugins/libWorldStats.so[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoading plugin [[0m[1;32mignition-rendering-ogre2[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoading plugin [[0m[1;32mignition-rendering-ogre2[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoading plugin [[0m[1;32mignition-rendering-ogre2[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoading plugin [[0m[1;32mignition-rendering-ogre2[0m[1;32m][0m[1;32m[0m
+[INFO] [cloud_adapter.py-4]: process has finished cleanly [pid 24233]
+[ign-1] ublishers on /clock, adding root clock topic[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing scene information on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mscene/info[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing graph information on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mscene/graph[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing full state on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mstate[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mLoading plugin [[0m[1;32mignition-rendering-ogre2[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing full state (async) on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mstate_async[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPublishing scene information on [[0m[1;32m/world/sentry_planning/scene/info[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPublishing entity deletions on [[0m[1;32m/world/sentry_planning/scene/deletion[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPublishing state changes on [[0m[1;32m/world/sentry_planning/state[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPublishing pose messages on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mpose/info[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPublishing dynamic pose messages on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mdynamic_pose/info[0m[1;32m][0m[1;32m[0m
+[INFO] [ign-1]: process has finished cleanly [pid 24227]

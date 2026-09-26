@@ -1,0 +1,46 @@
+[
+  {
+    "name": "moving_before_pause",
+    "passed": true
+  },
+  {
+    "name": "fresh_scene_pose_while_paused",
+    "passed": true,
+    "messages": 45
+  },
+  {
+    "name": "pause_resume_no_stale_command",
+    "passed": true,
+    "resume_displacement": 0.0,
+    "resume_yaw_change": 0.0,
+    "paused_scene_pose": {
+      "name": "sentry",
+      "id": 4,
+      "position": {
+        "x": -1.4203011631008482,
+        "y": -4.0142966527384445
+      },
+      "orientation": {
+        "z": 0.9806980189011041,
+        "w": 0.19552850360868002
+      }
+    },
+    "resumed_scene_pose": {
+      "name": "sentry",
+      "id": 4,
+      "position": {
+        "x": -1.4203011631008482,
+        "y": -4.0142966527384445
+      },
+      "orientation": {
+        "z": 0.9806980189011041,
+        "w": 0.19552850360868002
+      }
+    }
+  },
+  {
+    "name": "resume_stopped",
+    "passed": true,
+    "stop_wall_seconds": 0.0028188489995955024
+  }
+]

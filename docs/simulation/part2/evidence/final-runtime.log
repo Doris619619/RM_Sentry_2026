@@ -1,0 +1,9 @@
+1790441301.7449410 [INFO] [launch]: All log files can be found below /home/liangys/.ros/log/2026-09-26-12-48-21-743637-ubuntu64-oc-30668
+1790441301.7451906 [INFO] [launch]: Default logging verbosity is set to INFO
+1790441301.8200600 [INFO] [ign-1]: process started with pid [30696]
+1790441301.8202829 [INFO] [parameter_bridge-2]: process started with pid [30698]
+1790441301.8203509 [INFO] [sim_adapter.py-3]: process started with pid [30700]
+1790441301.8204014 [INFO] [cloud_adapter.py-4]: process started with pid [30702]
+1790441301.8204496 [INFO] [map_display.py-5]: process started with pid [30704]
+1790441301.8204911 [INFO] [trajectory_generator_node-6]: process started with pid [30706]
+1790441301.8205328 [INFO] [rviz2-7]: process started with pid [30708]

@@ -1,0 +1,80 @@
+Starting >>> trajectory_generation
+Finished <<< trajectory_generation [2.86s]
+Starting >>> sentry_bringup
+--- stderr: sentry_bringup
+Errors while running CTest
+Output from these tests are in: /home/liangys/RM_Sentry_2026/ros2_ws/build_sentry_sim2/sentry_bringup/Testing/Temporary/LastTest.log
+Use "--rerun-failed --output-on-failure" to re-run the failed cases verbosely.
+---
+Finished <<< sentry_bringup [2.46s]	[ with test failures ]
+
+Summary: 2 packages finished [5.78s]
+  1 package had stderr output: sentry_bringup
+  1 package had test failures: sentry_bringup
+build_sentry_sim2/sentry_bringup/Testing/20260926-1615/Test.xml: 5 tests, 0 errors, 4 failures, 0 skipped
+- test_test_production_safe_mode.py
+  <<< failure message
+    -- run_test.py: invoking following command in '/home/liangys/RM_Sentry_2026/ros2_ws/build_sentry_sim2/sentry_bringup':
+     - /usr/bin/python3 -m launch_testing.launch_test /home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_bringup/test/test_production_safe_mode.py --junit-xml=/home/liangys/RM_Sentry_2026/ros2_ws/build_sentry_sim2/sentry_bringup/test_results/sentry_bringup/test_test_production_safe_mode.py.xunit.xml --package-name=sentry_bringup
+    [INFO] [launch]: All log files can be found below /home/liangys/.ros/log/2026-09-26-12-15-15-210365-ubuntu64-oc-24963
+    [INFO] [launch]: Default logging verbosity is set to INFO
+    [ERROR] [launch]: Caught exception in launch (see debug for traceback): "package 'decision_node' not found, searching: ['/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/sentry_bringup', '/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/trajectory_generation', '/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/waypoint_generator', '/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/sentry_gazebo', '/opt/ros/humble']"
+    Processes under test stopped before tests completed
+    -- run_test.py: return code 1
+    -- run_test.py: verify result file '/home/liangys/RM_Sentry_2026/ros2_ws/build_sentry_sim2/sentry_bringup/test_results/sentry_bringup/test_test_production_safe_mode.py.xunit.xml'
+  >>>
+- test_test_production_global_localization.py
+  <<< failure message
+    -- run_test.py: invoking following command in '/home/liangys/RM_Sentry_2026/ros2_ws/build_sentry_sim2/sentry_bringup':
+     - /usr/bin/python3 -m launch_testing.launch_test /home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_bringup/test/test_production_global_localization.py --junit-xml=/home/liangys/RM_Sentry_2026/ros2_ws/build_sentry_sim2/sentry_bringup/test_results/sentry_bringup/test_test_production_global_localization.py.xunit.xml --package-name=sentry_bringup
+    [INFO] [launch]: All log files can be found below /home/liangys/.ros/log/2026-09-26-12-15-15-684278-ubuntu64-oc-24966
+    [INFO] [launch]: Default logging verbosity is set to INFO
+    [ERROR] [launch]: Caught exception in launch (see debug for traceback): "package 'decision_node' not found, searching: ['/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/sentry_bringup', '/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/trajectory_generation', '/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/waypoint_generator', '/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/sentry_gazebo', '/opt/ros/humble']"
+    Processes under test stopped before tests completed
+    -- run_test.py: return code 1
+    -- run_test.py: verify result file '/home/liangys/RM_Sentry_2026/ros2_ws/build_sentry_sim2/sentry_bringup/test_results/sentry_bringup/test_test_production_global_localization.py.xunit.xml'
+  >>>
+- test_test_fixture_launch.py
+  <<< failure message
+    -- run_test.py: invoking following command in '/home/liangys/RM_Sentry_2026/ros2_ws/build_sentry_sim2/sentry_bringup':
+     - /usr/bin/python3 -m launch_testing.launch_test /home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_bringup/test/test_fixture_launch.py --junit-xml=/home/liangys/RM_Sentry_2026/ros2_ws/build_sentry_sim2/sentry_bringup/test_results/sentry_bringup/test_test_fixture_launch.py.xunit.xml --package-name=sentry_bringup
+    [INFO] [launch]: All log files can be found below /home/liangys/.ros/log/2026-09-26-12-15-16-083183-ubuntu64-oc-24969
+    [INFO] [launch]: Default logging verbosity is set to INFO
+    [ERROR] [launch]: Caught exception in launch (see debug for traceback): "package 'decision_node' not found, searching: ['/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/sentry_bringup', '/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/trajectory_generation', '/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/waypoint_generator', '/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/sentry_gazebo', '/opt/ros/humble']"
+    Processes under test stopped before tests completed
+    -- run_test.py: return code 1
+    -- run_test.py: verify result file '/home/liangys/RM_Sentry_2026/ros2_ws/build_sentry_sim2/sentry_bringup/test_results/sentry_bringup/test_test_fixture_launch.py.xunit.xml'
+  >>>
+- test_test_production_sensor_pipeline.py
+  <<< failure message
+    -- run_test.py: invoking following command in '/home/liangys/RM_Sentry_2026/ros2_ws/build_sentry_sim2/sentry_bringup':
+     - /usr/bin/python3 -m launch_testing.launch_test /home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_bringup/test/test_production_sensor_pipeline.py --junit-xml=/home/liangys/RM_Sentry_2026/ros2_ws/build_sentry_sim2/sentry_bringup/test_results/sentry_bringup/test_test_production_sensor_pipeline.py.xunit.xml --package-name=sentry_bringup
+    [INFO] [launch]: All log files can be found below /home/liangys/.ros/log/2026-09-26-12-15-16-478613-ubuntu64-oc-24980
+    [INFO] [launch]: Default logging verbosity is set to INFO
+    [ERROR] [launch]: Caught exception in launch (see debug for traceback): "package 'decision_node' not found, searching: ['/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/sentry_bringup', '/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/trajectory_generation', '/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/waypoint_generator', '/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/sentry_gazebo', '/opt/ros/humble']"
+    Processes under test stopped before tests completed
+    -- run_test.py: return code 1
+    -- run_test.py: verify result file '/home/liangys/RM_Sentry_2026/ros2_ws/build_sentry_sim2/sentry_bringup/test_results/sentry_bringup/test_test_production_sensor_pipeline.py.xunit.xml'
+  >>>
+build_sentry_sim2/sentry_bringup/test_results/sentry_bringup/test_test_fixture_launch.py.xunit.xml: 1 test, 0 errors, 1 failure, 0 skipped
+- sentry_bringup.TestFixtureLaunch test_fixture_node_and_topics_start
+  <<< failure message
+    Exception: Launch stopped before the active tests finished.
+  >>>
+build_sentry_sim2/sentry_bringup/test_results/sentry_bringup/test_test_production_global_localization.py.xunit.xml: 1 test, 0 errors, 1 failure, 0 skipped
+- sentry_bringup.TestProductionGlobalLocalization test_global_enabled_starts_server_and_connects_hdl_without_sensor_nodes
+  <<< failure message
+    Exception: Launch stopped before the active tests finished.
+  >>>
+build_sentry_sim2/sentry_bringup/test_results/sentry_bringup/test_test_production_safe_mode.py.xunit.xml: 1 test, 0 errors, 1 failure, 0 skipped
+- sentry_bringup.TestProductionSafeMode test_safe_mode_excludes_physical_sensor_pipeline_and_global_server
+  <<< failure message
+    Exception: Launch stopped before the active tests finished.
+  >>>
+build_sentry_sim2/sentry_bringup/test_results/sentry_bringup/test_test_production_sensor_pipeline.py.xunit.xml: 1 test, 0 errors, 1 failure, 0 skipped
+- sentry_bringup.TestProductionSensorPipeline test_sensor_pipeline_starts_once_and_keeps_mcu_closed
+  <<< failure message
+    Exception: Launch stopped before the active tests finished.
+  >>>
+
+Summary: 15 tests, 0 errors, 8 failures, 0 skipped

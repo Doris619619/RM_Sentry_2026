@@ -1,4 +1,4 @@
-# Show source occupancy, real clouds, robot pose and existing planner markers.
+# RViz2 uses Topic for Marker displays; show real published planner outputs.
 Panels:
 - Class: rviz_common/Displays
   Name: Displays
@@ -37,31 +37,38 @@ Visualization Manager:
     Color Transformer: FlatColor
     Color: 255; 170; 30
     Decay Time: 0
+  - Class: rviz_default_plugins/Pose
+    Name: Requested goal
+    Enabled: true
+    Topic:
+      Value: /goal
+    Shape: Arrow
+    Color: 220; 30; 180
   - Class: rviz_default_plugins/Marker
     Name: Robot
     Enabled: true
-    Marker Topic:
+    Topic:
       Value: /sim/robot
   - Class: rviz_default_plugins/Marker
     Name: Astar path
     Enabled: true
-    Marker Topic:
+    Topic:
       Value: /astar_path_vis
   - Class: rviz_default_plugins/Marker
     Name: Optimized path
     Enabled: true
-    Marker Topic:
+    Topic:
       Value: /optimized_path_vis
   - Class: rviz_default_plugins/Marker
     Name: Reference trajectory
     Enabled: true
-    Marker Topic:
+    Topic:
       Value: /reference_path
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 16
-      Pitch: 1.25
+      Distance: 20
+      Pitch: 1.5
       Yaw: 1.57
       Focal Point:
         X: -2

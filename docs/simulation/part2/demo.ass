@@ -1,0 +1,20 @@
+[Script Info]
+; Purpose: captions for actual Gazebo/RViz recording, with explicit acceptance boundaries.
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 960
+WrapStyle: 2
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Title,Microsoft YaHei,34,&H00FFFFFF,&H000000FF,&H00161616,&H80000000,-1,0,0,0,100,100,0,0,1,1,0,8,30,30,18,1
+Style: Caption,Microsoft YaHei,30,&H00FFFFFF,&H000000FF,&H00161616,&H80000000,0,0,0,0,100,100,0,0,1,1,0,2,25,25,14,1
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:01:30.00,Title,,0,0,0,,RM Sentry 第二阶段实录　｜　左：Gazebo　右：RViz　｜　未接入自动跟踪
+Dialogue: 0,0:00:00.00,0:00:09.70,Caption,,0,0,0,,现有规划地图对应的简化场地：0.05 米分辨率，障碍轮廓逐格对齐
+Dialogue: 0,0:00:09.70,0:00:20.50,Caption,,0,0,0,,键盘 Q 手动旋转机器人；橙色点云来自真实 Gazebo 雷达观测
+Dialogue: 0,0:00:20.50,0:00:24.00,Caption,,0,0,0,,键盘 W 手动前进约 0.4 米，随后空格停车；位置来自仿真实际状态
+Dialogue: 0,0:00:24.00,0:00:34.70,Caption,,0,0,0,,雷达 360×4 点、5 Hz；测量时间戳和 TF 转换保留，点云与地图叠加
+Dialogue: 0,0:00:34.70,0:00:42.00,Caption,,0,0,0,,实际点击 RViz 的 2D Goal Pose，向现有规划器发送目标点
+Dialogue: 0,0:00:42.00,0:01:05.00,Caption,,0,0,0,,展示现有规划器输出的路径；机器人保持停止，生成路径不等于自动到点
+Dialogue: 0,0:01:05.00,0:01:30.00,Caption,,0,0,0,,未通过项：部分多项式段间跳变最大约 0.12 米，需修复后才能接入跟踪
