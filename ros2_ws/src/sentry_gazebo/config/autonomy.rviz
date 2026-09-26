@@ -1,0 +1,100 @@
+# RViz2 uses Topic for Marker displays; show real published planner outputs.
+Panels:
+- Class: rviz_common/Displays
+  Name: Displays
+Visualization Manager:
+  Class: ''
+  Global Options:
+    Fixed Frame: map
+    Frame Rate: 10
+  Displays:
+  - Class: rviz_default_plugins/Map
+    Name: Planner occupancy
+    Enabled: true
+    Topic:
+      Value: /sim/map
+      Durability Policy: Transient Local
+      Reliability Policy: Reliable
+    Alpha: 0.7
+  - Class: rviz_default_plugins/Grid
+    Name: Grid
+    Enabled: true
+    Cell Size: 1
+    Plane Cell Count: 20
+  - Class: rviz_default_plugins/TF
+    Name: Robot frames
+    Enabled: true
+  - Class: rviz_default_plugins/PointCloud2
+    Name: Real lidar returns
+    Enabled: true
+    Topic:
+      Value: /aligned_points
+      Reliability Policy: Best Effort
+      Durability Policy: Volatile
+      Depth: 5
+    Style: Points
+    Size (Pixels): 4
+    Color Transformer: FlatColor
+    Color: 255; 170; 30
+    Decay Time: 0
+  - Class: rviz_default_plugins/Pose
+    Name: Requested goal
+    Enabled: true
+    Topic:
+      Value: /goal
+    Shape: Arrow
+    Color: 220; 30; 180
+  - Class: rviz_default_plugins/Marker
+    Name: Robot
+    Enabled: true
+    Topic:
+      Value: /sim/robot
+  - Class: rviz_default_plugins/Marker
+    Name: Astar path
+    Enabled: true
+    Topic:
+      Value: /astar_path_vis
+  - Class: rviz_default_plugins/Marker
+    Name: Optimized path
+    Enabled: true
+    Topic:
+      Value: /optimized_path_vis
+  - Class: rviz_default_plugins/Marker
+    Name: Reference trajectory
+    Enabled: true
+    Topic:
+      Value: /reference_path
+  - Class: rviz_default_plugins/Path
+    Name: MPC predicted motion
+    Enabled: true
+    Topic:
+      Value: /tracking/mpc_predicted_path
+    Color: 0; 220; 100
+    Line Style: Billboards
+    Line Width: 0.045
+  - Class: rviz_default_plugins/Path
+    Name: MPC reference
+    Enabled: true
+    Topic:
+      Value: /tracking/mpc_reference_path
+    Color: 0; 170; 255
+    Line Style: Billboards
+    Line Width: 0.025
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 20
+      Pitch: 1.5
+      Yaw: 1.57
+      Focal Point:
+        X: -2
+        Y: -2
+        Z: 0
+  Tools:
+  - Class: rviz_default_plugins/Interact
+  - Class: rviz_default_plugins/MoveCamera
+  - Class: rviz_default_plugins/SetGoal
+    Topic: /goal
+Window Geometry:
+  Width: 1100
+  Height: 850

@@ -1,6 +1,5 @@
-// ROS2 adapter of the ROS1 ReplanFSM.  Its state transitions and calls into
-// planner_manager are intentionally the same as replan_fsm.cpp; only ROS
-// communication, parameter ownership, TF and publishing are replaced.
+// ROS2 planner adapter with explicit interfaces and obstacle-triggered replanning.
+// Point-cloud arrivals update occupancy, but only blocked routes restart the trajectory.
 
 #include <ament_index_cpp/get_package_share_directory.hpp>
 #include <geometry_msgs/msg/point_stamped.hpp>
@@ -226,10 +225,17 @@ class ReplanFsmNode final : public rclcpp::Node {
     RCLCPP_INFO(get_logger(), "FSM accepted %s goal=(%.2f, %.2f, %.2f)", source, final_goal_.x(), final_goal_.y(), final_goal_.z());
   }
 
+  // Store map pose and rotate the contracted base_link twist into map exactly once.
   void receive_odometry(const nav_msgs::msg::Odometry& state) {
     const auto& pose = state.pose.pose;
     robot_position_ = Eigen::Vector3d(pose.position.x, pose.position.y, 0.0);
-    robot_speed_ = Eigen::Vector3d(state.twist.twist.linear.x, state.twist.twist.linear.y, 0.0);
+    const auto& q = pose.orientation;
+    const double yaw = std::atan2(2.0 * (q.w * q.z + q.x * q.y),
+                                 1.0 - 2.0 * (q.y * q.y + q.z * q.z));
+    const auto& body_velocity = state.twist.twist.linear;
+    robot_speed_ = Eigen::Vector3d(
+      std::cos(yaw) * body_velocity.x - std::sin(yaw) * body_velocity.y,
+      std::sin(yaw) * body_velocity.x + std::cos(yaw) * body_velocity.y, 0.0);
     start_point_ = robot_position_;
     auto start_index = manager_->global_map->coord2gridIndex(start_point_);
     if (manager_->global_map->isOccupied(start_index, false)) {
@@ -265,7 +271,18 @@ class ReplanFsmNode final : public rclcpp::Node {
       manager_->global_map->m_local_cloud->push_back(point);
     }
     manager_->global_map->localPointCloudToObstacle(*manager_->global_map->m_local_cloud, true, robot_position_);
-    if (state_ == State::kExecuteTrajectory) receive_replan_flag(true);
+    // Sensor updates alone must not restart an unobstructed reference clock.
+    // Replan only if the current route actually intersects updated occupancy;
+    // Tracking still requests off-course and periodic refreshes independently.
+    if (state_ == State::kExecuteTrajectory && manager_->optimized_path.size() >= 2) {
+      Eigen::Vector3d collision, before, after;
+      int begin_index = 0, end_index = 0;
+      if (manager_->astar_path_finder->checkPathCollision(
+            manager_->optimized_path, collision, robot_position_,
+            before, after, begin_index, end_index)) {
+        receive_replan_flag(true);
+      }
+    }
   }
 
   void receive_replan_flag(bool requested) {
