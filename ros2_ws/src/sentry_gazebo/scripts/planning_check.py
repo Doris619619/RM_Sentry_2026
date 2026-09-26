@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Exercise five deterministic real-scene start/goal pairs and inspect published polynomial paths."""
-import json,math,time,subprocess
+import json,math,time,subprocess,yaml
 from collections import deque
 from pathlib import Path
 import numpy as np
@@ -12,6 +12,7 @@ from nav_msgs.msg import Odometry
 from trajectory_generation.msg import TrajectoryPoly
 import sys
 ROOT=Path(__file__).resolve().parents[4]
+LIMITS=yaml.safe_load((ROOT/'ros2_ws/src/trajectory_generation/config/global_planning.yaml').read_text())['trajectory_generation']['ros__parameters']
 sys.path.insert(0,str(ROOT/'ros2_ws/src/trajectory_generation/test'))
 import select_baseline_points as baseline
 
@@ -41,7 +42,7 @@ def map_cases():
     return [(baseline._coord(a),baseline._coord(b)) for a,b in pairs],inflated
 
 def metrics(message,mask,goal):
-    """Bound sample arc length by polynomial derivative maxima; check endpoint and occupancy."""
+    """Bound arc-length samples, solve speed extrema and check acceleration, joins, endpoint and occupancy."""
     durations=np.array(message.duration);x=np.array(message.coef_x).reshape(-1,4);y=np.array(message.coef_y).reshape(-1,4)
     assert len(x)==len(y)==len(durations)>0 and np.isfinite(durations).all() and (durations>0).all()
     assert np.isfinite(x).all() and np.isfinite(y).all()
@@ -58,10 +59,22 @@ def metrics(message,mask,goal):
     inside=(col>=0)&(col<400)&(row>=0)&(row<400)
     collisions=int(np.count_nonzero(~inside)+np.count_nonzero(mask[row[inside],col[inside]]))
     end_error=float(np.linalg.norm(pts[-1]-goal))
+    acceleration=join_gap=join_velocity_gap=speed=0.
+    for index,(cx,cy,duration) in enumerate(zip(x,y,durations)):
+        for t in [0.,duration]:
+            acceleration=max(acceleration,math.hypot(np.polyval(np.polyder(cx,2),t),np.polyval(np.polyder(cy,2),t)))
+        vx,vy=np.polyder(cx),np.polyder(cy)
+        speed_slope=np.polyadd(np.polymul(vx,np.polyder(vx)),np.polymul(vy,np.polyder(vy)))
+        extrema=[0.,duration]+[float(t.real) for t in np.roots(speed_slope) if abs(t.imag)<1e-8 and 0<t.real<duration]
+        speed=max(speed,max(math.hypot(np.polyval(vx,t),np.polyval(vy,t)) for t in extrema))
+        if index+1<len(durations):
+            join_gap=max(join_gap,math.hypot(np.polyval(cx,duration)-x[index+1,3],np.polyval(cy,duration)-y[index+1,3]))
+            join_velocity_gap=max(join_velocity_gap,math.hypot(np.polyval(np.polyder(cx),duration)-x[index+1,2],np.polyval(np.polyder(cy),duration)-y[index+1,2]))
     result={'segments':len(durations),'sample_count':len(pts),'max_sample_spacing':float(spacing.max()),
             'occupied_samples':collisions,'endpoint_error':end_error,'start':pts[0].tolist(),'end':pts[-1].tolist(),
             'duration':durations.tolist(),'coef_x':message.coef_x.tolist(),'coef_y':message.coef_y.tolist()}
-    result['passed']=end_error<=.15 and collisions==0 and result['max_sample_spacing']<=.025
+    result.update(max_acceleration=acceleration,max_join_gap=join_gap,max_join_velocity_gap=join_velocity_gap,max_speed=speed,acceleration_limit=LIMITS['planner.reference_a_max'],speed_limit=LIMITS['planner.reference_v_max'])
+    result['passed']=speed<=LIMITS['planner.reference_v_max']+1e-4 and acceleration<=LIMITS['planner.reference_a_max']+1e-4 and join_gap<=1e-4 and join_velocity_gap<=1e-4 and end_error<=.15 and collisions==0 and result['max_sample_spacing']<=.025
     return result
 
 class LivePlanning:

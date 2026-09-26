@@ -1,0 +1,325 @@
+Running main() from /opt/ros/humble/src/gtest_vendor/src/gtest_main.cc
+Note: Google Test filter = ReferenceTimingTest.*
+[==========] Running 4 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 4 tests from ReferenceTimingTest
+[ RUN      ] ReferenceTimingTest.ExternalDurationsStayConsistentAfterIterationLimit
+[Reference] path size : 4
+[Reference] Using MINCO-optimized durations (3 segments, total=0.300 s)
+[Reference] solvePolyMatrix ENTER: N=3, path_size=4, trap_time_size=3
+[Reference]   path[0]=(0.0000,0.0000) path[1]=(1.0000,1.0000) t[0]=0.100000 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=360.000000 b[N]=-360.000000 b2[0]=580.000000 b2[N]=-380.000000
+[Reference] solvePolyMatrix EXIT: polyX[0]=[-800.000000 180.000000 0.000000 0.000000]
+[Reference] solvePolyMatrix ENTER: N=3, path_size=4, trap_time_size=3
+[Reference]   path[0]=(0.0000,0.0000) path[1]=(1.0000,1.0000) t[0]=0.110000 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=304.282494 b[N]=-304.282494 b2[0]=461.272973 b2[N]=-298.566361
+[Reference] solvePolyMatrix EXIT: polyX[0]=[-631.787446 152.141247 0.000000 0.000000]
+[Reference] solvePolyMatrix ENTER: N=3, path_size=4, trap_time_size=3
+[Reference]   path[0]=(0.0000,0.0000) path[1]=(1.0000,1.0000) t[0]=0.121000 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=255.831666 b[N]=-255.831666 b2[0]=367.431930 b2[N]=-235.023181
+[Reference] solvePolyMatrix EXIT: polyX[0]=[-492.681715 127.915833 0.000000 0.000000]
+[Reference] solvePolyMatrix ENTER: N=3, path_size=4, trap_time_size=3
+[Reference]   path[0]=(0.0000,0.0000) path[1]=(1.0000,1.0000) t[0]=0.133100 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=214.126348 b[N]=-214.126348 b2[0]=293.138640 b2[N]=-185.346008
+[Reference] solvePolyMatrix EXIT: polyX[0]=[-380.283855 107.063174 -0.000000 0.000000]
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:149: Failure
+The difference between cubicDerivative(*matrix,i,t,0) and path[i+1][axis] is 0.10150057801612022, which exceeds 1e-7, where
+cubicDerivative(*matrix,i,t,0) evaluates to 1.1015005780161202,
+path[i+1][axis] evaluates to 1, and
+1e-7 evaluates to 9.9999999999999995e-08.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:152: Failure
+The difference between cubicDerivative(*matrix,i,t,derivative) and cubicDerivative(*matrix,i+1,0,derivative) is 0.10150057801612022, which exceeds 1e-6, where
+cubicDerivative(*matrix,i,t,derivative) evaluates to 1.1015005780161202,
+cubicDerivative(*matrix,i+1,0,derivative) evaluates to 1, and
+1e-6 evaluates to 9.9999999999999995e-07.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:152: Failure
+The difference between cubicDerivative(*matrix,i,t,derivative) and cubicDerivative(*matrix,i+1,0,derivative) is 1.394263398120362, which exceeds 1e-6, where
+cubicDerivative(*matrix,i,t,derivative) evaluates to 6.8950721549727696,
+cubicDerivative(*matrix,i+1,0,derivative) evaluates to 8.2893355530931316, and
+1e-6 evaluates to 9.9999999999999995e-07.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:152: Failure
+The difference between cubicDerivative(*matrix,i,t,derivative) and cubicDerivative(*matrix,i+1,0,derivative) is 30.36946866238199, which exceeds 1e-6, where
+cubicDerivative(*matrix,i,t,derivative) evaluates to -119.93780706750692,
+cubicDerivative(*matrix,i+1,0,derivative) evaluates to -89.568338405124933, and
+1e-6 evaluates to 9.9999999999999995e-07.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:149: Failure
+The difference between cubicDerivative(*matrix,i,t,0) and path[i+1][axis] is 0.37904740117025781, which exceeds 1e-7, where
+cubicDerivative(*matrix,i,t,0) evaluates to 2.3790474011702578,
+path[i+1][axis] evaluates to 2, and
+1e-7 evaluates to 9.9999999999999995e-08.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:152: Failure
+The difference between cubicDerivative(*matrix,i,t,derivative) and cubicDerivative(*matrix,i+1,0,derivative) is 0.37904740117025781, which exceeds 1e-6, where
+cubicDerivative(*matrix,i,t,derivative) evaluates to 2.3790474011702578,
+cubicDerivative(*matrix,i+1,0,derivative) evaluates to 2, and
+1e-6 evaluates to 9.9999999999999995e-07.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:152: Failure
+The difference between cubicDerivative(*matrix,i,t,derivative) and cubicDerivative(*matrix,i+1,0,derivative) is 4.0319514466459019, which exceeds 1e-6, where
+cubicDerivative(*matrix,i,t,derivative) evaluates to 12.321286999739034,
+cubicDerivative(*matrix,i+1,0,derivative) evaluates to 8.2893355530931316, and
+1e-6 evaluates to 9.9999999999999995e-07.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:152: Failure
+The difference between cubicDerivative(*matrix,i,t,derivative) and cubicDerivative(*matrix,i+1,0,derivative) is 37.618702130152485, which exceeds 1e-6, where
+cubicDerivative(*matrix,i,t,derivative) evaluates to 127.18704053527739,
+cubicDerivative(*matrix,i+1,0,derivative) evaluates to 89.568338405124905, and
+1e-6 evaluates to 9.9999999999999995e-07.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:149: Failure
+The difference between cubicDerivative(*matrix,i,t,0) and path[i+1][axis] is 0.019863583816716712, which exceeds 1e-7, where
+cubicDerivative(*matrix,i,t,0) evaluates to 2.9801364161832833,
+path[i+1][axis] evaluates to 3, and
+1e-7 evaluates to 9.9999999999999995e-08.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:155: Failure
+The difference between cubicDerivative(*matrix,reference.m_trapezoidal_time.size()-1,reference.m_trapezoidal_time.back(),1) and 0 is 3.0521305087389923, which exceeds 1e-7, where
+cubicDerivative(*matrix,reference.m_trapezoidal_time.size()-1,reference.m_trapezoidal_time.back(),1) evaluates to -3.0521305087389923,
+0 evaluates to 0, and
+1e-7 evaluates to 9.9999999999999995e-08.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:149: Failure
+The difference between cubicDerivative(*matrix,i,t,0) and path[i+1][axis] is 0.016815645907935162, which exceeds 1e-7, where
+cubicDerivative(*matrix,i,t,0) evaluates to 1.0168156459079352,
+path[i+1][axis] evaluates to 1, and
+1e-7 evaluates to 9.9999999999999995e-08.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:152: Failure
+The difference between cubicDerivative(*matrix,i,t,derivative) and cubicDerivative(*matrix,i+1,0,derivative) is 0.016815645907935162, which exceeds 1e-6, where
+cubicDerivative(*matrix,i,t,derivative) evaluates to 1.0168156459079352,
+cubicDerivative(*matrix,i+1,0,derivative) evaluates to 1, and
+1e-6 evaluates to 9.9999999999999995e-07.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:152: Failure
+The difference between cubicDerivative(*matrix,i,t,derivative) and cubicDerivative(*matrix,i+1,0,derivative) is 3.655318641895291, which exceeds 1e-6, where
+cubicDerivative(*matrix,i,t,derivative) evaluates to -0.62425109758106323,
+cubicDerivative(*matrix,i+1,0,derivative) evaluates to 3.0310675443142276, and
+1e-6 evaluates to 9.9999999999999995e-07.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:152: Failure
+The difference between cubicDerivative(*matrix,i,t,derivative) and cubicDerivative(*matrix,i+1,0,derivative) is 54.073156154999168, which exceeds 1e-6, where
+cubicDerivative(*matrix,i,t,derivative) evaluates to -301.66607784423832,
+cubicDerivative(*matrix,i+1,0,derivative) evaluates to -247.59292168923915, and
+1e-6 evaluates to 9.9999999999999995e-07.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:149: Failure
+The difference between cubicDerivative(*matrix,i,t,0) and path[i+1][axis] is 0.12146333386531283, which exceeds 1e-7, where
+cubicDerivative(*matrix,i,t,0) evaluates to 0.12146333386531283,
+path[i+1][axis] evaluates to 0, and
+1e-7 evaluates to 9.9999999999999995e-08.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:152: Failure
+The difference between cubicDerivative(*matrix,i,t,derivative) and cubicDerivative(*matrix,i+1,0,derivative) is 0.12146333386531283, which exceeds 1e-6, where
+cubicDerivative(*matrix,i,t,derivative) evaluates to 0.12146333386531283,
+cubicDerivative(*matrix,i+1,0,derivative) evaluates to 0, and
+1e-6 evaluates to 9.9999999999999995e-07.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:152: Failure
+The difference between cubicDerivative(*matrix,i,t,derivative) and cubicDerivative(*matrix,i+1,0,derivative) is 9.2444753668902067, which exceeds 1e-6, where
+cubicDerivative(*matrix,i,t,derivative) evaluates to 8.1794205736839558,
+cubicDerivative(*matrix,i+1,0,derivative) evaluates to -1.06505479320625, and
+1e-6 evaluates to 9.9999999999999995e-07.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:152: Failure
+The difference between cubicDerivative(*matrix,i,t,derivative) and cubicDerivative(*matrix,i+1,0,derivative) is 94.277979159347325, which exceeds 1e-6, where
+cubicDerivative(*matrix,i,t,derivative) evaluates to 295.62781537176147,
+cubicDerivative(*matrix,i+1,0,derivative) evaluates to 201.34983621241415, and
+1e-6 evaluates to 9.9999999999999995e-07.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:149: Failure
+The difference between cubicDerivative(*matrix,i,t,0) and path[i+1][axis] is 0.017559346722733182, which exceeds 1e-7, where
+cubicDerivative(*matrix,i,t,0) evaluates to 0.48244065327726682,
+path[i+1][axis] evaluates to 0.5, and
+1e-7 evaluates to 9.9999999999999995e-08.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:155: Failure
+The difference between cubicDerivative(*matrix,reference.m_trapezoidal_time.size()-1,reference.m_trapezoidal_time.back(),1) and 0 is 2.7243014454126446, which exceeds 1e-7, where
+cubicDerivative(*matrix,reference.m_trapezoidal_time.size()-1,reference.m_trapezoidal_time.back(),1) evaluates to -2.7243014454126446,
+0 evaluates to 0, and
+1e-7 evaluates to 9.9999999999999995e-08.
+[  FAILED  ] ReferenceTimingTest.ExternalDurationsStayConsistentAfterIterationLimit (1 ms)
+[ RUN      ] ReferenceTimingTest.FallbackDurationsStayConsistentAfterIterationLimit
+[Manager Init] map/file_path: 
+[Manager Init] map/occ_file_path: /home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/map/occfinal.png
+[Manager Init] map/bev_file_path: /home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/map/bevfinal.png
+[Manager Init] map/distance_map_file_path: /home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/map/occtopo.png
+m_height_bias: 0.0152941 m_height_interval: 1.5 m_height_threshold: 0.08 height_sencond_high_threshold: 0.2
+map swell done
+second_heights_points: 10
+[Map Build] bev build done
+xmax: 0.781 xmin: -0.719 ymax: -3.154 ymin: -5.354
+R.rows 400 R.cols 400
+start topo sample map
+[GridMap] topo_sample_map size: 185
+[GridMap] topo_keypoint size: 1603
+[Reference] path size : 3
+[Reference] path_length: 1.193423
+[Reference] solvePolyMatrix ENTER: N=2, path_size=3, trap_time_size=2
+[Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.4190,-4.1540) t[0]=0.150000 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=-66.666667 b[N]=66.666667 b2[0]=36.666667 b2[N]=-50.000000
+[Reference] solvePolyMatrix EXIT: polyX[0]=[74.074074 -33.333333 0.000000 -0.919000]
+[Reference] solvePolyMatrix ENTER: N=2, path_size=3, trap_time_size=2
+[Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.4190,-4.1540) t[0]=0.165000 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=-55.096419 b[N]=55.096419 b2[0]=30.303030 b2[N]=-41.322314
+[Reference] solvePolyMatrix EXIT: polyX[0]=[55.652948 -27.548209 -0.000000 -0.919000]
+[Reference] solvePolyMatrix ENTER: N=2, path_size=3, trap_time_size=2
+[Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.4190,-4.1540) t[0]=0.181500 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=-45.534230 b[N]=45.534230 b2[0]=25.043827 b2[N]=-34.150673
+[Reference] solvePolyMatrix EXIT: polyX[0]=[41.812884 -22.767115 0.000000 -0.919000]
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:149: Failure
+The difference between cubicDerivative(*matrix,i,t,0) and path[i+1][axis] is 0.074750000000000316, which exceeds 1e-7, where
+cubicDerivative(*matrix,i,t,0) evaluates to -1.4937500000000004,
+path[i+1][axis] evaluates to -1.419, and
+1e-7 evaluates to 9.9999999999999995e-08.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:152: Failure
+The difference between cubicDerivative(*matrix,i,t,derivative) and cubicDerivative(*matrix,i+1,0,derivative) is 0.074750000000000316, which exceeds 1e-6, where
+cubicDerivative(*matrix,i,t,derivative) evaluates to -1.4937500000000004,
+cubicDerivative(*matrix,i+1,0,derivative) evaluates to -1.419, and
+1e-6 evaluates to 9.9999999999999995e-07.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:152: Failure
+The difference between cubicDerivative(*matrix,i,t,derivative) and cubicDerivative(*matrix,i+1,0,derivative) is 0.041322314049586417, which exceeds 1e-6, where
+cubicDerivative(*matrix,i,t,derivative) evaluates to -4.0909090909090908,
+cubicDerivative(*matrix,i+1,0,derivative) evaluates to -4.1322314049586772, and
+1e-6 evaluates to 9.9999999999999995e-07.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:152: Failure
+The difference between cubicDerivative(*matrix,i,t,derivative) and cubicDerivative(*matrix,i+1,0,derivative) is 4.553423035767139, which exceeds 1e-6, where
+cubicDerivative(*matrix,i,t,derivative) evaluates to 4.553423035767139,
+cubicDerivative(*matrix,i+1,0,derivative) evaluates to 0, and
+1e-6 evaluates to 9.9999999999999995e-07.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:149: Failure
+The difference between cubicDerivative(*matrix,i,t,0) and path[i+1][axis] is 0.0077500000000001457, which exceeds 1e-7, where
+cubicDerivative(*matrix,i,t,0) evaluates to -1.9112499999999999,
+path[i+1][axis] evaluates to -1.919, and
+1e-7 evaluates to 9.9999999999999995e-08.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:155: Failure
+The difference between cubicDerivative(*matrix,reference.m_trapezoidal_time.size()-1,reference.m_trapezoidal_time.back(),1) and 0 is 0.86776859504132275, which exceeds 1e-7, where
+cubicDerivative(*matrix,reference.m_trapezoidal_time.size()-1,reference.m_trapezoidal_time.back(),1) evaluates to 0.86776859504132275,
+0 evaluates to 0, and
+1e-7 evaluates to 9.9999999999999995e-08.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:149: Failure
+The difference between cubicDerivative(*matrix,i,t,0) and path[i+1][axis] is 0.049387499999999918, which exceeds 1e-7, where
+cubicDerivative(*matrix,i,t,0) evaluates to -4.1046125,
+path[i+1][axis] evaluates to -4.1539999999999999, and
+1e-7 evaluates to 9.9999999999999995e-08.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:152: Failure
+The difference between cubicDerivative(*matrix,i,t,derivative) and cubicDerivative(*matrix,i+1,0,derivative) is 0.049387499999999918, which exceeds 1e-6, where
+cubicDerivative(*matrix,i,t,derivative) evaluates to -4.1046125,
+cubicDerivative(*matrix,i+1,0,derivative) evaluates to -4.1539999999999999, and
+1e-6 evaluates to 9.9999999999999995e-07.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:152: Failure
+The difference between cubicDerivative(*matrix,i,t,derivative) and cubicDerivative(*matrix,i+1,0,derivative) is 0.06404958677685979, which exceeds 1e-6, where
+cubicDerivative(*matrix,i,t,derivative) evaluates to 2.7499999999999996,
+cubicDerivative(*matrix,i+1,0,derivative) evaluates to 2.6859504132231398, and
+1e-6 evaluates to 9.9999999999999995e-07.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:152: Failure
+The difference between cubicDerivative(*matrix,i,t,derivative) and cubicDerivative(*matrix,i+1,0,derivative) is 2.049040366095209, which exceeds 1e-6, where
+cubicDerivative(*matrix,i,t,derivative) evaluates to 2.5043826696719513,
+cubicDerivative(*matrix,i+1,0,derivative) evaluates to 4.5534230357671603, and
+1e-6 evaluates to 9.9999999999999995e-07.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:149: Failure
+The difference between cubicDerivative(*matrix,i,t,0) and path[i+1][axis] is 0.005837500000000162, which exceeds 1e-7, where
+cubicDerivative(*matrix,i,t,0) evaluates to -3.8098375,
+path[i+1][axis] evaluates to -3.8039999999999998, and
+1e-7 evaluates to 9.9999999999999995e-08.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:155: Failure
+The difference between cubicDerivative(*matrix,reference.m_trapezoidal_time.size()-1,reference.m_trapezoidal_time.back(),1) and 0 is 0.65495867768595151, which exceeds 1e-7, where
+cubicDerivative(*matrix,reference.m_trapezoidal_time.size()-1,reference.m_trapezoidal_time.back(),1) evaluates to -0.65495867768595151,
+0 evaluates to 0, and
+1e-7 evaluates to 9.9999999999999995e-08.
+[  FAILED  ] ReferenceTimingTest.FallbackDurationsStayConsistentAfterIterationLimit (387 ms)
+[ RUN      ] ReferenceTimingTest.LongTrajectoryKeepsEndpointsAndContinuity
+[Reference] path size : 3
+[Reference] Using MINCO-optimized durations (2 segments, total=40.000 s)
+[Reference] solvePolyMatrix ENTER: N=2, path_size=3, trap_time_size=2
+[Reference]   path[0]=(0.0000,0.0000) path[1]=(1.0000,1.0000) t[0]=20.000000 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=0.007500 b[N]=-0.007500 b2[0]=0.015000 b2[N]=0.015000
+[Reference] solvePolyMatrix EXIT: polyX[0]=[-0.000063 0.003750 -0.000000 0.000000]
+[Reference] total time 40.0 s exceeds cap (30.0 s), scaling down
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:149: Failure
+The difference between cubicDerivative(*matrix,i,t,0) and path[i+1][axis] is 0.3671875, which exceeds 1e-7, where
+cubicDerivative(*matrix,i,t,0) evaluates to 0.6328125,
+path[i+1][axis] evaluates to 1, and
+1e-7 evaluates to 9.9999999999999995e-08.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:152: Failure
+The difference between cubicDerivative(*matrix,i,t,derivative) and cubicDerivative(*matrix,i+1,0,derivative) is 0.3671875, which exceeds 1e-6, where
+cubicDerivative(*matrix,i,t,derivative) evaluates to 0.6328125,
+cubicDerivative(*matrix,i+1,0,derivative) evaluates to 1, and
+1e-6 evaluates to 9.9999999999999995e-07.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:152: Failure
+The difference between cubicDerivative(*matrix,i,t,derivative) and cubicDerivative(*matrix,i+1,0,derivative) is 0.0046875000000000111, which exceeds 1e-6, where
+cubicDerivative(*matrix,i,t,derivative) evaluates to 0.0703125,
+cubicDerivative(*matrix,i+1,0,derivative) evaluates to 0.075000000000000011, and
+1e-6 evaluates to 9.9999999999999995e-07.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:152: Failure
+The difference between cubicDerivative(*matrix,i,t,derivative) and cubicDerivative(*matrix,i+1,0,derivative) is 0.0018749999999999999, which exceeds 1e-6, where
+cubicDerivative(*matrix,i,t,derivative) evaluates to 0.0018749999999999999,
+cubicDerivative(*matrix,i+1,0,derivative) evaluates to 0, and
+1e-6 evaluates to 9.9999999999999995e-07.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:149: Failure
+The difference between cubicDerivative(*matrix,i,t,0) and path[i+1][axis] is 0.0859375, which exceeds 1e-7, where
+cubicDerivative(*matrix,i,t,0) evaluates to 1.9140625,
+path[i+1][axis] evaluates to 2, and
+1e-7 evaluates to 9.9999999999999995e-08.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:155: Failure
+The difference between cubicDerivative(*matrix,reference.m_trapezoidal_time.size()-1,reference.m_trapezoidal_time.back(),1) and 0 is 0.032812500000000001, which exceeds 1e-7, where
+cubicDerivative(*matrix,reference.m_trapezoidal_time.size()-1,reference.m_trapezoidal_time.back(),1) evaluates to 0.032812500000000001,
+0 evaluates to 0, and
+1e-7 evaluates to 9.9999999999999995e-08.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:149: Failure
+The difference between cubicDerivative(*matrix,i,t,0) and path[i+1][axis] is 0.15625, which exceeds 1e-7, where
+cubicDerivative(*matrix,i,t,0) evaluates to 0.84375,
+path[i+1][axis] evaluates to 1, and
+1e-7 evaluates to 9.9999999999999995e-08.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:152: Failure
+The difference between cubicDerivative(*matrix,i,t,derivative) and cubicDerivative(*matrix,i+1,0,derivative) is 0.15625, which exceeds 1e-6, where
+cubicDerivative(*matrix,i,t,derivative) evaluates to 0.84375,
+cubicDerivative(*matrix,i+1,0,derivative) evaluates to 1, and
+1e-6 evaluates to 9.9999999999999995e-07.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:152: Failure
+The difference between cubicDerivative(*matrix,i,t,derivative) and cubicDerivative(*matrix,i+1,0,derivative) is 0.056249999999999967, which exceeds 1e-6, where
+cubicDerivative(*matrix,i,t,derivative) evaluates to 0.056249999999999988,
+cubicDerivative(*matrix,i+1,0,derivative) evaluates to 2.0816681711721685e-17, and
+1e-6 evaluates to 9.9999999999999995e-07.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:152: Failure
+The difference between cubicDerivative(*matrix,i,t,derivative) and cubicDerivative(*matrix,i+1,0,derivative) is 0.0075000000000000015, which exceeds 1e-6, where
+cubicDerivative(*matrix,i,t,derivative) evaluates to -0.0075000000000000032,
+cubicDerivative(*matrix,i+1,0,derivative) evaluates to -0.015000000000000005, and
+1e-6 evaluates to 9.9999999999999995e-07.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:149: Failure
+The difference between cubicDerivative(*matrix,i,t,0) and path[i+1][axis] is 0.15625, which exceeds 1e-7, where
+cubicDerivative(*matrix,i,t,0) evaluates to 0.15625,
+path[i+1][axis] evaluates to 0, and
+1e-7 evaluates to 9.9999999999999995e-08.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:155: Failure
+The difference between cubicDerivative(*matrix,reference.m_trapezoidal_time.size()-1,reference.m_trapezoidal_time.back(),1) and 0 is 0.056250000000000001, which exceeds 1e-7, where
+cubicDerivative(*matrix,reference.m_trapezoidal_time.size()-1,reference.m_trapezoidal_time.back(),1) evaluates to -0.056250000000000001,
+0 evaluates to 0, and
+1e-7 evaluates to 9.9999999999999995e-08.
+[  FAILED  ] ReferenceTimingTest.LongTrajectoryKeepsEndpointsAndContinuity (1 ms)
+[ RUN      ] ReferenceTimingTest.SingleSegmentDoesNotAccessAbsentNeighbor
+[Reference] path size : 2
+[Reference] Using MINCO-optimized durations (1 segments, total=0.100 s)
+[Reference] solvePolyMatrix ENTER: N=1, path_size=2, trap_time_size=1
+[Reference]   path[0]=(0.0000,0.0000) path[1]=(1.0000,0.0000) t[0]=0.100000 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=600.000000 b[N]=-600.000000 b2[0]=0.000000 b2[N]=-0.000000
+[Reference] solvePolyMatrix EXIT: polyX[0]=[-2000.000000 300.000000 -0.000000 0.000000]
+[Reference] solvePolyMatrix ENTER: N=1, path_size=2, trap_time_size=1
+[Reference]   path[0]=(0.0000,0.0000) path[1]=(1.0000,0.0000) t[0]=0.110000 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=495.867769 b[N]=-495.867769 b2[0]=0.000000 b2[N]=-0.000000
+[Reference] solvePolyMatrix EXIT: polyX[0]=[-1502.629602 247.933884 0.000000 0.000000]
+[Reference] solvePolyMatrix ENTER: N=1, path_size=2, trap_time_size=1
+[Reference]   path[0]=(0.0000,0.0000) path[1]=(1.0000,0.0000) t[0]=0.121000 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=409.808073 b[N]=-409.808073 b2[0]=0.000000 b2[N]=-0.000000
+[Reference] solvePolyMatrix EXIT: polyX[0]=[-1128.947860 204.904037 -0.000000 0.000000]
+[Reference] solvePolyMatrix ENTER: N=1, path_size=2, trap_time_size=1
+[Reference]   path[0]=(0.0000,0.0000) path[1]=(1.0000,0.0000) t[0]=0.133100 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=338.684358 b[N]=-338.684358 b2[0]=0.000000 b2[N]=-0.000000
+[Reference] solvePolyMatrix EXIT: polyX[0]=[-848.195237 169.342179 0.000000 0.000000]
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:149: Failure
+The difference between cubicDerivative(*matrix,i,t,0) and path[i+1][axis] is 0.031999999999999695, which exceeds 1e-7, where
+cubicDerivative(*matrix,i,t,0) evaluates to 0.9680000000000003,
+path[i+1][axis] evaluates to 1, and
+1e-7 evaluates to 9.9999999999999995e-08.
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:155: Failure
+The difference between cubicDerivative(*matrix,reference.m_trapezoidal_time.size()-1,reference.m_trapezoidal_time.back(),1) and 0 is 4.9586776859504056, which exceeds 1e-7, where
+cubicDerivative(*matrix,reference.m_trapezoidal_time.size()-1,reference.m_trapezoidal_time.back(),1) evaluates to -4.9586776859504056,
+0 evaluates to 0, and
+1e-7 evaluates to 9.9999999999999995e-08.
+[  FAILED  ] ReferenceTimingTest.SingleSegmentDoesNotAccessAbsentNeighbor (1 ms)
+[----------] 4 tests from ReferenceTimingTest (390 ms total)
+
+[----------] Global test environment tear-down
+[==========] 4 tests from 1 test suite ran. (390 ms total)
+[  PASSED  ] 0 tests.
+[  FAILED  ] 4 tests, listed below:
+[  FAILED  ] ReferenceTimingTest.ExternalDurationsStayConsistentAfterIterationLimit
+[  FAILED  ] ReferenceTimingTest.FallbackDurationsStayConsistentAfterIterationLimit
+[  FAILED  ] ReferenceTimingTest.LongTrajectoryKeepsEndpointsAndContinuity
+[  FAILED  ] ReferenceTimingTest.SingleSegmentDoesNotAccessAbsentNeighbor
+
+ 4 FAILED TESTS
