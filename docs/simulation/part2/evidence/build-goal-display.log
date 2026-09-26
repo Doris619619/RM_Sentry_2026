@@ -1,0 +1,10 @@
+Starting >>> waypoint_generator
+Starting >>> sentry_gazebo
+Finished <<< waypoint_generator [0.31s]
+Starting >>> trajectory_generation
+Finished <<< sentry_gazebo [0.32s]
+Finished <<< trajectory_generation [1.66s]
+Starting >>> sentry_bringup
+Finished <<< sentry_bringup [0.16s]
+
+Summary: 4 packages finished [2.49s]

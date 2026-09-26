@@ -1,0 +1,193 @@
+Running main() from /opt/ros/humble/src/gtest_vendor/src/gtest_main.cc
+[==========] Running 6 tests from 2 test suites.
+[----------] Global test environment set-up.
+[----------] 2 tests from LegacyPlanningTest
+[ RUN      ] LegacyPlanningTest.ConvertsMapCoordinatesAndBuildsTopoPath
+[Manager Init] map/file_path: 
+[Manager Init] map/occ_file_path: /home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/map/occfinal.png
+[Manager Init] map/bev_file_path: /home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/map/bevfinal.png
+[Manager Init] map/distance_map_file_path: /home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/map/occtopo.png
+m_height_bias: 0.0152941 m_height_interval: 1.5 m_height_threshold: 0.08 height_sencond_high_threshold: 0.2
+map swell done
+second_heights_points: 10
+[Map Build] bev build done
+xmax: 0.781 xmin: -0.719 ymax: -3.154 ymin: -5.354
+R.rows 400 R.cols 400
+start topo sample map
+[GridMap] topo_sample_map size: 185
+[GridMap] topo_keypoint size: 1603
+[Manager] start point, (x, y): (-3.82, 2.40)
+[Manager] receive target, (x, y): (-1.35, -4.20)
+[Topo]: m_graph before num: 1605
+[Topo]: dijkstra time: 0.292096
+[Topo]: topo search time: 0.986097
+[Topo]: m_graph num: 2579
+[DIAG] origin_path (Dijkstra) size: 3
+[DIAG]   origin[0]: (-3.820, 2.400, 0.015)
+[DIAG]   origin[1]: (-5.019, -1.604, 0.015)
+[DIAG]   origin[2]: (-1.350, -4.200, 0.015)
+[DIAG] lineVisib(start→end DIRECT): false  colli=(-3.47,1.45)
+[DIAG] direct line: 140 steps, 61 wall cells
+[smoothTopoPath] INPUT size=3
+[smoothTopoPath]   in[0]: (-3.820, 2.400, 0.015)
+[smoothTopoPath]   in[1]: (-5.019, -1.604, 0.015)
+[smoothTopoPath]   in[2]: (-1.350, -4.200, 0.015)
+[smoothTopoPath] lineVisib(start→end): false  colli=(-3.47,1.45)
+[smoothTopoPath] OUTPUT size=4, iter_count=3
+[smoothTopoPath]   out[0]: (-3.820, 2.400, 0.015)
+[smoothTopoPath]   out[1]: (-4.753, 0.331, 0.015)
+[smoothTopoPath]   out[2]: (-4.537, -2.213, 0.015)
+[smoothTopoPath]   out[3]: (-1.350, -4.200, 0.015)
+[DIAG] optimized_path (smoothTopoPath) size: 4
+[DIAG]   opt[0]: (-3.820, 2.400, 0.015)
+[DIAG]   opt[1]: (-4.753, 0.331, 0.015)
+[DIAG]   opt[2]: (-4.537, -2.213, 0.015)
+[DIAG]   opt[3]: (-1.350, -4.200, 0.015)
+optimized_path size: 4
+[Manager] reference_speed: (2.00)
+[LBFGS] search direction d: -0.000136231 -9.46182e-05  0.000122606 -0.000310616  0.000134773    0.0002923  0.000672169 -0.000550775 -4.23697e-05  0.000308006 -0.000175386 -0.000595807  0.000129325  0.000481235 -1.23497e-05  0.000263443 -0.000307341 -9.88307e-05 -8.81198e-05 -0.000265119  0.000152878  0.000510213 -0.000211249 -5.88188e-05  0.000246302  0.000149535 -0.000240501 -4.89464e-05 -0.000106835 -0.000196265  0.000144796  0.000294683   0.00011213  0.000576428  0.000788387  0.000663455 -0.000136432  9.01984e-05  0.000360823  0.000296566 -0.000406007  -0.00040562 -0.000473017  0.000560966   7.0016e-05 -0.000141598  -1.6307e-05  0.000428602  8.44399e-05 -0.000401914 -0.000142702 -0.000270391 -3.33291e-05  0.000399309   0.00058347  0.000109554  0.000546876  0.000507644  0.000397864  0.000226917  0.000144025  8.17953e-05 -2.00146e-05 -0.000156173 -0.000262722   0.00111356 -5.34554e-05 -7.90275e-05 -9.58605e-05 -1.91014e-05   6.8222e-05   0.00012913  8.26083e-05  4.29412e-05  5.71287e-05  4.35338e-05 -4.36231e-05 -4.66366e-05  5.20508e-05  2.51171e-05  0.000104944  0.000238185  0.000403688   0.00044165  0.000206636
+[Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[Smooth Optimize] MINCO: cost=49.0 total_T=4.485(init 4.280) max_drift=0.382 max_vel=2.8 segs=29
+[Smooth Resample] resample
+[Smooth Resample] 30 -> 16 waypoints, 15 time segs, max_turn=20.5 deg
+[Manager] optimizer generate time: 0.791681
+[Reference] path size : 16
+[Reference] Using MINCO-optimized durations (15 segments, total=4.485 s)
+[Reference] solvePolyMatrix ENTER: N=15, path_size=16, trap_time_size=15
+[Reference]   path[0]=(-3.8200,2.4000) path[1]=(-3.9293,2.1677) t[0]=0.359725 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=-1.217974 b[N]=0.215149 b2[0]=-2.644058 b2[N]=-0.369698
+[Reference] solvePolyMatrix EXIT: polyX[0]=[-0.654973 -0.608987 0.000000 -3.820000]
+[Reference] solvePolyMatrix ENTER: N=15, path_size=16, trap_time_size=15
+[Reference]   path[0]=(-3.8200,2.4000) path[1]=(-3.9293,2.1677) t[0]=0.395697 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=-1.084004 b[N]=-0.336495 b2[0]=-2.323036 b2[N]=0.002488
+[Reference] solvePolyMatrix EXIT: polyX[0]=[-0.394271 -0.542002 0.000000 -3.820000]
+[Reference] solvePolyMatrix ENTER: N=15, path_size=16, trap_time_size=15
+[Reference]   path[0]=(-3.8200,2.4000) path[1]=(-3.9293,2.1677) t[0]=0.435267 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=-0.971931 b[N]=-0.576152 b2[0]=-2.056247 b2[N]=0.114288
+[Reference] solvePolyMatrix EXIT: polyX[0]=[-0.208850 -0.485966 0.000000 -3.820000]
+[Reference] solvePolyMatrix ENTER: N=15, path_size=16, trap_time_size=15
+[Reference]   path[0]=(-3.8200,2.4000) path[1]=(-3.9293,2.1677) t[0]=0.435267 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=-0.971931 b[N]=-0.776767 b2[0]=-2.056247 b2[N]=0.208026
+[Reference] solvePolyMatrix EXIT: polyX[0]=[-0.208851 -0.485965 0.000000 -3.820000]
+[Reference] solvePolyMatrix ENTER: N=15, path_size=16, trap_time_size=15
+[Reference]   path[0]=(-3.8200,2.4000) path[1]=(-3.9293,2.1677) t[0]=0.435267 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=-0.971931 b[N]=-0.776767 b2[0]=-2.056247 b2[N]=0.208026
+[Reference] solvePolyMatrix EXIT: polyX[0]=[-0.208851 -0.485965 0.000000 -3.820000]
+[       OK ] LegacyPlanningTest.ConvertsMapCoordinatesAndBuildsTopoPath (2176 ms)
+[ RUN      ] LegacyPlanningTest.ClampsCoordinatesAndRepairsOccupiedGoalAndDynamicObstacle
+[Manager Init] map/file_path: 
+[Manager Init] map/occ_file_path: /home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/map/occfinal.png
+[Manager Init] map/bev_file_path: /home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/map/bevfinal.png
+[Manager Init] map/distance_map_file_path: /home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/map/occtopo.png
+m_height_bias: 0.0152941 m_height_interval: 1.5 m_height_threshold: 0.08 height_sencond_high_threshold: 0.2
+map swell done
+second_heights_points: 10
+[Map Build] bev build done
+xmax: 0.781 xmin: -0.719 ymax: -3.154 ymin: -5.354
+R.rows 400 R.cols 400
+start topo sample map
+[GridMap] topo_sample_map size: 185
+[GridMap] topo_keypoint size: 1603
+[       OK ] LegacyPlanningTest.ClampsCoordinatesAndRepairsOccupiedGoalAndDynamicObstacle (386 ms)
+[----------] 2 tests from LegacyPlanningTest (2562 ms total)
+
+[----------] 4 tests from ReferenceTimingTest
+[ RUN      ] ReferenceTimingTest.ExternalDurationsStayConsistentAfterIterationLimit
+[Reference] path size : 4
+[Reference] Using MINCO-optimized durations (3 segments, total=0.300 s)
+[Reference] solvePolyMatrix ENTER: N=3, path_size=4, trap_time_size=3
+[Reference]   path[0]=(0.0000,0.0000) path[1]=(1.0000,1.0000) t[0]=0.100000 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=360.000000 b[N]=-360.000000 b2[0]=580.000000 b2[N]=-380.000000
+[Reference] solvePolyMatrix EXIT: polyX[0]=[-800.000000 180.000000 0.000000 0.000000]
+[Reference] solvePolyMatrix ENTER: N=3, path_size=4, trap_time_size=3
+[Reference]   path[0]=(0.0000,0.0000) path[1]=(1.0000,1.0000) t[0]=0.110000 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=304.282494 b[N]=-304.282494 b2[0]=461.272973 b2[N]=-298.566361
+[Reference] solvePolyMatrix EXIT: polyX[0]=[-631.787446 152.141247 0.000000 0.000000]
+[Reference] solvePolyMatrix ENTER: N=3, path_size=4, trap_time_size=3
+[Reference]   path[0]=(0.0000,0.0000) path[1]=(1.0000,1.0000) t[0]=0.121000 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=255.831666 b[N]=-255.831666 b2[0]=367.431930 b2[N]=-235.023181
+[Reference] solvePolyMatrix EXIT: polyX[0]=[-492.681715 127.915833 0.000000 0.000000]
+[Reference] solvePolyMatrix ENTER: N=3, path_size=4, trap_time_size=3
+[Reference]   path[0]=(0.0000,0.0000) path[1]=(1.0000,1.0000) t[0]=0.133100 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=214.126348 b[N]=-214.126348 b2[0]=293.138640 b2[N]=-185.346008
+[Reference] solvePolyMatrix EXIT: polyX[0]=[-380.283855 107.063174 -0.000000 0.000000]
+[Reference] solvePolyMatrix ENTER: N=3, path_size=4, trap_time_size=3
+[Reference]   path[0]=(0.0000,0.0000) path[1]=(1.0000,1.0000) t[0]=0.146410 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=178.526849 b[N]=-178.526849 b2[0]=234.225823 b2[N]=-146.435932
+[Reference] solvePolyMatrix EXIT: polyX[0]=[-291.050383 89.263425 0.000000 0.000000]
+[       OK ] ReferenceTimingTest.ExternalDurationsStayConsistentAfterIterationLimit (0 ms)
+[ RUN      ] ReferenceTimingTest.FallbackDurationsStayConsistentAfterIterationLimit
+[Manager Init] map/file_path: 
+[Manager Init] map/occ_file_path: /home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/map/occfinal.png
+[Manager Init] map/bev_file_path: /home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/map/bevfinal.png
+[Manager Init] map/distance_map_file_path: /home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/map/occtopo.png
+m_height_bias: 0.0152941 m_height_interval: 1.5 m_height_threshold: 0.08 height_sencond_high_threshold: 0.2
+map swell done
+second_heights_points: 10
+[Map Build] bev build done
+xmax: 0.781 xmin: -0.719 ymax: -3.154 ymin: -5.354
+R.rows 400 R.cols 400
+start topo sample map
+[GridMap] topo_sample_map size: 185
+[GridMap] topo_keypoint size: 1603
+[Reference] path size : 3
+[Reference] path_length: 1.193423
+[Reference] solvePolyMatrix ENTER: N=2, path_size=3, trap_time_size=2
+[Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.4190,-4.1540) t[0]=0.150000 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=-66.666667 b[N]=66.666667 b2[0]=36.666667 b2[N]=-50.000000
+[Reference] solvePolyMatrix EXIT: polyX[0]=[74.074074 -33.333333 0.000000 -0.919000]
+[Reference] solvePolyMatrix ENTER: N=2, path_size=3, trap_time_size=2
+[Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.4190,-4.1540) t[0]=0.165000 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=-55.096419 b[N]=55.096419 b2[0]=30.303030 b2[N]=-41.322314
+[Reference] solvePolyMatrix EXIT: polyX[0]=[55.652948 -27.548209 -0.000000 -0.919000]
+[Reference] solvePolyMatrix ENTER: N=2, path_size=3, trap_time_size=2
+[Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.4190,-4.1540) t[0]=0.181500 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=-45.534230 b[N]=45.534230 b2[0]=25.043827 b2[N]=-34.150673
+[Reference] solvePolyMatrix EXIT: polyX[0]=[41.812884 -22.767115 0.000000 -0.919000]
+[Reference] solvePolyMatrix ENTER: N=2, path_size=3, trap_time_size=2
+[Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.4190,-4.1540) t[0]=0.199650 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=-37.631595 b[N]=37.631595 b2[0]=20.697377 b2[N]=-28.223697
+[Reference] solvePolyMatrix EXIT: polyX[0]=[31.414638 -18.815798 0.000000 -0.919000]
+[       OK ] ReferenceTimingTest.FallbackDurationsStayConsistentAfterIterationLimit (462 ms)
+[ RUN      ] ReferenceTimingTest.LongTrajectoryKeepsEndpointsAndContinuity
+[Reference] path size : 3
+[Reference] Using MINCO-optimized durations (2 segments, total=40.000 s)
+[Reference] solvePolyMatrix ENTER: N=2, path_size=3, trap_time_size=2
+[Reference]   path[0]=(0.0000,0.0000) path[1]=(1.0000,1.0000) t[0]=20.000000 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=0.007500 b[N]=-0.007500 b2[0]=0.015000 b2[N]=0.015000
+[Reference] solvePolyMatrix EXIT: polyX[0]=[-0.000063 0.003750 -0.000000 0.000000]
+[Reference] total time 40.0 s exceeds cap (30.0 s), scaling down
+[Reference] solvePolyMatrix ENTER: N=2, path_size=3, trap_time_size=2
+[Reference]   path[0]=(0.0000,0.0000) path[1]=(1.0000,1.0000) t[0]=15.000000 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=0.013333 b[N]=-0.013333 b2[0]=0.026667 b2[N]=0.026667
+[Reference] solvePolyMatrix EXIT: polyX[0]=[-0.000148 0.006667 0.000000 0.000000]
+[       OK ] ReferenceTimingTest.LongTrajectoryKeepsEndpointsAndContinuity (2 ms)
+[ RUN      ] ReferenceTimingTest.SingleSegmentDoesNotAccessAbsentNeighbor
+[Reference] path size : 2
+[Reference] Using MINCO-optimized durations (1 segments, total=0.100 s)
+[Reference] solvePolyMatrix ENTER: N=1, path_size=2, trap_time_size=1
+[Reference]   path[0]=(0.0000,0.0000) path[1]=(1.0000,0.0000) t[0]=0.100000 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=600.000000 b[N]=-600.000000 b2[0]=0.000000 b2[N]=-0.000000
+[Reference] solvePolyMatrix EXIT: polyX[0]=[-2000.000000 300.000000 -0.000000 0.000000]
+[Reference] solvePolyMatrix ENTER: N=1, path_size=2, trap_time_size=1
+[Reference]   path[0]=(0.0000,0.0000) path[1]=(1.0000,0.0000) t[0]=0.110000 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=495.867769 b[N]=-495.867769 b2[0]=0.000000 b2[N]=-0.000000
+[Reference] solvePolyMatrix EXIT: polyX[0]=[-1502.629602 247.933884 0.000000 0.000000]
+[Reference] solvePolyMatrix ENTER: N=1, path_size=2, trap_time_size=1
+[Reference]   path[0]=(0.0000,0.0000) path[1]=(1.0000,0.0000) t[0]=0.121000 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=409.808073 b[N]=-409.808073 b2[0]=0.000000 b2[N]=-0.000000
+[Reference] solvePolyMatrix EXIT: polyX[0]=[-1128.947860 204.904037 -0.000000 0.000000]
+[Reference] solvePolyMatrix ENTER: N=1, path_size=2, trap_time_size=1
+[Reference]   path[0]=(0.0000,0.0000) path[1]=(1.0000,0.0000) t[0]=0.133100 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=338.684358 b[N]=-338.684358 b2[0]=0.000000 b2[N]=-0.000000
+[Reference] solvePolyMatrix EXIT: polyX[0]=[-848.195237 169.342179 0.000000 0.000000]
+[Reference] solvePolyMatrix ENTER: N=1, path_size=2, trap_time_size=1
+[Reference]   path[0]=(0.0000,0.0000) path[1]=(1.0000,0.0000) t[0]=0.146410 state_vel=(0.0000,0.0000)
+[Reference] banded solve done. b[0]=279.904428 b[N]=-279.904428 b2[0]=0.000000 b2[N]=-0.000000
+[Reference] solvePolyMatrix EXIT: polyX[0]=[-637.261635 139.952214 0.000000 0.000000]
+[       OK ] ReferenceTimingTest.SingleSegmentDoesNotAccessAbsentNeighbor (0 ms)
+[----------] 4 tests from ReferenceTimingTest (464 ms total)
+
+[----------] Global test environment tear-down
+[==========] 6 tests from 2 test suites ran. (3026 ms total)
+[  PASSED  ] 6 tests.

@@ -1,0 +1,264 @@
+[
+  {
+    "name": "feedback_available",
+    "passed": true
+  },
+  {
+    "name": "one_publisher /clock",
+    "passed": true,
+    "count": 1
+  },
+  {
+    "name": "one_publisher /sim/ground_truth/odometry",
+    "passed": true,
+    "count": 1
+  },
+  {
+    "name": "one_publisher /localization/odometry",
+    "passed": true,
+    "count": 1
+  },
+  {
+    "name": "one_publisher /tf",
+    "passed": true,
+    "count": 1
+  },
+  {
+    "name": "one_publisher /tf_static",
+    "passed": true,
+    "count": 1
+  },
+  {
+    "name": "initial_pose",
+    "passed": true
+  },
+  {
+    "name": "forward",
+    "passed": true,
+    "dx": 0.5900000000000004,
+    "dy": 0.0,
+    "dyaw": 0.0,
+    "sim_duration": 3.0
+  },
+  {
+    "name": "lateral",
+    "passed": true,
+    "dx": 0.0,
+    "dy": 0.5960000000000004,
+    "dyaw": 0.0,
+    "sim_duration": 3.0
+  },
+  {
+    "name": "yaw",
+    "passed": true,
+    "dx": 0.0,
+    "dy": 0.0,
+    "dyaw": 0.5909999999999995,
+    "sim_duration": 2.0
+  },
+  {
+    "name": "body_frame_at_90deg",
+    "passed": true,
+    "initial_yaw": 1.5749999999999997,
+    "world_dx": -0.002505381851526378,
+    "world_dy": 0.5959947340889816,
+    "body_vx": 0.20000000282671265,
+    "body_vy": -9.498606775906636e-09
+  },
+  {
+    "name": "backward",
+    "passed": true,
+    "body_dx": -0.19200000000000486,
+    "body_dy": -3.943785402416022e-15
+  },
+  {
+    "name": "right",
+    "passed": true,
+    "body_dx": -6.8542177142361105e-15,
+    "body_dy": -0.1960000000000049
+  },
+  {
+    "name": "zero_command_stop",
+    "passed": true,
+    "stop_wall_seconds": 0.12809590100005153
+  },
+  {
+    "name": "watchdog_stop",
+    "passed": true,
+    "stop_wall_seconds": 0.605522783998822
+  },
+  {
+    "name": "limits",
+    "passed": true,
+    "max_linear": 0.5000000035979105,
+    "max_angular": 0.4999999888241291
+  },
+  {
+    "name": "nonfinite_command_stop",
+    "passed": true,
+    "stop_wall_seconds": 0.10473423099938373
+  },
+  {
+    "name": "moving_before_pause",
+    "passed": true
+  },
+  {
+    "name": "fresh_scene_pose_while_paused",
+    "passed": true,
+    "messages": 46
+  },
+  {
+    "name": "pause_resume_no_stale_command",
+    "passed": true,
+    "resume_displacement": 0.0,
+    "resume_yaw_change": 0.0,
+    "paused_scene_pose": {
+      "name": "sentry",
+      "id": 7,
+      "position": {
+        "x": -0.12825721349690558,
+        "y": 1.3611729794429157
+      },
+      "orientation": {
+        "z": 0.9999520163744069,
+        "w": 0.009796170106631738
+      }
+    },
+    "resumed_scene_pose": {
+      "name": "sentry",
+      "id": 7,
+      "position": {
+        "x": -0.12825721349690558,
+        "y": 1.3611729794429157
+      },
+      "orientation": {
+        "z": 0.9999520163744069,
+        "w": 0.009796170106631738
+      }
+    }
+  },
+  {
+    "name": "resume_stopped",
+    "passed": true,
+    "stop_wall_seconds": 0.009910511998896254
+  },
+  {
+    "name": "keyboard_w",
+    "passed": true,
+    "actual": [
+      0.2000000006696077,
+      4.145103177529124e-09,
+      0.0
+    ],
+    "expected": [
+      0.2,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "keyboard_s",
+    "passed": true,
+    "actual": [
+      -0.200000000669605,
+      -4.145103123319015e-09,
+      0.0
+    ],
+    "expected": [
+      -0.2,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "keyboard_a",
+    "passed": true,
+    "actual": [
+      -4.1451086195464035e-09,
+      0.20000000066960216,
+      0.0
+    ],
+    "expected": [
+      0.0,
+      0.2,
+      0.0
+    ]
+  },
+  {
+    "name": "keyboard_d",
+    "passed": true,
+    "actual": [
+      4.1451086195464035e-09,
+      -0.20000000066960216,
+      0.0
+    ],
+    "expected": [
+      0.0,
+      -0.2,
+      0.0
+    ]
+  },
+  {
+    "name": "keyboard_q",
+    "passed": true,
+    "actual": [
+      0.0,
+      0.0,
+      0.3000000026077032
+    ],
+    "expected": [
+      0.0,
+      0.0,
+      0.3
+    ]
+  },
+  {
+    "name": "keyboard_e",
+    "passed": true,
+    "actual": [
+      0.0,
+      0.0,
+      -0.3000000026077032
+    ],
+    "expected": [
+      0.0,
+      0.0,
+      -0.3
+    ]
+  },
+  {
+    "name": "keyboard_space_stop",
+    "passed": true,
+    "stop_wall_seconds": 0.12497565900048357
+  },
+  {
+    "name": "keyboard_escape_stop",
+    "passed": true,
+    "stop_wall_seconds": 0.12241365800036874
+  },
+  {
+    "name": "keyboard_exit",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "name": "tf_connected",
+    "passed": true,
+    "pose_error": 0.0
+  },
+  {
+    "name": "raw_state_matches",
+    "passed": true,
+    "matched_samples": 1653,
+    "max_difference": 0.0
+  },
+  {
+    "name": "feedback_50hz",
+    "passed": true,
+    "hz_sim_time": 49.9999999999999
+  },
+  {
+    "name": "no_fixture",
+    "passed": true
+  }
+]

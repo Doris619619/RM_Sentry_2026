@@ -1,0 +1,9 @@
+{
+  "requested_occupied_goal": [
+    -4.269,
+    4.846
+  ],
+  "new_trajectories": 0,
+  "passed": true,
+  "failure_log_present": true
+}

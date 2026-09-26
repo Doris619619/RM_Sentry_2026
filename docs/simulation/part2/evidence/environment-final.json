@@ -1,0 +1,5 @@
+{
+  "free_disk": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/sda3        98G   41G   53G  44% /\n",
+  "idle_delay": "uint32 0",
+  "idle_dim": "false"
+}

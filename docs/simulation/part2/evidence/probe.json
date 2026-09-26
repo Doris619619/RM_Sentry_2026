@@ -1,0 +1,30 @@
+[
+  {
+    "name": "stationary_wall",
+    "passed": true,
+    "max_error_m": 0.008087396621704102,
+    "returns": 208,
+    "raw_frame": "lidar_link",
+    "dimensions": [
+      360,
+      4
+    ]
+  },
+  {
+    "name": "translation",
+    "passed": true,
+    "actual_x": 0.4000000000000003,
+    "wall_error_m": 0.009078025817871094,
+    "returns_changed": true
+  },
+  {
+    "name": "rotation",
+    "passed": true,
+    "actual_yaw": 0.5999999999999994,
+    "wall_error_m": 0.010073661804199219
+  },
+  {
+    "name": "finite_and_frames",
+    "passed": true
+  }
+]

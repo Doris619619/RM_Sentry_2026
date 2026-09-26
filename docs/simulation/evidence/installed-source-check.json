@@ -1,0 +1,37 @@
+[
+  {
+    "source": "ros2_ws/src/sentry_gazebo/models/sentry/model.sdf",
+    "installed": "ros2_ws/install_sentry_gazebo/sentry_gazebo/share/sentry_gazebo/models/sentry/model.sdf",
+    "sha256": "6882b59ddda7ed517b44c6293f251e6f16656603e41079d5f8fff166d8bd3d21"
+  },
+  {
+    "source": "ros2_ws/src/sentry_gazebo/models/sentry/model.config",
+    "installed": "ros2_ws/install_sentry_gazebo/sentry_gazebo/share/sentry_gazebo/models/sentry/model.config",
+    "sha256": "0a240f0c7e4a845fefc58ff72c3cf72fce1d1cc377c91e1a40d43051e7ae7195"
+  },
+  {
+    "source": "ros2_ws/src/sentry_gazebo/worlds/basic.sdf",
+    "installed": "ros2_ws/install_sentry_gazebo/sentry_gazebo/share/sentry_gazebo/worlds/basic.sdf",
+    "sha256": "9611fa4ab18a8a3ac8f26244b606d02f4c8cbbacfc4cebd813e99fa766feecd4"
+  },
+  {
+    "source": "ros2_ws/src/sentry_gazebo/config/bridge.yaml",
+    "installed": "ros2_ws/install_sentry_gazebo/sentry_gazebo/share/sentry_gazebo/config/bridge.yaml",
+    "sha256": "639fd5d6cf88522b595d920a35cb3b49d9325362eedd78f61c3b09c3ac99bdb5"
+  },
+  {
+    "source": "ros2_ws/src/sentry_gazebo/launch/basic.launch.py",
+    "installed": "ros2_ws/install_sentry_gazebo/sentry_gazebo/share/sentry_gazebo/launch/basic.launch.py",
+    "sha256": "7adf261c6bc49335d0793ba32b01df04382e570999d0488a4471f5d3f4bd4895"
+  },
+  {
+    "source": "ros2_ws/src/sentry_gazebo/scripts/sim_adapter.py",
+    "installed": "ros2_ws/install_sentry_gazebo/sentry_gazebo/lib/sentry_gazebo/sim_adapter.py",
+    "sha256": "45571a76c24b7073dba6a544074b43de0234dc1f622b84839ff7e3bcedd2c06d"
+  },
+  {
+    "source": "ros2_ws/src/sentry_gazebo/scripts/keyboard.py",
+    "installed": "ros2_ws/install_sentry_gazebo/sentry_gazebo/lib/sentry_gazebo/keyboard.py",
+    "sha256": "1c2175c29cfdf2c05eb7130e7c30425e2311c17d6447bc6f5ac9e6ce245524d5"
+  }
+]

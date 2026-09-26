@@ -1,0 +1,25 @@
+Starting >>> waypoint_generator
+Starting >>> sentry_gazebo
+Finished <<< waypoint_generator [0.35s]
+Starting >>> trajectory_generation
+Finished <<< sentry_gazebo [0.50s]
+--- stderr: trajectory_generation
+In file included from /home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/include/trajectory_generation/path_smooth.h:9,
+                 from /home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/include/trajectory_generation/plan_manager.h:16,
+                 from /home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:2:
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/include/trajectory_generation/root_solver/minco_trajectory.hpp: In member function ‘void MincoTrajectory::getGradTimes(Eigen::VectorXd&) const’:
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/include/trajectory_generation/root_solver/minco_trajectory.hpp:258:26: warning: unused variable ‘Ti4’ [-Wunused-variable]
+  258 |             const double Ti4 = Ti3 * Ti;
+      |                          ^~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp: In function ‘void {anonymous}::expectContinuous(const Refenecesmooth&, const std::vector<Eigen::Matrix<double, 2, 1> >&, const Vector2d&)’:
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:155:10: warning: suggest explicit braces to avoid ambiguous ‘else’ [-Wdangling-else]
+  155 |       if (i+1<static_cast<int>(reference.m_trapezoidal_time.size()))
+      |          ^
+---
+[Processing: trajectory_generation]
+Finished <<< trajectory_generation [33.1s]
+Starting >>> sentry_bringup
+Finished <<< sentry_bringup [0.17s]
+
+Summary: 4 packages finished [34.2s]
+  1 package had stderr output: trajectory_generation

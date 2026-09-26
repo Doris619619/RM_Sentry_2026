@@ -1,0 +1,10 @@
+{
+  "source": "RViz SetGoal mouse interaction",
+  "goal": [
+    -2.7583167552948,
+    2.2162041664123535
+  ],
+  "frame": "map",
+  "segments": 16,
+  "passed": true
+}

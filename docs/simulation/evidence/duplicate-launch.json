@@ -1,0 +1,5 @@
+{
+  "returncode": 1,
+  "stdout": "此 ROS domain 的仿真已在运行。请先在原终端 Ctrl+C 停止。\n",
+  "stderr": ""
+}

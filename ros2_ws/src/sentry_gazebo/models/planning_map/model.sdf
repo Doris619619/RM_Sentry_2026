@@ -1,0 +1,3 @@
+<?xml version="1.0"?>
+<!-- Raw occupancy mesh without robot-radius inflation or contact dynamics. -->
+<sdf version="1.8"><model name="planning_map"><static>true</static><link name="map"><visual name="obstacles"><geometry><mesh><uri>meshes/obstacles.dae</uri></mesh></geometry><material><ambient>0.38 0.48 0.58 1</ambient><diffuse>0.38 0.48 0.58 1</diffuse></material></visual></link></model></sdf>

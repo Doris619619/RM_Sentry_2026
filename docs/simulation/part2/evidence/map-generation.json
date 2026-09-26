@@ -1,0 +1,42 @@
+{
+  "description": "Uninflated raw-map geometry generation and exact per-cell coverage verification.",
+  "resolution": 0.05,
+  "lower": [
+    -13.394,
+    -12.079
+  ],
+  "shape": [
+    400,
+    400
+  ],
+  "occupied_cells": 15590,
+  "cuboids": 2162,
+  "coverage_mismatches": 0,
+  "landmarks": [
+    {
+      "row": 171,
+      "column": 272,
+      "map_x": 0.23099999999999987,
+      "map_y": -0.6539999999999999
+    },
+    {
+      "row": 211,
+      "column": 140,
+      "map_x": -6.369,
+      "map_y": -2.654
+    },
+    {
+      "row": 271,
+      "column": 243,
+      "map_x": -1.2189999999999994,
+      "map_y": -5.654
+    }
+  ],
+  "source_sha256": {
+    "map/occfinal.png": "1f745183dc0820407d297ae0f6b764fe6c4447b2395c25948c59f92808183d34",
+    "map/bevfinal.png": "6c718dbc9378b1ed359c906e0b0286b9aa8d73293a52958da42ecfea6fad9ece",
+    "map/occtopo.png": "bd30bf165767cbaa31d8b1ce5addd142607ed8265b1041154fa6d66efb0f6ba1",
+    "map/map_meta.yaml": "5e2e93bc0098959ee97b64d027ddb1bcc69c6f928b38339eabd9733d5c4a00b2",
+    "config/map_metadata.yaml": "ce389ff007ca993ee1b7d1b684df09ba058bb50419618a5218d79157d66716b9"
+  }
+}

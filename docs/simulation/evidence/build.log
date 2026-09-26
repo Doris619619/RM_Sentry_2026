@@ -1,0 +1,7 @@
+Starting >>> sentry_gazebo
+[Processing: sentry_gazebo]
+Finished <<< sentry_gazebo [30.3s]
+Starting >>> sentry_bringup
+Finished <<< sentry_bringup [0.32s]
+
+Summary: 2 packages finished [31.6s]

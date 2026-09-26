@@ -1,6 +1,23 @@
+// Build piecewise cubic references whose coefficients match their final published durations.
 #include "trajectory_generation/reference_path.h"
 #include <numeric>
 #include <cmath>
+
+namespace {
+// Bound position/velocity display arrays to 600 samples while covering the complete physical duration.
+std::vector<double> referenceSampleTimes(const std::vector<double>& durations, double nominal_dt) {
+    if (durations.empty()) return {};
+    const double total = std::accumulate(durations.begin(), durations.end(), 0.0);
+    if (!std::isfinite(total) || total <= 0 || !std::isfinite(nominal_dt) || nominal_dt <= 0) return {};
+    const size_t count = static_cast<size_t>(std::min(600.0, std::max(2.0, std::ceil(total/nominal_dt)+1.0)));
+    std::vector<double> samples;
+    samples.reserve(count);
+    for (size_t i=0; i<count; ++i) samples.push_back(total*(static_cast<double>(i)/(count-1)));
+    return samples;
+}
+}  // namespace
+
+
 
 
 Refenecesmooth::~Refenecesmooth(){}
@@ -212,147 +229,106 @@ void Refenecesmooth::solvePolyMatrix()
     return;
 }
 
+// Allocate durations and converge before exporting; failed feasibility produces no usable trajectory.
 void Refenecesmooth::getRefTrajectory(std::vector<Eigen::Vector3d> &ref_trajectory, std::vector<double> &times)
 {
-    bool resolve = true;
     ref_trajectory.clear();
     reference_path.clear();
-
-    // If external MINCO-optimized times are provided, use them directly
-    // instead of computing trapezoidal time allocation + feasibility loop.
-    if (!times.empty() && (int)times.size() == (int)(m_global_path.size() - 1)) {
+    reference_velocity.clear();
+    // Clear every exported representation together so a failure cannot reuse an older solution.
+    const auto clear_solution = [this]() {
+        m_trapezoidal_time.clear();
+        m_polyMatrix_x.resize(0, 4);
+        m_polyMatrix_y.resize(0, 4);
+        traj_length = 0.0;
+    };
+    if (m_global_path.size() < 2 || !std::isfinite(max_accleration) || max_accleration <= 0 ||
+        !std::isfinite(dt) || dt <= 0) {
+        clear_solution();
+        ROS_ERROR("[Reference] invalid path or reference limits");
+        return;
+    }
+    if (times.size() == m_global_path.size() - 1) {
         m_trapezoidal_time = times;
-        ROS_INFO("[Reference] Using MINCO-optimized durations (%zu segments, total=%.3f s)",
-                 times.size(), std::accumulate(times.begin(), times.end(), 0.0));
-        solvePolyMatrix();
-        // Still run feasibility check as safety net
-        int iter = 0;
-        bool needs_resolve = checkfeasible();
-        while (needs_resolve && iter < 3) {
-            solvePolyMatrix();
-            needs_resolve = checkfeasible();
-            iter++;
-        }
     } else {
-        // Fallback: original trapezoidal time allocation with feasibility loop
         solveTrapezoidalTime();
-        int iter = 0;
-        while(resolve){
-            if(iter < 3){
-                solvePolyMatrix();
-                resolve = checkfeasible();
-                iter ++;
-            }else{
-                break;
-            }
+    }
+    for (double duration : m_trapezoidal_time) {
+        if (!std::isfinite(duration) || duration <= 0) {
+            clear_solution();
+            ROS_ERROR("[Reference] invalid segment duration");
+            return;
         }
     }
 
-    if (m_global_path.size() < 2) {
-        traj_length = 0.0;
-        ROS_ERROR("[Reference] global_path size < 2, stop solving！");
+    bool feasible = false;
+    for (int iteration = 0; iteration < 64; ++iteration) {
+        solvePolyMatrix();
+        if (!m_polyMatrix_x.allFinite() || !m_polyMatrix_y.allFinite()) break;
+        // This exact endpoint check may extend times. Only the no-change branch
+        // may export the coefficients, which then match those same durations.
+        if (!checkfeasible()) {
+            feasible = true;
+            break;
+        }
+    }
+    if (!feasible) {
+        clear_solution();
+        ROS_ERROR("[Reference] acceleration feasibility did not converge; reject trajectory");
         return;
     }
 
-    double time = accumulate(m_trapezoidal_time.begin(), m_trapezoidal_time.end(), 0.0);
-
-    // Safety cap: prevent absurdly large trajectory that would crash RViz
-    // and exhaust memory.  30s at dt=0.05 → 600 points, which is plenty.
-    const double MAX_TRAJ_TIME = 30.0;
-    if (time > MAX_TRAJ_TIME) {
-        ROS_WARN("[Reference] total time %.1f s exceeds cap (%.1f s), scaling down",
-                 time, MAX_TRAJ_TIME);
-        double scale = MAX_TRAJ_TIME / time;
-        for (size_t ti = 0; ti < m_trapezoidal_time.size(); ti++) {
-            m_trapezoidal_time[ti] *= scale;
-        }
-        time = MAX_TRAJ_TIME;
-    }
-
-    for (int i = 0; i<(int)(time/dt); i++)
-    {
+    // Limit visualization allocations, never shorten physical trajectory time to
+    // fit the display budget: shortening would violate the just-checked limits.
+    for (double sample_time : referenceSampleTimes(m_trapezoidal_time, dt)) {
         int index;
-        double total_time;
-        getSegmentIndex(i*dt, index, total_time);
-        double local_t = i * dt - total_time;  // consistent local time within segment
-        Eigen::Vector3d ref_point;
-        ref_point(0) = m_polyMatrix_x(index, 0) * local_t * local_t * local_t
-                     + m_polyMatrix_x(index, 1) * local_t * local_t
-                     + m_polyMatrix_x(index, 2) * local_t
-                     + m_polyMatrix_x(index, 3);
-        ref_point(1) = m_polyMatrix_y(index, 0) * local_t * local_t * local_t
-                     + m_polyMatrix_y(index, 1) * local_t * local_t
-                     + m_polyMatrix_y(index, 2) * local_t
-                     + m_polyMatrix_y(index, 3);
-        ref_point(2) = 0.0;
-        ref_trajectory.push_back(ref_point);
-        reference_path.push_back(ref_point);
+        double offset;
+        getSegmentIndex(sample_time, index, offset);
+        const double t = sample_time - offset;
+        Eigen::Vector3d point;
+        point.x() = ((m_polyMatrix_x(index,0)*t+m_polyMatrix_x(index,1))*t+m_polyMatrix_x(index,2))*t+m_polyMatrix_x(index,3);
+        point.y() = ((m_polyMatrix_y(index,0)*t+m_polyMatrix_y(index,1))*t+m_polyMatrix_y(index,2))*t+m_polyMatrix_y(index,3);
+        point.z() = 0.0;
+        ref_trajectory.push_back(point);
+        reference_path.push_back(point);
     }
 }
 
+// Sample velocity at the same bounded visualization times as reference positions.
 void Refenecesmooth::getRefVel()
 {
     reference_velocity.clear();
-    double time = accumulate(m_trapezoidal_time.begin(), m_trapezoidal_time.end(), 0.0);  /// 参考轨迹的时间分配
-    for (int i = 0; i<(int)(time/dt); i++)
-    {
+    for (double sample_time : referenceSampleTimes(m_trapezoidal_time, dt)) {
         int index;
-        double total_time;
-        getSegmentIndex(i*dt, index, total_time);
-        double local_t = i * dt - total_time;  // consistent local time within segment
-        Eigen::Vector3d ref_point;
-        ref_point(0) = 3.0 * m_polyMatrix_x(index, 0) * local_t * local_t
-                     + 2.0 * m_polyMatrix_x(index, 1) * local_t
-                     + m_polyMatrix_x(index, 2);
-        ref_point(1) = 3.0 * m_polyMatrix_y(index, 0) * local_t * local_t
-                     + 2.0 * m_polyMatrix_y(index, 1) * local_t
-                     + m_polyMatrix_y(index, 2);
-        ref_point(2) = 0.0;
-        reference_velocity.push_back(ref_point);
+        double offset;
+        getSegmentIndex(sample_time, index, offset);
+        const double t = sample_time - offset;
+        reference_velocity.emplace_back(
+            (3*m_polyMatrix_x(index,0)*t+2*m_polyMatrix_x(index,1))*t+m_polyMatrix_x(index,2),
+            (3*m_polyMatrix_y(index,0)*t+2*m_polyMatrix_y(index,1))*t+m_polyMatrix_y(index,2), 0.0);
     }
 }
 
+// Cubic acceleration is affine, so its norm peaks at an endpoint; mark each neighbor at most once.
 bool Refenecesmooth::checkfeasible()
 {
-    bool resolve = false;
-    std::vector<bool> ischecked(m_trapezoidal_time.size(), false);
-    double time = accumulate(m_trapezoidal_time.begin(), m_trapezoidal_time.end(), 0.0);  /// 参考轨迹的时间分配
-//    ROS_ERROR("m_global_path size: %f", time);
-    std::vector<double> m_trapezoidal_time_temp = m_trapezoidal_time;
-    for (int i = 0; i<(int)(time/dt); i++)
-    {
-        int index;
-        double total_time;
-        double accleration;
-        getSegmentIndex(i*dt, index, total_time);
-        Eigen::Vector3d ref_point;
-        ref_point(0) = 6 * m_polyMatrix_x(index, 0) * pow((i * dt - total_time), 1) + 2 * m_polyMatrix_x(index, 1);
-        ref_point(1) = 6 * m_polyMatrix_y(index, 0) * pow((i * dt - total_time), 1) + 2 * m_polyMatrix_y(index, 1);
-        ref_point(2) = 0.0;
-        accleration = sqrt(pow(ref_point(0), 2) + pow(ref_point(1), 2));
-//        std::cout<<"time: "<<i * dt - total_time<<" index: "<<index<<" acc x: "<<ref_point(0)<<" acc y: "<<ref_point(1)<<std::endl;
-        if(accleration > max_accleration && ischecked[index] == false)
-        {
-            if(index > 0 && index < m_trapezoidal_time.size() - 1){
-                m_trapezoidal_time_temp[index - 1] = m_trapezoidal_time_temp[index - 1] * 1.1;
-                m_trapezoidal_time_temp[index + 1] = m_trapezoidal_time_temp[index + 1] * 1.1;
-                ischecked[index - 1] = true;
-                ischecked[index + 1] = true;
-            } else if(index == 0){
-                m_trapezoidal_time_temp[index + 1] = m_trapezoidal_time_temp[index + 1] * 1.1;
-                ischecked[index + 1] = true;
-            } else if(index == m_trapezoidal_time.size() - 1){
-                m_trapezoidal_time_temp[index - 1] = m_trapezoidal_time_temp[index - 1] * 1.1;
-                ischecked[index - 1] = true;
-            }
-            m_trapezoidal_time_temp[index] = m_trapezoidal_time_temp[index] * 1.1;
-            ischecked[index] = true;
-            resolve = true;
+    std::vector<bool> extend(m_trapezoidal_time.size(), false);
+    bool changed = false;
+    for (int i = 0; i < static_cast<int>(m_trapezoidal_time.size()); ++i) {
+        const double t = m_trapezoidal_time[i];
+        const double start_acc = std::hypot(2*m_polyMatrix_x(i,1), 2*m_polyMatrix_y(i,1));
+        const double end_acc = std::hypot(6*m_polyMatrix_x(i,0)*t+2*m_polyMatrix_x(i,1),
+                                          6*m_polyMatrix_y(i,0)*t+2*m_polyMatrix_y(i,1));
+        if (std::max(start_acc, end_acc) > max_accleration) {
+            changed = true;
+            extend[i] = true;
+            if (i > 0) extend[i-1] = true;
+            if (i+1 < static_cast<int>(extend.size())) extend[i+1] = true;
         }
-
     }
-    m_trapezoidal_time = m_trapezoidal_time_temp;
-    return resolve;
+    for (size_t i = 0; i < extend.size(); ++i)
+        if (extend[i]) m_trapezoidal_time[i] *= 1.1;
+    return changed;
 }
 
 void Refenecesmooth::getSegmentIndex(double time, int &segment_index, double &total_time)

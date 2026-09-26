@@ -1,0 +1,29 @@
+{
+  "python_parse": true,
+  "xml_parse": true,
+  "yaml_parse": true,
+  "source_maps_unchanged": true,
+  "changed_sources": [
+    "ros2_ws/src/sentry_gazebo/CMakeLists.txt",
+    "ros2_ws/src/sentry_gazebo/launch/lidar_probe.launch.py",
+    "ros2_ws/src/sentry_gazebo/launch/planning.launch.py",
+    "ros2_ws/src/sentry_gazebo/package.xml",
+    "ros2_ws/src/sentry_gazebo/scripts/planning_check.py",
+    "ros2_ws/src/sentry_gazebo/scripts/sim_adapter.py",
+    "ros2_ws/src/trajectory_generation/port/src/reference_path.cpp",
+    "ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp",
+    "ros2_ws/src/sentry_gazebo/src/rviz_safe.cpp"
+  ],
+  "only_authorized_planner_and_simulation_changes": true,
+  "cpp_tests": {
+    "tests": "8",
+    "failures": "0",
+    "disabled": "0",
+    "errors": "0",
+    "time": "3.577",
+    "timestamp": "2026-09-26T13:17:15",
+    "name": "AllTests"
+  },
+  "first_stage_checks": 34,
+  "trajectory_messages_evaluated": 15
+}

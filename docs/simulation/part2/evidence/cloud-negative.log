@@ -1,0 +1,19 @@
+[WARN] [1790439386.265619842] [sentry_cloud_adapter]: Dropped lidar frame: no TF at measurement time
+[
+  {
+    "name": "missing_tf_drops_processed_cloud",
+    "passed": true
+  },
+  {
+    "name": "unexpected_native_frame_rejected",
+    "passed": true
+  },
+  {
+    "name": "measurement_stamp_filter_and_extrinsics",
+    "passed": true
+  },
+  {
+    "name": "no_latest_tf_fallback",
+    "passed": true
+  }
+]

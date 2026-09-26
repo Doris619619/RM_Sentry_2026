@@ -1,3 +1,4 @@
+// Verify legacy map planning and polynomial continuity against exported segment durations.
 #include "trajectory_generation/plan_manager.h"
 
 #include <gtest/gtest.h>
@@ -7,6 +8,7 @@
 
 namespace {
 
+// Build production-map parameters for isolated legacy planner tests.
 ros::NodeHandle make_parameters() {
   ros::NodeHandle parameters;
   const std::string maps = TEST_LEGACY_MAP_DIR;
@@ -128,4 +130,114 @@ TEST(LegacyPlanningTest, ClampsCoordinatesAndRepairsOccupiedGoalAndDynamicObstac
   EXPECT_TRUE(manager.global_map->isLocalOccupied(dynamic_index));
 }
 
+
+// Evaluate derivatives of the published descending-power cubic for continuity checks.
+double cubicDerivative(const Eigen::MatrixXd& matrix, int segment, double time, int order) {
+  if (order == 0) return ((matrix(segment,0)*time+matrix(segment,1))*time+matrix(segment,2))*time+matrix(segment,3);
+  if (order == 1) return (3*matrix(segment,0)*time+2*matrix(segment,1))*time+matrix(segment,2);
+  return 6*matrix(segment,0)*time+2*matrix(segment,1);
+}
+
+// Check exact knots, C1/C2 joins and stopped endpoints using the final exported durations.
+void expectContinuous(const Refenecesmooth& reference, const std::vector<Eigen::Vector2d>& path, const Eigen::Vector2d& start_velocity=Eigen::Vector2d::Zero()) {
+  ASSERT_EQ(reference.m_trapezoidal_time.size(), path.size()-1);
+  for (const auto* matrix : {&reference.m_polyMatrix_x, &reference.m_polyMatrix_y}) {
+    const int axis = matrix == &reference.m_polyMatrix_x ? 0 : 1;
+    for (int i=0; i<static_cast<int>(reference.m_trapezoidal_time.size()); ++i) {
+      const double t=reference.m_trapezoidal_time[i];
+      for (double endpoint : {0.0,t}) {
+        const double ax=cubicDerivative(reference.m_polyMatrix_x,i,endpoint,2);
+        const double ay=cubicDerivative(reference.m_polyMatrix_y,i,endpoint,2);
+        EXPECT_LE(std::hypot(ax,ay),reference.max_accleration+1e-7);
+      }
+      EXPECT_NEAR(cubicDerivative(*matrix,i,0,0),path[i][axis],1e-7);
+      EXPECT_NEAR(cubicDerivative(*matrix,i,t,0),path[i+1][axis],1e-7);
+      if (i+1<static_cast<int>(reference.m_trapezoidal_time.size()))
+        for (int derivative=0; derivative<=2; ++derivative)
+          EXPECT_NEAR(cubicDerivative(*matrix,i,t,derivative),cubicDerivative(*matrix,i+1,0,derivative),1e-6);
+    }
+    EXPECT_NEAR(cubicDerivative(*matrix,0,0,1),start_velocity[axis],1e-7);
+    EXPECT_NEAR(cubicDerivative(*matrix,reference.m_trapezoidal_time.size()-1,reference.m_trapezoidal_time.back(),1),0,1e-7);
+  }
+}
+
+// Force every feasibility iteration to change time, reproducing the last-iteration stale coefficients.
+TEST(ReferenceTimingTest, ExternalDurationsStayConsistentAfterIterationLimit) {
+  Refenecesmooth reference;
+  std::vector<Eigen::Vector2d> path{{0,0},{1,1},{2,0},{3,.5}};
+  reference.setGlobalPath(Eigen::Vector3d::Zero(),path,.1,2.,false);
+  std::vector<double> times{.1,.1,.1};
+  std::vector<Eigen::Vector3d> points;
+  reference.getRefTrajectory(points,times);
+  EXPECT_GT(reference.m_trapezoidal_time[0],times[0]);
+  expectContinuous(reference,path);
+}
+
+// Exercise the legacy allocator with an intentionally strict acceleration limit.
+TEST(ReferenceTimingTest, FallbackDurationsStayConsistentAfterIterationLimit) {
+  auto parameters=make_parameters();planner_manager manager;manager.init(parameters);
+  auto& reference=*manager.reference_path;
+  std::vector<Eigen::Vector2d> path{{-.919,-4.454},{-1.419,-4.154},{-1.919,-3.804}};
+  reference.setGlobalPath(Eigen::Vector3d::Zero(),path,.1,2.,false);
+  std::vector<double> times;std::vector<Eigen::Vector3d> points;
+  reference.getRefTrajectory(points,times);
+  expectContinuous(reference,path);
+}
+
+// Reproduce stale coefficients when an otherwise feasible duration exceeds the old 30-second cap.
+TEST(ReferenceTimingTest, LongTrajectoryKeepsEndpointsAndContinuity) {
+  Refenecesmooth reference;
+  std::vector<Eigen::Vector2d> path{{0,0},{1,1},{2,0}};
+  reference.setGlobalPath(Eigen::Vector3d::Zero(),path,4.,2.,false);
+  std::vector<double> times{20.,20.};std::vector<Eigen::Vector3d> points;
+  reference.getRefTrajectory(points,times);
+  expectContinuous(reference,path);
+  EXPECT_LE(points.size(),600U);
+  EXPECT_DOUBLE_EQ(reference.m_trapezoidal_time[0]+reference.m_trapezoidal_time[1],40.);
+  EXPECT_NEAR((points.back().head<2>()-path.back()).norm(),0.,1e-7);
+  reference.getRefVel();EXPECT_EQ(reference.reference_velocity.size(),points.size());
+}
+
+// A one-segment path has no adjacent segment for feasibility-time extension.
+TEST(ReferenceTimingTest, SingleSegmentDoesNotAccessAbsentNeighbor) {
+  Refenecesmooth reference;
+  std::vector<Eigen::Vector2d> path{{0,0},{1,0}};
+  reference.setGlobalPath(Eigen::Vector3d::Zero(),path,.1,2.,false);
+  std::vector<double> times{.1};std::vector<Eigen::Vector3d> points;
+  reference.getRefTrajectory(points,times);
+  expectContinuous(reference,path);
+}
+
+
+// Invalid or nonconvergent requests must erase stale coefficients instead of exporting an unsafe path.
+TEST(ReferenceTimingTest, RejectsInvalidOrUnconvergedDurations) {
+  Refenecesmooth reference;
+  std::vector<Eigen::Vector2d> path{{0,0},{1,0}};
+  std::vector<Eigen::Vector3d> points;
+  std::vector<double> times{1.};
+  reference.setGlobalPath(Eigen::Vector3d::Zero(),path,4.,2.,false);
+  reference.getRefTrajectory(points,times);
+  ASSERT_FALSE(points.empty());
+  times[0]=0.;
+  reference.getRefTrajectory(points,times);
+  EXPECT_TRUE(points.empty());EXPECT_TRUE(reference.m_trapezoidal_time.empty());
+  EXPECT_EQ(reference.m_polyMatrix_x.rows(),0);
+  times[0]=.1;
+  reference.setGlobalPath(Eigen::Vector3d::Zero(),path,1e-20,2.,false);
+  reference.getRefTrajectory(points,times);
+  EXPECT_TRUE(points.empty());EXPECT_TRUE(reference.m_trapezoidal_time.empty());
+  reference.getRefVel();EXPECT_TRUE(reference.reference_velocity.empty());
+}
+
+// Duration stretching must preserve measured initial velocity rather than slowing that boundary state.
+TEST(ReferenceTimingTest, PreservesNonzeroInitialVelocityWhileConverging) {
+  Refenecesmooth reference;
+  std::vector<Eigen::Vector2d> path{{0,0},{1,1},{2,0}};
+  const Eigen::Vector2d initial(.2,-.1);
+  reference.setGlobalPath(Eigen::Vector3d(initial.x(),initial.y(),0),path,4.,2.,false);
+  std::vector<double> times{.1,.1};std::vector<Eigen::Vector3d> points;
+  reference.getRefTrajectory(points,times);
+  ASSERT_FALSE(points.empty());
+  expectContinuous(reference,path,initial);
+}
 }  // namespace

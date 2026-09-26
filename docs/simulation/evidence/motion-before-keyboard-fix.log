@@ -1,0 +1,30 @@
+{"name": "feedback_available", "passed": true}
+{"name": "one_publisher /clock", "passed": true, "count": 1}
+{"name": "one_publisher /sim/ground_truth/odometry", "passed": true, "count": 1}
+{"name": "one_publisher /localization/odometry", "passed": true, "count": 1}
+{"name": "one_publisher /tf", "passed": true, "count": 1}
+{"name": "one_publisher /tf_static", "passed": true, "count": 1}
+{"name": "initial_pose", "passed": true}
+{"name": "forward", "passed": true, "dx": 0.5940000000000004, "dy": 0.0, "dyaw": 0.0, "sim_duration": 3.0}
+{"name": "lateral", "passed": true, "dx": 0.0, "dy": 0.5940000000000004, "dyaw": 0.0, "sim_duration": 3.0}
+{"name": "yaw", "passed": true, "dx": 0.0, "dy": 0.0, "dyaw": 0.5849999999999997, "sim_duration": 2.0}
+{"name": "body_frame_at_90deg", "passed": true, "initial_yaw": 1.5719999999999994, "world_dx": -0.0007101670195264198, "world_dy": 0.5899995725954289, "body_vx": 0.2000000018381768, "body_vy": -5.338802837596486e-09}
+{"name": "backward", "passed": true, "body_dx": -0.1959999999999956, "body_dy": -2.6972239546008137e-16}
+{"name": "right", "passed": true, "body_dx": 2.614553538948794e-16, "body_dy": -0.1899999999999957}
+{"name": "zero_command_stop", "passed": true, "stop_wall_seconds": 0.1327246019991435}
+{"name": "watchdog_stop", "passed": true, "stop_wall_seconds": 0.6197230479992868}
+{"name": "limits", "passed": true, "max_linear": 0.5000000058900821, "max_angular": 0.4999999888241291}
+{"name": "nonfinite_command_stop", "passed": true, "stop_wall_seconds": 0.13018248799926369}
+{"name": "pause_resume_no_stale_command", "passed": true, "resume_displacement": 0.0}
+{"name": "resume_stopped", "passed": true, "stop_wall_seconds": 0.0006181179996929131}
+{"name": "keyboard_moves", "passed": false, "vx": 0.0}
+Traceback (most recent call last):
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/acceptance.py", line 216, in <module>
+    main()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/acceptance.py", line 208, in main
+    node.run()
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/acceptance.py", line 179, in run
+    self.check('keyboard_moves',self.odom.twist.twist.linear.x>0.1,vx=self.odom.twist.twist.linear.x)
+  File "/home/liangys/RM_Sentry_2026/ros2_ws/src/sentry_gazebo/scripts/acceptance.py", line 89, in check
+    if not passed: raise AssertionError(name)
+AssertionError: keyboard_moves

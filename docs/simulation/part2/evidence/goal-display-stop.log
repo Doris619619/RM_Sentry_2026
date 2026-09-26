@@ -1,0 +1,397 @@
+[INFO] [launch]: All log files can be found below /home/liangys/.ros/log/2026-09-26-12-41-06-528941-ubuntu64-oc-29380
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [ign-1]: process started with pid [29408]
+[INFO] [parameter_bridge-2]: process started with pid [29410]
+[INFO] [sim_adapter.py-3]: process started with pid [29412]
+[INFO] [cloud_adapter.py-4]: process started with pid [29414]
+[INFO] [map_display.py-5]: process started with pid [29416]
+[INFO] [trajectory_generator_node-6]: process started with pid [29418]
+[INFO] [rviz2-7]: process started with pid [29420]
+[ign-1] [1;33m[GUI] [Wrn] [Application.cc:802] [0m[1;33m[QT] file::/Gazebo/GazeboDrawer.qml:242:3: QML Connections: Implicitly defined onFoo properties in Connections are deprecated. Use this syntax instead: function onFoo(<arguments>) { ... }[0m[1;33m[0m
+[trajectory_generator_node-6] [Manager Init] map/file_path: 
+[trajectory_generator_node-6] [Manager Init] map/occ_file_path: /home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/trajectory_generation/share/trajectory_generation/map/occfinal.png
+[trajectory_generator_node-6] [Manager Init] map/bev_file_path: /home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/trajectory_generation/share/trajectory_generation/map/bevfinal.png
+[trajectory_generator_node-6] [Manager Init] map/distance_map_file_path: /home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/trajectory_generation/share/trajectory_generation/map/occtopo.png
+[trajectory_generator_node-6] m_height_bias: 0.0152941 m_height_interval: 1.5 m_height_threshold: 0.08 height_sencond_high_threshold: 0.2
+[sim_adapter.py-3] [INFO] [1790440867.219663457] [sentry_sim_adapter]: Ideal planar simulator: 0.5 s wall-time watchdog, 50 Hz feedback
+[rviz2-7] [INFO] [1790440867.329270840] [rviz2]: Stereo is NOT SUPPORTED
+[rviz2-7] [INFO] [1790440867.329359011] [rviz2]: OpenGl version: 4.5 (GLSL 4.5)
+[rviz2-7] [INFO] [1790440867.386307999] [rviz2]: Stereo is NOT SUPPORTED
+[trajectory_generator_node-6] map swell done
+[trajectory_generator_node-6] second_heights_points: 10
+[trajectory_generator_node-6] xmax: 0.781 xmin: -0.719 ymax: -3.154 ymin: -5.354
+[trajectory_generator_node-6] [Map Build] bev build done
+[trajectory_generator_node-6] R.rows 400 R.cols 400
+[trajectory_generator_node-6] start topo sample map
+[trajectory_generator_node-6] [GridMap] topo_sample_map size: 185
+[trajectory_generator_node-6] [GridMap] topo_keypoint size: 1603
+[ign-1] [1;33m[GUI] [Wrn] [Application.cc:802] [0m[1;33m[QT] file::/WorldStats/WorldStats.qml:53:3: QML RowLayout: Binding loop detected for property "x"[0m[1;33m[0m
+[parameter_bridge-2] [INFO] [1790440867.673284371] [sentry_gazebo_bridge]: Creating GZ->ROS Bridge: [/clock (ignition.msgs.Clock) -> /clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+[parameter_bridge-2] [INFO] [1790440867.678054290] [sentry_gazebo_bridge]: Creating ROS->GZ Bridge: [/sim/guarded_cmd_vel (geometry_msgs/msg/Twist) -> /model/sentry/cmd_vel (ignition.msgs.Twist)] (Lazy 0)
+[parameter_bridge-2] [INFO] [1790440867.686043182] [sentry_gazebo_bridge]: Creating GZ->ROS Bridge: [/model/sentry/odometry (ignition.msgs.Odometry) -> /sim/ground_truth/odometry (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-2] [INFO] [1790440867.694158854] [sentry_gazebo_bridge]: Creating GZ->ROS Bridge: [/sentry/lidar/points (ignition.msgs.PointCloudPacked) -> /sim/lidar/native (sensor_msgs/msg/PointCloud2)] (Lazy 0)
+[parameter_bridge-2] [INFO] [1790440867.700623461] [sentry_gazebo_bridge]: Passing message from ROS geometry_msgs/msg/Twist to Gazebo gz.msgs.Twist (showing msg only once per type)
+[rviz2-7] [INFO] [1790440867.719749920] [rviz2]: Trying to create a map of size 400 x 400 using 1 swatches
+[rviz2-7] [ERROR] [1790440867.724649161] [rviz2]: Vertex Program:rviz/glsl120/indexed_8bit_image.vert Fragment Program:rviz/glsl120/indexed_8bit_image.frag GLSL link result : 
+[rviz2-7] active samplers with a different type refer to the same texture image unit
+[ign-1] libEGL warning: Not allowed to force software rendering when API explicitly selects a hardware device.
+[ign-1] [1;33m[GUI] [Wrn] [Ogre2RenderTarget.cc:574] [0m[1;33mAnti-aliasing level of '[0m[1;33m8[0m[1;33m' [0m[1;33mis not supported; valid FSAA levels are: [0m[1;33m[ 0 4 ][0m[1;33m. Setting to 0[0m[1;33m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mReceived world [[0m[1;32m/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/sentry_gazebo/share/sentry_gazebo/worlds/planning.sdf[0m[1;32m] from the GUI.[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mIgnition Gazebo Server v[0m[1;32m6.18.0[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mLoading SDF world file[[0m[1;32m/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/sentry_gazebo/share/sentry_gazebo/worlds/planning.sdf[0m[1;32m].[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing entity system service on [[0m[1;32m/[0m[1;32mentity/system/add[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mCreate service on [[0m[1;32m/world/sentry_planning/create[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mRemove service on [[0m[1;32m/world/sentry_planning/remove[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPose service on [[0m[1;32m/world/sentry_planning/set_pose[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPose service on [[0m[1;32m/world/sentry_planning/set_pose_vector[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mLight configuration service on [[0m[1;32m/world/sentry_planning/light_config[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPhysics service on [[0m[1;32m/world/sentry_planning/set_physics[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mSphericalCoordinates service on [[0m[1;32m/world/sentry_planning/set_spherical_coordinates[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mEnable collision service on [[0m[1;32m/world/sentry_planning/enable_collision[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mDisable collision service on [[0m[1;32m/world/sentry_planning/disable_collision[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mMaterial service on [[0m[1;32m/world/sentry_planning/visual_config[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mMaterial service on [[0m[1;32m/world/sentry_planning/wheel_slip[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mVelocityControl subscribing to twist messages on [[0m[1;32m/model/sentry/cmd_vel[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mOdometryPublisher publishing odometry on [[0m[1;32m/model/sentry/odometry[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mOdometryPublisher publishing odometry with covariance on [[0m[1;32m/model/sentry/odometry_with_covariance[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mOdometryPublisher publishing Pose_V (TF) on [[0m[1;32m/model/sentry/pose[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mLoaded level [[0m[1;32m3[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing world controls on [[0m[1;32m/world/sentry_planning[0m[1;32m/control], [[0m[1;32m/world/sentry_planning[0m[1;32m/control/state] and [[0m[1;32m/world/sentry_planning[0m[1;32m/playback/control][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing GUI information on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mgui/info[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mWorld [[0m[1;32msentry_planning[0m[1;32m] initialized with [[0m[1;32mfixed_step[0m[1;32m] physics profile.[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing world SDF generation service on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mgenerate_world_sdf[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing world names on [[0m[1;32m/gazebo/worlds[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mResource path add service on [[0m[1;32m/gazebo/resource_paths/add[0m[1;32m].[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mResource path get service on [[0m[1;32m/gazebo/resource_paths/get[0m[1;32m].[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mResource path resolve service on [[0m[1;32m/gazebo/resource_paths/resolve[0m[1;32m].[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mResource paths published on [[0m[1;32m/gazebo/resource_paths[0m[1;32m].[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServer control service on [[0m[1;32m/server_control[0m[1;32m].[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mFound no publishers on /stats, adding root stats topic[0m[1;32m[0m
+[ign-1] libEGL warning: Not allowed to force software rendering when API explicitly selects a hardware device.
+[trajectory_generator_node-6] [INFO] [1790440892.498848106] [trajectory_generation]: FSM accepted manual goal goal=(-2.72, 1.95, 0.02)
+[trajectory_generator_node-6] [Manager] start point, (x, y): (-0.92, -4.45)
+[trajectory_generator_node-6] [Manager] receive target, (x, y): (-2.72, 1.95)
+[trajectory_generator_node-6] [Topo]: m_graph before num: 1605
+[trajectory_generator_node-6] [Topo]: dijkstra time: 0.263143
+[trajectory_generator_node-6] [Topo]: topo search time: 1.016211
+[trajectory_generator_node-6] [Topo]: m_graph num: 2575
+[trajectory_generator_node-6] [DIAG] origin_path (Dijkstra) size: 5
+[trajectory_generator_node-6] [DIAG]   origin[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[1]: (-5.019, -1.604, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[2]: (-3.769, 2.396, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[3]: (-1.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[4]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG] lineVisib(start→end DIRECT): false  colli=(-1.42,-2.65)
+[trajectory_generator_node-6] [DIAG] direct line: 132 steps, 92 wall cells
+[trajectory_generator_node-6] [smoothTopoPath] INPUT size=5
+[trajectory_generator_node-6] [smoothTopoPath]   in[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[1]: (-5.019, -1.604, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[2]: (-3.769, 2.396, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[3]: (-1.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[4]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath] lineVisib(start→end): false  colli=(-1.42,-2.65)
+[trajectory_generator_node-6] [smoothTopoPath] stuck detected, skipping to topo[4]
+[trajectory_generator_node-6] [smoothTopoPath] OUTPUT size=8, iter_count=7
+[trajectory_generator_node-6] [smoothTopoPath]   out[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[1]: (-4.840, -0.515, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[2]: (-3.299, 2.232, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[3]: (-2.168, 2.139, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[4]: (-2.555, 2.131, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[5]: (-2.134, 2.182, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[6]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[7]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG] optimized_path (smoothTopoPath) size: 8
+[trajectory_generator_node-6] [DIAG]   opt[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[1]: (-4.840, -0.515, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[2]: (-3.299, 2.232, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[3]: (-2.168, 2.139, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[4]: (-2.555, 2.131, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[5]: (-2.134, 2.182, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[6]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[7]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] optimized_path size: 8
+[trajectory_generator_node-6] [Manager] reference_speed: (2.00)
+[trajectory_generator_node-6] [LBFGS] search direction d: -0.000259367  0.000988196   0.00215131  -0.00201763  0.000242986   0.00109051 -0.000529618 -0.000161126 -0.000327121  0.000667277  0.000319451  -0.00148139   0.00107518  0.000608288  -0.00155368   0.00100551 -9.78296e-05 -0.000467992  0.000843615  0.000675183  -0.00218564  -0.00152314  0.000635287 -0.000220229  -0.00247022  0.000570139   0.00303293  -0.00283143  -0.00229534   0.00555053   0.00114754  -0.00408768  -0.00141078   0.00416169 -0.000275842  -0.00138834 -0.000367446 -0.000233017  -0.00122332  -0.00176163   0.00179196 -0.000275418 -0.000832343  0.000238745  0.000594034 -0.000191323 -0.000480594  0.000116229  0.000865987  -0.00112364  0.000236784  0.000872174  -0.00108553  5.87767e-05  0.000990929  -0.00167189  0.000817145   0.00101441  -0.00107782   0.00200682  0.000834691  -0.00172207   0.00227418 -0.000958588 -0.000503853   0.00157964  -0.00206838   0.00161716   0.00154396 -0.000595892  0.000118687  0.000267423   0.00254601 -0.000441059  0.000436742  0.000422439  0.000165288 -0.000200116  0.000154897  0.000139578 -9.84461e-05 -1.62294e-05  5.79407e-05  6.51369e-05 -6.52767e-05 -8.38455e-05  0.000164635 -6.56182e-05 -0.000110664  0.000185992 -3.52418e-05 -1.33423e-05  8.59989e-05 -4.93319e-05  4.98373e-05  7.60081e-05 -0.000218245  0.000124167   0.00017924 -0.000267848  0.000118346  0.000209274 -9.04139e-05 -0.000165707  0.000561472  0.000595896  0.000282397  0.000337866  0.000279251  6.25572e-05  0.000111763  0.000189129
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=371.1 total_T=5.461(init 5.423) max_drift=0.328 max_vel=3.0 segs=38
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 39 -> 20 waypoints, 19 time segs, max_turn=164.4 deg
+[trajectory_generator_node-6] [Manager] optimizer generate time: 0.733690
+[trajectory_generator_node-6] [Reference] path size : 20
+[trajectory_generator_node-6] [Reference] Using MINCO-optimized durations (19 segments, total=5.461 s)
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.308806 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-6.596713 b[N]=12.235433 b2[0]=6.641367 b2[N]=9.406608
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.157506 -3.298356 -0.000000 -0.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.339687 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-6.069086 b[N]=10.538164 b2[0]=6.108763 b2[N]=7.994046
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.778219 -3.034543 -0.000000 -0.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.373656 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-5.081693 b[N]=9.028730 b2[0]=5.114814 b2[N]=6.745871
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.424212 -2.540847 0.000000 -0.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.411021 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-4.266774 b[N]=7.659223 b2[0]=4.294479 b2[N]=5.673622
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.151569 -2.133387 0.000000 -0.919000]
+[trajectory_generator_node-6] [INFO] [1790440894.277290813] [trajectory_generation]: FSM published 19 trajectory pieces
+[trajectory_generator_node-6] [Manager REPLAN]  cur position point (X, Y) = (-0.919000, -4.454000), target point (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] target_temp (X, Y) = (-2.719000, 1.946000)
+[trajectory_generator_node-6] [Manager REPLAN] path safe & target unchanged, re-anchoring from cur pos
+[trajectory_generator_node-6] [LBFGS] search direction d: -0.000259367  0.000988196   0.00215131  -0.00201763  0.000242986   0.00109051 -0.000529618 -0.000161126 -0.000327121  0.000667277  0.000319451  -0.00148139   0.00107518  0.000608288  -0.00155368   0.00100551 -9.78296e-05 -0.000467992  0.000843615  0.000675183  -0.00218564  -0.00152314  0.000635287 -0.000220229  -0.00247022  0.000570139   0.00303293  -0.00283143  -0.00229534   0.00555053   0.00114754  -0.00408768  -0.00141078   0.00416169 -0.000275842  -0.00138834 -0.000367446 -0.000233017  -0.00122332  -0.00176163   0.00179196 -0.000275418 -0.000832343  0.000238745  0.000594034 -0.000191323 -0.000480594  0.000116229  0.000865987  -0.00112364  0.000236784  0.000872174  -0.00108553  5.87767e-05  0.000990929  -0.00167189  0.000817145   0.00101441  -0.00107782   0.00200682  0.000834691  -0.00172207   0.00227418 -0.000958588 -0.000503853   0.00157964  -0.00206838   0.00161716   0.00154396 -0.000595892  0.000118687  0.000267423   0.00254601 -0.000441059  0.000436742  0.000422439  0.000165288 -0.000200116  0.000154897  0.000139578 -9.84461e-05 -1.62294e-05  5.79407e-05  6.51369e-05 -6.52767e-05 -8.38455e-05  0.000164635 -6.56182e-05 -0.000110664  0.000185992 -3.52418e-05 -1.33423e-05  8.59989e-05 -4.93319e-05  4.98373e-05  7.60081e-05 -0.000218245  0.000124167   0.00017924 -0.000267848  0.000118346  0.000209274 -9.04139e-05 -0.000165707  0.000561472  0.000595896  0.000282397  0.000337866  0.000279251  6.25572e-05  0.000111763  0.000189129
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=371.1 total_T=5.461(init 5.423) max_drift=0.328 max_vel=3.0 segs=38
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 39 -> 20 waypoints, 19 time segs, max_turn=164.4 deg
+[trajectory_generator_node-6] [Reference] path size : 20
+[trajectory_generator_node-6] [Reference] Using MINCO-optimized durations (19 segments, total=5.461 s)
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.308806 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-6.596713 b[N]=12.235433 b2[0]=6.641367 b2[N]=9.406608
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.157506 -3.298356 0.000000 -0.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.339687 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-6.069086 b[N]=10.538164 b2[0]=6.108763 b2[N]=7.994046
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.778219 -3.034543 0.000000 -0.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.373656 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-5.081693 b[N]=9.028730 b2[0]=5.114814 b2[N]=6.745871
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.424212 -2.540847 0.000000 -0.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.411021 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-4.266774 b[N]=7.659223 b2[0]=4.294479 b2[N]=5.673622
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.151569 -2.133387 0.000000 -0.919000]
+[trajectory_generator_node-6] [INFO] [1790440895.025628741] [trajectory_generation]: FSM published 19 trajectory pieces
+[trajectory_generator_node-6] [INFO] [1790441195.311887757] [trajectory_generation]: FSM accepted manual goal goal=(-2.82, 2.00, 0.02)
+[trajectory_generator_node-6] [Manager] start point, (x, y): (-0.92, -4.45)
+[trajectory_generator_node-6] [Manager] receive target, (x, y): (-2.82, 2.00)
+[trajectory_generator_node-6] [Topo]: m_graph before num: 1605
+[trajectory_generator_node-6] [Topo]: dijkstra time: 0.290379
+[trajectory_generator_node-6] [Topo]: topo search time: 1.144592
+[trajectory_generator_node-6] [Topo]: m_graph num: 2577
+[trajectory_generator_node-6] [DIAG] origin_path (Dijkstra) size: 5
+[trajectory_generator_node-6] [DIAG]   origin[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[1]: (-5.019, -1.604, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[2]: (-3.769, 2.396, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[3]: (-1.819, 1.996, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[4]: (-2.819, 1.996, 0.015)
+[trajectory_generator_node-6] [DIAG] lineVisib(start→end DIRECT): false  colli=(-1.47,-2.60)
+[trajectory_generator_node-6] [DIAG] direct line: 134 steps, 91 wall cells
+[trajectory_generator_node-6] [smoothTopoPath] INPUT size=5
+[trajectory_generator_node-6] [smoothTopoPath]   in[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[1]: (-5.019, -1.604, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[2]: (-3.769, 2.396, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[3]: (-1.819, 1.996, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[4]: (-2.819, 1.996, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath] lineVisib(start→end): false  colli=(-1.47,-2.60)
+[trajectory_generator_node-6] [smoothTopoPath] OUTPUT size=4, iter_count=3
+[trajectory_generator_node-6] [smoothTopoPath]   out[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[1]: (-4.840, -0.515, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[2]: (-3.299, 2.235, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[3]: (-2.819, 1.996, 0.015)
+[trajectory_generator_node-6] [DIAG] optimized_path (smoothTopoPath) size: 4
+[trajectory_generator_node-6] [DIAG]   opt[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[1]: (-4.840, -0.515, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[2]: (-3.299, 2.235, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[3]: (-2.819, 1.996, 0.015)
+[trajectory_generator_node-6] optimized_path size: 4
+[trajectory_generator_node-6] [Manager] reference_speed: (2.00)
+[trajectory_generator_node-6] [LBFGS] search direction d: -0.000179631  -0.00194701  -0.00333949  -0.00230161 -0.000440888  0.000755839   0.00184967  0.000878435  0.000396747 -0.000447751   -0.0019544  -0.00244297  0.000816174   0.00363172  0.000459536  -0.00156309  -0.00261162  -0.00151291   0.00148459   0.00522546    0.0060018   0.00682651   0.00855775   0.00703535   0.00320453 -0.000516299  -0.00166495  -0.00382981   -0.0002574  0.000531672   0.00343861    0.0039729 -0.000288551   0.00266304   0.00343207  -0.00231045  -0.00267616 -0.000978768 -0.000913006   0.00255859   0.00344955  0.000689909  -0.00231096  -0.00362379 -0.000362197  -0.00044691   0.00284277   0.00201589   -0.0017783  -0.00113587  -0.00530815   -0.0037691  -0.00057898 -0.000544959 -6.49944e-07  -0.00537278   -0.0034952  -0.00169546 -0.000812196   0.00071057  -0.00063953 -0.000573481 -0.000300051 -0.000206724  0.000203798  0.000614382  0.000166931 -0.000212379 -0.000247771 -0.000401107 -1.73771e-05  0.000572753  0.000887678  0.000573895 -0.000228315 -0.000298096 -0.000190105  0.000143424  0.000261158   0.00465847 -0.000585925 -0.000881976 -0.000780872 -0.000169597   0.00057449  0.000929397  0.000252485  -0.00031632 -0.000855053 -0.000278541   0.00572325
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=67.3 total_T=5.071(init 4.588) max_drift=0.365 max_vel=2.7 segs=31
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 32 -> 17 waypoints, 16 time segs, max_turn=43.3 deg
+[trajectory_generator_node-6] [Manager] optimizer generate time: 0.979632
+[trajectory_generator_node-6] [Reference] path size : 17
+[trajectory_generator_node-6] [Reference] Using MINCO-optimized durations (16 segments, total=5.071 s)
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=16, path_size=17, trap_time_size=16
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1095,-4.2422) t[0]=0.387693 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-2.335318 b[N]=-2.074719 b2[0]=3.270444 b2[N]=3.420791
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[-0.257297 -1.167659 0.000000 -0.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=16, path_size=17, trap_time_size=16
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1095,-4.2422) t[0]=0.426462 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-2.036891 b[N]=-2.382010 b2[0]=2.820129 b2[N]=3.472383
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[-0.068005 -1.018446 0.000000 -0.919000]
+[trajectory_generator_node-6] [INFO] [1790441197.478685133] [trajectory_generation]: FSM published 16 trajectory pieces
+[trajectory_generator_node-6] [INFO] [1790441197.764850402] [trajectory_generation]: FSM accepted manual goal goal=(-2.72, 1.95, 0.02)
+[trajectory_generator_node-6] [Manager] start point, (x, y): (-0.92, -4.45)
+[trajectory_generator_node-6] [Manager] receive target, (x, y): (-2.72, 1.95)
+[trajectory_generator_node-6] [Topo]: m_graph before num: 1605
+[trajectory_generator_node-6] [Topo]: dijkstra time: 0.328076
+[trajectory_generator_node-6] [Topo]: topo search time: 1.347017
+[trajectory_generator_node-6] [Topo]: m_graph num: 2592
+[trajectory_generator_node-6] [DIAG] origin_path (Dijkstra) size: 5
+[trajectory_generator_node-6] [DIAG]   origin[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[1]: (-5.019, -1.604, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[2]: (-3.769, 2.396, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[3]: (-1.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG]   origin[4]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG] lineVisib(start→end DIRECT): false  colli=(-1.42,-2.65)
+[trajectory_generator_node-6] [DIAG] direct line: 132 steps, 92 wall cells
+[trajectory_generator_node-6] [smoothTopoPath] INPUT size=5
+[trajectory_generator_node-6] [smoothTopoPath]   in[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[1]: (-5.019, -1.604, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[2]: (-3.769, 2.396, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[3]: (-1.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   in[4]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath] lineVisib(start→end): false  colli=(-1.42,-2.65)
+[trajectory_generator_node-6] [smoothTopoPath] stuck detected, skipping to topo[4]
+[trajectory_generator_node-6] [smoothTopoPath] OUTPUT size=8, iter_count=7
+[trajectory_generator_node-6] [smoothTopoPath]   out[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[1]: (-4.840, -0.515, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[2]: (-3.299, 2.232, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[3]: (-2.168, 2.139, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[4]: (-2.555, 2.131, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[5]: (-2.134, 2.182, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[6]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [smoothTopoPath]   out[7]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG] optimized_path (smoothTopoPath) size: 8
+[trajectory_generator_node-6] [DIAG]   opt[0]: (-0.919, -4.454, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[1]: (-4.840, -0.515, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[2]: (-3.299, 2.232, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[3]: (-2.168, 2.139, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[4]: (-2.555, 2.131, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[5]: (-2.134, 2.182, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[6]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] [DIAG]   opt[7]: (-2.719, 1.946, 0.015)
+[trajectory_generator_node-6] optimized_path size: 8
+[trajectory_generator_node-6] [Manager] reference_speed: (2.00)
+[trajectory_generator_node-6] [LBFGS] search direction d: -0.000259367  0.000988196   0.00215131  -0.00201763  0.000242986   0.00109051 -0.000529618 -0.000161126 -0.000327121  0.000667277  0.000319451  -0.00148139   0.00107518  0.000608288  -0.00155368   0.00100551 -9.78296e-05 -0.000467992  0.000843615  0.000675183  -0.00218564  -0.00152314  0.000635287 -0.000220229  -0.00247022  0.000570139   0.00303293  -0.00283143  -0.00229534   0.00555053   0.00114754  -0.00408768  -0.00141078   0.00416169 -0.000275842  -0.00138834 -0.000367446 -0.000233017  -0.00122332  -0.00176163   0.00179196 -0.000275418 -0.000832343  0.000238745  0.000594034 -0.000191323 -0.000480594  0.000116229  0.000865987  -0.00112364  0.000236784  0.000872174  -0.00108553  5.87767e-05  0.000990929  -0.00167189  0.000817145   0.00101441  -0.00107782   0.00200682  0.000834691  -0.00172207   0.00227418 -0.000958588 -0.000503853   0.00157964  -0.00206838   0.00161716   0.00154396 -0.000595892  0.000118687  0.000267423   0.00254601 -0.000441059  0.000436742  0.000422439  0.000165288 -0.000200116  0.000154897  0.000139578 -9.84461e-05 -1.62294e-05  5.79407e-05  6.51369e-05 -6.52767e-05 -8.38455e-05  0.000164635 -6.56182e-05 -0.000110664  0.000185992 -3.52418e-05 -1.33423e-05  8.59989e-05 -4.93319e-05  4.98373e-05  7.60081e-05 -0.000218245  0.000124167   0.00017924 -0.000267848  0.000118346  0.000209274 -9.04139e-05 -0.000165707  0.000561472  0.000595896  0.000282397  0.000337866  0.000279251  6.25572e-05  0.000111763  0.000189129
+[trajectory_generator_node-6] [Smooth Optimize] MINCO reaches max evaluations: Line search reaches the maximum try number, assumptions not satisfied or precision not achievable.
+[trajectory_generator_node-6] [Smooth Optimize] MINCO: cost=371.1 total_T=5.461(init 5.423) max_drift=0.328 max_vel=3.0 segs=38
+[trajectory_generator_node-6] [Smooth Resample] resample
+[trajectory_generator_node-6] [Smooth Resample] 39 -> 20 waypoints, 19 time segs, max_turn=164.4 deg
+[trajectory_generator_node-6] [Manager] optimizer generate time: 0.847448
+[trajectory_generator_node-6] [Reference] path size : 20
+[trajectory_generator_node-6] [Reference] Using MINCO-optimized durations (19 segments, total=5.461 s)
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.308806 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-6.596713 b[N]=12.235433 b2[0]=6.641367 b2[N]=9.406608
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.157506 -3.298356 -0.000000 -0.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.339687 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-6.069086 b[N]=10.538164 b2[0]=6.108763 b2[N]=7.994046
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.778219 -3.034543 -0.000000 -0.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.373656 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-5.081693 b[N]=9.028730 b2[0]=5.114814 b2[N]=6.745871
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.424212 -2.540847 0.000000 -0.919000]
+[trajectory_generator_node-6] [Reference] solvePolyMatrix ENTER: N=19, path_size=20, trap_time_size=19
+[trajectory_generator_node-6] [Reference]   path[0]=(-0.9190,-4.4540) path[1]=(-1.1994,-4.1719) t[0]=0.411021 state_vel=(0.0000,0.0000)
+[trajectory_generator_node-6] [Reference] banded solve done. b[0]=-4.266774 b[N]=7.659223 b2[0]=4.294479 b2[N]=5.673622
+[trajectory_generator_node-6] [Reference] solvePolyMatrix EXIT: polyX[0]=[1.151569 -2.133387 0.000000 -0.919000]
+[trajectory_generator_node-6] [INFO] [1790441200.016841749] [trajectory_generation]: FSM published 19 trajectory pieces
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[ERROR] [rviz2-7]: process[rviz2-7] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+[ERROR] [trajectory_generator_node-6]: process[trajectory_generator_node-6] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+[ERROR] [map_display.py-5]: process[map_display.py-5] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+[ERROR] [cloud_adapter.py-4]: process[cloud_adapter.py-4] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+[ERROR] [sim_adapter.py-3]: process[sim_adapter.py-3] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+[ERROR] [parameter_bridge-2]: process[parameter_bridge-2] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+[ERROR] [ign-1]: process[ign-1] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+[INFO] [rviz2-7]: sending signal 'SIGTERM' to process[rviz2-7]
+[INFO] [trajectory_generator_node-6]: sending signal 'SIGTERM' to process[trajectory_generator_node-6]
+[INFO] [map_display.py-5]: sending signal 'SIGTERM' to process[map_display.py-5]
+[INFO] [cloud_adapter.py-4]: sending signal 'SIGTERM' to process[cloud_adapter.py-4]
+[INFO] [sim_adapter.py-3]: sending signal 'SIGTERM' to process[sim_adapter.py-3]
+[INFO] [parameter_bridge-2]: sending signal 'SIGTERM' to process[parameter_bridge-2]
+[INFO] [ign-1]: sending signal 'SIGTERM' to process[ign-1]
+[rviz2-7] [INFO] [1790441298.085867198] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[trajectory_generator_node-6] [INFO] [1790441298.092046968] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[parameter_bridge-2] [INFO] [1790441298.121932491] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[sim_adapter.py-3] Traceback (most recent call last):
+[sim_adapter.py-3]   File "/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/sentry_gazebo/lib/sentry_gazebo/sim_adapter.py", line 132, in <module>
+[sim_adapter.py-3]     main()
+[sim_adapter.py-3]   File "/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/sentry_gazebo/lib/sentry_gazebo/sim_adapter.py", line 120, in main
+[sim_adapter.py-3]     rclpy.spin(node)
+[sim_adapter.py-3]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 229, in spin
+[sim_adapter.py-3]     executor.spin_once()
+[sim_adapter.py-3]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 808, in spin_once
+[sim_adapter.py-3]     self._spin_once_impl(timeout_sec)
+[sim_adapter.py-3]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 797, in _spin_once_impl
+[sim_adapter.py-3]     handler, entity, node = self.wait_for_ready_callbacks(timeout_sec=timeout_sec)
+[sim_adapter.py-3]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 780, in wait_for_ready_callbacks
+[sim_adapter.py-3]     return next(self._cb_iter)
+[sim_adapter.py-3]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 681, in _wait_for_ready_callbacks
+[sim_adapter.py-3]     raise ExternalShutdownException()
+[sim_adapter.py-3] rclpy.executors.ExternalShutdownException
+[cloud_adapter.py-4] Traceback (most recent call last):
+[cloud_adapter.py-4]   File "/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/sentry_gazebo/lib/sentry_gazebo/cloud_adapter.py", line 85, in <module>
+[cloud_adapter.py-4]     
+[cloud_adapter.py-4]   File "/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/sentry_gazebo/lib/sentry_gazebo/cloud_adapter.py", line 79, in main
+[cloud_adapter.py-4]     rclpy.init();node=CloudAdapter()
+[cloud_adapter.py-4]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 229, in spin
+[cloud_adapter.py-4]     executor.spin_once()
+[cloud_adapter.py-4]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 808, in spin_once
+[cloud_adapter.py-4]     self._spin_once_impl(timeout_sec)
+[cloud_adapter.py-4]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 797, in _spin_once_impl
+[cloud_adapter.py-4]     handler, entity, node = self.wait_for_ready_callbacks(timeout_sec=timeout_sec)
+[cloud_adapter.py-4]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 780, in wait_for_ready_callbacks
+[cloud_adapter.py-4]     return next(self._cb_iter)
+[cloud_adapter.py-4]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 681, in _wait_for_ready_callbacks
+[cloud_adapter.py-4]     raise ExternalShutdownException()
+[cloud_adapter.py-4] rclpy.executors.ExternalShutdownException
+[INFO] [trajectory_generator_node-6]: process has finished cleanly [pid 29418]
+[INFO] [parameter_bridge-2]: process has finished cleanly [pid 29410]
+[map_display.py-5] Traceback (most recent call last):
+[map_display.py-5]   File "/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/sentry_gazebo/lib/sentry_gazebo/map_display.py", line 52, in <module>
+[map_display.py-5]     if rclpy.ok():rclpy.shutdown()
+[map_display.py-5]   File "/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/sentry_gazebo/lib/sentry_gazebo/map_display.py", line 47, in main
+[map_display.py-5]     rclpy.init();node=MapDisplay()
+[map_display.py-5]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 229, in spin
+[map_display.py-5]     executor.spin_once()
+[map_display.py-5]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 808, in spin_once
+[map_display.py-5]     self._spin_once_impl(timeout_sec)
+[map_display.py-5]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 805, in _spin_once_impl
+[map_display.py-5]     raise handler.exception()
+[map_display.py-5]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/task.py", line 272, in _execute_coroutine_step
+[map_display.py-5]     result = coro.send(None)
+[map_display.py-5]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 488, in handler
+[map_display.py-5]     await call_coroutine(entity, arg)
+[map_display.py-5]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 407, in _execute_subscription
+[map_display.py-5]     await await_or_execute(sub.callback, msg)
+[map_display.py-5]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 110, in await_or_execute
+[map_display.py-5]     return callback(*args)
+[map_display.py-5]   File "/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/sentry_gazebo/lib/sentry_gazebo/map_display.py", line 42, in receive
+[map_display.py-5]     m.color.r=.05;m.color.g=.4;m.color.b=.9;m.color.a=1.
+[map_display.py-5]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/publisher.py", line 70, in publish
+[map_display.py-5]     self.__publisher.publish(msg)
+[map_display.py-5] rclpy._rclpy_pybind11.RCLError: Failed to publish: publisher's context is invalid, at ./src/rcl/publisher.c:389
+[ERROR] [sim_adapter.py-3]: process has died [pid 29412, exit code 1, cmd '/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/sentry_gazebo/lib/sentry_gazebo/sim_adapter.py --ros-args --params-file /tmp/launch_params_lt1yarbq'].
+[ERROR] [cloud_adapter.py-4]: process has died [pid 29414, exit code 1, cmd '/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/sentry_gazebo/lib/sentry_gazebo/cloud_adapter.py --ros-args --params-file /tmp/launch_params_s0xgiw8p'].
+[ERROR] [map_display.py-5]: process has died [pid 29416, exit code 1, cmd '/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/sentry_gazebo/lib/sentry_gazebo/map_display.py --ros-args --params-file /tmp/launch_params_s9z6i5qw'].
+[INFO] [rviz2-7]: process has finished cleanly [pid 29420]
+[ign-1] [1;32m[Msg] [0m[1;32mFound no p[1;32m[Msg] [0m[1;32mIgnition Gazebo GUI    v[0m[1;32m6.18.0[0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mAdded plugin [[0m[1;32mRM Sentry - Basic Navigation[0m[1;32m] to main window[0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoaded plugin [[0m[1;32mMinimalScene[0m[1;32m] from path [[0m[1;32m/usr/lib/x86_64-linux-gnu/ign-gui-6/plugins/libMinimalScene.so[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mAdded plugin [[0m[1;32mScene Manager[0m[1;32m] to main window[0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoaded plugin [[0m[1;32mGzSceneManager[0m[1;32m] from path [[0m[1;32m/usr/lib/x86_64-linux-gnu/ign-gazebo-6/plugins/gui/libGzSceneManager.so[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mCamera view controller topic advertised on [[0m[1;32m/gui/camera/view_control[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mCamera reference visual topic advertised on [[0m[1;32m/gui/camera/view_control/reference_visual[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mCamera view control sensitivity advertised on [[0m[1;32m/gui/camera/view_control/sensitivity[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mAdded plugin [[0m[1;32mInteractive view control[0m[1;32m] to main window[0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoaded plugin [[0m[1;32mInteractiveViewControl[0m[1;32m] from path [[0m[1;32m/usr/lib/x86_64-linux-gnu/ign-gui-6/plugins/libInteractiveViewControl.so[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mUsing world control service [[0m[1;32m/world/sentry_planning/control[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mListening to stats on [[0m[1;32m/world/sentry_planning/stats[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mAdded plugin [[0m[1;32mWorld control[0m[1;32m] to main window[0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoaded plugin [[0m[1;32mWorldControl[0m[1;32m] from path [[0m[1;32m/usr/lib/x86_64-linux-gnu/ign-gui-6/plugins/libWorldControl.so[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mListening to stats on [[0m[1;32m/world/sentry_planning/stats[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mAdded plugin [[0m[1;32mWorld stats[0m[1;32m] to main window[0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoaded plugin [[0m[1;32mWorldStats[0m[1;32m] from path [[0m[1;32m/usr/lib/x86_64-linux-gnu/ign-gui-6/plugins/libWorldStats.so[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoading plugin [[0m[1;32mignition-rendering-ogre2[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoading plugin [[0m[1;32mignition-rendering-ogre2[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoading plugin [[0m[1;32mignition-rendering-ogre2[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoading plugin [[0m[1;32mignition-rendering-ogre2[0m[1;32m][0m[1;32m[0m
+[ign-1] ublishers on /clock, adding root clock topic[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mLoading plugin [[0m[1;32mignition-rendering-ogre2[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing scene information on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mscene/info[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing graph information on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mscene/graph[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing full state on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mstate[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing full state (async) on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mstate_async[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPublishing scene information on [[0m[1;32m/world/sentry_planning/scene/info[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPublishing entity deletions on [[0m[1;32m/world/sentry_planning/scene/deletion[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPublishing state changes on [[0m[1;32m/world/sentry_planning/state[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPublishing pose messages on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mpose/info[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPublishing dynamic pose messages on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mdynamic_pose/info[0m[1;32m][0m[1;32m[0m
+[INFO] [ign-1]: process has finished cleanly [pid 29408]

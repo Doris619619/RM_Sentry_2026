@@ -1,0 +1,38 @@
+{
+  "publishers": {
+    "/clock": 1,
+    "/localization/odometry": 1,
+    "/sim/lidar/points": 1,
+    "/aligned_points": 1,
+    "/tf": 1,
+    "/tf_static": 2,
+    "/cmd_vel": 0
+  },
+  "nodes": [
+    "_ros2cli_daemon_26_9c357b0184b349c6a8e9fc65b36a64e9",
+    "restart_audit",
+    "sentry_gazebo_bridge",
+    "sentry_sim_adapter",
+    "sentry_cloud_adapter",
+    "sentry_map_display",
+    "trajectory_generation",
+    "transform_listener_impl_5c9bc17f91f0",
+    "rviz",
+    "transform_listener_impl_5bb117106660"
+  ],
+  "use_sim_time": {
+    "sentry_gazebo_bridge": true,
+    "sentry_sim_adapter": true,
+    "sentry_cloud_adapter": true,
+    "sentry_map_display": true,
+    "trajectory_generation": true,
+    "rviz": true
+  },
+  "robot_entities": 1,
+  "spawn": [
+    -0.919,
+    -4.454,
+    0.0
+  ],
+  "passed": true
+}

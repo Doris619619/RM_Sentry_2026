@@ -1,0 +1,159 @@
+[INFO] [launch]: All log files can be found below /home/liangys/.ros/log/2026-09-26-12-38-35-510075-ubuntu64-oc-28597
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [ign-1]: process started with pid [28628]
+[INFO] [parameter_bridge-2]: process started with pid [28630]
+[INFO] [sim_adapter.py-3]: process started with pid [28632]
+[INFO] [cloud_adapter.py-4]: process started with pid [28634]
+[INFO] [map_display.py-5]: process started with pid [28636]
+[INFO] [trajectory_generator_node-6]: process started with pid [28638]
+[INFO] [rviz2-7]: process started with pid [28640]
+[rviz2-7] [INFO] [1790440715.818427134] [rviz2]: Stereo is NOT SUPPORTED
+[rviz2-7] [INFO] [1790440715.818529129] [rviz2]: OpenGl version: 4.5 (GLSL 4.5)
+[rviz2-7] [INFO] [1790440715.870989917] [rviz2]: Stereo is NOT SUPPORTED
+[ign-1] [1;33m[GUI] [Wrn] [Application.cc:802] [0m[1;33m[QT] file::/Gazebo/GazeboDrawer.qml:242:3: QML Connections: Implicitly defined onFoo properties in Connections are deprecated. Use this syntax instead: function onFoo(<arguments>) { ... }[0m[1;33m[0m
+[trajectory_generator_node-6] [Manager Init] map/file_path: 
+[trajectory_generator_node-6] [Manager Init] map/occ_file_path: /home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/trajectory_generation/share/trajectory_generation/map/occfinal.png
+[trajectory_generator_node-6] [Manager Init] map/bev_file_path: /home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/trajectory_generation/share/trajectory_generation/map/bevfinal.png
+[trajectory_generator_node-6] [Manager Init] map/distance_map_file_path: /home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/trajectory_generation/share/trajectory_generation/map/occtopo.png
+[trajectory_generator_node-6] m_height_bias: 0.0152941 m_height_interval: 1.5 m_height_threshold: 0.08 height_sencond_high_threshold: 0.2
+[sim_adapter.py-3] [INFO] [1790440716.162600754] [sentry_sim_adapter]: Ideal planar simulator: 0.5 s wall-time watchdog, 50 Hz feedback
+[ign-1] [1;33m[GUI] [Wrn] [Application.cc:802] [0m[1;33m[QT] file::/WorldStats/WorldStats.qml:53:3: QML RowLayout: Binding loop detected for property "x"[0m[1;33m[0m
+[trajectory_generator_node-6] map swell done
+[rviz2-7] [INFO] [1790440716.459457770] [rviz2]: Trying to create a map of size 400 x 400 using 1 swatches
+[rviz2-7] [ERROR] [1790440716.469760305] [rviz2]: Vertex Program:rviz/glsl120/indexed_8bit_image.vert Fragment Program:rviz/glsl120/indexed_8bit_image.frag GLSL link result : 
+[rviz2-7] active samplers with a different type refer to the same texture image unit
+[trajectory_generator_node-6] second_heights_points: 10
+[trajectory_generator_node-6] xmax: 0.781 xmin: -0.719 ymax: -3.154 ymin: -5.354
+[trajectory_generator_node-6] [Map Build] bev build done
+[trajectory_generator_node-6] R.rows 400 R.cols 400
+[trajectory_generator_node-6] start topo sample map
+[trajectory_generator_node-6] [GridMap] topo_sample_map size: 185
+[trajectory_generator_node-6] [GridMap] topo_keypoint size: 1603
+[ign-1] libEGL warning: Not allowed to force software rendering when API explicitly selects a hardware device.
+[parameter_bridge-2] [INFO] [1790440716.655851055] [sentry_gazebo_bridge]: Creating GZ->ROS Bridge: [/clock (ignition.msgs.Clock) -> /clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+[parameter_bridge-2] [INFO] [1790440716.656974360] [sentry_gazebo_bridge]: Creating ROS->GZ Bridge: [/sim/guarded_cmd_vel (geometry_msgs/msg/Twist) -> /model/sentry/cmd_vel (ignition.msgs.Twist)] (Lazy 0)
+[parameter_bridge-2] [INFO] [1790440716.661659421] [sentry_gazebo_bridge]: Creating GZ->ROS Bridge: [/model/sentry/odometry (ignition.msgs.Odometry) -> /sim/ground_truth/odometry (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-2] [INFO] [1790440716.663398581] [sentry_gazebo_bridge]: Creating GZ->ROS Bridge: [/sentry/lidar/points (ignition.msgs.PointCloudPacked) -> /sim/lidar/native (sensor_msgs/msg/PointCloud2)] (Lazy 0)
+[parameter_bridge-2] [INFO] [1790440716.679747802] [sentry_gazebo_bridge]: Passing message from ROS geometry_msgs/msg/Twist to Gazebo gz.msgs.Twist (showing msg only once per type)
+[ign-1] [1;33m[GUI] [Wrn] [Ogre2RenderTarget.cc:574] [0m[1;33mAnti-aliasing level of '[0m[1;33m8[0m[1;33m' [0m[1;33mis not supported; valid FSAA levels are: [0m[1;33m[ 0 4 ][0m[1;33m. Setting to 0[0m[1;33m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mReceived world [[0m[1;32m/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/sentry_gazebo/share/sentry_gazebo/worlds/planning.sdf[0m[1;32m] from the GUI.[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mIgnition Gazebo Server v[0m[1;32m6.18.0[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mLoading SDF world file[[0m[1;32m/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/sentry_gazebo/share/sentry_gazebo/worlds/planning.sdf[0m[1;32m].[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing entity system service on [[0m[1;32m/[0m[1;32mentity/system/add[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mCreate service on [[0m[1;32m/world/sentry_planning/create[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mRemove service on [[0m[1;32m/world/sentry_planning/remove[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPose service on [[0m[1;32m/world/sentry_planning/set_pose[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPose service on [[0m[1;32m/world/sentry_planning/set_pose_vector[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mLight configuration service on [[0m[1;32m/world/sentry_planning/light_config[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPhysics service on [[0m[1;32m/world/sentry_planning/set_physics[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mSphericalCoordinates service on [[0m[1;32m/world/sentry_planning/set_spherical_coordinates[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mEnable collision service on [[0m[1;32m/world/sentry_planning/enable_collision[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mDisable collision service on [[0m[1;32m/world/sentry_planning/disable_collision[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mMaterial service on [[0m[1;32m/world/sentry_planning/visual_config[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mMaterial service on [[0m[1;32m/world/sentry_planning/wheel_slip[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mVelocityControl subscribing to twist messages on [[0m[1;32m/model/sentry/cmd_vel[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mOdometryPublisher publishing odometry on [[0m[1;32m/model/sentry/odometry[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mOdometryPublisher publishing odometry with covariance on [[0m[1;32m/model/sentry/odometry_with_covariance[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mOdometryPublisher publishing Pose_V (TF) on [[0m[1;32m/model/sentry/pose[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mLoaded level [[0m[1;32m3[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing world controls on [[0m[1;32m/world/sentry_planning[0m[1;32m/control], [[0m[1;32m/world/sentry_planning[0m[1;32m/control/state] and [[0m[1;32m/world/sentry_planning[0m[1;32m/playback/control][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing GUI information on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mgui/info[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mWorld [[0m[1;32msentry_planning[0m[1;32m] initialized with [[0m[1;32mfixed_step[0m[1;32m] physics profile.[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing world SDF generation service on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mgenerate_world_sdf[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing world names on [[0m[1;32m/gazebo/worlds[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mResource path add service on [[0m[1;32m/gazebo/resource_paths/add[0m[1;32m].[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mResource path get service on [[0m[1;32m/gazebo/resource_paths/get[0m[1;32m].[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mResource path resolve service on [[0m[1;32m/gazebo/resource_paths/resolve[0m[1;32m].[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mResource paths published on [[0m[1;32m/gazebo/resource_paths[0m[1;32m].[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServer control service on [[0m[1;32m/server_control[0m[1;32m].[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mFound no publishers on /stats, adding root stats topic[0m[1;32m[0m
+[ign-1] libEGL warning: Not allowed to force software rendering when API explicitly selects a hardware device.
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[ERROR] [rviz2-7]: process[rviz2-7] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+[ERROR] [trajectory_generator_node-6]: process[trajectory_generator_node-6] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+[ERROR] [map_display.py-5]: process[map_display.py-5] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+[ERROR] [cloud_adapter.py-4]: process[cloud_adapter.py-4] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+[ERROR] [sim_adapter.py-3]: process[sim_adapter.py-3] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+[ERROR] [parameter_bridge-2]: process[parameter_bridge-2] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+[ERROR] [ign-1]: process[ign-1] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+[INFO] [rviz2-7]: sending signal 'SIGTERM' to process[rviz2-7]
+[INFO] [trajectory_generator_node-6]: sending signal 'SIGTERM' to process[trajectory_generator_node-6]
+[INFO] [map_display.py-5]: sending signal 'SIGTERM' to process[map_display.py-5]
+[INFO] [cloud_adapter.py-4]: sending signal 'SIGTERM' to process[cloud_adapter.py-4]
+[INFO] [sim_adapter.py-3]: sending signal 'SIGTERM' to process[sim_adapter.py-3]
+[INFO] [parameter_bridge-2]: sending signal 'SIGTERM' to process[parameter_bridge-2]
+[INFO] [ign-1]: sending signal 'SIGTERM' to process[ign-1]
+[rviz2-7] [INFO] [1790440862.922562160] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[trajectory_generator_node-6] [INFO] [1790440862.924368385] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[parameter_bridge-2] [INFO] [1790440862.930888122] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[cloud_adapter.py-4] Traceback (most recent call last):
+[cloud_adapter.py-4]   File "/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/sentry_gazebo/lib/sentry_gazebo/cloud_adapter.py", line 85, in <module>
+[cloud_adapter.py-4]     if __name__=='__main__':main()
+[cloud_adapter.py-4]   File "/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/sentry_gazebo/lib/sentry_gazebo/cloud_adapter.py", line 79, in main
+[cloud_adapter.py-4]     try:rclpy.spin(node)
+[cloud_adapter.py-4]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 229, in spin
+[cloud_adapter.py-4]     executor.spin_once()
+[cloud_adapter.py-4]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 808, in spin_once
+[cloud_adapter.py-4]     self._spin_once_impl(timeout_sec)
+[cloud_adapter.py-4]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 797, in _spin_once_impl
+[cloud_adapter.py-4]     handler, entity, node = self.wait_for_ready_callbacks(timeout_sec=timeout_sec)
+[cloud_adapter.py-4]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 780, in wait_for_ready_callbacks
+[cloud_adapter.py-4]     return next(self._cb_iter)
+[cloud_adapter.py-4]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 681, in _wait_for_ready_callbacks
+[cloud_adapter.py-4]     raise ExternalShutdownException()
+[cloud_adapter.py-4] rclpy.executors.ExternalShutdownException
+[map_display.py-5] Traceback (most recent call last):
+[map_display.py-5]   File "/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/sentry_gazebo/lib/sentry_gazebo/map_display.py", line 52, in <module>
+[map_display.py-5]     if __name__=='__main__':main()
+[map_display.py-5]   File "/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/sentry_gazebo/lib/sentry_gazebo/map_display.py", line 47, in main
+[map_display.py-5]     try:rclpy.spin(node)
+[map_display.py-5]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 229, in spin
+[map_display.py-5]     executor.spin_once()
+[map_display.py-5]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 808, in spin_once
+[map_display.py-5]     self._spin_once_impl(timeout_sec)
+[map_display.py-5]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 797, in _spin_once_impl
+[map_display.py-5]     handler, entity, node = self.wait_for_ready_callbacks(timeout_sec=timeout_sec)
+[map_display.py-5]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 780, in wait_for_ready_callbacks
+[map_display.py-5]     return next(self._cb_iter)
+[map_display.py-5]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 681, in _wait_for_ready_callbacks
+[map_display.py-5]     raise ExternalShutdownException()
+[map_display.py-5] rclpy.executors.ExternalShutdownException
+[INFO] [parameter_bridge-2]: process has finished cleanly [pid 28630]
+[INFO] [trajectory_generator_node-6]: process has finished cleanly [pid 28638]
+[INFO] [rviz2-7]: process has finished cleanly [pid 28640]
+[INFO] [sim_adapter.py-3]: process has finished cleanly [pid 28632]
+[ERROR] [map_display.py-5]: process has died [pid 28636, exit code 1, cmd '/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/sentry_gazebo/lib/sentry_gazebo/map_display.py --ros-args --params-file /tmp/launch_params_d0uewldg'].
+[ERROR] [cloud_adapter.py-4]: process has died [pid 28634, exit code 1, cmd '/home/liangys/RM_Sentry_2026/ros2_ws/install_sentry_sim2/sentry_gazebo/lib/sentry_gazebo/cloud_adapter.py --ros-args --params-file /tmp/launch_params_fmr20rvy'].
+[ign-1] [1;32m[Msg] [0m[1;32mFound no p[1;32m[Msg] [0m[1;32mIgnition Gazebo GUI    v[0m[1;32m6.18.0[0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mAdded plugin [[0m[1;32mRM Sentry - Basic Navigation[0m[1;32m] to main window[0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoaded plugin [[0m[1;32mMinimalScene[0m[1;32m] from path [[0m[1;32m/usr/lib/x86_64-linux-gnu/ign-gui-6/plugins/libMinimalScene.so[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mAdded plugin [[0m[1;32mScene Manager[0m[1;32m] to main window[0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoaded plugin [[0m[1;32mGzSceneManager[0m[1;32m] from path [[0m[1;32m/usr/lib/x86_64-linux-gnu/ign-gazebo-6/plugins/gui/libGzSceneManager.so[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mCamera view controller topic advertised on [[0m[1;32m/gui/camera/view_control[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mCamera reference visual topic advertised on [[0m[1;32m/gui/camera/view_control/reference_visual[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mCamera view control sensitivity advertised on [[0m[1;32m/gui/camera/view_control/sensitivity[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mAdded plugin [[0m[1;32mInteractive view control[0m[1;32m] to main window[0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoaded plugin [[0m[1;32mInteractiveViewControl[0m[1;32m] from path [[0m[1;32m/usr/lib/x86_64-linux-gnu/ign-gui-6/plugins/libInteractiveViewControl.so[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mUsing world control service [[0m[1;32m/world/sentry_planning/control[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mListening to stats on [[0m[1;32m/world/sentry_planning/stats[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mAdded plugin [[0m[1;32mWorld control[0m[1;32m] to main window[0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoaded plugin [[0m[1;32mWorldControl[0m[1;32m] from path [[0m[1;32m/usr/lib/x86_64-linux-gnu/ign-gui-6/plugins/libWorldControl.so[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mListening to stats on [[0m[1;32m/world/sentry_planning/stats[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mAdded plugin [[0m[1;32mWorld stats[0m[1;32m] to main window[0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoaded plugin [[0m[1;32mWorldStats[0m[1;32m] from path [[0m[1;32m/usr/lib/x86_64-linux-gnu/ign-gui-6/plugins/libWorldStats.so[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoading plugin [[0m[1;32mignition-rendering-ogre2[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoading plugin [[0m[1;32mignition-rendering-ogre2[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoading plugin [[0m[1;32mignition-rendering-ogre2[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[GUI] [0m[1;32m[Msg] [0m[1;32mLoading plugin [[0m[1;32mignition-rendering-ogre2[0m[1;32m][0m[1;32m[0m
+[ign-1] ublishers on /clock, adding root clock topic[0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mLoading plugin [[0m[1;32mignition-rendering-ogre2[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing scene information on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mscene/info[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing graph information on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mscene/graph[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing full state on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mstate[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mServing full state (async) on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mstate_async[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPublishing scene information on [[0m[1;32m/world/sentry_planning/scene/info[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPublishing entity deletions on [[0m[1;32m/world/sentry_planning/scene/deletion[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPublishing state changes on [[0m[1;32m/world/sentry_planning/state[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPublishing pose messages on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mpose/info[0m[1;32m][0m[1;32m[0m
+[ign-1] [1;32m[Msg] [0m[1;32mPublishing dynamic pose messages on [[0m[1;32m/world/sentry_planning[0m[1;32m/[0m[1;32mdynamic_pose/info[0m[1;32m][0m[1;32m[0m
+[INFO] [ign-1]: process has finished cleanly [pid 28628]

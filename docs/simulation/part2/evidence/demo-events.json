@@ -1,0 +1,63 @@
+{
+  "events": [
+    {
+      "name": "manual_rotation_start",
+      "wall_seconds": 10.007545067001047,
+      "pose": [
+        -0.919,
+        -4.454,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "name": "manual_translation_start",
+      "wall_seconds": 20.817992876000062,
+      "pose": [
+        -0.919,
+        -4.454,
+        0.921334789198909,
+        0.38877012000898664
+      ]
+    },
+    {
+      "name": "manual_motion_stopped",
+      "wall_seconds": 23.327636449997954,
+      "pose": [
+        -1.1994816662057048,
+        -4.166017301001548,
+        0.921334789198909,
+        0.38877012000898664
+      ]
+    },
+    {
+      "name": "rviz_goal_click",
+      "wall_seconds": 35.00349981799809,
+      "pose": [
+        -1.1994816662057048,
+        -4.166017301001548,
+        0.921334789198909,
+        0.38877012000898664
+      ]
+    },
+    {
+      "name": "goal_result_display",
+      "wall_seconds": 41.24876098999812,
+      "pose": [
+        -1.1994816662057048,
+        -4.166017301001548,
+        0.921334789198909,
+        0.38877012000898664
+      ]
+    }
+  ],
+  "goals": [
+    [
+      -2.7583167552948,
+      2.2162041664123535
+    ]
+  ],
+  "trajectory_messages": 1,
+  "capture_exit": 0,
+  "description": "Actual concurrent window capture; keyboard via terminal PTY and mouse via xdotool; no automatic tracking."
+}
