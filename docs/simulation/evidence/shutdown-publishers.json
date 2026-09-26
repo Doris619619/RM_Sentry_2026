@@ -1,0 +1,7 @@
+{
+  "/clock": 0,
+  "/sim/ground_truth/odometry": 0,
+  "/localization/odometry": 0,
+  "/tf": 0,
+  "/tf_static": 0
+}

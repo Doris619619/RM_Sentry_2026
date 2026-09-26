@@ -1,0 +1,32 @@
+{"name": "feedback_available", "passed": true}
+{"name": "one_publisher /clock", "passed": true, "count": 1}
+{"name": "one_publisher /sim/ground_truth/odometry", "passed": true, "count": 1}
+{"name": "one_publisher /localization/odometry", "passed": true, "count": 1}
+{"name": "one_publisher /tf", "passed": true, "count": 1}
+{"name": "one_publisher /tf_static", "passed": true, "count": 1}
+{"name": "initial_pose", "passed": true}
+{"name": "forward", "passed": true, "dx": 0.5900000000000004, "dy": 0.0, "dyaw": 0.0, "sim_duration": 3.0}
+{"name": "lateral", "passed": true, "dx": 0.0, "dy": 0.5780000000000004, "dyaw": 0.0, "sim_duration": 3.0}
+{"name": "yaw", "passed": true, "dx": 0.0, "dy": 0.0, "dyaw": 0.5909999999999995, "sim_duration": 2.0}
+{"name": "body_frame_at_90deg", "passed": true, "initial_yaw": 1.5360000000000005, "world_dx": 0.018502344162132034, "world_dy": 0.5817058219241854, "body_vx": 0.20000000242182042, "body_vy": -7.050088606305868e-09}
+{"name": "backward", "passed": true, "body_dx": -0.17999999999999627, "body_dy": -2.2317217518441623e-15}
+{"name": "right", "passed": true, "body_dx": 2.2317217518441623e-15, "body_dy": -0.17999999999999627}
+{"name": "zero_command_stop", "passed": true, "stop_wall_seconds": 0.23352348300068115}
+{"name": "watchdog_stop", "passed": true, "stop_wall_seconds": 0.7551779269997496}
+{"name": "limits", "passed": true, "max_linear": 0.50000000339659, "max_angular": 0.4999999888241291}
+{"name": "nonfinite_command_stop", "passed": true, "stop_wall_seconds": 0.2751803259998269}
+{"name": "pause_resume_no_stale_command", "passed": true, "resume_displacement": 0.003999995500000882}
+{"name": "resume_stopped", "passed": true, "stop_wall_seconds": 0.0009605720006220508}
+{"name": "keyboard_w", "passed": true, "actual": [0.20000000337472973, 1.8033451142963897e-09, 0.0], "expected": [0.2, 0.0, 0.0]}
+{"name": "keyboard_s", "passed": true, "actual": [-0.2000000033747304, -1.8033454395570414e-09, 0.0], "expected": [-0.2, 0.0, 0.0]}
+{"name": "keyboard_a", "passed": true, "actual": [-1.8033443987229558e-09, 0.20000000337474028, 0.0], "expected": [0.0, 0.2, 0.0]}
+{"name": "keyboard_d", "passed": true, "actual": [1.8033443987229558e-09, -0.20000000337474028, 0.0], "expected": [0.0, -0.2, 0.0]}
+{"name": "keyboard_q", "passed": true, "actual": [0.0, 0.0, 0.3000000026077032], "expected": [0.0, 0.0, 0.3]}
+{"name": "keyboard_e", "passed": true, "actual": [0.0, 0.0, -0.3000000026077032], "expected": [0.0, 0.0, -0.3]}
+{"name": "keyboard_space_stop", "passed": true, "stop_wall_seconds": 0.2037122729998373}
+{"name": "keyboard_escape_stop", "passed": true, "stop_wall_seconds": 0.30210052499933226}
+{"name": "keyboard_exit", "passed": true, "returncode": 0}
+{"name": "tf_connected", "passed": true, "pose_error": 0.0}
+{"name": "raw_state_matches", "passed": true, "matched_samples": 1191, "max_difference": 0.0}
+{"name": "feedback_50hz", "passed": true, "hz_sim_time": 50.00000000000008}
+{"name": "no_fixture", "passed": true}

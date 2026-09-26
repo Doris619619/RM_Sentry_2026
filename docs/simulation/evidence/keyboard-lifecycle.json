@@ -1,0 +1,61 @@
+[
+  {
+    "name": "duplicate_keyboard_rejected",
+    "passed": true,
+    "returncode": 1,
+    "message": "\u6b64 ROS domain \u5df2\u6709\u952e\u76d8\u63a7\u5236\u7a0b\u5e8f\uff0c\u8bf7\u5148\u9000\u51fa\u65e7\u7a0b\u5e8f\u3002\r\n[ros2run]: Process exited with failure 1"
+  },
+  {
+    "name": "duplicate_moving_before_exit",
+    "passed": true,
+    "vx": 0.19999999521809145
+  },
+  {
+    "name": "duplicate_stops",
+    "passed": true,
+    "stop_wall_seconds": 0.1583708559992374
+  },
+  {
+    "name": "duplicate_no_orphan",
+    "passed": true,
+    "remaining": [],
+    "wrapper_exit": 0
+  },
+  {
+    "name": "sigint_moving_before_exit",
+    "passed": true,
+    "vx": 0.19999999521809145
+  },
+  {
+    "name": "sigint_stops",
+    "passed": true,
+    "stop_wall_seconds": 0.14154555099958088
+  },
+  {
+    "name": "sigint_no_orphan",
+    "passed": true,
+    "remaining": [],
+    "wrapper_exit": 0
+  },
+  {
+    "name": "eof_moving_before_exit",
+    "passed": true,
+    "vx": 0.19999999521809145
+  },
+  {
+    "name": "eof_stops",
+    "passed": true,
+    "stop_wall_seconds": 0.16671909500109905
+  },
+  {
+    "name": "eof_no_orphan",
+    "passed": true,
+    "remaining": [],
+    "wrapper_exit": 0
+  },
+  {
+    "name": "no_keyboard_publishers_after_exit",
+    "passed": true,
+    "count": 0
+  }
+]

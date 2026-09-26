@@ -44,3 +44,9 @@ gtest/
 test_results/
 CTestConfiguration.ini
 CTestCustom.cmake
+
+# Isolated first-stage Gazebo build (preserve other workspaces)
+ros2_ws/build_sentry_gazebo/
+ros2_ws/install_sentry_gazebo/
+ros2_ws/log_sentry_gazebo/
+ros2_ws/src/sentry_gazebo/**/__pycache__/

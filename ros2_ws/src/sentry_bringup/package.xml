@@ -22,5 +22,6 @@
   <exec_depend>waypoint_generator</exec_depend>
   <exec_depend>livox_cloudpoint_processor</exec_depend>
   <exec_depend>sentry_sim</exec_depend>
+  <exec_depend>sentry_gazebo</exec_depend>
   <export><build_type>ament_cmake</build_type></export>
 </package>

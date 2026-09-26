@@ -1,0 +1,33 @@
+{
+  "publishers": {
+    "/clock": 1,
+    "/sim/ground_truth/odometry": 1,
+    "/localization/odometry": 1,
+    "/tf": 1,
+    "/tf_static": 1
+  },
+  "pose": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+  ],
+  "frames": [
+    "map",
+    "base_link"
+  ],
+  "use_sim_time": {
+    "sentry_sim_adapter": true,
+    "sentry_gazebo_bridge": true
+  },
+  "nodes": [
+    "_ros2cli_daemon_26_9c357b0184b349c6a8e9fc65b36a64e9",
+    "final_runtime_audit",
+    "sentry_gazebo_bridge",
+    "sentry_sim_adapter"
+  ],
+  "sentry_models": 1
+}

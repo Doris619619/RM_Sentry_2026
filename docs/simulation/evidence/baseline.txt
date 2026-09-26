@@ -1,0 +1,4 @@
+Branch base: feat/20260830-ros2-production-closure, 459c0a6
+Before: total 104826449920 B, used 42796503040 B, available 57208569856 B
+Ubuntu 22.04.5 / ROS Humble; no applicable AGENTS.md found.
+Existing untracked files and build/install/log directories preserved.

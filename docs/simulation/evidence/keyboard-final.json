@@ -1,0 +1,101 @@
+[
+  {
+    "name": "keyboard_w",
+    "passed": true,
+    "actual": [
+      0.19999999502889892,
+      9.929124509351281e-09,
+      0.0
+    ],
+    "expected": [
+      0.2,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "keyboard_s",
+    "passed": true,
+    "actual": [
+      -0.19999999502889892,
+      -9.929124509351281e-09,
+      0.0
+    ],
+    "expected": [
+      -0.2,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "keyboard_a",
+    "passed": true,
+    "actual": [
+      -9.929118592317925e-09,
+      0.1999999950288938,
+      0.0
+    ],
+    "expected": [
+      0.0,
+      0.2,
+      0.0
+    ]
+  },
+  {
+    "name": "keyboard_d",
+    "passed": true,
+    "actual": [
+      9.929118592317925e-09,
+      -0.1999999950288938,
+      0.0
+    ],
+    "expected": [
+      0.0,
+      -0.2,
+      0.0
+    ]
+  },
+  {
+    "name": "keyboard_q",
+    "passed": true,
+    "actual": [
+      0.0,
+      0.0,
+      0.3000000026077032
+    ],
+    "expected": [
+      0.0,
+      0.0,
+      0.3
+    ]
+  },
+  {
+    "name": "keyboard_e",
+    "passed": true,
+    "actual": [
+      0.0,
+      0.0,
+      -0.3000000026077032
+    ],
+    "expected": [
+      0.0,
+      0.0,
+      -0.3
+    ]
+  },
+  {
+    "name": "keyboard_space_stop",
+    "passed": true,
+    "stop_wall_seconds": 0.12239266599863186
+  },
+  {
+    "name": "keyboard_escape_stop",
+    "passed": true,
+    "stop_wall_seconds": 0.11904342100024223
+  },
+  {
+    "name": "keyboard_exit",
+    "passed": true,
+    "returncode": 0
+  }
+]
