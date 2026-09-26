@@ -2,9 +2,9 @@
 
 # 第二阶段：地图、点云与规划展示
 
-本阶段在 RM_Sentry_2026 中连接真实 Gazebo 传感器和现有全局规划器。
+本阶段在 RM_Sentry_2026 中连接真实 Gazebo 传感器和现有全局规划器；经用户后续授权，修复了参考轨迹时长与系数的一致性和加速度收敛。
 机器人仍由键盘控制，没有启动自动跟踪、真实定位、决策或 MCU。
-**当前轨迹段间连续性存在未解决问题，不能据此宣称自动导航已经可用。** 详见 [问题记录](KNOWN_ISSUES.md)。
+**第二阶段展示与轨迹验收已通过：五组各三次全部通过。** 轨迹连续性、加速度收敛和图形退出处理已按用户授权修复，详见 [问题记录](KNOWN_ISSUES.md)。自动跟踪仍未接入。
 
 ## 在 Ubuntu 桌面启动
 
@@ -96,10 +96,12 @@ ROS /clock 和定位各一个发布者；不同时启动 fixture、HDL 或 Point
 
 保持已验证的 llvmpipe 软件渲染、Ogre2 和 XWayland；没有修改 VMware 资源或用户全局图形驱动。
 按用户要求，Ubuntu 自动熄屏已设为从不，空闲变暗关闭；与仿真源码功能无关。
+RViz 使用本包 rviz_safe 入口，保留已安装 RViz 的窗口、插件和配置，在 Qt 主线程停止绘制后清理 ROS。
+构建依赖 rclcpp、rviz_common 和 Qt5 Widgets，已在 package.xml 声明。
 QA 额外安装 wmctrl 用于并排窗口，正常启动不依赖它。录像使用已有 GStreamer，
 成片在 Windows 已有 FFmpeg 中编码，不在虚拟机新增视频编码套件。
 
 [验收报告](ACCEPTANCE.md) 区分通过项、未通过项和环境受限的检查。
 [队内五页汇报提纲](TEAM_REPORT.md) 可直接用于队会。
 [第三阶段交接](HANDOFF.md) 说明自动跟踪前必须解决的问题。
-evidence 中的 JSON 是机器可读验收结果；before、diagnostic 文件是排障历史，不能当作最终通过结果。
+evidence 中的 JSON 是机器可读验收结果；before、diagnostic 和 timing-only 文件是排障历史，不能当作最终通过结果。

@@ -21,7 +21,6 @@
 第一阶段提供理想平面手动运动与位置反馈，原入口保持可回退。
 
 第二阶段已接通地图对应场地、真实雷达点云和 RViz 目标/路径展示，运行方法见 [第二阶段说明](docs/simulation/part2/README.md)。
-**轨迹修复后 15/15 次检查通过，速度与加速度满足配置。**
-[最新轨迹修复说明](docs/simulation/part2/PLANNER_FIX.md) 更新原报告中的轨迹失败结论。
+**第二阶段验收通过：15/15 次轨迹检查、加速度上限、双 GUI 性能及退出复验通过。**
 已按用户后续授权修复轨迹时长/系数失配与加速度提前结束检查；自动跟踪仍留在第三阶段。
 [验收报告](docs/simulation/part2/ACCEPTANCE.md)、[五页队会提纲](docs/simulation/part2/TEAM_REPORT.md) 和 [演示视频](docs/simulation/part2/demo.mp4) 已归档。

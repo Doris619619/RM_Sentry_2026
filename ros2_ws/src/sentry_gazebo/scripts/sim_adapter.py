@@ -5,6 +5,7 @@ import math
 import time
 
 import rclpy
+from rclpy.executors import ExternalShutdownException
 from rclpy.clock import Clock, ClockType
 from rclpy.node import Node
 from rclpy.qos import QoSProfile, ReliabilityPolicy, DurabilityPolicy
@@ -114,11 +115,12 @@ class SimAdapter(Node):
 
 
 def main():
+    """Run safety/odometry adaptation and treat ROS signal shutdown as a normal exit."""
     rclpy.init()
     node = SimAdapter()
     try:
         rclpy.spin(node)
-    except KeyboardInterrupt:
+    except (KeyboardInterrupt, ExternalShutdownException):
         pass
     finally:
         if rclpy.ok():

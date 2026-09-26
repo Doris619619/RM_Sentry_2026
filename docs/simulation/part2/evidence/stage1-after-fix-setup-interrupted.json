@@ -1,0 +1,145 @@
+[
+  {
+    "name": "feedback_available",
+    "passed": true
+  },
+  {
+    "name": "one_publisher /clock",
+    "passed": true,
+    "count": 1
+  },
+  {
+    "name": "one_publisher /sim/ground_truth/odometry",
+    "passed": true,
+    "count": 1
+  },
+  {
+    "name": "one_publisher /localization/odometry",
+    "passed": true,
+    "count": 1
+  },
+  {
+    "name": "one_publisher /tf",
+    "passed": true,
+    "count": 1
+  },
+  {
+    "name": "one_publisher /tf_static",
+    "passed": true,
+    "count": 1
+  },
+  {
+    "name": "initial_pose",
+    "passed": true
+  },
+  {
+    "name": "forward",
+    "passed": true,
+    "dx": 0.5940000000000004,
+    "dy": 0.0,
+    "dyaw": 0.0,
+    "sim_duration": 3.0
+  },
+  {
+    "name": "lateral",
+    "passed": true,
+    "dx": 0.0,
+    "dy": 0.5940000000000004,
+    "dyaw": 0.0,
+    "sim_duration": 3.0
+  },
+  {
+    "name": "yaw",
+    "passed": true,
+    "dx": 0.0,
+    "dy": 0.0,
+    "dyaw": 0.5909999999999995,
+    "sim_duration": 2.0
+  },
+  {
+    "name": "body_frame_at_90deg",
+    "passed": true,
+    "initial_yaw": 1.5719999999999994,
+    "world_dx": -0.0007197964028420323,
+    "world_dy": 0.5979995668001127,
+    "body_vx": 0.2000000018381768,
+    "body_vy": -5.338802837595826e-09
+  },
+  {
+    "name": "backward",
+    "passed": true,
+    "body_dx": -0.19399999999999562,
+    "body_dy": -3.1002761122223e-16
+  },
+  {
+    "name": "right",
+    "passed": true,
+    "body_dx": 3.1002761122223e-16,
+    "body_dy": -0.19399999999999562
+  },
+  {
+    "name": "zero_command_stop",
+    "passed": true,
+    "stop_wall_seconds": 0.13837077299831435
+  },
+  {
+    "name": "watchdog_stop",
+    "passed": true,
+    "stop_wall_seconds": 0.6092572830020799
+  },
+  {
+    "name": "limits",
+    "passed": true,
+    "max_linear": 0.5000000031587422,
+    "max_angular": 0.4999999888241291
+  },
+  {
+    "name": "nonfinite_command_stop",
+    "passed": true,
+    "stop_wall_seconds": 0.11728024799958803
+  },
+  {
+    "name": "moving_before_pause",
+    "passed": true
+  },
+  {
+    "name": "fresh_scene_pose_while_paused",
+    "passed": true,
+    "messages": 45
+  },
+  {
+    "name": "pause_resume_no_stale_command",
+    "passed": true,
+    "resume_displacement": 0.0,
+    "resume_yaw_change": 0.0,
+    "paused_scene_pose": {
+      "name": "sentry",
+      "id": 7,
+      "position": {
+        "x": -0.1219387403062833,
+        "y": 1.3662201242161427
+      },
+      "orientation": {
+        "z": 0.9999696087981924,
+        "w": 0.007796247814817664
+      }
+    },
+    "resumed_scene_pose": {
+      "name": "sentry",
+      "id": 7,
+      "position": {
+        "x": -0.1219387403062833,
+        "y": 1.3662201242161427
+      },
+      "orientation": {
+        "z": 0.9999696087981924,
+        "w": 0.007796247814817664
+      }
+    }
+  },
+  {
+    "name": "resume_stopped",
+    "passed": true,
+    "stop_wall_seconds": 0.011792168999818387
+  }
+]

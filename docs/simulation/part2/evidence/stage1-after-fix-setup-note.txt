@@ -1,0 +1,1 @@
+QA-only first attempt stopped because the redirected evidence directory did not exist before keyboard transcript creation. Created directory and repeated all checks without changing test logic.

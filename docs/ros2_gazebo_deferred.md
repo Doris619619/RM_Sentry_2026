@@ -2,7 +2,7 @@
 
 # Gazebo validation status
 
-As of 2026-09-26, stage-one Fortress GUI and planar motion validation have passed; see [stage-one report](simulation/ACCEPTANCE.md). Stage-two real lidar, exact map geometry, dual-GUI performance and planning visualization are implemented. Overall acceptance remains incomplete: 9/15 trajectory checks fail due to segment discontinuity, and one RViz shutdown aborted despite full process cleanup. See the [measured stage-two report](simulation/part2/ACCEPTANCE.md).
+As of 2026-09-26, stage-one Fortress GUI and planar motion validation have passed; see [stage-one report](simulation/ACCEPTANCE.md). Stage-two real lidar, exact map geometry, dual-GUI performance and planning visualization are implemented. Following explicit authorization to fix discovered defects, timing/coefficient consistency, acceleration convergence and GUI shutdown ordering have been corrected. All 15 trajectory cases now pass; dual-GUI runtime and repeated clean shutdowns are verified. Automatic tracking remains outside stage two. See the [measured stage-two report](simulation/part2/ACCEPTANCE.md).
 
 ## Historical record (superseded environment status)
 

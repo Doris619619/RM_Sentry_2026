@@ -1,0 +1,22 @@
+{
+  "publishers": {
+    "/clock": 1,
+    "/localization/odometry": 1,
+    "/sim/lidar/points": 1,
+    "/aligned_points": 1,
+    "/tf": 1,
+    "/tf_static": 2,
+    "/cmd_vel": 0
+  },
+  "use_sim_time": {
+    "sentry_gazebo_bridge": true,
+    "sentry_sim_adapter": true,
+    "sentry_cloud_adapter": true,
+    "sentry_map_display": true,
+    "trajectory_generation": true,
+    "rviz": true
+  },
+  "robot_entities": 1,
+  "launch_pid": 37146,
+  "passed": true
+}

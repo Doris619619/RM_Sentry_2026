@@ -1,0 +1,38 @@
+{
+  "passed": true,
+  "checked_cells": 160000,
+  "coverage_mismatches": 0,
+  "mesh_cuboids": 2162,
+  "landmarks": [
+    {
+      "row": 171,
+      "column": 272,
+      "map_x": 0.23099999999999987,
+      "map_y": -0.6539999999999999,
+      "error_m": 0.0
+    },
+    {
+      "row": 211,
+      "column": 140,
+      "map_x": -6.369,
+      "map_y": -2.654,
+      "error_m": 0.0
+    },
+    {
+      "row": 271,
+      "column": 243,
+      "map_x": -1.2189999999999994,
+      "map_y": -5.654,
+      "error_m": 0.0
+    }
+  ],
+  "live_map_matches": true,
+  "spawn": [
+    -0.919,
+    -4.454,
+    0.0
+  ],
+  "real_cloud_points": 1380,
+  "cloud_occupancy_distance_p95": 0.037907996980622666,
+  "cloud_occupancy_distance_max": 0.062038159892760555
+}

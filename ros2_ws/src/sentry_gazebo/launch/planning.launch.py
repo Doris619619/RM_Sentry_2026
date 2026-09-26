@@ -23,7 +23,7 @@ def generate_launch_description():
         parameters=[str(planner_share/'config/global_planning.yaml'),str(planner_share/'config/map_metadata.yaml'),
                     {'use_sim_time':True,'planner.test_random_seed':7}],output='screen',
         condition=IfCondition(LaunchConfiguration('enable_planner')))
-    rviz=Node(package='rviz2',executable='rviz2',arguments=['-d',str(share/'config/planning.rviz')],parameters=[{'use_sim_time':True}],output='screen')
+    rviz=Node(package='sentry_gazebo',executable='rviz_safe',arguments=['-d',str(share/'config/planning.rviz')],parameters=[{'use_sim_time':True}],output='screen')
     processes=[gazebo,bridge,adapter,cloud,display,planner,rviz]
     actions=[DeclareLaunchArgument('enable_planner',default_value='true'),
         SetEnvironmentVariable('IGN_GAZEBO_SYSTEM_PLUGIN_PATH',str(Path(get_package_prefix('sentry_gazebo'))/'lib')),

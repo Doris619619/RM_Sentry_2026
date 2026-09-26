@@ -1,0 +1,50 @@
+[
+  {
+    "cycle": 1,
+    "launch_exit": 0,
+    "stop_wall_seconds": 2.639423975000682,
+    "publishers": {
+      "/clock": 0,
+      "/localization/odometry": 0,
+      "/sim/lidar/points": 0,
+      "/tf": 0,
+      "/tf_static": 0
+    },
+    "remaining": [],
+    "abnormal_exit": false,
+    "rviz_clean": true,
+    "passed": true
+  },
+  {
+    "cycle": 2,
+    "launch_exit": 0,
+    "stop_wall_seconds": 2.440904445000342,
+    "publishers": {
+      "/clock": 0,
+      "/localization/odometry": 0,
+      "/sim/lidar/points": 0,
+      "/tf": 0,
+      "/tf_static": 0
+    },
+    "remaining": [],
+    "abnormal_exit": false,
+    "rviz_clean": true,
+    "passed": true
+  },
+  {
+    "cycle": 3,
+    "launch_exit": 0,
+    "stop_wall_seconds": 2.479159113001515,
+    "publishers": {
+      "/clock": 0,
+      "/localization/odometry": 0,
+      "/sim/lidar/points": 0,
+      "/tf": 0,
+      "/tf_static": 0
+    },
+    "remaining": [],
+    "abnormal_exit": false,
+    "rviz_clean": true,
+    "passed": true
+  }
+]

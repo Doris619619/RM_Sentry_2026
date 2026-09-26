@@ -15,7 +15,7 @@ def generate_launch_description():
         parameters=[{'config_file':str(share/'config/lidar_bridge.yaml'),'use_sim_time':True}],output='screen')
     adapter=Node(package='sentry_gazebo',executable='sim_adapter.py',parameters=[{'use_sim_time':True}],output='screen')
     cloud=Node(package='sentry_gazebo',executable='cloud_adapter.py',parameters=[{'use_sim_time':True}],output='screen')
-    rviz=Node(package='rviz2',executable='rviz2',arguments=['-d',str(share/'config/lidar_probe.rviz')],parameters=[{'use_sim_time':True}],output='screen')
+    rviz=Node(package='sentry_gazebo',executable='rviz_safe',arguments=['-d',str(share/'config/lidar_probe.rviz')],parameters=[{'use_sim_time':True}],output='screen')
     processes=[gazebo,bridge,adapter,cloud,rviz]
     actions=[SetEnvironmentVariable('IGN_GAZEBO_SYSTEM_PLUGIN_PATH',str(Path(get_package_prefix('sentry_gazebo'))/'lib')),
              SetEnvironmentVariable('IGN_GAZEBO_RESOURCE_PATH',str(share/'models')),SetEnvironmentVariable('QT_QPA_PLATFORM','xcb')]

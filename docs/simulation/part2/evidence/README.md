@@ -7,7 +7,7 @@ JSON 为测试或采样脚本生成的原始结果，不插入注释或修改数
 
 - probe.json / m0-performance.json / m0-lidar.png：小场景真实 gpu_lidar 的测距、移动变化及 GUI 性能。
 - map-generation.json / map-validation.json：源地图哈希、生成几何覆盖、地标和真实地图/点云。
-- planning-cases.json：五组各三次的真实仿真起终点、完整多项式系数和时长、采样结果；9 条失败不可删除。
+- planning-cases.json：五组各三次的真实仿真起终点、完整多项式系数和时长、采样结果；当前 15 条全部通过；修复前 9 条失败保留在 planning-cases-before-fix.json。
 - planning-cases-initial-diagnostic.*：初次发现跳变时的一条记录，属诊断历史。
 - planning-performance.json：修正材质与 Marker 后 310 秒双 GUI 性能，含每 5 秒进程树样本。
 - performance-before-rviz-fix.*：显示配置修正前的历史测量，不能替代最终 GUI 验收。
@@ -29,3 +29,15 @@ JSON 为测试或采样脚本生成的原始结果，不插入注释或修改数
 
 录像中的手动控制通过真正的 keyboard.py 终端输入，目标通过 RViz 工具鼠标点击；
 没有播放预制轨迹或生成伪点云。字幕与视频编码不改变仿真数据。
+
+## 修复后新增证据
+
+- planning-cases-timing-only.json：中间版本只恢复连续性，仍有加速度超限；不能用作最终通过结果。
+- fixed-planning-summary.json / planning-cases-final.log：最终 15 次轨迹与加速度检查。
+- timing-tests-before.log / feasibility-tests.xml / feasibility-tests.log：修复前复现失败、最终八项 C++ 回归通过。
+- rviz-crash-main.log / rviz-crash-backtrace.log：旧异常转储的符号栈，未把大型转储放入仓库。
+- orderly-shutdown-*.log / orderly-shutdown.json / fixed-long-run-stop.json：三轮短运行及长时间运行后的正常退出。
+- fixed-performance.* / fixed-final-live.log：最终双 GUI 310 秒性能及完整运行/退出日志。
+- planner-negative-fixed-*.log：修复后的隔离负例复验。
+- stage1-after-fix/ / stage1-fixed-*.log：按最新源码重建后的第一阶段回归。
+- stage2-fixed.png：修复后实际画面；当前 demo-raw.webm 与 demo-events.json 已重录，旧视频在上级 demo-before-fix.mp4。

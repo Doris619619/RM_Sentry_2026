@@ -1,0 +1,36 @@
+Starting >>> waypoint_generator
+Starting >>> sentry_gazebo
+Finished <<< waypoint_generator [0.24s]
+Starting >>> trajectory_generation
+Finished <<< sentry_gazebo [0.32s]
+--- stderr: trajectory_generation
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/reference_path.cpp: In member function ‘void Refenecesmooth::solveTrapezoidalTime()’:
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/reference_path.cpp:82:22: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<Eigen::Matrix<double, 2, 1> >::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+   82 |     for(int i = 0; i < m_global_path.size() - 1; i++)
+      |                    ~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/reference_path.cpp:99:29: warning: variable ‘sample_index’ set but not used [-Wunused-but-set-variable]
+   99 |             Eigen::Vector3i sample_index = global_map->coord2gridIndex(sample_point);
+      |                             ^~~~~~~~~~~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/reference_path.cpp: In member function ‘void Refenecesmooth::getSegmentIndex(double, int&, double&)’:
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/src/reference_path.cpp:337:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<double, std::allocator<double> >::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+  337 |     for (int i = 0; i < m_trapezoidal_time.size(); i++) {
+      |                     ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/include/trajectory_generation/path_smooth.h:9,
+                 from /home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/include/trajectory_generation/plan_manager.h:16,
+                 from /home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:2:
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/include/trajectory_generation/root_solver/minco_trajectory.hpp: In member function ‘void MincoTrajectory::getGradTimes(Eigen::VectorXd&) const’:
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/port/include/trajectory_generation/root_solver/minco_trajectory.hpp:258:26: warning: unused variable ‘Ti4’ [-Wunused-variable]
+  258 |             const double Ti4 = Ti3 * Ti;
+      |                          ^~~
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp: In function ‘void {anonymous}::expectContinuous(const Refenecesmooth&, const std::vector<Eigen::Matrix<double, 2, 1> >&)’:
+/home/liangys/RM_Sentry_2026/ros2_ws/src/trajectory_generation/test/test_legacy_planning.cpp:155:10: warning: suggest explicit braces to avoid ambiguous ‘else’ [-Wdangling-else]
+  155 |       if (i+1<static_cast<int>(reference.m_trapezoidal_time.size()))
+      |          ^
+---
+[Processing: trajectory_generation]
+Finished <<< trajectory_generation [45.0s]
+Starting >>> sentry_bringup
+Finished <<< sentry_bringup [0.17s]
+
+Summary: 4 packages finished [45.8s]
+  1 package had stderr output: trajectory_generation
