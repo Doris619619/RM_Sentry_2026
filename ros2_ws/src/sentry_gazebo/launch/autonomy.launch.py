@@ -36,7 +36,7 @@ def generate_launch_description():
     full_condition=IfCondition(LaunchConfiguration('full_system'))
     truth_enabled=ParameterValue(PythonExpression(["'",LaunchConfiguration('localization'),"' == 'truth'"]),value_type=bool)
     world=resource('physics',share/'worlds/sentry_2024_physics.sdf',share/'worlds/sentry_2024.sdf')
-    gazebo=ExecuteProcess(cmd=['ign','gazebo','-r','-v','3',world,'--gui-config',str(share/'config/autonomy-gui.config')],output='screen')
+    gazebo=ExecuteProcess(cmd=['ign','gazebo','-r','-v','3',world],output='screen')
     bridge=Node(package='ros_gz_bridge',executable='parameter_bridge',name='sentry_gazebo_bridge',
         parameters=[{'config_file':resource('full_system',share/'config/full_bridge.yaml',share/'config/lidar_bridge.yaml'),'use_sim_time':True}],output='screen')
     adapter=Node(package='sentry_gazebo',executable='sim_adapter.py',parameters=[{'use_sim_time':True,'publish_truth':truth_enabled}],output='screen')
