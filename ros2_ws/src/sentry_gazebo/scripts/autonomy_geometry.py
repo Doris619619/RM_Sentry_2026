@@ -6,6 +6,7 @@ import numpy as np
 import yaml
 from PIL import Image
 from ament_index_python.packages import get_package_share_directory
+from simulation_map import map_paths, map_filenames
 
 class StaticSafetyGrid:
     # Accept an explicit mask for isolated tests; runtime loads immutable planner maps and metadata.
@@ -17,12 +18,12 @@ class StaticSafetyGrid:
     # Preserve the production integer disk inflation rule; autonomous planning may reserve extra clearance.
     @classmethod
     def load(cls):
-        share=Path(get_package_share_directory('trajectory_generation'))
-        metadata=yaml.safe_load((share/'config/map_metadata.yaml').read_text())
+        _, maps, metadata_path, _ = map_paths()
+        metadata=yaml.safe_load(metadata_path.read_text())
         params=metadata['trajectory_generation']['ros__parameters']
         resolution=params['planner.map_resolution']
         radius=int(params['planner.robot_radius']/resolution)
-        raw=np.asarray(Image.open(share/'map/occfinal.png'))
+        raw=np.asarray(Image.open(maps/map_filenames(maps)['occupancy']))
         if raw.ndim==3:raw=raw[:,:,0]
         occupied=raw>10;mask=occupied.copy();height,width=mask.shape
         for dr in range(-radius,radius+1):
@@ -67,18 +68,21 @@ class StaticSafetyGrid:
 
 class DynamicSafetyGrid(StaticSafetyGrid):
     # Identify new geometry against raw walls, not the much wider robot inflation mask.
-    def __init__(self):
+    def __init__(self, clearance_m=.40, wall_tolerance_m=.10):
         base=StaticSafetyGrid.load()
         super().__init__(np.zeros_like(base.mask),base.resolution,base.lower)
-        share=Path(get_package_share_directory('trajectory_generation'))
-        raw=np.asarray(Image.open(share/'map/occfinal.png'))
+        _, maps, _, _ = map_paths()
+        raw=np.asarray(Image.open(maps/map_filenames(maps)['occupancy']))
         if raw.ndim==3:raw=raw[:,:,0]
         self.known=raw>10
-        known=self.known.copy()
-        for dr in range(-2,3):
-            for dc in range(-2,3):
-                if dr*dr+dc*dc>4:continue
-                r0=max(0,dr);r1=min(400,400+dr);c0=max(0,dc);c1=min(400,400+dc)
+        known=self.known.copy();height,width=self.mask.shape
+        # Fixed physical clearances must not double when the map resolution changes.
+        self.clearance_cells=int(math.ceil(clearance_m/self.resolution-1e-9))
+        wall_cells=int(math.ceil(wall_tolerance_m/self.resolution-1e-9))
+        for dr in range(-wall_cells,wall_cells+1):
+            for dc in range(-wall_cells,wall_cells+1):
+                if dr*dr+dc*dc>wall_cells*wall_cells:continue
+                r0=max(0,dr);r1=min(height,height+dr);c0=max(0,dc);c1=min(width,width+dc)
                 known[r0:r1,c0:c1]|=self.known[r0-dr:r1-dr,c0-dc:c1-dc]
         self.known=known
         self.seen=np.full(self.mask.shape,-math.inf)
@@ -93,17 +97,19 @@ class DynamicSafetyGrid(StaticSafetyGrid):
         xyz=xyz[np.isfinite(xyz).all(axis=1)&(xyz[:,2]>.15)&(xyz[:,2]<1.2)]
         col=np.floor((xyz[:,0]-self.lower[0])/self.resolution).astype(int)
         row=self.mask.shape[0]-1-np.floor((xyz[:,1]-self.lower[1])/self.resolution).astype(int)
-        inside=(row>=0)&(row<400)&(col>=0)&(col<400)
+        height,width=self.mask.shape
+        inside=(row>=0)&(row<height)&(col>=0)&(col<width)
         row,col=row[inside],col[inside]
         unknown=~self.known[row,col];row,col=row[unknown],col[unknown]
         self.point_count=len(row)
         self.seen[row,col]=stamp
         rows,cols=np.where(stamp-self.seen<=1.)
         self.mask[:]=False
-        # 0.35 m circular footprint plus one cell covers discretization of a measured surface.
-        for dr in range(-8,9):
-            for dc in range(-8,9):
-                if dr*dr+dc*dc>64:continue
+        # Preserve the 0.40 m dynamic protection radius in metres on either map.
+        radius=self.clearance_cells
+        for dr in range(-radius,radius+1):
+            for dc in range(-radius,radius+1):
+                if dr*dr+dc*dc>radius*radius:continue
                 rr,cc=rows+dr,cols+dc
-                keep=(rr>=0)&(rr<400)&(cc>=0)&(cc<400)
+                keep=(rr>=0)&(rr<height)&(cc>=0)&(cc<width)
                 self.mask[rr[keep],cc[keep]]=True

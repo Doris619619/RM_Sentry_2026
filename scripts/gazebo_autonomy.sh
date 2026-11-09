@@ -20,7 +20,8 @@ if [[ "$MODE" == build ]]; then
   export CMAKE_BUILD_PARALLEL_LEVEL=2
   colcon --log-base log_sentry_autonomy build --build-base build_sentry_autonomy --install-base install_sentry_autonomy \
     --base-paths src/decision_node src/sentry_gazebo src/sentry_bringup src/trajectory_generation src/waypoint_generator src/trajectory_tracking \
-    --parallel-workers 2 --cmake-args -DBUILD_TESTING=ON -DCMAKE_BUILD_TYPE=Release
+    --parallel-workers 2 --cmake-args -DBUILD_TESTING=ON -DCMAKE_BUILD_TYPE=Release \
+    -DOpenCV_DIR="/usr/lib/$(gcc -dumpmachine)/cmake/opencv4"
   exit
 fi
 if [[ ! -f "$WS/install_sentry_autonomy/local_setup.bash" ]]; then

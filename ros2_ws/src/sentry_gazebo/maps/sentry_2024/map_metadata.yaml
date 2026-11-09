@@ -1,0 +1,40 @@
+# Shared RMUC2024 coordinates; extents cover exactly the 301 by 161 image cells.
+trajectory_generation:
+  ros__parameters:
+    planner.map_resolution: 0.1
+    planner.map_x_size: 30.1
+    planner.map_y_size: 16.1
+    planner.map_z_size: 2.0
+    planner.map_lower_x: 0.0
+    planner.map_lower_y: 0.0
+    planner.map_lower_z: 0.0
+    planner.robot_radius: 0.35
+    planner.robot_radius_dash: 0.35
+    planner.search_height_min: -0.3
+    planner.search_height_max: 1.2
+    planner.search_radius: 6.0
+    planner.height_bias: -0.5
+    planner.height_interval: 2.0
+    planner.height_threshold: 0.1
+    planner.height_second_high_threshold: 0.3
+    planner.replan_cooldown_seconds: 1.0
+    planner.deviation_replan_distance: 1.0
+    maps.expected_width: 301
+    maps.expected_height: 161
+trajectory_tracking:
+  ros__parameters:
+    map.resolution: 0.1
+    map.x_size: 30.1
+    map.y_size: 16.1
+    map.z_size: 2.0
+    map.lower_x: 0.0
+    map.lower_y: 0.0
+    map.lower_z: 0.0
+    map.robot_radius: 0.35
+    map.search_height_min: -0.3
+    map.search_height_max: 1.2
+    map.search_radius: 6.0
+    map.height_bias: -0.5
+    map.height_interval: 2.0
+    map.height_threshold: 0.1
+    map.height_second_high_threshold: 0.3

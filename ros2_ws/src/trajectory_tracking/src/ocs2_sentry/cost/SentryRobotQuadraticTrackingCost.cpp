@@ -18,5 +18,5 @@ ocs2::vector_t SentryRobotStateFinalQuadraticCost::getStateDeviation(ocs2::scala
                                                                                                      const ocs2::TargetTrajectories& targetTrajectories) const
 {
     const ocs2::vector_t xNominal = targetTrajectories.getDesiredState(time);
-    return {state - xNominal};
+    return state - xNominal;
 }

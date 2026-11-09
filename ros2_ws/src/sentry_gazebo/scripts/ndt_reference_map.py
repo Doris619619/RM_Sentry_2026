@@ -7,10 +7,15 @@ import yaml
 from PIL import Image
 
 # Sample exposed cell faces and the ground plane in the original map coordinates.
-def generate(root,output):
+def generate(root,output,map_directory=None,metadata_file=None):
     source=root/'ros2_ws/src/trajectory_generation'
-    metadata=yaml.safe_load((source/'config/map_metadata.yaml').read_text())['trajectory_generation']['ros__parameters']
-    raw=np.asarray(Image.open(source/'map/occfinal.png'))
+    map_directory=map_directory or source/'map'
+    metadata_file=metadata_file or source/'config/map_metadata.yaml'
+    metadata=yaml.safe_load(metadata_file.read_text())['trajectory_generation']['ros__parameters']
+    map_manifest=map_directory/'map_manifest.json'
+    map_files=json.loads(map_manifest.read_text()).get('map_files',{}) if map_manifest.is_file() else {}
+    occupancy_file=map_directory/map_files.get('occupancy','occfinal.png')
+    raw=np.asarray(Image.open(occupancy_file))
     if raw.ndim==3:raw=raw[:,:,0]
     occupied=raw>10;h,w=occupied.shape;r=metadata['planner.map_resolution']
     lower=np.array([metadata['planner.map_lower_x'],metadata['planner.map_lower_y']])
@@ -33,11 +38,13 @@ def generate(root,output):
         f'WIDTH {len(points)}\nHEIGHT 1\nVIEWPOINT 0 0 0 1 0 0 0\nPOINTS {len(points)}\nDATA binary\n').encode()
     output.parent.mkdir(parents=True,exist_ok=True);output.write_bytes(header+points.tobytes())
     provenance={'purpose':'reference geometry only; lidar observations remain Gazebo sensor data',
-        'occupancy_sha256':hashlib.sha256((source/'map/occfinal.png').read_bytes()).hexdigest(),
+        'occupancy_file':occupancy_file.name,
+        'occupancy_sha256':hashlib.sha256(occupancy_file.read_bytes()).hexdigest(),
         'pcd_sha256':hashlib.sha256(output.read_bytes()).hexdigest(),'points':len(points),'height_m':1.,
         'resolution_m':r,'lower':lower.tolist(),'intensity':'zero placeholder, not a modeled sensor intensity'}
     output.with_suffix('.json').write_text(json.dumps(provenance,indent=2));print(json.dumps(provenance))
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('--output',type=Path,required=True);args=parser.parse_args()
-    generate(Path(__file__).resolve().parents[4],args.output)
+    parser=argparse.ArgumentParser();parser.add_argument('--output',type=Path,required=True)
+    parser.add_argument('--map-directory',type=Path);parser.add_argument('--metadata',type=Path);args=parser.parse_args()
+    generate(Path(__file__).resolve().parents[4],args.output,args.map_directory,args.metadata)

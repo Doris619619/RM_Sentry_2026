@@ -15,7 +15,7 @@ Visualization Manager:
       Value: /sim/map
       Durability Policy: Transient Local
       Reliability Policy: Reliable
-    Alpha: 0.7
+    Alpha: 0.45
   - Class: rviz_default_plugins/Grid
     Name: Grid
     Enabled: true
@@ -25,7 +25,7 @@ Visualization Manager:
     Name: Robot frames
     Enabled: true
   - Class: rviz_default_plugins/PointCloud2
-    Name: Real lidar returns
+    Name: Simulated lidar (live)
     Enabled: true
     Topic:
       Value: /aligned_points
@@ -84,7 +84,7 @@ Visualization Manager:
     Current:
       Class: rviz_default_plugins/Orbit
       Distance: 20
-      Pitch: 1.5
+      Pitch: 0.85
       Yaw: 1.57
       Focal Point:
         X: -2

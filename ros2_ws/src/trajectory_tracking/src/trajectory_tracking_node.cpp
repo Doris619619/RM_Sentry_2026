@@ -1,3 +1,4 @@
+// Run the OCS2 tracker against explicit map, odometry and polynomial trajectory interfaces.
 #include <algorithm>
 #include <array>
 #include <cmath>
@@ -52,6 +53,7 @@ bool isFinite(double v) { return std::isfinite(v); }
 
 class TrajectoryTrackingNode final : public rclcpp::Node {
  public:
+  // Validate map resources before initializing the tracker; ROS remapping selects input providers.
   TrajectoryTrackingNode() : Node("trajectory_tracking") {
     const auto defaultTask = ament_index_cpp::get_package_share_directory("trajectory_tracking") + "/cfg/task.info";
     taskFile_ = declare_parameter<std::string>("task_file", defaultTask);
@@ -95,6 +97,10 @@ class TrajectoryTrackingNode final : public rclcpp::Node {
     // ROS2 owns the subscriptions; the compatibility NodeHandle is only the original
     // algorithm's parameter carrier.
     const auto globalPlanningShare = ament_index_cpp::get_package_share_directory("trajectory_generation");
+    const auto mapDirectory = declare_parameter<std::string>("maps.directory", globalPlanningShare + "/map");
+    const auto occupancyFile = declare_parameter<std::string>("maps.occupancy", "occfinal.png");
+    const auto bevFile = declare_parameter<std::string>("maps.bev", "bevfinal.png");
+    const auto topologyFile = declare_parameter<std::string>("maps.topology", "occtopo.png");
     const double mapResolution = declare_parameter<double>("map.resolution", 0.05);
     const double mapXSize = declare_parameter<double>("map.x_size", 20.0);
     const double mapYSize = declare_parameter<double>("map.y_size", 20.0);
@@ -115,6 +121,13 @@ class TrajectoryTrackingNode final : public rclcpp::Node {
         mapHeightInterval <= 0.0) {
       throw std::invalid_argument("invalid shared map metadata");
     }
+    for (const auto& file : {occupancyFile, bevFile, topologyFile}) {
+      const auto image = cv::imread(mapDirectory + "/" + file, cv::IMREAD_UNCHANGED);
+      if (image.empty() || std::abs(image.cols * mapResolution - mapXSize) > 1e-8 ||
+          std::abs(image.rows * mapResolution - mapYSize) > 1e-8) {
+        throw std::invalid_argument("tracking map extents must match the OCC/BEV/Topo raster: " + file);
+      }
+    }
     ros::NodeHandle mapParameters;
     mapParameters.setParam("trajectory_generator/height_bias", mapHeightBias);
     mapParameters.setParam("trajectory_generator/height_interval", mapHeightInterval);
@@ -124,8 +137,8 @@ class TrajectoryTrackingNode final : public rclcpp::Node {
     const Eigen::Vector3d mapUpper = mapLower + Eigen::Vector3d(mapXSize, mapYSize, mapZSize);
     gridMap_ = std::make_unique<TrackingGridMap>();
     gridMap_->initGridMap(
-      mapParameters, globalPlanningShare + "/map/occfinal.png",
-      globalPlanningShare + "/map/bevfinal.png", globalPlanningShare + "/map/occtopo.png",
+      mapParameters, mapDirectory + "/" + occupancyFile,
+      mapDirectory + "/" + bevFile, mapDirectory + "/" + topologyFile,
       mapResolution, mapLower, mapUpper,
       static_cast<int>(std::lround(mapXSize / mapResolution)),
       static_cast<int>(std::lround(mapYSize / mapResolution)),
@@ -140,7 +153,7 @@ class TrajectoryTrackingNode final : public rclcpp::Node {
       "/global_trajectory", rclcpp::QoS(10).reliable(),
       std::bind(&TrajectoryTrackingNode::trajectoryCallback, this, std::placeholders::_1));
     odometrySub_ = create_subscription<nav_msgs::msg::Odometry>(
-      "/localization/odometry", rclcpp::QoS(5).reliable(),
+      "/localization/odometry", rclcpp::SensorDataQoS(),
       std::bind(&TrajectoryTrackingNode::odometryCallback, this, std::placeholders::_1));
     alignedPointsSub_ = create_subscription<sensor_msgs::msg::PointCloud2>(
       "/aligned_points", rclcpp::SensorDataQoS(),
@@ -270,7 +283,11 @@ class TrajectoryTrackingNode final : public rclcpp::Node {
     return trajectory_tracking::samplePolynomial(trajectory, elapsed, state);
   }
 
+  // External localization supplies a map pose and body twist; do not reinterpret another frame.
   void odometryCallback(const nav_msgs::msg::Odometry::SharedPtr odometry) {
+    if (odometry->header.frame_id != "map" || odometry->child_frame_id != "base_link") {
+      stop("odometry frame contract requires map/base_link"); return;
+    }
     trajectory_tracking::Polynomial current;
     rclcpp::Time start;
     { std::lock_guard<std::mutex> lock(mutex_); current = trajectory_; start = trajectoryStart_; }

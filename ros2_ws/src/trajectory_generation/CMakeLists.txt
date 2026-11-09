@@ -63,13 +63,15 @@ target_link_libraries(trajectory_generator_node "${cpp_typesupport_target}")
 
 install(DIRECTORY port/include/trajectory_generation/
   DESTINATION include/${PROJECT_NAME})
-install(DIRECTORY config launch rviz map test docs DESTINATION share/${PROJECT_NAME})
+install(DIRECTORY config launch rviz map test docs python DESTINATION share/${PROJECT_NAME})
 install(TARGETS ${PROJECT_NAME}_legacy_algorithms trajectory_generator_node
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
+  find_package(Python3 REQUIRED COMPONENTS Interpreter)
+  add_test(NAME test_map_profile COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/test/test_map_profile.py)
   ament_add_gtest(test_legacy_planning test/test_legacy_planning.cpp)
   target_link_libraries(test_legacy_planning ${PROJECT_NAME}_legacy_algorithms)
   target_compile_definitions(test_legacy_planning PRIVATE

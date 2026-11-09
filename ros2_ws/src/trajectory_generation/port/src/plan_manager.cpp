@@ -4,6 +4,7 @@
 //
 #include "trajectory_generation/plan_manager.h"
 
+// Initialize the legacy algorithms with one validated raster geometry and rounded cell counts.
 void planner_manager::init(ros::NodeHandle &nh)
 {
     nh.param("trajectory_generator/reference_v_max", reference_v_max, 2.8);
@@ -51,9 +52,10 @@ void planner_manager::init(ros::NodeHandle &nh)
     map_upper_point(0) = map_lower_point(0) + map_x_size;
     map_upper_point(1) = map_lower_point(1) + map_y_size;
     map_upper_point(2) = map_lower_point(2) + map_z_size;
-    grid_max_id_x = (int)(map_x_size * map_inv_resolution);
-    grid_max_id_y = (int)(map_y_size * map_inv_resolution);
-    grid_max_id_z = (int)(map_z_size * map_inv_resolution);
+    // YAML extents are integral cell counts; avoid truncating floating-point products.
+    grid_max_id_x = static_cast<int>(std::lround(map_x_size * map_inv_resolution));
+    grid_max_id_y = static_cast<int>(std::lround(map_y_size * map_inv_resolution));
+    grid_max_id_z = static_cast<int>(std::lround(map_z_size * map_inv_resolution));
 
     global_map.reset(new GlobalMap);
     global_map->initGridMap(nh, occ_file_path, bev_file_path, distance_map_file_path, map_resolution,

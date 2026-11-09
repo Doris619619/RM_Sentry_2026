@@ -60,3 +60,8 @@ ros2_ws/log_sentry_sim2/
 ros2_ws/build_sentry_autonomy/
 ros2_ws/install_sentry_autonomy/
 ros2_ws/log_sentry_autonomy/
+
+# Simulation dependency underlay.
+ros2_ws/build_sim_deps/
+ros2_ws/install_sim_deps/
+ros2_ws/log/

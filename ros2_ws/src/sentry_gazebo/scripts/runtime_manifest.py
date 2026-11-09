@@ -35,9 +35,10 @@ def main():
             directory=base/name
             if directory.exists():
                 paths.update(f for f in directory.rglob('*') if f.is_file() and '__pycache__' not in str(f))
-    maps=root/'ros2_ws/src/trajectory_generation/map'
-    paths.update(maps/name for name in ['occfinal.png','bevfinal.png','occtopo.png'])
-    paths.add(root/'ros2_ws/install_sentry_autonomy/sentry_gazebo/share/sentry_gazebo/maps/ndt_reference.pcd')
+    maps=root/'ros2_ws/src/sentry_gazebo/maps/sentry_2024'
+    map_manifest=json.loads((maps/'map_manifest.json').read_text())
+    paths.update(maps/name for name in map_manifest['source_sha256'])
+    paths.add(root/'ros2_ws/install_sentry_autonomy/sentry_gazebo/share/sentry_gazebo/maps/ndt_sentry_2024.pcd')
     output={'head':subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip(),
             'dirty':subprocess.check_output(['git','status','--short','--untracked-files=no'],cwd=root,text=True),
             'launch_pid':args.pid,'processes':processes,

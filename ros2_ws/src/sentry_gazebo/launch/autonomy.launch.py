@@ -1,5 +1,7 @@
 """Launch staged navigation or the complete simulated serial/decision/physical navigation chain."""
 from pathlib import Path
+import sys
+import yaml
 from ament_index_python.packages import get_package_share_directory,get_package_prefix
 from launch import LaunchDescription
 from launch.actions import ExecuteProcess,SetEnvironmentVariable,RegisterEventHandler,EmitEvent,DeclareLaunchArgument,IncludeLaunchDescription,OpaqueFunction
@@ -10,6 +12,8 @@ from launch.conditions import IfCondition
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.parameter_descriptions import ParameterValue
 from launch_ros.actions import Node
+sys.path.insert(0, str(Path(get_package_share_directory('trajectory_generation')) / 'python'))
+from sentry_map_profile import load_profile
 
 # Choose a resource without evaluating launch substitutions before launch context exists.
 def resource(flag,yes,no):
@@ -28,27 +32,33 @@ def generate_launch_description():
     planner_share=Path(get_package_share_directory('trajectory_generation'))
     tracking_share=Path(get_package_share_directory('trajectory_tracking'))
     decision_share=Path(get_package_share_directory('decision_node'))
+    profile=share/'maps/sentry_2024'
+    validated_map=load_profile(profile)
+    scene=yaml.safe_load((profile/'scene.yaml').read_text())
+    map_files=scene['map_files']
     ndt_condition=IfCondition(PythonExpression(["'",LaunchConfiguration('localization'),"' == 'ndt'"]))
     full_condition=IfCondition(LaunchConfiguration('full_system'))
     truth_enabled=ParameterValue(PythonExpression(["'",LaunchConfiguration('localization'),"' == 'truth'"]),value_type=bool)
-    world=resource('physics',share/'worlds/planning_physics.sdf',share/'worlds/planning.sdf')
-    gazebo=ExecuteProcess(cmd=['ign','gazebo','-r','-v','3',world,'--gui-config',str(share/'config/autonomy-gui.config')],output='screen')
+    world=resource('physics',share/'worlds/sentry_2024_physics.sdf',share/'worlds/sentry_2024.sdf')
+    gazebo=ExecuteProcess(cmd=['ign','gazebo','-r','-v','3',world],output='screen')
     bridge=Node(package='ros_gz_bridge',executable='parameter_bridge',name='sentry_gazebo_bridge',
         parameters=[{'config_file':resource('full_system',share/'config/full_bridge.yaml',share/'config/lidar_bridge.yaml'),'use_sim_time':True}],output='screen')
     adapter=Node(package='sentry_gazebo',executable='sim_adapter.py',parameters=[{'use_sim_time':True,'publish_truth':truth_enabled}],output='screen')
     cloud=Node(package='sentry_gazebo',executable='cloud_adapter.py',parameters=[{'use_sim_time':True}],output='screen')
     display=Node(package='sentry_gazebo',executable='map_display.py',parameters=[{'use_sim_time':True}],output='screen')
     planner=Node(package='trajectory_generation',executable='trajectory_generator_node',name='trajectory_generation',
-        parameters=[str(planner_share/'config/global_planning.yaml'),str(planner_share/'config/map_metadata.yaml'),
-                    str(share/'config/autonomy.yaml'),{'use_sim_time':True,'planner.test_random_seed':7,
+        parameters=[str(planner_share/'config/global_planning.yaml'),validated_map.parameters('trajectory_generation'),
+                    str(share/'config/autonomy.yaml'),{'use_sim_time':True,'planner.test_random_seed':7,'maps.directory':str(profile),
+                    'maps.occupancy':map_files['occupancy'],'maps.bev':map_files['bev'],'maps.topology':map_files['topology'],
                     'planner.reference_desire_speed':ParameterValue(PythonExpression(["0.25 if '",LaunchConfiguration('full_system'),"' == 'true' else 0.3"]),value_type=float),
                     'planner.reference_desire_speed_xtl':ParameterValue(PythonExpression(["0.25 if '",LaunchConfiguration('full_system'),"' == 'true' else 0.3"]),value_type=float),
                     'planner.reference_v_max':ParameterValue(PythonExpression(["0.35 if '",LaunchConfiguration('full_system'),"' == 'true' else 0.45"]),value_type=float)}],output='screen',
         condition=IfCondition(LaunchConfiguration('enable_planner')))
-    rviz=Node(package='sentry_gazebo',executable='rviz_safe',arguments=['-d',str(share/'config/autonomy.rviz')],parameters=[{'use_sim_time':True}],output='screen')
+    rviz=Node(package='sentry_gazebo',executable='rviz_safe',arguments=['-d',str(share/'config/sentry_2024.rviz')],parameters=[{'use_sim_time':True}],output='screen')
     tracking=Node(package='trajectory_tracking',executable='trajectory_tracking_node',name='trajectory_tracking',
-        parameters=[str(tracking_share/'config/tracking.yaml'),str(planner_share/'config/map_metadata.yaml'),
-                    str(share/'config/autonomy.yaml'),{'use_sim_time':True,
+        parameters=[str(tracking_share/'config/tracking.yaml'),validated_map.parameters('trajectory_tracking'),
+                    str(share/'config/autonomy.yaml'),{'use_sim_time':True,'maps.directory':str(profile),
+                    'maps.occupancy':map_files['occupancy'],'maps.bev':map_files['bev'],'maps.topology':map_files['topology'],
                     'output.max_speed':ParameterValue(PythonExpression(["0.35 if '",LaunchConfiguration('full_system'),"' == 'true' else 0.45"]),value_type=float),
                     'arrival.distance':ParameterValue(PythonExpression(["0.06 if '",LaunchConfiguration('localization'),"' == 'ndt' else 0.12"]),value_type=float)}],output='screen')
     hit=Node(package='trajectory_tracking',executable='hit_bridge',parameters=[
@@ -58,10 +68,12 @@ def generate_launch_description():
         'arrival_distance':ParameterValue(PythonExpression(["0.08 if '",LaunchConfiguration('localization'),"' == 'ndt' else 0.15"]),value_type=float)}],output='screen')
     estimated=Node(package='sentry_gazebo',executable='estimated_odometry.py',parameters=[{'use_sim_time':True}],condition=ndt_condition,output='screen')
     ndt=IncludeLaunchDescription(PythonLaunchDescriptionSource(str(share/'launch/ndt_probe.launch.py')),condition=ndt_condition,
-        launch_arguments={'ndt_search':resource('full_system','KDTREE','DIRECT7')}.items())
+        launch_arguments={'ndt_search':resource('full_system','KDTREE','DIRECT7'),
+            'reference_map':str(share/'maps/ndt_sentry_2024.pcd'),
+            'init_x':str(scene['ndt_initial'][0]),'init_y':str(scene['ndt_initial'][1])}.items())
     serial=Node(package='sentry_gazebo',executable='pty_mcu_sim.py',parameters=[{'use_sim_time':True}],condition=full_condition,output='screen')
     decision=Node(package='decision_node',executable='strategy_node',name='strategy_node',
-        parameters=[str(decision_share/'config/decision.yaml'),str(share/'config/full_decision.yaml'),{'use_sim_time':True}],
+        parameters=[str(decision_share/'config/decision.yaml'),str(profile/'decision.yaml'),{'use_sim_time':True}],
         remappings=[('/clicked_point','/sim/decision_goal')],condition=full_condition,output='screen')
     router=Node(package='sentry_gazebo',executable='decision_goal_router.py',parameters=[{'use_sim_time':True}],condition=full_condition,output='screen')
     processes=[estimated,gazebo,bridge,adapter,cloud,display,planner,rviz,tracking,hit,guard,serial,decision,router]
@@ -69,6 +81,7 @@ def generate_launch_description():
         DeclareLaunchArgument('physics',default_value='false',choices=['true','false']),
         DeclareLaunchArgument('full_system',default_value='false',choices=['true','false']),
         DeclareLaunchArgument('enable_planner',default_value='true'),OpaqueFunction(function=validate),
+        SetEnvironmentVariable('SENTRY_SIM_MAP',str(profile)),
         SetEnvironmentVariable('IGN_GAZEBO_SYSTEM_PLUGIN_PATH',str(Path(get_package_prefix('sentry_gazebo'))/'lib')),
         SetEnvironmentVariable('IGN_GAZEBO_RESOURCE_PATH',str(share/'models')),SetEnvironmentVariable('QT_QPA_PLATFORM','xcb')]
     for process in processes:

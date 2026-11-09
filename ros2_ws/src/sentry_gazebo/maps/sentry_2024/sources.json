@@ -1,0 +1,31 @@
+{
+  "repository": "https://github.com/zzt-180/sentry_planning",
+  "branch": "master",
+  "commit": "b9349d2ada3fe0299ccae9d1e483d5f3b79b1cc8",
+  "license": "MIT",
+  "files": {
+    "occ2024low.png": {
+      "path": "src/sentry_planning/trajectory_generation/map/occ2024low.png",
+      "git_blob_sha": "07675574c33995de9197a9714452df3ae084ec7b"
+    },
+    "bev2024low.png": {
+      "path": "src/sentry_planning/trajectory_generation/map/bev2024low.png",
+      "git_blob_sha": "de32d8509ddcc8fe4aaf6ebac693e516bd6ea88a"
+    },
+    "occtopo2024low.png": {
+      "path": "src/sentry_planning/trajectory_generation/map/occtopo2024low.png",
+      "git_blob_sha": "4baf7ff8fb05bfffb1ac1b495ebf370386f3fdd7"
+    },
+    "source/rmuc_static.world": {
+      "path": "src/sentry_gazebo_2024/RMchangdi1230/world/rmuc_static.world",
+      "git_blob_sha": "ae03793700a74504d657b79987273c4893919ce0"
+    },
+    "source/RMUC2024_field_base_link.STL.gz": {
+      "path": "src/sentry_gazebo_2024/RMchangdi1230/meshes/base_link.STL",
+      "git_blob_sha": "e9f1f9332c812ef44f2660abb8b6d356261fc25a",
+      "sha256": "87cde692fd24481381ecee5e26dfdb46fef75da051a5a873016f85186f4bd36b",
+      "compressed_sha256": "e2713773447fdafbfc7dde36a254715a41cf69f1c1302cb095a2acce19c25437",
+      "compression": "gzip; decompressed bytes are the original GitHub file"
+    }
+  }
+}

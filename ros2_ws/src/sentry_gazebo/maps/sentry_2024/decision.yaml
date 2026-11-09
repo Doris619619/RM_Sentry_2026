@@ -1,0 +1,20 @@
+strategy_node:
+  ros__parameters:
+    central_threshold: 999
+    publish_on_change_only: false
+    goals.occupy.point_0.x: 4.95
+    goals.occupy.point_0.y: 7.55
+    goals.occupy.point_1.x: 15.45
+    goals.occupy.point_1.y: 8.35
+    goals.occupy.point_2.x: 24.95
+    goals.occupy.point_2.y: 7.65
+    goals.occupy.point_3.x: 14.65
+    goals.occupy.point_3.y: 12.75
+    goals.supply.x: 4.95
+    goals.supply.y: 7.55
+    goals.waitforop.x: 4.95
+    goals.waitforop.y: 7.55
+    goals.retreat.x: 4.95
+    goals.retreat.y: 7.55
+    goals.radical.x: 4.95
+    goals.radical.y: 7.55

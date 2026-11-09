@@ -1,0 +1,23 @@
+{
+  "name": "RMUC2024",
+  "source_commit": "b9349d2ada3fe0299ccae9d1e483d5f3b79b1cc8",
+  "resolution": 0.1,
+  "lower": [0.0, 0.0],
+  "shape": [161, 301],
+  "map_files": {
+    "occupancy": "occ2024low.png",
+    "bev": "bev2024low.png",
+    "topology": "occtopo2024low.png"
+  },
+  "source_sha256": {
+    "occ2024low.png": "ccd54ae1c7d56a15b9fe8ca7c18c3ed044aa26b6004ba4baaf76598a92d18b0d",
+    "bev2024low.png": "cf4131e74df41ed773262159b15653304738c4e3c1c75453a903914fcc0232e3",
+    "occtopo2024low.png": "0910a122673420628777003c2953606540fef2852ae66152b05266da647af98a",
+    "map_metadata.yaml": "2c414988ead1b978afe84994840ccbb3f5c2c7a7102e05cd61cc18f38c5396a4",
+    "scene.yaml": "2fcf11e12af0972118a72b95fac79c0ca0c81599e975d08b0668dabe209aa62f",
+    "decision.yaml": "2e4f2b63452162442c7573c013ed137d8786109b9352b486a0c9ee09dac75f47",
+    "sources.json": "976dc94cf6d88530ac2d923f2e44bf4e22660324a95459805940ae602c4c76a9",
+    "source/rmuc_static.world": "cdaf4b53fd6a5bd6604605013f8e39ed1792b6bce54c488f2f043a72264cd103",
+    "source/RMUC2024_field_base_link.STL.gz": "e2713773447fdafbfc7dde36a254715a41cf69f1c1302cb095a2acce19c25437"
+  }
+}
