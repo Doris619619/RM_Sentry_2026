@@ -1,0 +1,186 @@
+{
+  "description": "2026-11-09 step-two navigation smoke tests, not a planning benchmark. Includes the rejected route. Full traces retained in the local evidence directory.",
+  "environment": {
+    "os": "Ubuntu 22.04",
+    "ros": "Humble",
+    "gazebo": "Fortress",
+    "map": "RMUC2024",
+    "localization": "Gazebo truth",
+    "plant": "ideal omnidirectional",
+    "cloud": "simulated GPU lidar transformed to map",
+    "domain": 46
+  },
+  "runs": [
+    {
+      "goal": [
+        4.95,
+        7.55
+      ],
+      "passed": true,
+      "duration": 3.3640043330005938,
+      "endpoint_error": 0.11633809230048285,
+      "max_speed": 0.16447962419321438,
+      "occupied_samples": 0,
+      "odom_frame": "map",
+      "child_frame": "base_link",
+      "cloud_frame": "map",
+      "status": {
+        "mode": "auto",
+        "state": "arrived",
+        "reason": "position and measured speed settled for 0.5 s"
+      },
+      "trajectories": 1,
+      "unsafe_references": 0,
+      "run": "goal-1",
+      "sample_count": 169,
+      "first_sample": {
+        "time": 15.64,
+        "x": 5.0,
+        "y": 8.0,
+        "speed": 0.0
+      },
+      "last_sample": {
+        "time": 19.0,
+        "x": 4.941404437320311,
+        "y": 7.666020119041204,
+        "speed": 0.0
+      },
+      "raw_trace_sha256": "4ccaa8777b8da453c3d7880c30e131ff12cd0d15e10e0e82aabc01bfc5a67313",
+      "phase": "initial_smoke_and_diagnosis"
+    },
+    {
+      "goal": [
+        15.45,
+        8.35
+      ],
+      "passed": false,
+      "duration": 180.20562522599994,
+      "endpoint_error": 10.530831362125577,
+      "max_speed": 0.0,
+      "occupied_samples": 0,
+      "odom_frame": "map",
+      "child_frame": "base_link",
+      "cloud_frame": "map",
+      "status": {
+        "mode": "auto",
+        "state": "stopped",
+        "reason": "reference intersects occupied footprint grid"
+      },
+      "trajectories": 0,
+      "unsafe_references": 0,
+      "error": "Navigation acceptance failed; see the recorded measurements",
+      "run": "goal-2",
+      "sample_count": 8985,
+      "first_sample": {
+        "time": 36.68,
+        "x": 4.941404437320311,
+        "y": 7.666020119041204,
+        "speed": 0.0
+      },
+      "last_sample": {
+        "time": 216.36,
+        "x": 4.941404437320311,
+        "y": 7.666020119041204,
+        "speed": 0.0
+      },
+      "raw_trace_sha256": "04ed49f818fc598e8d57cd33b61f5d0208fc0a005826f443f1ba263f3d3cedf9",
+      "phase": "initial_smoke_and_diagnosis"
+    },
+    {
+      "goal": [
+        7.95,
+        7.55
+      ],
+      "passed": true,
+      "duration": 12.337478366999676,
+      "endpoint_error": 0.11471328659212866,
+      "max_speed": 0.31125707882218245,
+      "occupied_samples": 0,
+      "odom_frame": "map",
+      "child_frame": "base_link",
+      "cloud_frame": "map",
+      "status": {
+        "mode": "auto",
+        "state": "arrived",
+        "reason": "position and measured speed settled for 0.5 s"
+      },
+      "trajectories": 3,
+      "unsafe_references": 0,
+      "run": "goal-3",
+      "sample_count": 616,
+      "first_sample": {
+        "time": 4.66,
+        "x": 5.0,
+        "y": 8.0,
+        "speed": 0.0
+      },
+      "last_sample": {
+        "time": 16.96,
+        "x": 7.8366186534287525,
+        "y": 7.567430099553889,
+        "speed": 0.0
+      },
+      "raw_trace_sha256": "c5743b411becfee668fd6b4f8d98b9db515a9589a5e80b51b08e2b3e7e829199",
+      "phase": "final_source"
+    },
+    {
+      "goal": [
+        4.95,
+        7.55
+      ],
+      "passed": true,
+      "duration": 11.662909523999588,
+      "endpoint_error": 0.11236623092436214,
+      "max_speed": 0.31257775938657667,
+      "occupied_samples": 0,
+      "odom_frame": "map",
+      "child_frame": "base_link",
+      "cloud_frame": "map",
+      "status": {
+        "mode": "auto",
+        "state": "arrived",
+        "reason": "position and measured speed settled for 0.5 s"
+      },
+      "trajectories": 3,
+      "unsafe_references": 0,
+      "run": "goal-4",
+      "sample_count": 583,
+      "first_sample": {
+        "time": 42.86,
+        "x": 7.8366186534287525,
+        "y": 7.567430099553889,
+        "speed": 0.0
+      },
+      "last_sample": {
+        "time": 54.5,
+        "x": 5.062360562211852,
+        "y": 7.551128676917289,
+        "speed": 0.0
+      },
+      "raw_trace_sha256": "b677bebb73d54d8e546ffaa9d0f1ed32a99950f30b1becec8eff1b3cc22af0b9",
+      "phase": "final_source"
+    }
+  ],
+  "final_source_sha256": {
+    "ros2_ws/src/sentry_bringup/CMakeLists.txt": "8570921810b2fd6a7e423c30dfc10057f20008ad4e2fe0d9d88c3086a6f17501",
+    "ros2_ws/src/sentry_bringup/launch/navigation.launch.py": "953ac42f6975dcbab5e4d2b6752dba4d0ad76e1b03ae5a16a61b125ec3fb92ea",
+    "ros2_ws/src/sentry_bringup/package.xml": "539ae20b9bcd2e84b48f19c7f33145318d8736290e85ce153c5108f7112638e7",
+    "ros2_ws/src/sentry_bringup/test/test_navigation_external_inputs.py": "0d2fa507ad32c868cfb8ac83ece03617b43e1547c2ec8f56182dddd2bf2e3f85",
+    "ros2_ws/src/sentry_gazebo/launch/autonomy.launch.py": "cf09c5fc5677f8c787d02db96683cad737232a606263bd317b57dbf65e6a7d99",
+    "ros2_ws/src/sentry_gazebo/maps/sentry_2024/map_manifest.json": "c91181d86e815354e5ff127211cf56a637fdfec86e4f509766bf7e014dd47937",
+    "ros2_ws/src/sentry_gazebo/maps/sentry_2024/map_metadata.yaml": "2c414988ead1b978afe84994840ccbb3f5c2c7a7102e05cd61cc18f38c5396a4",
+    "ros2_ws/src/sentry_gazebo/scripts/autonomy_geometry.py": "8f0fab795fe1e6c8eb82ee55953534ae31d1452cdb41bf7361becd17adf545d8",
+    "ros2_ws/src/sentry_gazebo/scripts/navigation_probe.py": "7e1c4bdc7df4060fbeb75a00207d9b11aac76f642b6c30573698bb07da009824",
+    "ros2_ws/src/sentry_gazebo/scripts/simulation_map.py": "0b249fa07fb4a5e72dd959c51c0d43e269a1693c6f84767452f5a30fe52f5a36",
+    "ros2_ws/src/sentry_gazebo/scripts/test_map_geometry.py": "5416be2bed85340ef55ff42e6e9d3c7e7f7b1c1a3a915c8618128593e0fc7523",
+    "ros2_ws/src/trajectory_generation/CMakeLists.txt": "132f8eee6110eaf598d3bfcb8c4b8e74efbf1cc17bd74ef269dd8d1d66d1c0e1",
+    "ros2_ws/src/trajectory_generation/package.xml": "bb3d28361492350784701bb421d2cd3fb761771a988a5906feea56c051b4b6c3",
+    "ros2_ws/src/trajectory_generation/port/src/plan_manager.cpp": "55b7351a7f85696612b01bb2d8cbc4705afc94b1dca36cd2352e423d5dfe0864",
+    "ros2_ws/src/trajectory_generation/port/src/replan_fsm_node.cpp": "3f615f6c0638af0b2d5b8ece1ad7264981495b0537ccc75e8cc90c01b5d967af",
+    "ros2_ws/src/trajectory_generation/python/sentry_map_profile.py": "320d4680c3b0ef965ccf02b8d6316107c31529dcae783a3a359bf34108e7256f",
+    "ros2_ws/src/trajectory_generation/test/mock_replan_fsm.py": "80999daa84692991d9d1c8ca3db0dcf923a739d9317297d0ddbb8810b493459c",
+    "ros2_ws/src/trajectory_generation/test/test_map_profile.py": "e3d7e9a9197da26639c0f93766585d89c1e1b29a5343ef63935f466ef2f5483d",
+    "ros2_ws/src/trajectory_tracking/src/trajectory_tracking_node.cpp": "ee64f2c30c8e8f5c5cf7e896dcf6187dc8edec7e2a26d601adf5121757a92df1",
+    "scripts/gazebo_navigation.sh": "93e4af135ee88720519716559e412bb17f793627a8b35176a56f3cfa826a9cad"
+  }
+}

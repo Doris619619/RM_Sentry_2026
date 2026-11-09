@@ -33,6 +33,7 @@ namespace trajectory_generation {
 
 class ReplanFsmNode final : public rclcpp::Node {
  public:
+  // Bind externally supplied localization, observations and map-frame goals to the planner FSM.
   ReplanFsmNode() : Node("trajectory_generation"), tf_buffer_(get_clock()), tf_listener_(tf_buffer_) {
     declare_parameters();
     initialise_manager();
@@ -51,10 +52,12 @@ class ReplanFsmNode final : public rclcpp::Node {
         });
     clicked_goal_sub_ = create_subscription<geometry_msgs::msg::PointStamped>(
         clicked_goal_topic_, rclcpp::QoS(10), [this](geometry_msgs::msg::PointStamped::ConstSharedPtr message) {
+          if (!goal_frame_valid(message->header.frame_id)) return;
           receive_goal(message->point.x, message->point.y, message->point.z, "clicked point");
         });
     pose_goal_sub_ = create_subscription<geometry_msgs::msg::PoseStamped>(
         pose_goal_topic_, rclcpp::QoS(10), [this](geometry_msgs::msg::PoseStamped::ConstSharedPtr message) {
+          if (!goal_frame_valid(message->header.frame_id)) return;
           receive_goal(message->pose.position.x, message->pose.position.y, message->pose.position.z, "manual goal");
         });
     waypoint_sub_ = create_subscription<nav_msgs::msg::Path>(
@@ -63,6 +66,7 @@ class ReplanFsmNode final : public rclcpp::Node {
             RCLCPP_WARN(get_logger(), "received empty waypoint path");
             return;
           }
+          if (!goal_frame_valid(message->header.frame_id)) return;
           const auto& point = message->poses.back().pose.position;
           receive_goal(point.x, point.y, point.z, "waypoint path");
         });
@@ -133,6 +137,7 @@ class ReplanFsmNode final : public rclcpp::Node {
             map_directory_ / configured).string();
   }
 
+  // Refuse mismatched raster extents before algorithms can clamp points into another cell.
   void initialise_manager() {
     if (map_resolution_ <= 0.0 || map_x_size_ <= 0.0 || map_y_size_ <= 0.0 || map_z_size_ <= 0.0 ||
         robot_radius_ <= 0.0 || robot_radius_dash_ <= 0.0 || desired_speed_ <= 0.0 ||
@@ -145,6 +150,10 @@ class ReplanFsmNode final : public rclcpp::Node {
       if (image.empty()) throw std::runtime_error("required planning map is missing: " + path);
       if (image.cols != expected_map_width_ || image.rows != expected_map_height_) {
         throw std::runtime_error("planning map dimensions do not match configured map dimensions: " + path);
+      }
+      if (std::abs(image.cols * map_resolution_ - map_x_size_) > 1e-8 ||
+          std::abs(image.rows * map_resolution_ - map_y_size_) > 1e-8) {
+        throw std::runtime_error("planning map extents must equal raster cells times resolution: " + path);
       }
     }
     // These are the exact ROS1 parameter keys consumed by plan_manager and
@@ -210,7 +219,26 @@ class ReplanFsmNode final : public rclcpp::Node {
     bind(visualization_->reference_line_vis_pub, "reference_line_vis");
   }
 
+  // A foreign frame must never be silently interpreted as map coordinates or leave an old goal active.
+  bool goal_frame_valid(const std::string& frame) {
+    if (frame == map_frame_) return true;
+    have_target_ = false;
+    state_ = State::kWaitTarget;
+    trajectory_pub_->publish(msg::TrajectoryPoly());
+    RCLCPP_WARN(get_logger(), "Rejected goal frame '%s'; expected '%s'", frame.c_str(), map_frame_.c_str());
+    return false;
+  }
+
+  // Only finite in-map targets may reach index conversion, which historically clamps coordinates.
   void receive_goal(double x, double y, double z, const char* source) {
+    if (!std::isfinite(x) || !std::isfinite(y) || x < map_lower_x_ || y < map_lower_y_ ||
+        x >= map_lower_x_ + map_x_size_ || y >= map_lower_y_ + map_y_size_) {
+      have_target_ = false;
+      state_ = State::kWaitTarget;
+      trajectory_pub_->publish(msg::TrajectoryPoly());
+      RCLCPP_WARN(get_logger(), "Rejected non-finite or out-of-map goal");
+      return;
+    }
     (void)z;  // ROS1 ground planner intentionally replaces input Z by map height.
     Eigen::Vector3d target(x, y, 0.0);
     auto goal_index = manager_->global_map->coord2gridIndex(target);
@@ -227,6 +255,11 @@ class ReplanFsmNode final : public rclcpp::Node {
 
   // Store map pose and rotate the contracted base_link twist into map exactly once.
   void receive_odometry(const nav_msgs::msg::Odometry& state) {
+    if (state.header.frame_id != map_frame_ || state.child_frame_id != "base_link") {
+      have_odom_ = false;
+      RCLCPP_WARN_THROTTLE(get_logger(), *get_clock(), 2000, "Rejected odometry: expected map pose and base_link twist");
+      return;
+    }
     const auto& pose = state.pose.pose;
     robot_position_ = Eigen::Vector3d(pose.position.x, pose.position.y, 0.0);
     // The ROS2 adapter owns odometry; legacy ROS1 subscriptions are inactive.
@@ -287,7 +320,9 @@ class ReplanFsmNode final : public rclcpp::Node {
     }
   }
 
+  // Ignore late controller requests after cancellation; a replan cannot revive an old goal.
   void receive_replan_flag(bool requested) {
+    if (!have_target_) return;
     if (!requested || manager_->optimized_path.size() < 2) {
       if (!requested) replan_active_ = false;
       return;

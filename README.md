@@ -42,3 +42,21 @@
 底盘是通用全向力模型，MCU 连接专属 PTY；没有连接电控板。
 定位使用真实仿真雷达和已知位置附近的先验，不能等同于真车验收、
 未知起点全局重定位或比赛场地三维还原。第一、二阶段入口继续保留。
+
+## 可替换定位与地图的独立导航入口
+
+第二步保留原有规划器与 MPC 算法，新增只启动规划、MPC 和速度桥接的入口：
+
+```bash
+ros2 launch sentry_bringup navigation.launch.py \
+  map_profile:=/absolute/path/to/map-profile \
+  odom_topic:=/your_lio/odometry cloud_topic:=/your_lio/world_cloud
+```
+
+队友按 `map` 位姿、`base_link` 速度及世界系点云契约接入；地图由一套配对的
+OCC/BEV/Topo PNG 和元数据提供。输出默认是 `/navigation/cmd_vel`，接入底盘前须经过速度安全门。
+接口、替换步骤和限制见 [导航接口说明](docs/navigation_interfaces.md)。
+
+RMUC2024 地图沿用团队仓库已合入的上游资源，来源见 [场景说明](docs/simulation/HIT原开源赛场场景.md)。
+纯导航仿真使用 `bash scripts/gazebo_navigation.sh`，支持 RViz 的 2D Goal Pose 或 `/goal`。
+本段涉及的新地图结果单独记录；上面的历史 15/15 数据属于原地图，不能作为新场景成功率。

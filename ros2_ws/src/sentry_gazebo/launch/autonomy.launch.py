@@ -1,5 +1,6 @@
 """Launch staged navigation or the complete simulated serial/decision/physical navigation chain."""
 from pathlib import Path
+import sys
 import yaml
 from ament_index_python.packages import get_package_share_directory,get_package_prefix
 from launch import LaunchDescription
@@ -11,6 +12,8 @@ from launch.conditions import IfCondition
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.parameter_descriptions import ParameterValue
 from launch_ros.actions import Node
+sys.path.insert(0, str(Path(get_package_share_directory('trajectory_generation')) / 'python'))
+from sentry_map_profile import load_profile
 
 # Choose a resource without evaluating launch substitutions before launch context exists.
 def resource(flag,yes,no):
@@ -30,6 +33,7 @@ def generate_launch_description():
     tracking_share=Path(get_package_share_directory('trajectory_tracking'))
     decision_share=Path(get_package_share_directory('decision_node'))
     profile=share/'maps/sentry_2024'
+    validated_map=load_profile(profile)
     scene=yaml.safe_load((profile/'scene.yaml').read_text())
     map_files=scene['map_files']
     ndt_condition=IfCondition(PythonExpression(["'",LaunchConfiguration('localization'),"' == 'ndt'"]))
@@ -43,7 +47,7 @@ def generate_launch_description():
     cloud=Node(package='sentry_gazebo',executable='cloud_adapter.py',parameters=[{'use_sim_time':True}],output='screen')
     display=Node(package='sentry_gazebo',executable='map_display.py',parameters=[{'use_sim_time':True}],output='screen')
     planner=Node(package='trajectory_generation',executable='trajectory_generator_node',name='trajectory_generation',
-        parameters=[str(planner_share/'config/global_planning.yaml'),str(profile/'map_metadata.yaml'),
+        parameters=[str(planner_share/'config/global_planning.yaml'),validated_map.parameters('trajectory_generation'),
                     str(share/'config/autonomy.yaml'),{'use_sim_time':True,'planner.test_random_seed':7,'maps.directory':str(profile),
                     'maps.occupancy':map_files['occupancy'],'maps.bev':map_files['bev'],'maps.topology':map_files['topology'],
                     'planner.reference_desire_speed':ParameterValue(PythonExpression(["0.25 if '",LaunchConfiguration('full_system'),"' == 'true' else 0.3"]),value_type=float),
@@ -52,7 +56,7 @@ def generate_launch_description():
         condition=IfCondition(LaunchConfiguration('enable_planner')))
     rviz=Node(package='sentry_gazebo',executable='rviz_safe',arguments=['-d',str(share/'config/sentry_2024.rviz')],parameters=[{'use_sim_time':True}],output='screen')
     tracking=Node(package='trajectory_tracking',executable='trajectory_tracking_node',name='trajectory_tracking',
-        parameters=[str(tracking_share/'config/tracking.yaml'),str(profile/'map_metadata.yaml'),
+        parameters=[str(tracking_share/'config/tracking.yaml'),validated_map.parameters('trajectory_tracking'),
                     str(share/'config/autonomy.yaml'),{'use_sim_time':True,'maps.directory':str(profile),
                     'maps.occupancy':map_files['occupancy'],'maps.bev':map_files['bev'],'maps.topology':map_files['topology'],
                     'output.max_speed':ParameterValue(PythonExpression(["0.35 if '",LaunchConfiguration('full_system'),"' == 'true' else 0.45"]),value_type=float),

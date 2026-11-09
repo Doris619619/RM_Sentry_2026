@@ -68,7 +68,7 @@ class StaticSafetyGrid:
 
 class DynamicSafetyGrid(StaticSafetyGrid):
     # Identify new geometry against raw walls, not the much wider robot inflation mask.
-    def __init__(self):
+    def __init__(self, clearance_m=.40, wall_tolerance_m=.10):
         base=StaticSafetyGrid.load()
         super().__init__(np.zeros_like(base.mask),base.resolution,base.lower)
         _, maps, _, _ = map_paths()
@@ -76,9 +76,12 @@ class DynamicSafetyGrid(StaticSafetyGrid):
         if raw.ndim==3:raw=raw[:,:,0]
         self.known=raw>10
         known=self.known.copy();height,width=self.mask.shape
-        for dr in range(-2,3):
-            for dc in range(-2,3):
-                if dr*dr+dc*dc>4:continue
+        # Fixed physical clearances must not double when the map resolution changes.
+        self.clearance_cells=int(math.ceil(clearance_m/self.resolution-1e-9))
+        wall_cells=int(math.ceil(wall_tolerance_m/self.resolution-1e-9))
+        for dr in range(-wall_cells,wall_cells+1):
+            for dc in range(-wall_cells,wall_cells+1):
+                if dr*dr+dc*dc>wall_cells*wall_cells:continue
                 r0=max(0,dr);r1=min(height,height+dr);c0=max(0,dc);c1=min(width,width+dc)
                 known[r0:r1,c0:c1]|=self.known[r0-dr:r1-dr,c0-dc:c1-dc]
         self.known=known
@@ -102,10 +105,11 @@ class DynamicSafetyGrid(StaticSafetyGrid):
         self.seen[row,col]=stamp
         rows,cols=np.where(stamp-self.seen<=1.)
         self.mask[:]=False
-        # 0.35 m circular footprint plus one cell covers discretization of a measured surface.
-        for dr in range(-8,9):
-            for dc in range(-8,9):
-                if dr*dr+dc*dc>64:continue
+        # Preserve the 0.40 m dynamic protection radius in metres on either map.
+        radius=self.clearance_cells
+        for dr in range(-radius,radius+1):
+            for dc in range(-radius,radius+1):
+                if dr*dr+dc*dc>radius*radius:continue
                 rr,cc=rows+dr,cols+dc
                 keep=(rr>=0)&(rr<height)&(cc>=0)&(cc<width)
                 self.mask[rr[keep],cc[keep]]=True

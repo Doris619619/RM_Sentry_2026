@@ -1,3 +1,4 @@
+# Install composed and standalone navigation entrypoints and their launch contracts.
 cmake_minimum_required(VERSION 3.16)
 project(sentry_bringup)
 
@@ -14,6 +15,7 @@ if(BUILD_TESTING)
   add_launch_test(test/test_production_global_localization.py TIMEOUT 45)
   add_launch_test(test/test_fixture_launch.py TIMEOUT 30)
   add_launch_test(test/test_production_sensor_pipeline.py TIMEOUT 45)
+  add_launch_test(test/test_navigation_external_inputs.py TIMEOUT 60)
 endif()
 
 ament_package()

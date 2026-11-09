@@ -12,6 +12,7 @@
   <test_depend>ament_cmake_gtest</test_depend>
   <depend>ament_index_cpp</depend>
   <exec_depend>ament_index_python</exec_depend>
+  <exec_depend>python3-yaml</exec_depend>
   <depend>builtin_interfaces</depend>
   <depend>eigen</depend>
   <depend>geometry_msgs</depend>

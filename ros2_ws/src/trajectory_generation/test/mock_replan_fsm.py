@@ -67,8 +67,10 @@ class ReplanFsmMock(Node):
             rclpy.spin_once(self, timeout_sec=0.05)
 
     def publish_odom(self, x=-3.82, y=2.40):
+        """Publish the map pose and base_link twist contract used by real localization."""
         odom = Odometry()
         odom.header.frame_id = 'map'
+        odom.child_frame_id = 'base_link'
         odom.pose.pose.position.x = x
         odom.pose.pose.position.y = y
         odom.pose.pose.orientation.w = 1.0

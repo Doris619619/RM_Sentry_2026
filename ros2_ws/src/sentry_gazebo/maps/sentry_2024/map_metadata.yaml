@@ -1,9 +1,9 @@
-# Coordinates and map behavior from the original ROS1 simulation launch files.
+# Shared RMUC2024 coordinates; extents cover exactly the 301 by 161 image cells.
 trajectory_generation:
   ros__parameters:
     planner.map_resolution: 0.1
-    planner.map_x_size: 30.0
-    planner.map_y_size: 18.0
+    planner.map_x_size: 30.1
+    planner.map_y_size: 16.1
     planner.map_z_size: 2.0
     planner.map_lower_x: 0.0
     planner.map_lower_y: 0.0
@@ -24,8 +24,8 @@ trajectory_generation:
 trajectory_tracking:
   ros__parameters:
     map.resolution: 0.1
-    map.x_size: 30.0
-    map.y_size: 18.1
+    map.x_size: 30.1
+    map.y_size: 16.1
     map.z_size: 2.0
     map.lower_x: 0.0
     map.lower_y: 0.0
