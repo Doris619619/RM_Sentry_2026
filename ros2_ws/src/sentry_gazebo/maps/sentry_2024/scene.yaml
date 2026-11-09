@@ -1,0 +1,14 @@
+name: RMUC2024
+source: zzt-180/sentry_planning@b9349d2ada3fe0299ccae9d1e483d5f3b79b1cc8
+map_files:
+  occupancy: occ2024low.png
+  bev: bev2024low.png
+  topology: occtopo2024low.png
+spawn: [5.0, 8.0, 0.0]
+ndt_initial: [5.1, 8.1, 0.0]
+patrol:
+  - [4.95, 7.55]
+  - [15.45, 8.35]
+  - [24.95, 7.65]
+  - [14.65, 12.75]
+supply: [4.95, 7.55]

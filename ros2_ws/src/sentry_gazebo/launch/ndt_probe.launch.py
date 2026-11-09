@@ -7,6 +7,7 @@ from launch.substitutions import LaunchConfiguration
 from launch.event_handlers import OnProcessExit
 from launch.events import Shutdown
 from launch_ros.actions import Node
+from launch_ros.parameter_descriptions import ParameterValue
 
 def generate_launch_description():
     """Keep all estimator outputs private for first-stage independent accuracy measurements."""
@@ -14,7 +15,7 @@ def generate_launch_description():
     common={'use_sim_time':True}
     nodes=[
         Node(package='hdl_localization',executable='hdl_localization_map_server',name='sim_ndt_map',
-            parameters=[common,{'globalmap_pcd':str(share/'maps/ndt_reference.pcd'),'globalmap_topic':'/sim/ndt/map',
+            parameters=[common,{'globalmap_pcd':LaunchConfiguration('reference_map'),'globalmap_topic':'/sim/ndt/map',
             'downsample_resolution':.05,'convert_utm_to_local':False}],output='screen'),
         Node(package='hdl_localization',executable='hdl_localization_node',name='sim_ndt',
             additional_env={'OMP_NUM_THREADS':'2'},
@@ -23,9 +24,12 @@ def generate_launch_description():
                 'send_tf_transforms':False,'enable_robot_odometry_prediction':False,'use_imu':False,
                 'use_global_localization':False,'reg_method':'NDT_OMP','ndt_resolution':.3,'ndt_neighbor_search_method':LaunchConfiguration('ndt_search'),
                 'downsample_resolution':.05,'specify_init_pose':True,
-                'init_pos_x':-.769,'init_pos_y':-4.354,'init_pos_z':0.,
+                'init_pos_x':ParameterValue(LaunchConfiguration('init_x'),value_type=float),
+                'init_pos_y':ParameterValue(LaunchConfiguration('init_y'),value_type=float),'init_pos_z':0.,
                 'init_ori_w':1.,'init_ori_x':0.,'init_ori_y':0.,'init_ori_z':0.}],
             remappings=[('/localization/odometry','/sim/ndt/odometry'),('/aligned_points','/sim/ndt/aligned'),
                         ('/status','/sim/ndt/status')],output='screen')]
     handlers=[RegisterEventHandler(OnProcessExit(target_action=n,on_exit=[EmitEvent(event=Shutdown(reason='NDT component exited'))])) for n in nodes]
-    return LaunchDescription([DeclareLaunchArgument('ndt_search',default_value='DIRECT7',choices=['DIRECT7','KDTREE'])]+handlers+nodes)
+    return LaunchDescription([DeclareLaunchArgument('ndt_search',default_value='DIRECT7',choices=['DIRECT7','KDTREE']),
+        DeclareLaunchArgument('reference_map',default_value=str(share/'maps/ndt_reference.pcd')),
+        DeclareLaunchArgument('init_x',default_value='-0.769'),DeclareLaunchArgument('init_y',default_value='-4.354')]+handlers+nodes)

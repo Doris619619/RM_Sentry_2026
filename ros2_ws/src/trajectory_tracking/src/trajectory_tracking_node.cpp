@@ -95,6 +95,10 @@ class TrajectoryTrackingNode final : public rclcpp::Node {
     // ROS2 owns the subscriptions; the compatibility NodeHandle is only the original
     // algorithm's parameter carrier.
     const auto globalPlanningShare = ament_index_cpp::get_package_share_directory("trajectory_generation");
+    const auto mapDirectory = declare_parameter<std::string>("maps.directory", globalPlanningShare + "/map");
+    const auto occupancyFile = declare_parameter<std::string>("maps.occupancy", "occfinal.png");
+    const auto bevFile = declare_parameter<std::string>("maps.bev", "bevfinal.png");
+    const auto topologyFile = declare_parameter<std::string>("maps.topology", "occtopo.png");
     const double mapResolution = declare_parameter<double>("map.resolution", 0.05);
     const double mapXSize = declare_parameter<double>("map.x_size", 20.0);
     const double mapYSize = declare_parameter<double>("map.y_size", 20.0);
@@ -124,8 +128,8 @@ class TrajectoryTrackingNode final : public rclcpp::Node {
     const Eigen::Vector3d mapUpper = mapLower + Eigen::Vector3d(mapXSize, mapYSize, mapZSize);
     gridMap_ = std::make_unique<TrackingGridMap>();
     gridMap_->initGridMap(
-      mapParameters, globalPlanningShare + "/map/occfinal.png",
-      globalPlanningShare + "/map/bevfinal.png", globalPlanningShare + "/map/occtopo.png",
+      mapParameters, mapDirectory + "/" + occupancyFile,
+      mapDirectory + "/" + bevFile, mapDirectory + "/" + topologyFile,
       mapResolution, mapLower, mapUpper,
       static_cast<int>(std::lround(mapXSize / mapResolution)),
       static_cast<int>(std::lround(mapYSize / mapResolution)),
